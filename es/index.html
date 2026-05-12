@@ -156,11 +156,18 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/InterVariable.woff2') format('woff2-variations'),
+           url('/fonts/InterVariable.woff2') format('woff2');
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -1176,7 +1183,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="/profile.jpg" alt="Jaime M. Mena" class="hero-photo" />
+    <img src="/profile.jpg" alt="Jaime M. Mena, Revenue Operations consultant based in California" class="hero-photo" width="160" height="160" decoding="async" fetchpriority="high" />
     <p class="hero-label" data-en="Revenue Operations Leader &middot; Digital Solutions Builder" data-es="L&iacute;der de Revenue Operations &middot; Creador de Soluciones Digitales">L&iacute;der de Revenue Operations &middot; Creador de Soluciones Digitales</p>
     <h1 data-en="Scaling businesses through operations strategy, technology, and data." data-es="Escalando negocios a trav&eacute;s de estrategia operativa, tecnolog&iacute;a y datos.">Escalando negocios a trav&eacute;s de estrategia operativa, tecnolog&iacute;a y datos.</h1>
     <p class="hero-sub" data-en="Senior Revenue Operations leader and digital solutions builder with 5+ years driving go-to-market performance &mdash; and a growing consulting practice helping small businesses scale smarter." data-es="L&iacute;der Senior de Revenue Operations y creador de soluciones digitales con m&aacute;s de 5 a&ntilde;os impulsando el rendimiento go-to-market &mdash; y una pr&aacute;ctica de consultor&iacute;a en crecimiento ayudando a peque&ntilde;as empresas a operar de manera m&aacute;s inteligente.">L&iacute;der Senior de Revenue Operations y creador de soluciones digitales con m&aacute;s de 5 a&ntilde;os impulsando el rendimiento go-to-market &mdash; y una pr&aacute;ctica de consultor&iacute;a en crecimiento ayudando a peque&ntilde;as empresas a operar de manera m&aacute;s inteligente.</p>
@@ -1621,7 +1628,7 @@
     <!-- FEATURED PROJECT -->
     <div class="featured-project reveal">
       <div>
-        <img src="/samples/ranch-booking-flowchart.png" alt="Ranch Booking System Automation — Architecture Flowchart" class="featured-project-img" onclick="document.getElementById('modal-ranch-casestudy').style.display='flex'" />
+        <img src="/samples/ranch-booking-flowchart.png" alt="Ranch Booking System Automation — Architecture Flowchart" class="featured-project-img" width="1488" height="704" loading="lazy" decoding="async" onclick="document.getElementById('modal-ranch-casestudy').style.display='flex'" />
       </div>
       <div class="featured-project-content">
         <span class="featured-label" data-en="Featured Project" data-es="Proyecto Destacado">Proyecto Destacado</span>
