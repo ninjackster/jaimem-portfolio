@@ -1,5 +1,7 @@
 {
   "cleanUrls": true,
+  "buildCommand": "node scripts/build-es.mjs",
+  "outputDirectory": ".",
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/index", "destination": "/", "permanent": true },

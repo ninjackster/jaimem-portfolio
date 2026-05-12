@@ -1,0 +1,13 @@
+{
+  "name": "jaimem-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio for jaimem.com with a build step that generates /es/ from index.html.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-es.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
