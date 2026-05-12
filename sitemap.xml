@@ -5,6 +5,14 @@
     <loc>https://jaimem.com/</loc>
     <lastmod>2026-05-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/" />
   </url>
   <url>
