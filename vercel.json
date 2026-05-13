@@ -1,6 +1,6 @@
 {
   "cleanUrls": true,
-  "buildCommand": "node scripts/build-es.mjs",
+  "buildCommand": "node scripts/build-case-studies.mjs && node scripts/build-es.mjs",
   "outputDirectory": ".",
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },

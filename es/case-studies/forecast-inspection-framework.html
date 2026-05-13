@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Marco de Inspección de Pronósticos y Revisión de Pipeline — Caso de Estudio RevOps | Jaime M. Mena</title>
+
+  <meta name="description" content="Un marco semanal de revisión de pronósticos con criterios de salida por etapa, checklists de inspección de deals, heurísticas de señales de riesgo y checkpoints MEDDPICC. Subió la precisión ~18% en un rol previo." />
+  <link rel="canonical" href="https://jaimem.com/es/case-studies/forecast-inspection-framework" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/es/case-studies/forecast-inspection-framework" />
+  <meta property="og:title" content="Marco de Inspección de Pronósticos y Revisión de Pipeline — Caso de Estudio RevOps | Jaime M. Mena" />
+  <meta property="og:description" content="Un marco semanal de revisión de pronósticos con criterios de salida por etapa, checklists de inspección de deals, heurísticas de señales de riesgo y checkpoints MEDDPICC. Subió la precisión ~18% en un rol previo." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Marco de Inspección de Pronósticos — Jaime M. Mena" />
+  <meta property="article:section" content="Revenue Operations" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marco de Inspección de Pronósticos y Revisión de Pipeline — Caso de Estudio RevOps | Jaime M. Mena" />
+  <meta name="twitter:description" content="Un marco semanal de revisión de pronósticos con criterios de salida por etapa, checklists de inspección de deals, heurísticas de señales de riesgo y checkpoints MEDDPICC. Subió la precisión ~18% en un rol previo." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Marco de Inspección de Pronósticos — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/case-studies/forecast-inspection-framework" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/case-studies/forecast-inspection-framework" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/case-studies/forecast-inspection-framework" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Marco de Inspección de Pronósticos y Revisión de Pipeline — Caso de Estudio RevOps | Jaime M. Mena",
+    "description": "Un marco semanal de revisión de pronósticos con criterios de salida por etapa, checklists de inspección de deals, heurísticas de señales de riesgo y checkpoints MEDDPICC. Subió la precisión ~18% en un rol previo.",
+    "url": "https://jaimem.com/es/case-studies/forecast-inspection-framework",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-05-12",
+    "inLanguage": "es-ES",
+    "keywords": "sales forecast inspection, MEDDPICC, pipeline review framework, forecast accuracy, stage exit criteria"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .9rem; color: var(--text-3); margin-bottom: 1.5rem; display: block; }
+    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+    .page-wrap ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
+    .page-wrap ul li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .pdf-row { display: flex; gap: .75rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .pdf-row a { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; text-decoration: none; font-size: .9rem; font-weight: 500; transition: background .15s, color .15s; }
+    .pdf-row a:hover { background: var(--accent); color: #fff; }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .case-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .case-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .case-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .case-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .case-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .case-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .case-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/es/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/es/services/">Servicios</a></li>
+        <li><a href="/es/case-studies/">Casos de Estudio</a></li>
+        <li><a href="/es/#experience">Experiencia</a></li>
+        <li><a href="/es/#samples">Muestras</a></li>
+        <li><a href="/es/#about">Sobre Mí</a></li>
+        <li><a href="/es/#contact">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/es/">Inicio</a> &rsaquo; <a href="/es/case-studies/">Casos de Estudio</a> &rsaquo; <span>Marco de Inspección de Pronósticos y Revisión de Pipeline</span></p>
+
+      <h1>Marco de Inspección de Pronósticos y Revisión de Pipeline</h1>
+      <span class="sub">Northstar SaaS · Operaciones de Pronóstico</span>
+
+      <p class="lead">Una cadencia semanal de pronósticos en la que el CRO realmente puede confiar. Criterios de salida por etapa que los representantes no pueden adulterar, checklists de inspección de deals que sacan los mismos patrones cada vez, y checkpoints MEDDPICC anclados en comportamiento, no en intuición.</p>
+
+      <div class="pdf-row">
+      <a href="/samples/forecast-framework.pdf" target="_blank" rel="noopener">Ver el Marco de Pronósticos (PDF)</a>
+      </div>
+
+      <h2>El problema</h2>
+      <p>Precisión de pronósticos saltando 25%+ trimestre a trimestre. Llamadas de commit llenas de "este va a cerrar" sin evidencia observable detrás. Representantes habituados a empujar deals a la línea el último día del trimestre y salirse con la suya. El liderazgo no tenía forma de distinguir qué deals realmente cerrarían vs cuáles eran charla optimista hasta que era demasiado tarde.</p>
+
+      <h2>El enfoque</h2>
+      <p>Definir criterios de salida por etapa como comportamientos observables y binarios — no hitos blandos. Un deal está en Etapa 3 si y solo si estas cuatro cosas están documentadas en Salesforce. Acompañar el modelo de etapas con calificación MEDDPICC: cada letra tiene un campo requerido, y la llamada de pronóstico comienza con los deals a los que les falta alguno. Heurísticas de señales de riesgo (estancado > 21 días, single-threaded, sin evento detonante) auto-etiquetan deals antes de la reunión, para que la conversación empiece donde importa.</p>
+
+      <h2>El resultado</h2>
+      <ul>
+        <li>Precisión del pronóstico subió ~18% en dos trimestres de adopción.</li>
+        <li>Duración de la llamada de commit recortada ~40% porque la preparación ya estaba hecha antes de la reunión.</li>
+        <li>Un vocabulario compartido entre representantes, managers de primera línea y el CRO — cuando alguien dice "esto es una Etapa 4 limpia", todos significan lo mismo.</li>
+        <li>Escalación más rápida de deals en riesgo — las señales de riesgo los identifican el lunes en vez de al final del trimestre.</li>
+      </ul>
+
+      <h2>Qué haría diferente</h2>
+      <p>Empujar más fuerte en enablement durante el rollout. El marco solo funciona si los representantes internalizan las preguntas de calificación — no solo las responden en Salesforce. El primer trimestre fue ligero en inversión de coaching, y la ganancia de precisión del segundo trimestre se compuso una vez que los managers empezaron a correr revisiones de pipeline con el mismo vocabulario que el marco introdujo.</p>
+
+      <div class="cta-block">
+        <h3>¿Tienes un problema parecido?</h3>
+        <p>Te ayudo a aplicar este tipo de marcos a tu negocio. Empieza con una conversación de 30 minutos.</p>
+        <a href="/es/services/revops-consulting" class="btn btn-primary">Iniciar una Conversación</a>
+      </div>
+
+      <div class="related">
+        <h3>Otros casos de estudio</h3>
+        <ul>
+        <li><a href="/es/case-studies/territory-design-account-coverage" class="inline-link">Diseño de Territorios y Modelo de Cobertura de Cuentas</a></li>
+        <li><a href="/es/case-studies/executive-gtm-dashboard" class="inline-link">Dashboard Ejecutivo de Salud GTM</a></li>
+        <li><a href="/es/case-studies/sales-commission-plan" class="inline-link">Plan de Comisiones de Ventas y Calculadora</a></li>
+        </ul>
+        <p style="margin-top:1.5rem;"><a href="/es/services/revops-consulting" class="inline-link">Ver mi servicio de Consultoría de Revenue Operations →</a></p>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>

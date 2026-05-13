@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Casos de Estudio — Marcos y Modelos de Revenue Operations | Jaime M. Mena</title>
+
+  <meta name="description" content="Siete casos de estudio detallados de marcos y modelos de Revenue Operations: diseño de territorios, pronósticos, dashboards GTM, planes de comisiones, atribución, puntaje de salud del cliente, y reconciliación de bookings vs. ingresos." />
+  <link rel="canonical" href="https://jaimem.com/es/case-studies/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/es/case-studies/" />
+  <meta property="og:title" content="Casos de Estudio — Marcos y Modelos de Revenue Operations | Jaime M. Mena" />
+  <meta property="og:description" content="Siete casos de estudio detallados de marcos y modelos de Revenue Operations: diseño de territorios, pronósticos, dashboards GTM, planes de comisiones, atribución, puntaje de salud del cliente, y reconciliación de bookings vs. ingresos." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Casos de Estudio — Jaime M. Mena" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Casos de Estudio — Marcos y Modelos de Revenue Operations | Jaime M. Mena" />
+  <meta name="twitter:description" content="Siete casos de estudio detallados de marcos y modelos de Revenue Operations: diseño de territorios, pronósticos, dashboards GTM, planes de comisiones, atribución, puntaje de salud del cliente, y reconciliación de bookings vs. ingresos." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Casos de Estudio — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/case-studies/" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/case-studies/" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/case-studies/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Casos de Estudio — Jaime M. Mena",
+    "url": "https://jaimem.com/es/case-studies/",
+    "description": "Siete casos de estudio detallados de marcos y modelos de Revenue Operations: diseño de territorios, pronósticos, dashboards GTM, planes de comisiones, atribución, puntaje de salud del cliente, y reconciliación de bookings vs. ingresos.",
+    "hasPart": [
+      { "@type": "Article", "name": "Diseño de Territorios y Modelo de Cobertura de Cuentas", "url": "https://jaimem.com/es/case-studies/territory-design-account-coverage" },
+      { "@type": "Article", "name": "Marco de Inspección de Pronósticos y Revisión de Pipeline", "url": "https://jaimem.com/es/case-studies/forecast-inspection-framework" },
+      { "@type": "Article", "name": "Dashboard Ejecutivo de Salud GTM", "url": "https://jaimem.com/es/case-studies/executive-gtm-dashboard" },
+      { "@type": "Article", "name": "Plan de Comisiones de Ventas y Calculadora", "url": "https://jaimem.com/es/case-studies/sales-commission-plan" },
+      { "@type": "Article", "name": "Análisis de Atribución Multi-Touch", "url": "https://jaimem.com/es/case-studies/multi-touch-attribution" },
+      { "@type": "Article", "name": "Marco de Puntaje de Salud del Cliente y Prevención de Churn", "url": "https://jaimem.com/es/case-studies/customer-health-score" },
+      { "@type": "Article", "name": "Modelo de Reconciliación de Bookings vs. Ingresos", "url": "https://jaimem.com/es/case-studies/bookings-revenue-reconciliation" }
+    ]
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .9rem; color: var(--text-3); margin-bottom: 1.5rem; display: block; }
+    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+    .page-wrap ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
+    .page-wrap ul li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .pdf-row { display: flex; gap: .75rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .pdf-row a { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; text-decoration: none; font-size: .9rem; font-weight: 500; transition: background .15s, color .15s; }
+    .pdf-row a:hover { background: var(--accent); color: #fff; }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .case-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .case-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .case-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .case-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .case-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .case-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .case-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/es/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/es/services/">Servicios</a></li>
+        <li><a href="/es/case-studies/">Casos de Estudio</a></li>
+        <li><a href="/es/#experience">Experiencia</a></li>
+        <li><a href="/es/#samples">Muestras</a></li>
+        <li><a href="/es/#about">Sobre Mí</a></li>
+        <li><a href="/es/#contact">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap" style="max-width:880px;">
+      <p class="crumbs"><a href="/es/">Inicio</a> &rsaquo; <span>Casos de Estudio</span></p>
+
+      <h1>Casos de Estudio</h1>
+
+      <p class="lead">Siete marcos y modelos detallados de mi trabajo en Revenue Operations. Construidos con datos ficticios para mostrar cómo abordo desafíos comunes de B2B SaaS — pronósticos, territorios, comisiones, dashboards, atribución, salud del cliente y reconciliación de ingresos.</p>
+
+      <div class="case-grid">
+        <a href="/es/case-studies/territory-design-account-coverage" class="case-card">
+          <h2>Diseño de Territorios y Modelo de Cobertura de Cuentas</h2>
+          <span class="sub">Northstar SaaS · Planificación de Territorios</span>
+          <p>La mayoría de los modelos de territorios fallan porque las matemáticas están bien pero la cadencia operativa alrededor no. Este es el modelo y el playbook que lo mantiene en pie para una organización de ventas B2B SaaS multi-segmento.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+        <a href="/es/case-studies/forecast-inspection-framework" class="case-card">
+          <h2>Marco de Inspección de Pronósticos y Revisión de Pipeline</h2>
+          <span class="sub">Northstar SaaS · Operaciones de Pronóstico</span>
+          <p>Una cadencia semanal de pronósticos en la que el CRO realmente puede confiar. Criterios de salida por etapa que los representantes no pueden adulterar, checklists de inspección de deals que sacan los mismos patrones cada vez, y checkpoints MEDDPICC anclados en comportamiento, no en intuición.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+        <a href="/es/case-studies/executive-gtm-dashboard" class="case-card">
+          <h2>Dashboard Ejecutivo de Salud GTM</h2>
+          <span class="sub">Northstar SaaS · Reportes Ejecutivos</span>
+          <p>Una sola pantalla que el CRO abre cada lunes en la mañana y sabe inmediatamente si el trimestre va en línea. Salud de pipeline, embudo de marketing, actividad de BDR y confianza del pronóstico — segmento por segmento, sin coser hojas de cálculo.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+        <a href="/es/case-studies/sales-commission-plan" class="case-card">
+          <h2>Plan de Comisiones de Ventas y Calculadora</h2>
+          <span class="sub">North Star Analytics · Diseño de Compensación</span>
+          <p>Un plan de compensación que impulsa el comportamiento que el liderazgo dice querer — y una calculadora de Excel funcional para que los representantes verifiquen sus comisiones en vez de abrir tickets con Finanzas cada dos semanas. Construido para un equipo B2B SaaS de 8 representantes.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+        <a href="/es/case-studies/multi-touch-attribution" class="case-card">
+          <h2>Análisis de Atribución Multi-Touch</h2>
+          <span class="sub">Northstar SaaS · Atribución de Marketing</span>
+          <p>Una comparación lado-a-lado de cuatro modelos de atribución en $4.2M de ingresos cerrados, más la recomendación de reasignación de presupuesto que el CFO efectivamente firmó. Construido para zanjar el eterno debate Ventas-vs-Marketing sobre crédito.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+        <a href="/es/case-studies/customer-health-score" class="case-card">
+          <h2>Marco de Puntaje de Salud del Cliente y Prevención de Churn</h2>
+          <span class="sub">Northstar SaaS · Customer Success</span>
+          <p>Un puntaje de salud compuesto ponderado, tiering de riesgo automatizado y un playbook para CSM con SLAs — construido para detectar churn prevenible 60–90 días antes de la renovación, no 60–90 días después del aviso. El modelo apuntaba a $3.2M en ARR en riesgo.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+        <a href="/es/case-studies/bookings-revenue-reconciliation" class="case-card">
+          <h2>Modelo de Reconciliación de Bookings vs. Ingresos</h2>
+          <span class="sub">Northstar SaaS · Alineación Ventas-Finanzas</span>
+          <p>Un modelo trabajado de 20 deals que conecta bookings de ventas con ingresos reconocidos línea por línea — incluyendo enmiendas, arranques de mes parciales y contratos con rampa. Construido para terminar el debate trimestral "pero Ventas dijo que reservamos X" entre RevOps y Finanzas.</p>
+          <span class="arrow">Leer caso de estudio →</span>
+        </a>
+      </div>
+
+      <div class="cta-block">
+        <h3>¿Reconoces algunos de estos problemas?</h3>
+        <p>Si alguno de estos marcos resuena con tu equipo, hablemos. La primera conversación es de 30 minutos y sin compromiso.</p>
+        <a href="/es/services/revops-consulting" class="btn btn-primary">Iniciar una Conversación</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
