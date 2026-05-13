@@ -199,4 +199,40 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/case-studies/bookings-revenue-reconciliation" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/case-studies/bookings-revenue-reconciliation" />
   </url>
+  <url>
+    <loc>https://jaimem.com/blog/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/blog/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/blog/cross-border-revops-playbook</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/cross-border-revops-playbook" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/blog/cross-border-revops-playbook</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/cross-border-revops-playbook" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/blog/meddpicc-vs-meddic-forecast-accuracy</loc>
+    <lastmod>2026-05-12</lastmod>
+  </url>
+  <url>
+    <loc>https://jaimem.com/blog/salesforce-vs-hubspot-20-rep-team</loc>
+    <lastmod>2026-05-12</lastmod>
+  </url>
 </urlset>

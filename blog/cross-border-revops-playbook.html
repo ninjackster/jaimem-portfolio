@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan</title>
+
+  <meta name="description" content="A practical playbook for running Revenue Operations across the US-Mexico border: comp plans that handle USD and MXN, forecasting across time zones, Salesforce currency setup, and the common mistakes that cost teams real money." />
+  <link rel="canonical" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/blog/cross-border-revops-playbook" />
+  <meta property="og:title" content="The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan" />
+  <meta property="og:description" content="A practical playbook for running Revenue Operations across the US-Mexico border: comp plans that handle USD and MXN, forecasting across time zones, Salesforce currency setup, and the common mistakes that cost teams real money." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cross-border RevOps playbook — Jaime M. Mena" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan" />
+  <meta name="twitter:description" content="A practical playbook for running Revenue Operations across the US-Mexico border: comp plans that handle USD and MXN, forecasting across time zones, Salesforce currency setup, and the common mistakes that cost teams real money." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Cross-border RevOps playbook — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/cross-border-revops-playbook" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan",
+    "description": "A practical playbook for running Revenue Operations across the US-Mexico border: comp plans that handle USD and MXN, forecasting across time zones, Salesforce currency setup, and the common mistakes that cost teams real money.",
+    "url": "https://jaimem.com/blog/cross-border-revops-playbook",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-05-12",
+    "dateModified": "2026-05-12",
+    "inLanguage": "en-US",
+    "keywords": "cross-border RevOps, US Mexico SaaS, USD MXN compensation, bilingual sales operations, near-shore RevOps, sales operations Mexico",
+    "mainEntityOfPage": "https://jaimem.com/blog/cross-border-revops-playbook"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; <span>The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan</span></p>
+
+      <h1>The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan</h1>
+      <span class="sub">May 12, 2026 · 8 min read · Bilingual GTM</span>
+
+      <p class="lead">A growing number of B2B SaaS companies are US-incorporated, sell to US enterprise buyers in USD, and run sales operations or engineering out of Mexico. The setup makes financial sense — talent cost, time-zone overlap, USMCA legal clarity — but RevOps complexity sneaks up on teams that did not plan for it. This is the playbook I run when standing up the back office for one of these companies.</p>
+
+
+        <h2>The setup most teams end up with</h2>
+
+        <p>The pattern is recognizable: a US Delaware C-corp, the US Inc. owns all customer contracts and books all revenue in USD, with a Mexican subsidiary (S.A. de C.V. or S. de R.L. de C.V.) that employs the engineering and sales operations teams. Customers are mostly US enterprise. The US entity charges the Mexican entity for services rendered under a transfer-pricing agreement. Reps and SDRs sometimes live in the US, sometimes in Mexico, sometimes both. Customer success is in Mexico City; the CRO is in Austin; the AEs are scattered.</p>
+
+        <p>None of this is exotic anymore. What is still exotic is doing it well from a RevOps perspective. Most teams I see ship the org chart and let the operational complexity build up as technical debt. Two years in, the comp plan is a spreadsheet maintained by one person, the forecast misses by 15-20% every quarter because timezone gymnastics distort the pipeline review, and Salesforce has three different currency configurations layered on top of each other.</p>
+
+        <h2>Comp plan: pay in local currency, target in revenue currency</h2>
+
+        <p>This is the single highest-impact decision. Most teams get it wrong the first time.</p>
+
+        <p><strong>The temptation:</strong> pay reps in MXN because they live in Mexico and need to pay rent in pesos. Tie quota and attainment to MXN booked revenue because the comp plan is denominated in MXN.</p>
+
+        <p><strong>Why it fails:</strong> your revenue is in USD. The MXN/USD rate moves 8-15% in a typical year. If a rep books $1M USD of ARR and the rate moves from 17 to 19 MXN/USD over the quarter, their MXN-denominated quota gets easier or harder by 12% with no behavioral change on their part. Comp plans are supposed to drive behavior. FX volatility decouples behavior from outcome.</p>
+
+        <p><strong>The fix:</strong> denominate the comp plan in USD. Set quota in USD. Calculate attainment in USD. Calculate the commission payout in USD. Then convert the payout to MXN at the end of each month, using a fixed published reference rate (Banxico FIX or the company's published month-end rate) plus a small buffer to absorb the timing risk between booking and payroll.</p>
+
+        <p>The buffer is the part that matters. Pay the rep at, say, FIX minus 2%. The 2% is the company's hedge against the rate moving against them between when the deal closes and when payroll runs three weeks later. The rep gets a transparent, FX-volatility-free comp plan; the company holds a small predictable FX risk. Everyone can plan.</p>
+
+        <p>Tax treatment is a separate question, and it is the one place where you must have a Mexican tax attorney in the loop. ISR (income tax) and IMSS (social security) apply to the MXN-equivalent payout. The 2% buffer can be partially offset by carefully structured "viáticos" and benefits packages, but that gets into territory beyond this post. Talk to a real attorney.</p>
+
+        <h2>Forecasting across two time zones</h2>
+
+        <p>The mistake here is to run the forecast call on US-East-Coast time and inherit the rest of the planet's problems. CST and CDT cover Mexico City; PST/PDT cover the West Coast; AEDT covers Australia if you sell there. By the time you reconcile what "last day of the quarter" means for a deal whose customer is in Sydney and whose AE is in Mexico City, you have created a 36-hour ambiguity window where deals slip in mysterious ways.</p>
+
+        <p>Pick one canonical time zone for the entire revenue calendar — almost always UTC or the US East Coast equivalent — and run every cutoff against it. The last day of Q3 ends at 11:59 PM ET, period. Salesforce has a per-org timezone setting; align it. Every rep, regardless of where they sit, sees deal close dates and quarter cutoffs in the canonical zone. Avoid the trap of "well, my AE in Mexico City says it is still Tuesday her time" — that path leads to deals booking in the wrong quarter and reps gaming the calendar.</p>
+
+        <p>The forecast meeting itself should be scheduled twice if you have meaningful headcount in both Pacific and Eastern: an 8:00 AM PT and a 10:00 AM ET option, both reviewing the same data. The CRO can pick which one to attend; managers run both with consistent agendas. This is more meeting load than running one canonical meeting, but it is the only way to keep AEs in Mexico City and Los Angeles equally engaged.</p>
+
+        <h2>Salesforce: currency, locale, language</h2>
+
+        <p>Three settings, three trap-doors.</p>
+
+        <p><strong>Currency.</strong> Turn on Multi-Currency in Salesforce. Set the corporate currency to USD. Add MXN as a secondary currency with a rate that updates automatically (DatedExchangeRates with a daily refresh from a trusted FX feed, not the rep doing it manually). Every Opportunity has a CurrencyIsoCode field; reps should not change it, but admins need to know how to interpret it when a Latin American customer's contract is denominated in MXN.</p>
+
+        <p><strong>Locale.</strong> Set every user's locale to match where they actually work, not where the company is headquartered. A user with English (United States) locale will see "5/12/2026" but a user with English (Mexico) locale will see "12/5/2026." This matters because reports default to user-locale formatting. A consolidated pipeline review that includes both locales reads inconsistently unless you normalize.</p>
+
+        <p><strong>Language.</strong> Optional but worth it: enable Spanish as a UI language for users who want it. The data is the same; the labels translate. Users who want to operate in Spanish can; users who want English can. The flag is per-user and costs nothing.</p>
+
+        <p>One detail nobody warns you about: the Currency field on Account, Contact, and Opportunity records can be confusing when AccountCurrency = MXN but the deal is in USD. Pick a convention and document it. Common one: Account currency matches the customer's billing entity currency; Opportunity currency matches the contract currency. Train reps on the distinction.</p>
+
+        <h2>Commission calculation: do it in USD, pay in MXN</h2>
+
+        <p>The commission calculator (see the <a href="/case-studies/sales-commission-plan" class="inline-link">commission case study</a> for the underlying model) should run in USD throughout. Compute quota attainment, accelerator tier, kickers, and gross commission all in USD. The last step is a single column conversion to MXN using the published rate.</p>
+
+        <p>For reps' own self-verification: build the calculator so it shows both columns. Rep sees "$24,500 USD commission earned this period → ₱422,500 MXN gross." Transparency. The next person who tries to negotiate the conversion has already lost the argument.</p>
+
+        <h2>Bilingual operations docs and enablement</h2>
+
+        <p>If your Mexico-based ops team and your US-based commercial team need to share the same playbooks, you have two viable options:</p>
+
+        <p><strong>Single English source.</strong> Everyone operates in English. This works for senior teams where English fluency is uniformly strong. Cost: less inclusive, particularly for junior CSMs and SDRs in the Mexico office.</p>
+
+        <p><strong>Maintained bilingual docs.</strong> Every playbook, SOP, and enablement deck lives in both languages, with a documented owner who keeps them in sync. Cost: real maintenance overhead. You will need a freelance bilingual editor in the loop, and you must treat translation as a content version-control problem, not a one-time export.</p>
+
+        <p>I have run both. The maintained-bilingual approach pays back when the team grows past about 30 people in the Mexico office, because the productivity drag of "wait, what does this English term mean exactly" compounds with headcount. Below 30, single-source English usually wins on simplicity.</p>
+
+        <h2>The five mistakes I see most often</h2>
+
+        <ol>
+          <li><strong>Comp plan denominated in MXN.</strong> Already covered. FX volatility kills the behavioral signal of the plan.</li>
+          <li><strong>Quarter cutoffs interpreted by rep's local time.</strong> A few wrongly-stamped deals per quarter cost real money once you are tracking attainment seriously.</li>
+          <li><strong>Salesforce currency rates updated manually.</strong> Someone forgets; reporting drifts; one bad month nobody notices until the CFO's variance report calls it out.</li>
+          <li><strong>Treating the Mexican subsidiary as "the back office" in vocabulary.</strong> Reps and CSMs in Mexico City are not back-office. They are commercial. Pipeline reviews and forecast calls should include them as peers; comp plans should match the US equivalents (in USD-denominated terms); enablement should be designed for both audiences. The org chart can subordinate the entity; the operating model should not subordinate the people.</li>
+          <li><strong>No published policy on what currency the contract gets denominated in.</strong> Reps occasionally negotiate MXN-denominated contracts because the customer prefers it. This creates an FX risk the company holds for the contract term. There should be a written policy — usually USD-only — and any exception requires approval.</li>
+        </ol>
+
+        <h2>The half-day setup</h2>
+
+        <p>If you inherit a US-MX RevOps setup that is already running but messy, here is the half-day audit to do first:</p>
+
+        <ol>
+          <li>Check Salesforce: is Multi-Currency on? Is corporate currency USD? Is the rate updating automatically? (15 min)</li>
+          <li>Check the comp plan: is quota in USD or MXN? If MXN, calculate the FX-only attainment swing from the last year. Bring the number to the CFO. (45 min)</li>
+          <li>Check the forecast call agenda: what time zone are quarter cutoffs in? Is it written down? (15 min)</li>
+          <li>Check the playbooks: are they monolingual or bilingual? Is there an owner? (30 min)</li>
+          <li>Check the org chart for the operational reality: are the Mexico-based commercial roles compensated and reviewed as peers to US-based equivalents? (45 min)</li>
+          <li>Write up the gaps, prioritize the top three, present to the CRO and CFO. (90 min)</li>
+        </ol>
+
+        <p>This is the work I do in the first week of every cross-border engagement. The setup is more common every year and almost nobody has fully figured it out. Get the comp plan, time zones, and Salesforce currency right and you have eliminated the three failure modes that account for most of the operational drag. Everything else is execution.</p>
+      
+
+      <div class="cta-block">
+        <h3>Want to apply this to your team?</h3>
+        <p>I work with B2B SaaS teams and operators in the US and Mexico. Start with a 30-minute conversation.</p>
+        <a href="/services/revops-consulting" class="btn btn-primary">Start a Conversation</a>
+      </div>
+
+      <div class="related">
+        <h3>More from the blog</h3>
+        <ul>
+        <li><a href="/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy</a></li>
+        <li><a href="/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot for a 20-rep sales team: an honest comparison</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = ["meddpicc-vs-meddic-forecast-accuracy","salesforce-vs-hubspot-20-rep-team"];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,16 +1,17 @@
 #!/usr/bin/env node
-// Generates /case-studies/{slug}.html (EN) and /es/case-studies/{slug}.html
-// (ES) from scripts/case-studies.data.mjs, plus the /case-studies/ hub page
-// in both languages. Runs on every Vercel build.
+// Generates /blog/{slug}.html from scripts/blog.data.mjs, plus the /blog/
+// hub page in both languages. Spanish post pages only emit when the post
+// has an `es` block; the /es/blog/ hub still renders, marking English-only
+// posts with a small "English version available" badge.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CASE_STUDIES } from './case-studies.data.mjs';
+import { POSTS } from './blog.data.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-const COMMON_HEAD_TAGS = `  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+const COMMON_HEAD = `  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -21,7 +22,7 @@ const COMMON_HEAD_TAGS = `  <script async src="https://www.googletagmanager.com/
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />`;
 
-const AUTO_REDIRECT_SCRIPT = `  <script>
+const AUTO_REDIRECT = `  <script>
     (function () {
       try {
         var p = location.pathname;
@@ -35,23 +36,20 @@ const AUTO_REDIRECT_SCRIPT = `  <script>
     })();
   </script>`;
 
-const PAGE_STYLES = `  <style>
-    .page-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
-    .page-wrap h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: .5rem; }
-    .page-wrap .sub { font-size: .9rem; color: var(--text-3); margin-bottom: 1.5rem; display: block; }
-    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
-    .page-wrap h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
-    .page-wrap h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; }
-    .page-wrap p { color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
-    .page-wrap ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
-    .page-wrap ul li { margin-bottom: .5rem; line-height: 1.7; }
+const POST_STYLES = `  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
     .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
     .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
     .crumbs a { color: var(--text-2); text-decoration: none; }
     .crumbs a:hover { color: var(--text); }
-    .pdf-row { display: flex; gap: .75rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
-    .pdf-row a { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; text-decoration: none; font-size: .9rem; font-weight: 500; transition: background .15s, color .15s; }
-    .pdf-row a:hover { background: var(--accent); color: #fff; }
     .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
     .cta-block h3 { margin: 0 0 .75rem; }
     .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
@@ -60,13 +58,14 @@ const PAGE_STYLES = `  <style>
     .related h3 { margin-bottom: 1rem; }
     .related ul { list-style: none; padding: 0; }
     .related ul li { margin-bottom: .5rem; }
-    .case-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
-    .case-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
-    .case-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .case-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
-    .case-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
-    .case-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
-    .case-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
   </style>`;
 
 const TOGGLE_SCRIPT = `  <script>
@@ -78,6 +77,15 @@ const TOGGLE_SCRIPT = `  <script>
         if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
         try { localStorage.setItem('langChoice', lang); } catch (e) {}
         const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = ${JSON.stringify(POSTS.filter(p => !p.es).map(p => p.slug))};
+        const slugMatch = enPath.match(/^\\/blog\\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
         location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
       });
     });
@@ -92,14 +100,12 @@ const FOOTER = `  <footer>
   </footer>`;
 
 function nav(lang, activeEs) {
-  // The lang-toggle initial state flips based on which page we're emitting.
   const enBtn = activeEs
     ? `<button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>`
     : `<button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>`;
   const esBtn = activeEs
     ? `<button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>`
     : `<button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>`;
-  // Nav labels are localized inline so each emitted file has the right text.
   const items = activeEs
     ? [
         ['/es/services/', 'Servicios'],
@@ -137,7 +143,7 @@ function escapeAttr(s) {
   return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
-function metaBlock({ title, description, canonical, canonicalAlt, locale, localeAlt, ogAlt, articleSection }) {
+function metaBlock({ title, description, canonical, canonicalEn, canonicalEs, locale, localeAlt, ogAlt, articleSection }) {
   return `  <title>${title}</title>
 
   <meta name="description" content="${escapeAttr(description)}" />
@@ -168,85 +174,88 @@ ${articleSection ? `  <meta property="article:section" content="${escapeAttr(art
 
   <meta name="author" content="Jaime M. Mena" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="alternate" hreflang="en" href="${canonical.replace('/es/', '/')}" />
-  <link rel="alternate" hreflang="es" href="${canonical.startsWith('https://jaimem.com/es/') ? canonical : canonical.replace('https://jaimem.com/', 'https://jaimem.com/es/')}" />
-  <link rel="alternate" hreflang="x-default" href="${canonical.replace('/es/', '/')}" />`;
+  <link rel="alternate" hreflang="en" href="${canonicalEn}" />
+${canonicalEs ? `  <link rel="alternate" hreflang="es" href="${canonicalEs}" />\n` : ''}  <link rel="alternate" hreflang="x-default" href="${canonicalEn}" />`;
 }
 
-function articleJsonLd({ title, description, url, datePublished, keywords, lang }) {
+function blogPostingJsonLd({ title, description, url, datePublished, keywords, lang }) {
   return `  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "${escapeAttr(title)}",
-    "description": "${escapeAttr(description)}",
+    "@type": "BlogPosting",
+    "headline": ${JSON.stringify(title)},
+    "description": ${JSON.stringify(description)},
     "url": "${url}",
     "image": "https://jaimem.com/og-image.png",
     "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
     "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
     "datePublished": "${datePublished}",
+    "dateModified": "${datePublished}",
     "inLanguage": "${lang}",
-    "keywords": "${escapeAttr(keywords)}"
+    "keywords": ${JSON.stringify(keywords)},
+    "mainEntityOfPage": "${url}"
   }
   </script>`;
 }
 
-function renderCaseStudy(cs, lang) {
+function renderPost(post, lang) {
   const isEs = lang === 'es';
-  const content = isEs ? cs.es : cs.en;
-  const canonicalEn = `https://jaimem.com/case-studies/${cs.slug}`;
-  const canonicalEs = `https://jaimem.com/es/case-studies/${cs.slug}`;
+  const content = isEs ? post.es : post.en;
+  if (!content) return null; // no Spanish version exists
+  const canonicalEn = `https://jaimem.com/blog/${post.slug}`;
+  const canonicalEs = post.es ? `https://jaimem.com/es/blog/${post.slug}` : null;
   const canonical = isEs ? canonicalEs : canonicalEn;
   const locale = isEs ? 'es_ES' : 'en_US';
   const localeAlt = isEs ? 'en_US' : 'es_ES';
 
   const labels = isEs
-    ? { home: 'Inicio', cases: 'Casos de Estudio', cta: 'Iniciar una Conversación', ctaH: '¿Tienes un problema parecido?', ctaP: 'Te ayudo a aplicar este tipo de marcos a tu negocio. Empieza con una conversación de 30 minutos.', otherH: 'Otros casos de estudio', backToService: 'Ver mi servicio de Consultoría de Revenue Operations →' }
-    : { home: 'Home', cases: 'Case Studies', cta: 'Start a Conversation', ctaH: 'Have a similar problem?', ctaP: 'I help apply this kind of framework to your business. Start with a 30-minute conversation.', otherH: 'Other case studies', backToService: 'See my Revenue Operations Consulting service →' };
+    ? { home: 'Inicio', blog: 'Blog', cta: 'Iniciar una Conversación', ctaH: '¿Quieres aplicar esto a tu equipo?', ctaP: 'Trabajo con equipos B2B SaaS y operadores en EE.UU. y México. Empieza con una conversación de 30 minutos.', otherH: 'Más en el blog' }
+    : { home: 'Home', blog: 'Blog', cta: 'Start a Conversation', ctaH: 'Want to apply this to your team?', ctaP: 'I work with B2B SaaS teams and operators in the US and Mexico. Start with a 30-minute conversation.', otherH: 'More from the blog' };
 
-  const breadcrumbBase = isEs ? '/es/case-studies/' : '/case-studies/';
+  const breadBlog = isEs ? '/es/blog/' : '/blog/';
   const homeBase = isEs ? '/es/' : '/';
 
-  const pdfLinks = cs.pdfs.map(p => `      <a href="${p.href}" target="_blank" rel="noopener">${isEs ? p.es : p.en}</a>`).join('\n');
-
-  const outcomeItems = content.outcome.items.map(i => `        <li>${i}</li>`).join('\n');
-
-  // Related = the 3 case studies that are NOT this one (or first 3 if many).
-  const related = CASE_STUDIES.filter(o => o.slug !== cs.slug).slice(0, 3);
+  // Related = up to 3 other posts (in the same language if available)
+  const related = POSTS.filter(o => o.slug !== post.slug).slice(0, 3);
   const relatedItems = related.map(o => {
-    const rContent = isEs ? o.es : o.en;
-    const rUrl = isEs ? `/es/case-studies/${o.slug}` : `/case-studies/${o.slug}`;
-    return `        <li><a href="${rUrl}" class="inline-link">${rContent.h1}</a></li>`;
+    const otherHasEs = !!o.es;
+    const useEs = isEs && otherHasEs;
+    const rContent = useEs ? o.es : o.en;
+    const rUrl = useEs ? `/es/blog/${o.slug}` : `/blog/${o.slug}`;
+    const badge = (isEs && !otherHasEs) ? `<span class="lang-badge">EN only</span>` : '';
+    return `        <li><a href="${rUrl}" class="inline-link">${rContent.h1}</a>${badge}</li>`;
   }).join('\n');
 
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
-${COMMON_HEAD_TAGS}
-${AUTO_REDIRECT_SCRIPT}
+${COMMON_HEAD}
+${AUTO_REDIRECT}
 ${metaBlock({
     title: content.title,
     description: content.description,
     canonical,
+    canonicalEn,
+    canonicalEs,
     locale,
     localeAlt,
     ogAlt: content.ogAlt,
-    articleSection: 'Revenue Operations',
+    articleSection: 'RevOps',
   })}
 
-${articleJsonLd({
+${blogPostingJsonLd({
     title: content.title,
     description: content.description,
     url: canonical,
-    datePublished: '2026-05-12',
-    keywords: cs.keywords,
+    datePublished: post.datePublished,
+    keywords: post.keywords,
     lang: isEs ? 'es-ES' : 'en-US',
   })}
 
   <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles/site.css" />
 
-${PAGE_STYLES}
+${POST_STYLES}
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -255,30 +264,14 @@ ${nav(lang, isEs)}
 
   <main id="main-content">
     <article class="page-wrap">
-      <p class="crumbs"><a href="${homeBase}">${labels.home}</a> &rsaquo; <a href="${breadcrumbBase}">${labels.cases}</a> &rsaquo; <span>${content.h1}</span></p>
+      <p class="crumbs"><a href="${homeBase}">${labels.home}</a> &rsaquo; <a href="${breadBlog}">${labels.blog}</a> &rsaquo; <span>${content.h1}</span></p>
 
       <h1>${content.h1}</h1>
       <span class="sub">${content.sub}</span>
 
       <p class="lead">${content.lead}</p>
 
-      <div class="pdf-row">
-${pdfLinks}
-      </div>
-
-      <h2>${content.problem.heading}</h2>
-      <p>${content.problem.body}</p>
-
-      <h2>${content.approach.heading}</h2>
-      <p>${content.approach.body}</p>
-
-      <h2>${content.outcome.heading}</h2>
-      <ul>
-${outcomeItems}
-      </ul>
-
-      <h2>${content.lessons.heading}</h2>
-      <p>${content.lessons.body}</p>
+${content.body}
 
       <div class="cta-block">
         <h3>${labels.ctaH}</h3>
@@ -291,7 +284,6 @@ ${outcomeItems}
         <ul>
 ${relatedItems}
         </ul>
-        <p style="margin-top:1.5rem;"><a href="${isEs ? '/es/services/revops-consulting' : '/services/revops-consulting'}" class="inline-link">${labels.backToService}</a></p>
       </div>
     </article>
   </main>
@@ -306,44 +298,55 @@ ${TOGGLE_SCRIPT}
 
 function renderHub(lang) {
   const isEs = lang === 'es';
-  const canonical = isEs ? 'https://jaimem.com/es/case-studies/' : 'https://jaimem.com/case-studies/';
+  const canonical = isEs ? 'https://jaimem.com/es/blog/' : 'https://jaimem.com/blog/';
+  const canonicalEn = 'https://jaimem.com/blog/';
+  const canonicalEs = 'https://jaimem.com/es/blog/';
   const locale = isEs ? 'es_ES' : 'en_US';
   const localeAlt = isEs ? 'en_US' : 'es_ES';
 
   const title = isEs
-    ? 'Casos de Estudio — Marcos y Modelos de Revenue Operations | Jaime M. Mena'
-    : 'Case Studies — Revenue Operations Frameworks & Models | Jaime M. Mena';
+    ? 'Blog — Revenue Operations, GTM B2B SaaS y operaciones bilingües | Jaime M. Mena'
+    : 'Blog — Revenue Operations, B2B SaaS GTM, and bilingual operations | Jaime M. Mena';
   const description = isEs
-    ? 'Siete casos de estudio detallados de marcos y modelos de Revenue Operations: diseño de territorios, pronósticos, dashboards GTM, planes de comisiones, atribución, puntaje de salud del cliente, y reconciliación de bookings vs. ingresos.'
-    : 'Seven worked Revenue Operations case studies: territory design, forecasting, GTM dashboards, commission plans, attribution, customer health scoring, and bookings-to-revenue reconciliation.';
-  const ogAlt = isEs ? 'Casos de Estudio — Jaime M. Mena' : 'Case Studies — Jaime M. Mena';
+    ? 'Posts prácticos sobre Revenue Operations, comparaciones de stack tecnológico (Salesforce vs HubSpot), marcos de calificación (MEDDPICC, MEDDIC), y RevOps transfronterizo entre EE.UU. y México.'
+    : 'Practical posts on Revenue Operations, tech-stack comparisons (Salesforce vs HubSpot), qualification frameworks (MEDDPICC, MEDDIC), and cross-border US-Mexico RevOps.';
+  const ogAlt = isEs ? 'Blog — Jaime M. Mena' : 'Blog — Jaime M. Mena';
   const labels = isEs
-    ? { home: 'Inicio', heading: 'Casos de Estudio', lead: 'Siete marcos y modelos detallados de mi trabajo en Revenue Operations. Construidos con datos ficticios para mostrar cómo abordo desafíos comunes de B2B SaaS — pronósticos, territorios, comisiones, dashboards, atribución, salud del cliente y reconciliación de ingresos.', learn: 'Leer caso de estudio →', ctaH: '¿Reconoces algunos de estos problemas?', ctaP: 'Si alguno de estos marcos resuena con tu equipo, hablemos. La primera conversación es de 30 minutos y sin compromiso.', cta: 'Iniciar una Conversación' }
-    : { home: 'Home', heading: 'Case Studies', lead: 'Seven worked frameworks and models from my Revenue Operations practice. Built with fictitious data to show how I approach common B2B SaaS challenges — forecasting, territories, commissions, dashboards, attribution, customer health, and revenue reconciliation.', learn: 'Read case study →', ctaH: 'Recognize any of these problems?', ctaP: 'If any of these frameworks resonate with your team, let\'s talk. The first conversation is 30 minutes, no obligation.', cta: 'Start a Conversation' };
+    ? { home: 'Inicio', heading: 'Blog', lead: 'Posts sobre Revenue Operations, comparaciones de herramientas, marcos de calificación y la realidad operativa de equipos B2B SaaS — incluyendo el ángulo transfronterizo entre EE.UU. y México que pocos escriben.', learn: 'Leer post →', enOnly: 'Solo en inglés', enOnlyNote: 'Este post está disponible solo en inglés por ahora.' }
+    : { home: 'Home', heading: 'Blog', lead: 'Posts on Revenue Operations, tool comparisons, qualification frameworks, and the operational reality of B2B SaaS teams — including the US-Mexico cross-border angle few people write about.', learn: 'Read post →' };
 
-  const cards = CASE_STUDIES.map(cs => {
-    const content = isEs ? cs.es : cs.en;
-    const url = isEs ? `/es/case-studies/${cs.slug}` : `/case-studies/${cs.slug}`;
-    return `        <a href="${url}" class="case-card">
-          <h2>${content.h1}</h2>
+  const cards = POSTS.map(post => {
+    const hasEs = !!post.es;
+    const useEs = isEs && hasEs;
+    const content = useEs ? post.es : post.en;
+    const url = useEs ? `/es/blog/${post.slug}` : `/blog/${post.slug}`;
+    const badge = (isEs && !hasEs) ? ` <span class="lang-badge">${labels.enOnly}</span>` : '';
+    const enOnlyNote = (isEs && !hasEs) ? `<p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">${labels.enOnlyNote}</p>` : '';
+    return `        <a href="${url}" class="post-card">
+          <h2>${content.h1}${badge}</h2>
           <span class="sub">${content.sub}</span>
-          <p>${content.lead}</p>
+          <p>${stripLeadHtml(content.lead)}</p>
+          ${enOnlyNote}
           <span class="arrow">${labels.learn}</span>
         </a>`;
   }).join('\n');
 
-  const collectionJsonLd = `  <script type="application/ld+json">
+  const blogSchema = `  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
+    "@type": "Blog",
     "name": ${JSON.stringify(labels.heading + ' — Jaime M. Mena')},
     "url": "${canonical}",
     "description": ${JSON.stringify(description)},
-    "hasPart": [
-${CASE_STUDIES.map(cs => {
-  const content = isEs ? cs.es : cs.en;
-  const url = isEs ? `https://jaimem.com/es/case-studies/${cs.slug}` : `https://jaimem.com/case-studies/${cs.slug}`;
-  return `      { "@type": "Article", "name": ${JSON.stringify(content.h1)}, "url": "${url}" }`;
+    "inLanguage": "${isEs ? 'es-ES' : 'en-US'}",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "blogPost": [
+${POSTS.map(post => {
+  const hasEs = !!post.es;
+  const useEs = isEs && hasEs;
+  const c = useEs ? post.es : post.en;
+  const url = useEs ? `https://jaimem.com/es/blog/${post.slug}` : `https://jaimem.com/blog/${post.slug}`;
+  return `      { "@type": "BlogPosting", "headline": ${JSON.stringify(c.h1)}, "url": "${url}", "datePublished": "${post.datePublished}" }`;
 }).join(',\n')}
     ]
   }
@@ -352,23 +355,25 @@ ${CASE_STUDIES.map(cs => {
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
-${COMMON_HEAD_TAGS}
-${AUTO_REDIRECT_SCRIPT}
+${COMMON_HEAD}
+${AUTO_REDIRECT}
 ${metaBlock({
     title,
     description,
     canonical,
+    canonicalEn,
+    canonicalEs,
     locale,
     localeAlt,
     ogAlt,
   })}
 
-${collectionJsonLd}
+${blogSchema}
 
   <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles/site.css" />
 
-${PAGE_STYLES}
+${POST_STYLES}
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -383,14 +388,8 @@ ${nav(lang, isEs)}
 
       <p class="lead">${labels.lead}</p>
 
-      <div class="case-grid">
+      <div class="post-grid">
 ${cards}
-      </div>
-
-      <div class="cta-block">
-        <h3>${labels.ctaH}</h3>
-        <p>${labels.ctaP}</p>
-        <a href="${isEs ? '/es/services/revops-consulting' : '/services/revops-consulting'}" class="btn btn-primary">${labels.cta}</a>
       </div>
     </article>
   </main>
@@ -403,26 +402,33 @@ ${TOGGLE_SCRIPT}
 `;
 }
 
+// Strip basic HTML tags from the lead for use in card excerpts (the card has
+// its own typography and we don't want <strong> bolding spilling in).
+function stripLeadHtml(s) {
+  return String(s).replace(/<[^>]+>/g, '');
+}
+
 let totalBytes = 0;
 let totalFiles = 0;
 
 function emit(relPath, content) {
+  if (!content) return;
   const outPath = resolve(ROOT, relPath);
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, content, 'utf8');
   totalBytes += content.length;
   totalFiles += 1;
-  console.log(`[build-case-studies] wrote ${relPath} (${content.length} bytes)`);
+  console.log(`[build-blog] wrote ${relPath} (${content.length} bytes)`);
 }
 
 // Hubs
-emit('case-studies/index.html', renderHub('en'));
-emit('es/case-studies/index.html', renderHub('es'));
+emit('blog/index.html', renderHub('en'));
+emit('es/blog/index.html', renderHub('es'));
 
-// Each case study × 2 languages
-for (const cs of CASE_STUDIES) {
-  emit(`case-studies/${cs.slug}.html`, renderCaseStudy(cs, 'en'));
-  emit(`es/case-studies/${cs.slug}.html`, renderCaseStudy(cs, 'es'));
+// Posts
+for (const post of POSTS) {
+  emit(`blog/${post.slug}.html`, renderPost(post, 'en'));
+  if (post.es) emit(`es/blog/${post.slug}.html`, renderPost(post, 'es'));
 }
 
-console.log(`[build-case-studies] ${totalFiles} files, ${totalBytes} bytes total`);
+console.log(`[build-blog] ${totalFiles} files, ${totalBytes} bytes total`);

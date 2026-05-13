@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones</title>
+
+  <meta name="description" content="Un playbook práctico para correr Revenue Operations a través de la frontera EE.UU.-México: planes de comisiones que manejan USD y MXN, pronósticos entre zonas horarias, configuración de monedas en Salesforce, y los errores comunes que cuestan dinero real." />
+  <link rel="canonical" href="https://jaimem.com/es/blog/cross-border-revops-playbook" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/es/blog/cross-border-revops-playbook" />
+  <meta property="og:title" content="El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones" />
+  <meta property="og:description" content="Un playbook práctico para correr Revenue Operations a través de la frontera EE.UU.-México: planes de comisiones que manejan USD y MXN, pronósticos entre zonas horarias, configuración de monedas en Salesforce, y los errores comunes que cuestan dinero real." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Playbook de RevOps transfronterizo — Jaime M. Mena" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones" />
+  <meta name="twitter:description" content="Un playbook práctico para correr Revenue Operations a través de la frontera EE.UU.-México: planes de comisiones que manejan USD y MXN, pronósticos entre zonas horarias, configuración de monedas en Salesforce, y los errores comunes que cuestan dinero real." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Playbook de RevOps transfronterizo — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/cross-border-revops-playbook" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/cross-border-revops-playbook" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones",
+    "description": "Un playbook práctico para correr Revenue Operations a través de la frontera EE.UU.-México: planes de comisiones que manejan USD y MXN, pronósticos entre zonas horarias, configuración de monedas en Salesforce, y los errores comunes que cuestan dinero real.",
+    "url": "https://jaimem.com/es/blog/cross-border-revops-playbook",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-05-12",
+    "dateModified": "2026-05-12",
+    "inLanguage": "es-ES",
+    "keywords": "cross-border RevOps, US Mexico SaaS, USD MXN compensation, bilingual sales operations, near-shore RevOps, sales operations Mexico",
+    "mainEntityOfPage": "https://jaimem.com/es/blog/cross-border-revops-playbook"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/es/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/es/services/">Servicios</a></li>
+        <li><a href="/es/case-studies/">Casos de Estudio</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
+        <li><a href="/es/#about">Sobre Mí</a></li>
+        <li><a href="/es/#contact">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/es/">Inicio</a> &rsaquo; <a href="/es/blog/">Blog</a> &rsaquo; <span>El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones</span></p>
+
+      <h1>El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones</h1>
+      <span class="sub">12 mayo 2026 · 8 min de lectura · GTM Bilingüe</span>
+
+      <p class="lead">Cada vez más empresas B2B SaaS están incorporadas en EE.UU., venden a clientes enterprise estadounidenses en USD, y operan ventas o ingeniería desde México. El setup tiene sentido financiero — costo de talento, traslape horario, claridad legal del USMCA — pero la complejidad de RevOps se acumula en equipos que no la planearon. Este es el playbook que ejecuto cuando levanto el back office para una de estas empresas.</p>
+
+
+        <h2>El setup al que la mayoría de los equipos terminan llegando</h2>
+
+        <p>El patrón es reconocible: una C-corp de Delaware en EE.UU., la Inc. estadounidense es dueña de todos los contratos con clientes y reconoce todos los ingresos en USD, con una subsidiaria mexicana (S.A. de C.V. o S. de R.L. de C.V.) que emplea al equipo de ingeniería y operaciones de ventas. Los clientes son mayoritariamente enterprise estadounidenses. La entidad estadounidense le cobra a la mexicana por servicios prestados bajo un acuerdo de precios de transferencia. Los representantes y SDRs a veces viven en EE.UU., a veces en México, a veces en ambos. Customer Success está en Ciudad de México; el CRO en Austin; los AEs dispersos.</p>
+
+        <p>Nada de esto es exótico ya. Lo que sigue siendo exótico es hacerlo bien desde RevOps. La mayoría de los equipos que veo lanzan el organigrama y dejan que la complejidad operativa se acumule como deuda técnica. A dos años, el plan de comisiones es una hoja de cálculo mantenida por una sola persona, el pronóstico se falla 15-20% cada trimestre porque la gimnasia de zonas horarias distorsiona el pipeline review, y Salesforce tiene tres configuraciones de moneda apiladas una sobre otra.</p>
+
+        <h2>Plan de comisiones: paga en moneda local, mide en moneda de ingresos</h2>
+
+        <p>Esta es la decisión de mayor impacto. La mayoría de los equipos lo hacen mal la primera vez.</p>
+
+        <p><strong>La tentación:</strong> pagar a los representantes en MXN porque viven en México y tienen que pagar renta en pesos. Atar la cuota y el attainment al ingreso reservado en MXN porque el plan de comisiones está denominado en MXN.</p>
+
+        <p><strong>Por qué falla:</strong> tus ingresos están en USD. La tasa MXN/USD se mueve 8-15% en un año típico. Si un representante reserva $1M USD de ARR y la tasa se mueve de 17 a 19 MXN/USD durante el trimestre, su cuota denominada en MXN se vuelve más fácil o más difícil un 12% sin ningún cambio en su comportamiento. Los planes de comisiones supuestamente impulsan comportamiento. La volatilidad cambiaria desconecta el comportamiento del resultado.</p>
+
+        <p><strong>La solución:</strong> denominar el plan de comisiones en USD. Cuota en USD. Attainment en USD. Pago de comisión en USD. Luego convertir el pago a MXN al final de cada mes, usando una tasa de referencia publicada y fija (FIX de Banxico o la tasa de fin de mes publicada por la empresa) más un pequeño colchón para absorber el riesgo de tiempo entre la reserva del deal y la nómina.</p>
+
+        <p>El colchón es la parte que importa. Paga al representante a, digamos, FIX menos 2%. Ese 2% es la cobertura de la empresa contra la tasa moviéndose en su contra entre el cierre del deal y la nómina tres semanas después. El representante obtiene un plan de comisiones transparente y libre de volatilidad cambiaria; la empresa carga un pequeño riesgo cambiario predecible. Todos pueden planear.</p>
+
+        <p>El tratamiento fiscal es una pregunta separada, y es el único lugar donde necesitas un abogado fiscalista mexicano. ISR e IMSS aplican sobre el monto equivalente en MXN. El colchón del 2% se puede compensar parcialmente con viáticos y prestaciones cuidadosamente estructurados, pero eso se sale del alcance de este post. Habla con un abogado de verdad.</p>
+
+        <h2>Pronóstico entre dos zonas horarias</h2>
+
+        <p>El error aquí es correr la forecast call en hora del Este de EE.UU. y heredar los problemas del resto del planeta. CST y CDT cubren la Ciudad de México; PST/PDT cubren la costa oeste; AEDT cubre Australia si vendes allá. Para cuando reconcilias qué significa "último día del trimestre" para un deal cuyo cliente está en Sídney y cuyo AE está en CDMX, has creado una ventana de ambigüedad de 36 horas donde los deals se mueven misteriosamente.</p>
+
+        <p>Escoge una sola zona horaria canónica para todo el calendario de ingresos — casi siempre UTC o el equivalente del Este de EE.UU. — y corre todos los cortes contra ella. El último día del Q3 termina a las 11:59 PM ET, punto. Salesforce tiene un setting de zona horaria por organización; alinéalo. Cada representante, sin importar dónde viva, ve fechas de cierre y cortes de trimestre en la zona canónica. Evita la trampa de "pero mi AE en CDMX dice que todavía es martes en su hora" — ese camino termina con deals reservados en el trimestre equivocado y representantes haciendo trampa con el calendario.</p>
+
+        <p>La forecast meeting en sí debería programarse dos veces si tienes headcount significativo en Pacífico y Este: una opción a las 8:00 AM PT y otra a las 10:00 AM ET, ambas revisando los mismos datos. El CRO puede elegir a cuál asistir; los managers corren ambas con agendas consistentes. Es más carga de juntas que correr una sola, pero es la única forma de mantener a los AEs de CDMX y Los Ángeles igualmente comprometidos.</p>
+
+        <h2>Salesforce: moneda, locale, idioma</h2>
+
+        <p>Tres ajustes, tres trampas.</p>
+
+        <p><strong>Moneda.</strong> Activa Multi-Currency en Salesforce. Establece la moneda corporativa como USD. Agrega MXN como moneda secundaria con una tasa que se actualice automáticamente (DatedExchangeRates con refresh diario desde un feed FX confiable, no el representante haciéndolo manualmente). Cada Oportunidad tiene un campo CurrencyIsoCode; los representantes no deberían cambiarlo, pero los admins deben saber interpretarlo cuando el contrato de un cliente latinoamericano está denominado en MXN.</p>
+
+        <p><strong>Locale.</strong> Configura el locale de cada usuario para que coincida con dónde trabaja en realidad, no con dónde está la sede. Un usuario con locale English (United States) verá "5/12/2026" pero un usuario con locale English (Mexico) verá "12/5/2026." Esto importa porque los reportes formatean por defecto con el locale del usuario. Un pipeline review consolidado que incluye ambos locales se lee inconsistente a menos que normalices.</p>
+
+        <p><strong>Idioma.</strong> Opcional pero vale la pena: habilita español como idioma de UI para los usuarios que lo quieran. Los datos son los mismos; las etiquetas se traducen. Los usuarios que quieran operar en español pueden; los que quieran inglés también. El flag es por usuario y no cuesta nada.</p>
+
+        <p>Un detalle del que nadie te advierte: el campo Currency en los registros de Account, Contact y Opportunity puede confundir cuando AccountCurrency = MXN pero el deal está en USD. Escoge una convención y documéntala. Una común: la moneda de la cuenta coincide con la de la entidad de facturación del cliente; la moneda de la Oportunidad coincide con la del contrato. Capacita a los representantes en la distinción.</p>
+
+        <h2>Cálculo de comisiones: hazlo en USD, paga en MXN</h2>
+
+        <p>La calculadora de comisiones (ver el <a href="/es/case-studies/sales-commission-plan" class="inline-link">caso de estudio del plan de comisiones</a> para el modelo subyacente) debe correr en USD todo el camino. Calcula attainment, tier de acelerador, kickers y comisión bruta todo en USD. El último paso es una sola columna de conversión a MXN usando la tasa publicada.</p>
+
+        <p>Para la auto-verificación de los representantes: construye la calculadora para que muestre ambas columnas. El representante ve "$24,500 USD de comisión ganada este periodo → ₱422,500 MXN bruto." Transparencia. La siguiente persona que trate de negociar la conversión ya perdió el argumento.</p>
+
+        <h2>Documentación operativa y enablement bilingüe</h2>
+
+        <p>Si tu equipo de ops en México y tu equipo comercial en EE.UU. necesitan compartir los mismos playbooks, tienes dos opciones viables:</p>
+
+        <p><strong>Una sola fuente en inglés.</strong> Todos operan en inglés. Funciona para equipos senior donde la fluidez en inglés es uniformemente fuerte. Costo: menos inclusivo, particularmente para CSMs y SDRs junior en la oficina de México.</p>
+
+        <p><strong>Documentación bilingüe mantenida.</strong> Cada playbook, SOP y deck de enablement vive en ambos idiomas, con un dueño documentado que los mantiene sincronizados. Costo: overhead real de mantenimiento. Vas a necesitar un editor bilingüe freelance en el loop, y debes tratar la traducción como un problema de version control de contenido, no como un export único.</p>
+
+        <p>He corrido ambos. El enfoque bilingüe mantenido paga de regreso cuando el equipo crece a más o menos 30 personas en la oficina de México, porque el drag de productividad de "espera, ¿qué significa este término en inglés exactamente?" se compone con el headcount. Debajo de 30, una sola fuente en inglés generalmente gana por simplicidad.</p>
+
+        <h2>Los cinco errores que veo con más frecuencia</h2>
+
+        <ol>
+          <li><strong>Plan de comisiones denominado en MXN.</strong> Ya cubierto. La volatilidad cambiaria mata la señal conductual del plan.</li>
+          <li><strong>Cortes de trimestre interpretados en hora local del representante.</strong> Unos pocos deals con timestamp equivocado por trimestre cuestan dinero real una vez que estás rastreando attainment en serio.</li>
+          <li><strong>Tasas de cambio en Salesforce actualizadas manualmente.</strong> Alguien se olvida; los reportes se desfasan; un mal mes que nadie nota hasta que el reporte de varianza del CFO lo señala.</li>
+          <li><strong>Tratar a la subsidiaria mexicana como "el back office" en el vocabulario.</strong> Los representantes y CSMs en CDMX no son back-office. Son comerciales. Las revisiones de pipeline y forecast calls deben incluirlos como pares; los planes de comisiones deben coincidir con los equivalentes en EE.UU. (en términos denominados en USD); el enablement debe diseñarse para ambas audiencias. El organigrama puede subordinar la entidad; el modelo operativo no debe subordinar a las personas.</li>
+          <li><strong>Sin política publicada sobre en qué moneda se denomina el contrato.</strong> Los representantes ocasionalmente negocian contratos denominados en MXN porque el cliente lo prefiere. Esto crea un riesgo cambiario que la empresa carga durante todo el contrato. Debe haber una política escrita — usualmente solo USD — y cualquier excepción requiere aprobación.</li>
+        </ol>
+
+        <h2>La auditoría de medio día</h2>
+
+        <p>Si heredas un setup de RevOps US-MX que ya está corriendo pero desordenado, esta es la auditoría de medio día para hacer primero:</p>
+
+        <ol>
+          <li>Revisa Salesforce: ¿Multi-Currency está activado? ¿La moneda corporativa es USD? ¿La tasa se actualiza automáticamente? (15 min)</li>
+          <li>Revisa el plan de comisiones: ¿la cuota está en USD o MXN? Si está en MXN, calcula el swing de attainment solo por FX del último año. Llévale el número al CFO. (45 min)</li>
+          <li>Revisa la agenda de la forecast call: ¿en qué zona horaria están los cortes de trimestre? ¿Está escrito? (15 min)</li>
+          <li>Revisa los playbooks: ¿son monolingües o bilingües? ¿Hay un dueño? (30 min)</li>
+          <li>Revisa el organigrama contra la realidad operativa: ¿los roles comerciales basados en México están compensados y revisados como pares de los equivalentes en EE.UU.? (45 min)</li>
+          <li>Escribe los gaps, prioriza los tres más importantes, preséntale al CRO y al CFO. (90 min)</li>
+        </ol>
+
+        <p>Este es el trabajo que hago la primera semana de cada engagement transfronterizo. El setup es más común cada año y casi nadie lo tiene completamente resuelto. Configura bien el plan de comisiones, las zonas horarias y la moneda en Salesforce y habrás eliminado los tres modos de falla que generan la mayor parte del drag operativo. Todo lo demás es ejecución.</p>
+      
+
+      <div class="cta-block">
+        <h3>¿Quieres aplicar esto a tu equipo?</h3>
+        <p>Trabajo con equipos B2B SaaS y operadores en EE.UU. y México. Empieza con una conversación de 30 minutos.</p>
+        <a href="/es/services/revops-consulting" class="btn btn-primary">Iniciar una Conversación</a>
+      </div>
+
+      <div class="related">
+        <h3>Más en el blog</h3>
+        <ul>
+        <li><a href="/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy</a><span class="lang-badge">EN only</span></li>
+        <li><a href="/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot for a 20-rep sales team: an honest comparison</a><span class="lang-badge">EN only</span></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = ["meddpicc-vs-meddic-forecast-accuracy","salesforce-vs-hubspot-20-rep-team"];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
