@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Executive GTM Health Dashboard — RevOps Case Study | Jaime M. Mena</title>
+
+  <meta name="description" content="A weekly executive scorecard tracking pipeline health, marketing funnel, BDR activity, and forecast confidence across segments. Built so the CRO can answer &quot;how are we doing&quot; in one screen." />
+  <link rel="canonical" href="https://jaimem.com/case-studies/executive-gtm-dashboard" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/case-studies/executive-gtm-dashboard" />
+  <meta property="og:title" content="Executive GTM Health Dashboard — RevOps Case Study | Jaime M. Mena" />
+  <meta property="og:description" content="A weekly executive scorecard tracking pipeline health, marketing funnel, BDR activity, and forecast confidence across segments. Built so the CRO can answer &quot;how are we doing&quot; in one screen." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Executive GTM Health Dashboard — Jaime M. Mena" />
+  <meta property="article:section" content="Revenue Operations" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Executive GTM Health Dashboard — RevOps Case Study | Jaime M. Mena" />
+  <meta name="twitter:description" content="A weekly executive scorecard tracking pipeline health, marketing funnel, BDR activity, and forecast confidence across segments. Built so the CRO can answer &quot;how are we doing&quot; in one screen." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Executive GTM Health Dashboard — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/case-studies/executive-gtm-dashboard" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/case-studies/executive-gtm-dashboard" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/case-studies/executive-gtm-dashboard" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Executive GTM Health Dashboard — RevOps Case Study | Jaime M. Mena",
+    "description": "A weekly executive scorecard tracking pipeline health, marketing funnel, BDR activity, and forecast confidence across segments. Built so the CRO can answer &quot;how are we doing&quot; in one screen.",
+    "url": "https://jaimem.com/case-studies/executive-gtm-dashboard",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-05-12",
+    "inLanguage": "en-US",
+    "keywords": "GTM dashboard, executive sales reporting, pipeline health, BDR activity, marketing funnel, KPI scorecard"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .9rem; color: var(--text-3); margin-bottom: 1.5rem; display: block; }
+    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+    .page-wrap ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
+    .page-wrap ul li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .pdf-row { display: flex; gap: .75rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .pdf-row a { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; text-decoration: none; font-size: .9rem; font-weight: 500; transition: background .15s, color .15s; }
+    .pdf-row a:hover { background: var(--accent); color: #fff; }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .case-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .case-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .case-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .case-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .case-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .case-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .case-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#samples">Samples</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/case-studies/">Case Studies</a> &rsaquo; <span>Executive GTM Health Dashboard</span></p>
+
+      <h1>Executive GTM Health Dashboard</h1>
+      <span class="sub">Northstar SaaS · Executive Reporting</span>
+
+      <p class="lead">One screen the CRO opens every Monday morning and immediately knows whether the quarter is on track. Pipeline health, marketing funnel, BDR activity, and forecast confidence — segment by segment, with no spreadsheet stitching.</p>
+
+      <div class="pdf-row">
+      <a href="/samples/executive-gtm-dashboard.pdf" target="_blank" rel="noopener">View the Executive Dashboard PDF</a>
+      </div>
+
+      <h2>The problem</h2>
+      <p>The exec team was reading three different weekly reports from Sales, Marketing, and BDR ops, each with its own definition of pipeline and conversion. Numbers never reconciled. The CRO would spend the first 20 minutes of every QBR triangulating "is this our actual pipeline or yours."</p>
+
+      <h2>The approach</h2>
+      <p>One canonical data model upstream of the dashboard. Marketing-qualified-leads, sales-qualified-leads, opportunities, and deals all defined once, with a single source for stage and segment. Build the visual layer last, in Looker / Tableau, anchored on the same fields. Top of the dashboard answers "how are we doing this quarter" in 10 seconds. Below the fold, drill-downs answer "why" for each segment.</p>
+
+      <h2>The outcome</h2>
+      <ul>
+        <li>A single weekly scorecard that replaced three previously-conflicting reports.</li>
+        <li>Pipeline-coverage trend visible at a glance by segment — red/yellow/green status against 3x quota target.</li>
+        <li>BDR activity tied to downstream pipeline contribution, so the team could finally evaluate the marketing funnel as a system instead of as separate widgets.</li>
+        <li>Faster QBR prep — the dashboard IS the deck, with one slide per drill-down.</li>
+      </ul>
+
+      <h2>What I would do differently</h2>
+      <p>Build the data model spec with Marketing and BDR ops in the room from day one. The first version of the dashboard exposed definitional disagreements that should have been resolved before any visualization work happened. Two weeks of "the dashboard is wrong" were really "we never agreed on what an SQL is."</p>
+
+      <div class="cta-block">
+        <h3>Have a similar problem?</h3>
+        <p>I help apply this kind of framework to your business. Start with a 30-minute conversation.</p>
+        <a href="/services/revops-consulting" class="btn btn-primary">Start a Conversation</a>
+      </div>
+
+      <div class="related">
+        <h3>Other case studies</h3>
+        <ul>
+        <li><a href="/case-studies/territory-design-account-coverage" class="inline-link">Territory Design & Account Coverage Model</a></li>
+        <li><a href="/case-studies/forecast-inspection-framework" class="inline-link">Forecast Inspection & Pipeline Review Framework</a></li>
+        <li><a href="/case-studies/sales-commission-plan" class="inline-link">Sales Commission Plan & Calculator</a></li>
+        </ul>
+        <p style="margin-top:1.5rem;"><a href="/services/revops-consulting" class="inline-link">See my Revenue Operations Consulting service →</a></p>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
