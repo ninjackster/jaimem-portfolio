@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Card — Print Ready</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Cormorant Garamond', 'Garamond', 'Georgia', serif; }
+  .card {
+    width: 1050px;
+    height: 600px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 30px 120px 20px 120px;
+  }
+  .annotation-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .bracket-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-self: flex-end;
+    margin-right: -6px;
+    margin-bottom: 18px;
+  }
+  .bracket-top .label {
+    font-size: 16.5px;
+    color: #222;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    text-align: center;
+    width: 100%;
+  }
+  .bracket-top .line {
+    width: 370px;
+    height: 24px;
+    border-left: 3px solid #222;
+    border-right: 3px solid #222;
+    border-top: 3px solid #222;
+  }
+
+  .email {
+    font-size: 49.5px;
+    font-weight: 200;
+    color: #222;
+    letter-spacing: 0.9px;
+    white-space: nowrap;
+  }
+
+  .bracket-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    margin-top: 18px;
+    margin-left: -10px;
+    margin-right: -6px;
+  }
+  .bracket-bottom .line {
+    width: 100%;
+    height: 24px;
+    border-left: 3px solid #222;
+    border-right: 3px solid #222;
+    border-bottom: 3px solid #222;
+  }
+  .bracket-bottom .label {
+    font-size: 16.5px;
+    color: #222;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .title {
+    font-size: 16.5px;
+    color: #222;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    margin-top: 24px;
+  }
+
+  .monogram {
+    margin-top: 30px;
+    width: 120px;
+    height: 120px;
+  }
+  .monogram img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="annotation-block">
+      <div class="bracket-top">
+        <span class="label">website</span>
+        <div class="line"></div>
+      </div>
+      <div class="email">Jaime@MurilloMena.com</div>
+      <div class="bracket-bottom">
+        <div class="line"></div>
+        <span class="label">email</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
