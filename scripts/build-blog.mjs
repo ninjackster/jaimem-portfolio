@@ -253,7 +253,7 @@ ${blogPostingJsonLd({
   })}
 
   <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/styles/site.css" />
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
 
 ${POST_STYLES}
 </head>
@@ -371,7 +371,7 @@ ${metaBlock({
 ${blogSchema}
 
   <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/styles/site.css" />
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
 
 ${POST_STYLES}
 </head>
