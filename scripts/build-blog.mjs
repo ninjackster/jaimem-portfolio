@@ -4,12 +4,23 @@
 // has an `es` block; the /es/blog/ hub still renders, marking English-only
 // posts with a small "English version available" badge.
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { POSTS } from './blog.data.mjs';
+import { POSTS as ALL_POSTS } from './blog.data.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+// Date-gate posts: only render those whose datePublished is today or earlier.
+// Drafts in the data file with future dates stay invisible until the date
+// arrives. A weekly GitHub Actions cron triggers a Vercel rebuild, so each
+// scheduled post publishes itself when its date passes.
+const TODAY_ISO = new Date().toISOString().slice(0, 10);
+const POSTS = ALL_POSTS.filter(p => p.datePublished <= TODAY_ISO);
+const DRAFT_COUNT = ALL_POSTS.length - POSTS.length;
+if (DRAFT_COUNT > 0) {
+  console.log(`[build-blog] ${POSTS.length} published, ${DRAFT_COUNT} scheduled (gated until their datePublished)`);
+}
 
 const COMMON_HEAD = `  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
   <script>
@@ -432,3 +443,65 @@ for (const post of POSTS) {
 }
 
 console.log(`[build-blog] ${totalFiles} files, ${totalBytes} bytes total`);
+
+// ─────────────────────────────────────────────────────────────────────────
+// Auto-regenerate the blog section of sitemap.xml. The sitemap contains two
+// HTML-style markers; we replace the lines between them with currently-
+// published blog URLs (hub + each post in both languages where applicable).
+// Posts whose datePublished is in the future are NOT in this list, so a
+// future-dated post auto-appears in the sitemap on the same build that
+// publishes the post page itself.
+// ─────────────────────────────────────────────────────────────────────────
+const SITEMAP = resolve(ROOT, 'sitemap.xml');
+const START = '<!-- AUTO_BLOG_URLS_START -->';
+const END = '<!-- AUTO_BLOG_URLS_END -->';
+
+function blogSitemapBlock() {
+  const lines = [];
+  function bilingual(loc, en, es) {
+    lines.push(`  <url>`);
+    lines.push(`    <loc>${loc}</loc>`);
+    lines.push(`    <lastmod>${TODAY_ISO}</lastmod>`);
+    lines.push(`    <xhtml:link rel="alternate" hreflang="en" href="${en}" />`);
+    lines.push(`    <xhtml:link rel="alternate" hreflang="es" href="${es}" />`);
+    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${en}" />`);
+    lines.push(`  </url>`);
+  }
+  function enOnly(loc) {
+    lines.push(`  <url>`);
+    lines.push(`    <loc>${loc}</loc>`);
+    lines.push(`    <lastmod>${TODAY_ISO}</lastmod>`);
+    lines.push(`  </url>`);
+  }
+  // Hubs always emit (so /blog/ and /es/blog/ stay indexable even if the
+  // queue is empty for a stretch).
+  bilingual('https://jaimem.com/blog/', 'https://jaimem.com/blog/', 'https://jaimem.com/es/blog/');
+  bilingual('https://jaimem.com/es/blog/', 'https://jaimem.com/blog/', 'https://jaimem.com/es/blog/');
+  for (const post of POSTS) {
+    const enUrl = `https://jaimem.com/blog/${post.slug}`;
+    const esUrl = `https://jaimem.com/es/blog/${post.slug}`;
+    if (post.es) {
+      bilingual(enUrl, enUrl, esUrl);
+      bilingual(esUrl, enUrl, esUrl);
+    } else {
+      enOnly(enUrl);
+    }
+  }
+  return lines.join('\n');
+}
+
+try {
+  let sitemap = readFileSync(SITEMAP, 'utf8');
+  if (sitemap.includes(START) && sitemap.includes(END)) {
+    const block = blogSitemapBlock();
+    const before = sitemap.split(START)[0] + START + '\n';
+    const after = '\n  ' + END + sitemap.split(END)[1];
+    sitemap = before + block + after;
+    writeFileSync(SITEMAP, sitemap, 'utf8');
+    console.log(`[build-blog] updated sitemap.xml blog section (${POSTS.length} published posts)`);
+  } else {
+    console.warn(`[build-blog] sitemap markers not found; add ${START} / ${END} to sitemap.xml to enable auto-update`);
+  }
+} catch (e) {
+  console.warn(`[build-blog] could not update sitemap.xml: ${e.message}`);
+}
