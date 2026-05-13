@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Resume — Jaime M. Mena | Revenue Operations Consultant</title>
+
+  <meta name="description" content="Resume of Jaime M. Mena — Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams. Salesforce, HubSpot, forecasting, territory design, sales compensation. Bilingual EN/ES, based in California." />
+  <link rel="canonical" href="https://jaimem.com/resume/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://jaimem.com/resume/" />
+  <meta property="og:title" content="Resume — Jaime M. Mena | Revenue Operations Consultant" />
+  <meta property="og:description" content="5+ years scaling B2B SaaS go-to-market teams. Salesforce, HubSpot, forecasting, territory design, sales compensation. Bilingual EN/ES." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Resume — Jaime M. Mena" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Resume — Jaime M. Mena" />
+  <meta name="twitter:description" content="5+ years scaling B2B SaaS go-to-market teams. Salesforce, HubSpot, forecasting, territory design, sales compensation. Bilingual EN/ES." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/resume/" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/resume/" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/resume/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jaime M. Mena",
+    "url": "https://jaimem.com/",
+    "image": "https://jaimem.com/profile.webp",
+    "email": "mailto:jaimemurillomena@gmail.com",
+    "jobTitle": "Revenue Operations Consultant",
+    "description": "Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams through strategy, systems, and data. Salesforce and HubSpot specialist. Bilingual English/Spanish.",
+    "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of California, San Diego" },
+      { "@type": "CollegeOrUniversity", "name": "San Francisco State University" }
+    ],
+    "knowsAbout": [
+      "Revenue Operations", "Sales Operations", "Go-to-Market Strategy", "Salesforce", "HubSpot",
+      "Territory Design", "Sales Forecasting", "Deal Desk", "Sales Compensation", "Pipeline Analytics",
+      "MEDDPICC", "Clari", "CPQ", "Customer Success", "Marketing Attribution"
+    ],
+    "knowsLanguage": ["English", "Spanish"],
+    "sameAs": ["https://www.linkedin.com/in/jaimemmena/"]
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .resume-wrap { max-width: 820px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
+    .resume-header { margin-bottom: 2.5rem; }
+    .resume-header h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: .25rem; }
+    .resume-header .sub { font-size: 1.05rem; color: var(--text-2); margin-bottom: 1rem; display: block; }
+    .resume-contact { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .9rem; color: var(--text-2); }
+    .resume-contact a { color: var(--text-2); text-decoration: none; }
+    .resume-contact a:hover { color: var(--accent); }
+    .resume-actions { display: flex; gap: .75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .resume-actions a {
+      display: inline-flex; align-items: center; padding: .55rem 1.1rem; border-radius: 6px;
+      font-size: .9rem; font-weight: 500; text-decoration: none; transition: background .15s, color .15s;
+    }
+    .resume-actions a.primary { background: var(--accent); color: #fff; }
+    .resume-actions a.primary:hover { background: var(--accent-h); }
+    .resume-actions a.secondary { border: 1px solid var(--border); color: var(--text); }
+    .resume-actions a.secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .resume-section { margin-top: 2.5rem; }
+    .resume-section h2 {
+      font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em;
+      padding-bottom: .35rem; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem;
+    }
+    .resume-summary p { color: var(--text); line-height: 1.7; margin-bottom: 1rem; font-size: 1rem; }
+    .role { margin-bottom: 1.5rem; }
+    .role-line {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+      gap: .5rem 1rem; margin-bottom: .3rem;
+    }
+    .role-title { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .role-company { font-size: .92rem; color: var(--text-2); }
+    .role-date { font-size: .85rem; color: var(--text-3); white-space: nowrap; }
+    .role-desc { font-size: .92rem; color: var(--text-2); line-height: 1.65; margin: 0; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 2rem; }
+    .skill-group h3 { font-size: .85rem; font-weight: 600; color: var(--text); margin-bottom: .35rem; }
+    .skill-group p { font-size: .88rem; color: var(--text-2); line-height: 1.55; margin: 0; }
+    .earlier-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+    .earlier-tags span {
+      font-size: .78rem; padding: .25rem .6rem; border-radius: 999px;
+      background: var(--bg-alt); color: var(--text-2); border: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    /* Print styles — readable on paper, no chrome */
+    @media print {
+      nav, footer, .resume-actions, .crumbs { display: none !important; }
+      .resume-wrap { padding: 0; max-width: none; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .role-desc, .skill-group p { font-size: 10pt; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/" data-en="Services" data-es="Servicios">Services</a></li>
+        <li><a href="/case-studies/" data-en="Case Studies" data-es="Casos de Estudio">Case Studies</a></li>
+        <li><a href="/blog/" data-en="Blog" data-es="Blog">Blog</a></li>
+        <li><a href="/#experience" data-en="Experience" data-es="Experiencia">Experience</a></li>
+        <li><a href="/#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="resume-wrap">
+      <p class="crumbs"><a href="/" data-en="Home" data-es="Inicio">Home</a> &rsaquo; <span data-en="Resume" data-es="Curr&iacute;culum">Resume</span></p>
+
+      <header class="resume-header">
+        <h1>Jaime M. Mena</h1>
+        <span class="sub" data-en="Revenue Operations Consultant &middot; B2B SaaS GTM &middot; California" data-es="Consultor de Revenue Operations &middot; GTM B2B SaaS &middot; California">Revenue Operations Consultant · B2B SaaS GTM · California</span>
+        <div class="resume-contact">
+          <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+          <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://jaimem.com/">jaimem.com</a>
+          <span data-en="Bilingual: English &amp; Spanish" data-es="Biling&uuml;e: ingl&eacute;s y espa&ntilde;ol">Bilingual: English &amp; Spanish</span>
+        </div>
+        <div class="resume-actions">
+          <a href="/resume.pdf" class="primary" download data-en="Download PDF" data-es="Descargar PDF">Download PDF</a>
+          <a href="/#contact" class="secondary" data-en="Start a Conversation" data-es="Iniciar una Conversaci&oacute;n">Start a Conversation</a>
+        </div>
+      </header>
+
+      <section class="resume-section resume-summary">
+        <h2 data-en="Summary" data-es="Resumen">Summary</h2>
+        <p data-en="Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams through strategy, systems, and data. Salesforce and HubSpot specialist with deep experience in forecasting, territory design, deal desk operations, and sales compensation. Bilingual English/Spanish; particularly effective for cross-border US-Mexico engagements. UC San Diego Master&rsquo;s graduate. Based in California, working remote-first." data-es="Consultor de Revenue Operations con m&aacute;s de 5 a&ntilde;os escalando equipos go-to-market en B2B SaaS a trav&eacute;s de estrategia, sistemas y datos. Especialista en Salesforce y HubSpot con experiencia profunda en pron&oacute;sticos, dise&ntilde;o de territorios, operaciones de deal desk y compensaci&oacute;n de ventas. Biling&uuml;e ingl&eacute;s/espa&ntilde;ol; particularmente efectivo para engagements transfronterizos EE.UU.-M&eacute;xico. Egresado de maestr&iacute;a en UC San Diego. Basado en California, trabajando remoto-primero.">Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams through strategy, systems, and data. Salesforce and HubSpot specialist with deep experience in forecasting, territory design, deal desk operations, and sales compensation. Bilingual English/Spanish; particularly effective for cross-border US-Mexico engagements. UC San Diego Master's graduate. Based in California, working remote-first.</p>
+      </section>
+
+      <section class="resume-section">
+        <h2 data-en="Experience" data-es="Experiencia">Experience</h2>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Senior Manager, Revenue Operations" data-es="Senior Manager, Revenue Operations">Senior Manager, Revenue Operations</span>
+            <span class="role-date" data-en="2025 &mdash; Jan 2026" data-es="2025 &mdash; Ene 2026">2025 &mdash; Jan 2026</span>
+          </div>
+          <p class="role-company">Exiger</p>
+          <p class="role-desc" data-en="Operationalized executive operating cadence for 40+ global reps. Redesigned territories with hierarchical rollups. Implemented Clari forecasting and MEDDPICC methodology, lifting forecast accuracy by ~18%. Reduced deal approval cycles to same-day processing across Government and Commercial segments." data-es="Operacionalic&eacute; la cadencia ejecutiva para m&aacute;s de 40 representantes globales. Redise&ntilde;&eacute; territorios con rollups jer&aacute;rquicos. Implement&eacute; pron&oacute;sticos con Clari y metodolog&iacute;a MEDDPICC, subiendo la precisi&oacute;n del pron&oacute;stico ~18%. Reduje los ciclos de aprobaci&oacute;n de deals a procesamiento el mismo d&iacute;a en segmentos de Gobierno y Comercial.">Operationalized executive operating cadence for 40+ global reps. Redesigned territories with hierarchical rollups. Implemented Clari forecasting and MEDDPICC methodology, lifting forecast accuracy by ~18%. Reduced deal approval cycles to same-day processing across Government and Commercial segments.</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Sales Operations Specialist" data-es="Especialista en Operaciones de Ventas">Sales Operations Specialist</span>
+            <span class="role-date" data-en="Apr 2024 &mdash; Dec 2024" data-es="Abr 2024 &mdash; Dic 2024">Apr 2024 &mdash; Dec 2024</span>
+          </div>
+          <p class="role-company">Exiger</p>
+          <p class="role-desc" data-en="Managed 90&ndash;100 deals quarterly (ARR $75K&ndash;$750K) across Government and Commercial teams in AMER, EMEA, and ROW. Rebuilt commissions reporting and created standardized GTM SOPs. Accelerated monthly commissions processing by ~50%." data-es="Gestion&eacute; 90&ndash;100 deals trimestralmente (ARR $75K&ndash;$750K) en equipos de Gobierno y Comercial en AMER, EMEA y ROW. Reconstru&iacute; reportes de comisiones y cre&eacute; SOPs estandarizados de GTM. Aceler&eacute; el procesamiento mensual de comisiones en ~50%.">Managed 90–100 deals quarterly (ARR $75K–$750K) across Government and Commercial teams in AMER, EMEA, and ROW. Rebuilt commissions reporting and created standardized GTM SOPs. Accelerated monthly commissions processing by ~50%.</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Revenue Operations &amp; Digital Solutions Consultant" data-es="Consultor de Revenue Operations y Soluciones Digitales">Revenue Operations &amp; Digital Solutions Consultant</span>
+            <span class="role-date" data-en="2024 &mdash; Present" data-es="2024 &mdash; Presente">2024 &mdash; Present</span>
+          </div>
+          <p class="role-company" data-en="Independent Practice" data-es="Pr&aacute;ctica Independiente">Independent Practice</p>
+          <p class="role-desc" data-en="Ongoing practice running alongside full-time roles. RevOps engagements with B2B SaaS clients on GTM strategy, ICP refinement, territory planning, lead-scoring frameworks, and workflow integration. In parallel, building bilingual websites, booking automations, and analytics dashboards for family-run and community-facing businesses across Sonoma County and Jalisco." data-es="Pr&aacute;ctica continua en paralelo a roles de tiempo completo. Engagements de RevOps con clientes B2B SaaS en estrategia GTM, refinamiento de ICP, planificaci&oacute;n de territorios, marcos de lead-scoring e integraci&oacute;n de flujos. En paralelo, construyendo sitios web biling&uuml;es, automatizaciones de reservas y dashboards de an&aacute;lisis para negocios familiares y comunitarios en el condado de Sonoma y Jalisco.">Ongoing practice running alongside full-time roles. RevOps engagements with B2B SaaS clients on GTM strategy, ICP refinement, territory planning, lead-scoring frameworks, and workflow integration. In parallel, building bilingual websites, booking automations, and analytics dashboards for family-run and community-facing businesses across Sonoma County and Jalisco.</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Revenue Operations Analyst" data-es="Analista de Revenue Operations">Revenue Operations Analyst</span>
+            <span class="role-date">2023 &mdash; 2024</span>
+          </div>
+          <p class="role-company">eSUB Construction Software</p>
+          <p class="role-desc" data-en="Managed deal-desk operations processing ~30 deals quarterly. Built CSM dashboards for $1.9M ARR renewal accounts. Improved data quality by ~15% QoQ." data-es="Gestion&eacute; operaciones de deal-desk procesando ~30 deals trimestralmente. Constru&iacute; dashboards de CSM para cuentas de renovaci&oacute;n de $1.9M ARR. Mejor&eacute; la calidad de datos en ~15% trimestre a trimestre.">Managed deal-desk operations processing ~30 deals quarterly. Built CSM dashboards for $1.9M ARR renewal accounts. Improved data quality by ~15% QoQ.</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Deal Desk / Revenue Analyst" data-es="Deal Desk / Analista de Ingresos">Deal Desk / Revenue Analyst</span>
+            <span class="role-date">2023</span>
+          </div>
+          <p class="role-company">Restaurant365</p>
+          <p class="role-desc" data-en="Processed ~60 deals monthly across SMB and mid-market segments. Reduced rep errors by ~20% through training. Rebuilt reports and dashboards." data-es="Proces&eacute; ~60 deals mensuales en segmentos SMB y mid-market. Reduje errores de representantes en ~20% mediante capacitaci&oacute;n. Reconstru&iacute; reportes y dashboards.">Processed ~60 deals monthly across SMB and mid-market segments. Reduced rep errors by ~20% through training. Rebuilt reports and dashboards.</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Sr. Revenue Operations Analyst" data-es="Sr. Analista de Revenue Operations">Sr. Revenue Operations Analyst</span>
+            <span class="role-date">2022 &mdash; 2023</span>
+          </div>
+          <p class="role-company">Honorlock</p>
+          <p class="role-desc" data-en="Built weekly GTM health scorecard. Supported territory redesign for 20-rep EdTech cohort. Reduced priority deal surfacing time by ~50%." data-es="Constru&iacute; scorecard semanal de salud GTM. Apoy&eacute; el redise&ntilde;o de territorios para un grupo de 20 representantes EdTech. Reduje el tiempo de identificaci&oacute;n de deals prioritarios en ~50%.">Built weekly GTM health scorecard. Supported territory redesign for 20-rep EdTech cohort. Reduced priority deal surfacing time by ~50%.</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Revenue Operations Business Analyst" data-es="Analista de Negocios de Revenue Operations">Revenue Operations Business Analyst</span>
+            <span class="role-date">2021 &mdash; 2022</span>
+          </div>
+          <p class="role-company">Chatmeter</p>
+        </div>
+
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Earlier career" data-es="Carrera anterior">Earlier career</span>
+            <span class="role-date">2011 &mdash; 2020</span>
+          </div>
+          <div class="earlier-tags">
+            <span data-en="Data Analyst &middot; COTS" data-es="Analista de Datos &middot; COTS">Data Analyst · COTS</span>
+            <span data-en="Data Analyst &middot; Glide Memorial" data-es="Analista de Datos &middot; Glide Memorial">Data Analyst · Glide Memorial</span>
+            <span data-en="FEMA Crisis Counselor &middot; Goodwill" data-es="Consejero de Crisis FEMA &middot; Goodwill">FEMA Crisis Counselor · Goodwill</span>
+            <span data-en="Paralegal" data-es="Paralegista">Paralegal</span>
+            <span data-en="Office Assistant &middot; ASI Legal" data-es="Asistente de Oficina &middot; ASI Legal">Office Assistant · ASI Legal</span>
+            <span data-en="Sales Associate &middot; Best Buy" data-es="Asociado de Ventas &middot; Best Buy">Sales Associate · Best Buy</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 data-en="Education" data-es="Educaci&oacute;n">Education</h2>
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="Master of International Affairs" data-es="Maestr&iacute;a en Asuntos Internacionales">Master of International Affairs</span>
+            <span class="role-date">2017</span>
+          </div>
+          <p class="role-company" data-en="University of California, San Diego &middot; School of Global Policy &amp; Strategy" data-es="University of California, San Diego &middot; School of Global Policy &amp; Strategy">University of California, San Diego · School of Global Policy &amp; Strategy</p>
+        </div>
+        <div class="role">
+          <div class="role-line">
+            <span class="role-title" data-en="B.A. Political Science" data-es="Licenciatura en Ciencias Pol&iacute;ticas">B.A. Political Science</span>
+            <span class="role-date">2015</span>
+          </div>
+          <p class="role-company" data-en="San Francisco State University &middot; Minor: International Relations" data-es="San Francisco State University &middot; Minor: Relaciones Internacionales">San Francisco State University · Minor: International Relations</p>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 data-en="Skills" data-es="Habilidades">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3 data-en="CRM &amp; Sales Tech" data-es="CRM y Tech de Ventas">CRM &amp; Sales Tech</h3>
+            <p>Salesforce (admin-level), HubSpot, Clari, Outreach, Gong, DealHub, CPQ</p>
+          </div>
+          <div class="skill-group">
+            <h3 data-en="Sales Methodologies" data-es="Metodolog&iacute;as de Ventas">Sales Methodologies</h3>
+            <p>MEDDPICC, MEDDIC, BANT, SPIN, Challenger</p>
+          </div>
+          <div class="skill-group">
+            <h3 data-en="Data &amp; Analytics" data-es="Datos y An&aacute;lisis">Data &amp; Analytics</h3>
+            <p>SQL, Tableau, Looker, Excel modeling, Google Sheets, Power BI fundamentals</p>
+          </div>
+          <div class="skill-group">
+            <h3 data-en="RevOps Domains" data-es="&Aacute;reas RevOps">RevOps Domains</h3>
+            <p data-en="Forecasting, territory design, deal desk, sales compensation, lead scoring, customer health scoring, marketing attribution" data-es="Pron&oacute;sticos, dise&ntilde;o de territorios, deal desk, compensaci&oacute;n de ventas, lead scoring, puntaje de salud del cliente, atribuci&oacute;n de marketing">Forecasting, territory design, deal desk, sales compensation, lead scoring, customer health scoring, marketing attribution</p>
+          </div>
+          <div class="skill-group">
+            <h3 data-en="Web &amp; Automation" data-es="Web y Automatizaci&oacute;n">Web &amp; Automation</h3>
+            <p>HTML/CSS/JS, Next.js, Supabase, Vercel, Apple Shortcuts, GitHub Actions</p>
+          </div>
+          <div class="skill-group">
+            <h3 data-en="Languages" data-es="Idiomas">Languages</h3>
+            <p data-en="English (native), Spanish (native, fully professional)" data-es="Espa&ntilde;ol (nativo, totalmente profesional), Ingl&eacute;s (nativo)">English (native), Spanish (native, fully professional)</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 data-en="Certifications" data-es="Certificaciones">Certifications</h2>
+        <p style="color:var(--text-2);line-height:1.7;font-size:.92rem;" data-en="MEDDPICC Masterclass (2025) &middot; HubSpot Revenue Operations Certified (2026) &middot; 34+ Salesforce Trailhead badges &middot; LinkedIn Learning: Data Visualization, Data Analytics for Business, Telling Stories with Data, Customer Insights, Product Roadmapping, Agile Foundations, Generative AI for Business Leaders, and more (15+ certificates)." data-es="MEDDPICC Masterclass (2025) &middot; HubSpot Revenue Operations Certified (2026) &middot; M&aacute;s de 34 insignias Salesforce Trailhead &middot; LinkedIn Learning: Visualizaci&oacute;n de Datos, An&aacute;lisis de Datos para Negocios, Historias con Datos, Insights del Cliente, Hoja de Ruta de Producto, Fundamentos &Aacute;giles, IA Generativa para L&iacute;deres de Negocios, y m&aacute;s (m&aacute;s de 15 certificados).">MEDDPICC Masterclass (2025) · HubSpot Revenue Operations Certified (2026) · 34+ Salesforce Trailhead badges · LinkedIn Learning: Data Visualization, Data Analytics for Business, Telling Stories with Data, Customer Insights, Product Roadmapping, Agile Foundations, Generative AI for Business Leaders, and more (15+ certificates).</p>
+        <p style="margin-top:.75rem;font-size:.88rem;"><a href="/#certifications" class="inline-link" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;" data-en="See full certification list on the homepage &rarr;" data-es="Ver lista completa de certificaciones en la p&aacute;gina principal &rarr;">See full certification list on the homepage →</a></p>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/services/">Services</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
