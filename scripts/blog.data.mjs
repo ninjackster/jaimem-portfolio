@@ -371,4 +371,534 @@ export const POSTS = [
       `,
     },
   },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // Scheduled queue: posts below have future datePublished values. The
+  // build script (build-blog.mjs) gates rendering — they stay invisible
+  // until the date passes. A weekly GitHub Actions cron triggers a
+  // Vercel rebuild so each post publishes itself on schedule.
+  // ─────────────────────────────────────────────────────────────────────
+
+  {
+    slug: 'bookings-vs-revenue-reconciliation-spreadsheet',
+    datePublished: '2026-06-09',
+    keywords: 'bookings vs revenue, ASC 606, revenue recognition, sales finance reconciliation, deferred revenue, RevRec, SaaS revenue model',
+    en: {
+      title: 'Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet',
+      description: 'Most companies do not have a bookings vs revenue problem — they have a reconciliation problem. Here is the five-step bridge that explains 95% of the gap, plus a one-spreadsheet model the CFO will actually trust.',
+      ogAlt: 'Bookings vs Revenue Reconciliation — Jaime M. Mena',
+      h1: 'Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet',
+      sub: 'June 9, 2026 · 8 min read · Revenue Finance',
+      lead: 'Most companies do not have a bookings vs revenue problem. They have a bookings vs revenue <em>reconciliation</em> problem — which is different. The numbers are fine in both systems. What is missing is the bridge that explains why they do not agree. This is the five-step bridge that closes 95% of the gap, plus how to build it as one spreadsheet that does not lie.',
+      body: `
+        <h2>The eternal argument</h2>
+
+        <p>Every quarter, Sales reports a bookings number. Every quarter, Finance reports a revenue number. The two never match. The conversation about why becomes a forensic accounting exercise — three people on a Zoom call walking through emails, contract amendments, and the date someone counter-signed a redline at 11:47 PM on the last day of the quarter. By the time the variance is explained, the meeting is over and nobody understands the business better than they did 60 minutes ago.</p>
+
+        <p>The reason this happens is simple: bookings and revenue measure different things. Bookings measures the contract value that was committed in the period. Revenue measures the value that was earned in the period under ASC 606. The two numbers diverge whenever contract terms include a ramp, an amendment, a partial-period start, a multi-year commitment, or a non-cash consideration. Which is almost always.</p>
+
+        <p>The reconciliation problem is not figuring out which number is right. They are both right. The reconciliation problem is documenting the bridge — every dollar of difference, attributed to a specific bridging item, in a format that survives next quarter.</p>
+
+        <h2>What ASC 606 actually requires, in plain English</h2>
+
+        <p>ASC 606 — the revenue recognition standard that has been the industry norm since 2018 — boils down to five steps. You identify the contract, identify the performance obligations inside it, determine the transaction price, allocate price to performance obligations, and recognize revenue when (or as) those obligations are satisfied.</p>
+
+        <p>For a typical B2B SaaS contract, the practical implication is this: subscription revenue recognizes ratably over the subscription term, professional services recognize as delivered, and any one-time setup fees recognize at delivery (unless they are non-distinct, in which case they roll into the subscription stream). Multi-year ramps recognize at the average annual contract value per year, with deferred revenue accruing or unwinding depending on cash collection.</p>
+
+        <p>That is the entire framework most B2B SaaS finance teams use. The complications come from the edge cases: amendments, partial-month starts, churned customers with refunds, swap deals where the customer trades one SKU for another mid-contract. Those edge cases are where the reconciliation work happens.</p>
+
+        <h2>The five bridging items that account for 95% of the gap</h2>
+
+        <p>I have rebuilt this reconciliation at three different B2B SaaS companies. The categories of bridging items are remarkably consistent across all of them.</p>
+
+        <p><strong>1. Ramp deals.</strong> A three-year contract at $100K Year 1, $150K Year 2, $200K Year 3 books $450K Total Contract Value in the period it closes. Revenue recognition averages to $150K/year, so Year 1 recognizes $150K — already $50K more than the cash collected. The bridge: bookings $450K, Year 1 revenue $150K, deferred revenue created $300K, unbilled receivable created $50K. Most reconciliation arguments are someone forgetting one of those four numbers.</p>
+
+        <p><strong>2. Mid-term amendments.</strong> A customer upgrades from $50K/year to $80K/year nine months into a 12-month contract. Bookings recognize the $30K incremental ARR in the upgrade period. Revenue catches up: the next three months recognize at the new $80K rate, and the deferred revenue from the original contract continues to release as if nothing changed. The bridge column shows "Amendment uplift" with the incremental MRR delta.</p>
+
+        <p><strong>3. Partial-period starts.</strong> A contract that begins on the 17th of the month creates two partial months — the start month with 14 days of revenue and a final month that may or may not be partial depending on when the term ends. Most spreadsheets compute revenue with daily proration. Some compute it with monthly proration. The two methods produce different numbers, and if Sales and Finance are using different methods, the reconciliation breaks every quarter.</p>
+
+        <p><strong>4. Non-distinct add-ons.</strong> A customer buys the platform for $60K and "Premium Support" for $20K. Are those two distinct performance obligations or one? Under ASC 606, the answer depends on whether the support is meaningfully separable. If not, both recognize ratably as a single stream — which means $80K over 12 months instead of $60K + $20K-at-delivery. Sales books the $20K as if it were upfront. Finance recognizes ratably. Bridge: "Non-distinct deferral."</p>
+
+        <p><strong>5. Cancellations and refunds.</strong> A customer churns 7 months into a 12-month contract with a refund. Bookings reverse for the unbilled portion. Revenue reverses for any over-recognized amount. The deferred revenue balance drops to zero. Most reconciliation tools handle this poorly because they treat the contract as a single line item rather than a stream that needs to be unwound. The bridge: "Churn reversal" with the refunded amount called out separately from the unrecognized future revenue.</p>
+
+        <h2>The 20-deal worked example</h2>
+
+        <p>The smallest model that actually works has 20 deals — enough to cover every category above. Pick five new business contracts (clean), four multi-year ramps, three mid-term amendments, three partial-period starts, three non-distinct add-on bundles, and two cancellations. Walk each deal from contract date through monthly recognition through the end of the term.</p>
+
+        <p>Build it in three tabs. Tab one: the deal taxonomy — one row per deal, columns for contract date, term, ACV, TCV, amendment markers, cancellation date. Tab two: the monthly recognition grid — one column per month, one row per deal, populated by a formula that reads the taxonomy and applies the right recognition rule. Tab three: the bridging summary — bookings minus revenue, attributed to each of the five bridging categories.</p>
+
+        <p>The reconciliation works when the bridging summary mathematically explains the variance between bookings and revenue to the dollar. Not "approximately." To the dollar. If it does not, one of the five categories has a missing case.</p>
+
+        <h2>Why CFOs do not trust the bookings number</h2>
+
+        <p>The bookings number, as Sales reports it, is almost always inflated relative to what Finance can recognize over the contract term. Not because Sales is dishonest. Because Sales counts TCV as a single number while Finance has to apply discounting, ramp averaging, and non-distinct deferrals to that same TCV.</p>
+
+        <p>The fix is to publish bookings <em>at multiple granularities</em>: TCV, ARR, MRR, billings, recognized revenue. Each measures something different and each is correct for a different conversation. Forecast meetings should use ARR. Cash-flow models should use billings. Income statement discussions should use recognized revenue. When Sales and Finance start using the right number for the right conversation, the arguments mostly disappear.</p>
+
+        <h2>When to graduate to software</h2>
+
+        <p>The one-spreadsheet reconciliation works through about 200-500 active contracts. After that, three things break: the spreadsheet gets slow, the manual entry burden becomes a full-time job, and the audit trail becomes too long for a human to defend. That is the point where Maxio, Sage Intacct, Chargebee, or one of the niche RevRec vendors earns its price tag.</p>
+
+        <p>Below 200 active contracts, the spreadsheet usually beats the software on flexibility. You can model an edge case in 20 minutes. The software needs a configuration project. Most teams I see migrate to software around 300-400 active contracts, which is roughly when the spreadsheet starts losing more time than the software costs.</p>
+
+        <h2>The half-day setup</h2>
+
+        <p>If your bookings and revenue numbers do not reconcile cleanly today, here is the half-day intervention:</p>
+
+        <ol>
+          <li>Identify the last 20 representative deals. Make sure all five bridging categories are covered. (1 hour)</li>
+          <li>Build the three-tab spreadsheet model. (2 hours)</li>
+          <li>Have one Sales leader and one Finance leader walk through the bridging summary together. (1 hour)</li>
+          <li>Write a one-page policy document that codifies the bridging rules. Publish it. (30 minutes)</li>
+          <li>Schedule a quarterly review of the bridging categories — new edge cases get added to the policy, not papered over. (15 minutes calendar setup)</li>
+        </ol>
+
+        <p>That is the entire intervention. It does not require new software, new headcount, or a 90-day consulting engagement. It requires four hours and a willingness to write down the policy that everyone has been improvising for years.</p>
+      `,
+    },
+  },
+
+  {
+    slug: 'territory-design-without-spreadsheets-melting',
+    datePublished: '2026-07-07',
+    keywords: 'sales territory design, account assignment, ICP, territory planning, territory rebalancing, Salesforce territory management, named accounts',
+    en: {
+      title: 'How to design sales territories without spreadsheets melting in Q4',
+      description: 'Territory design fails in Q4, not in Q1 — and the cause is almost never the design. It is the operating cadence around it. Here is the playbook for territory work that survives a full year of new hires, churn, and the inevitable account-claim wars.',
+      ogAlt: 'Territory Design Playbook — Jaime M. Mena',
+      h1: 'How to design sales territories without spreadsheets melting in Q4',
+      sub: 'July 7, 2026 · 8 min read · Territory Planning',
+      lead: 'Territory design fails in Q4, not in Q1. The design that ships in January looks fine until June, when the first wave of new hires changes the math, then becomes a mess in October when one rep accidentally claims an account already booked by another. The fix is almost never to redesign the territories. It is to fix the operating cadence around them.',
+      body: `
+        <h2>Why Q4 is when territory pain shows up</h2>
+
+        <p>Every territory model survives its first quarter. The reps were involved in the design. The named accounts are fresh. Pipeline coverage looks healthy because nobody has had time to burn through it yet. By mid-Q2, two reps have left and their accounts get reassigned in a hurry. By mid-Q3, marketing has generated 400 inbound leads that nobody pre-assigned, so AEs are claiming them in a Slack channel called <code>#inbound-grab</code>. By Q4, leadership is reviewing pipeline coverage and discovering that three reps are over-covered and four are under-covered, no two reports agree on who owns the top 50 accounts, and the forecast call has become a contest over whose pipeline contributes to whose quota.</p>
+
+        <p>None of this is a design failure. The original territory model was fine in January. What failed was the operating cadence that should have caught each drift before it compounded.</p>
+
+        <h2>Start from ICP, not from rep geography</h2>
+
+        <p>The biggest design mistake I see is starting from where the reps live. Reps are mobile. ICPs are not. Build the territories from the account universe — the named accounts that fit your ideal customer profile — and then assign reps to those accounts based on capability and capacity. The geography of where reps happen to live in any given quarter is a secondary concern, not a primary one.</p>
+
+        <p>Practically, this means: pull the TAM (Total Addressable Market) from a source like ZoomInfo or Crunchbase, filter to accounts that match the ICP (industry, employee count, revenue band, tech stack, recent hiring signal), tier them by potential value, then group them into balanced books. <em>Then</em> assign reps. This produces territories where every rep has roughly the same number of high-tier accounts, regardless of where they sit on a map. It also makes the design defensible — when someone asks "why does my territory only have six Enterprise accounts," the answer is "because the ICP only contains six Enterprise accounts in your segment, and three other reps have the same problem."</p>
+
+        <h2>Three tiers, not five</h2>
+
+        <p>Most account tiering models I have inherited have five tiers. Five is too many. The math of how many accounts a rep can meaningfully cover does not produce five distinct attention levels — it produces three: "must touch this quarter," "should touch this year," and "knows we exist."</p>
+
+        <p>Tier 1: roughly 15-25 accounts per rep. These get personalized outbound, executive sponsor meetings, ABM campaigns, and named multi-threading. The rep has a relationship by name with at least three people in each account.</p>
+
+        <p>Tier 2: roughly 75-150 accounts per rep. These get cadenced outreach, marketing nurture, and a quarterly touch from the AE. The rep can rattle off the top 30 from memory.</p>
+
+        <p>Tier 3: everyone else. Demand-gen carries the load. The AE inherits these only when inbound interest surfaces them.</p>
+
+        <p>Three tiers is enough granularity to make assignment decisions. Five tiers introduces categories that nobody actually treats differently in practice, which means the bottom two collapse into "we will get to it" — which is the same thing.</p>
+
+        <h2>Hierarchical rollups in Salesforce</h2>
+
+        <p>Leadership wants to roll up territory performance by segment, region, and overall org. The way most Salesforce orgs handle this is a custom field on the User or Account record that does not aggregate cleanly. The right way is to use Salesforce Territory Management (the feature, not the concept) — yes, the implementation is annoying, but the alternative is custom Apex code that breaks every time someone changes a rep assignment.</p>
+
+        <p>The model: every territory has a parent. AMER-Enterprise rolls up to AMER, AMER rolls up to Global. Reports built against territory hierarchy automatically aggregate by any level. When a rep moves from AMER-SMB to AMER-Mid-Market, their pipeline moves with them, the rollups update, and historical reporting stays consistent because Salesforce keeps the snapshot. This is the entire reason Salesforce shipped Territory Management 2.0 — and it is still under-used because the initial setup is fiddly.</p>
+
+        <h2>Ending account-claim wars</h2>
+
+        <p>The single most expensive operational disagreement on a B2B SaaS team is two reps claiming the same account. The right answer is to make it impossible — one owner per account at any moment, enforced by a Salesforce validation rule. Carve-outs (an SDR working a prospect that is technically owned by a different AE; a CSM owning the renewal but Sales owning the upsell) are documented in a single sheet that the deal desk owns. If a deal closes on an account where ownership was contested, the deal desk has authority to resolve it before commission is paid.</p>
+
+        <p>The Slack channel approach — where reps post "claiming this account" and the first to post wins — does not scale past 10 reps. It also creates resentment that compounds across quarters. Invest in the validation rule. The implementation is 90 minutes for an admin with intermediate Salesforce skills.</p>
+
+        <h2>The mid-year reshuffle protocol</h2>
+
+        <p>Even with perfect design, mid-year changes are unavoidable. Reps leave, new reps onboard, segments shift. The protocol for handling reshuffles is more important than the original design.</p>
+
+        <p>Three rules: (1) rep terminations trigger an account redistribution within five business days, with the manager owning the decision and ops executing. (2) New rep onboardings get accounts from a "talent pool" — accounts that were intentionally held back during initial design specifically for this purpose. Hold back about 5-10% of the named-account universe for this. (3) Any rep-initiated request to swap accounts requires written justification to the manager and is reviewed quarterly, not on demand. The third rule is the one that prevents reshuffle requests from becoming a permanent meeting on every manager's calendar.</p>
+
+        <h2>The 200-account scoring template</h2>
+
+        <p>If you are starting from zero, the template that works is a 200-account scoring matrix per rep. Columns: account name, industry, employee count, revenue, tech stack flags, intent signal flags, last contact date, last marketing engagement, current pipeline status, tier (1-3), assigned rep. Update it monthly. Sort by tier, then by intent score. That sorted list is the rep's account universe and the basis for every weekly pipeline review.</p>
+
+        <p>Below 200 named accounts per rep, the model is too thin to give reps enough to work with. Above 400, the rep cannot meaningfully prioritize and falls back to "what came in this week." Two hundred is the sweet spot for most B2B SaaS motions.</p>
+
+        <h2>What software to use, and what to skip</h2>
+
+        <p>You do not need a territory management software vendor for a 20-50 rep team. Salesforce native territory management, an Account ranking field, and a monthly review meeting is enough. Above 50 reps, tools like Anaplan, Fullcast, or Varicent SPM Cloud earn their cost because the optimization math (balancing capacity, capability, and potential across hundreds of reps) gets non-trivial. Below 50 reps, those tools add ceremony and slow down the iteration.</p>
+
+        <p>The one tool I do recommend at any size: a TAM/ICP data source. ZoomInfo, Crunchbase, Apollo. Without it, you are designing territories against a market that exists only in your CRM, and your CRM is a sample of one company's history — not a sample of the addressable market. The TAM source is the difference between a defensive design and an offensive one.</p>
+
+        <h2>The first 30 days of a territory engagement</h2>
+
+        <p>If you inherit a territory mess and have 30 days to fix it:</p>
+
+        <ol>
+          <li>Week 1: pull the named-account universe from Salesforce. Audit for duplicates, ownership conflicts, accounts assigned to ex-employees. Clean up.</li>
+          <li>Week 2: define or refresh the ICP. Pull TAM from a data source. Identify the gap — accounts in your CRM that do not fit the ICP, and accounts in the TAM that should be in your CRM but are not.</li>
+          <li>Week 3: design the new territories using the three-tier model. Stay within ±15% balance across reps for Tier 1 count.</li>
+          <li>Week 4: roll out. Communicate the rationale. Set up the operating cadence (validation rule, quarterly reshuffle protocol, monthly tier review).</li>
+        </ol>
+
+        <p>The next year is execution. The design is the easy part. The cadence is the work.</p>
+      `,
+    },
+  },
+
+  {
+    slug: 'two-hour-weekly-forecast-call',
+    datePublished: '2026-08-04',
+    keywords: 'forecast call, pipeline review, sales forecasting cadence, deal inspection, MEDDPICC inspection, sales operating cadence, sales management',
+    en: {
+      title: 'The two-hour weekly forecast call: what to inspect, what to ignore',
+      description: 'Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The fix is not a longer meeting — it is a different agenda. Here is the four-quadrant inspection model and a sample 2-hour agenda you can steal.',
+      ogAlt: 'Weekly Forecast Call Playbook — Jaime M. Mena',
+      h1: 'The two-hour weekly forecast call: what to inspect, what to ignore',
+      sub: 'August 4, 2026 · 7 min read · Forecast Operations',
+      lead: 'Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The participants leave the meeting feeling productive because the time was filled, but no rep was actually challenged on a soft commit, and no deal was actually moved from a higher confidence tier to a lower one. The fix is not a longer meeting — it is a different agenda.',
+      body: `
+        <h2>What most forecast calls do wrong</h2>
+
+        <p>The typical agenda: open with the biggest deals, walk through each one rep-by-rep, ask "how confident are you," accept the answer, move on. Each conversation takes 4-6 minutes, runs through 20 deals, and ends with a 90-minute meeting where leadership feels informed and reps feel managed. Nothing about the forecast changed during the call. The committed deals stayed committed. The slipped deals stayed slipped. The meeting was theater.</p>
+
+        <p>The reason it is theater: the meeting opens with the deals that everyone is most confident about. Those are exactly the deals that need the least inspection. They will probably close. The conversation around them is comfortable. By the time the meeting reaches the messy deals — the ones with no champion, no decision process, no Economic Buyer named — there are 12 minutes left and three of them get clustered into a "we will follow up offline" bucket. Which means they will not.</p>
+
+        <h2>The four-quadrant inspection</h2>
+
+        <p>The replacement framework: open the meeting by sorting the pipeline by inspection priority, then walk it from worst to best. Four quadrants matter:</p>
+
+        <p><strong>1. Missing data.</strong> Any Commit-tier deal where one or more required qualification fields is empty or trivially filled ("CEO" with no name; "Q3" with no specific date). These get inspected first because they are the most likely to slip and the easiest to fix on the call.</p>
+
+        <p><strong>2. Slipped from prior period.</strong> Any deal that was Commit last quarter and did not close. The forecast call should track these for two cycles. If a deal slips twice, the rep should be required to present the new close-date logic in front of the team. This is uncomfortable on purpose.</p>
+
+        <p><strong>3. Aged out of stage.</strong> Any deal that has been in the same stage for more than 1.5x the average time-in-stage for the segment. A 90-day-old Stage 4 deal in an environment where Stage 4 averages 35 days is almost always either lost, paused, or being slow-walked by procurement. Each one gets a hard inspection: are we waiting on signature, or are we hoping?</p>
+
+        <p><strong>4. No champion.</strong> Any deal at Stage 3 or higher without a named champion (first and last name in the CRM). This is the early-warning indicator that almost no team takes seriously enough. A deal without a named champion at Stage 4 closes at about 25% of the rate of deals with named champions. Treat the absence of a champion as a stage-blocker.</p>
+
+        <p>Run the meeting through these four quadrants in order. Each quadrant gets a fixed allotment — say 25 minutes. The big easy deals at the bottom of the funnel get whatever time is left. Often nothing, and that is correct.</p>
+
+        <h2>Open with the bottom, not the top</h2>
+
+        <p>The single biggest agenda change is reversing the deal order. Instead of opening with the biggest, opening with the worst — the deals where qualification is thinnest, the ones leadership is least confident about, the ones that are about to age out. This is uncomfortable for the reps whose deals are in that bucket, and the discomfort is the point. The forecast call is a forcing function for honest qualification, not a parade of best-case scenarios.</p>
+
+        <p>Frontline managers will push back on this the first time you try it. "We do not have time to grill every weak deal." That is true. The four-quadrant model means you do not grill every weak deal — you grill the top 5-8 in each quadrant. The bottom of each quadrant is the manager's problem to follow up on async. The meeting is for the deals where leadership input changes the trajectory.</p>
+
+        <h2>The questions that work</h2>
+
+        <p>Inspection is only useful if the questions force specifics. Generic questions ("how do you feel about it") produce generic answers ("good"). Specific questions force the rep to reveal what they actually know.</p>
+
+        <p>Working questions, in order of how often I use them:</p>
+
+        <ul>
+          <li>"Who at the customer benefits if this deal closes — give me a name."</li>
+          <li>"What is the next scheduled meeting on the calendar with that person?"</li>
+          <li>"What is on their procurement checklist that we have not satisfied yet?"</li>
+          <li>"Walk me through the day this contract gets signed — who clicks the button, on what platform?"</li>
+          <li>"Why does the customer not want to do nothing?"</li>
+          <li>"Who else are they evaluating, and what did they tell you when you asked?"</li>
+        </ul>
+
+        <p>Each of those takes about 30-60 seconds to answer if the rep has the information, and reveals immediately when they do not. The rep cannot fluff their way through them. Compare to "are you confident this will close" — which a rep can answer with "yes" while having no information at all.</p>
+
+        <h2>Reading qualification fields out loud</h2>
+
+        <p>The most effective intervention I have ever rolled out is having managers read MEDDPICC fields out loud during the call. The manager opens the deal in Salesforce, projects it, and literally reads "Economic Buyer: TBD. Decision Process: we expect a decision soon. Pain: they need a better solution." Hearing the qualification spoken aloud, in front of peers, surfaces how thin it actually is. Reps fix the fields by Friday. The next call is meaningfully different.</p>
+
+        <p>This works because reading the field aloud changes the audience. When the rep wrote "TBD" three weeks ago, the audience was a future version of themselves who would maybe fix it. When the manager reads "TBD" aloud at the forecast call, the audience is twelve peers and a CRO. The accountability scaling is the entire point.</p>
+
+        <h2>Monday vs Thursday cadence</h2>
+
+        <p>Most teams run forecast calls on Monday because "it sets up the week." Most teams should run them on Thursday because "it sets up the work that needs to happen Friday before the weekend." Monday calls produce action items that get done by next Monday. Thursday calls produce action items that get done by Friday afternoon. The difference compounds over a quarter.</p>
+
+        <p>This is a small change but it matters. The work that comes out of a forecast call — fixing qualification fields, scheduling missing meetings, multi-threading into a stalled account — has a one-day half-life. If the call is Monday and the manager forgets to follow up, the rep has eight working days to find a reason not to fix it. If the call is Thursday, the rep has one. Move the call.</p>
+
+        <h2>What to cut from the meeting</h2>
+
+        <p>Most forecast calls have accumulated three or four agenda items that do not belong: marketing campaign updates, product release timelines, CSM at-risk reports, the latest competitive intel. All of these are real and important. None of them should be in the forecast call. They each get their own meeting (or async update), and they each have their own audience. Mixing them into the forecast call dilutes the inspection time and trains reps that the meeting is general business — not a place where their deals get challenged.</p>
+
+        <p>Cut everything that is not directly about the inspection of in-quarter pipeline. Send the rest as a written update with a 5-bullet summary every Friday. The meeting tightens. Forecast accuracy goes up.</p>
+
+        <h2>Sample 2-hour agenda</h2>
+
+        <p>The template I run, weekly, with a 20-rep team:</p>
+
+        <ul>
+          <li>0:00–0:05 — Open with the headline number. "We forecast $4.2M, last week we forecast $4.4M, here are the three deals that moved." No discussion yet. Just the data.</li>
+          <li>0:05–0:30 — Quadrant 1: missing data. Top 5-8 deals with incomplete MEDDPICC fields at Commit or Best Case. Manager reads fields aloud, rep responds, action items captured.</li>
+          <li>0:30–0:55 — Quadrant 2: slipped from prior period. Top 5-8 deals that were Commit and did not close. Rep walks through new close-date logic.</li>
+          <li>0:55–1:20 — Quadrant 3: aged out of stage. Top 5-8 long-stayers. Decision: continue inspecting, or move to Closed Lost.</li>
+          <li>1:20–1:45 — Quadrant 4: no champion. Top 5-8 deals at Stage 3+ missing a named champion. Action plan to find one or stage-block the deal.</li>
+          <li>1:45–2:00 — Forward-looking: pipeline coverage, next-quarter readiness, anything time-sensitive that did not fit the quadrants.</li>
+        </ul>
+
+        <p>Two hours, weekly, every week. Same agenda. The reps learn what gets asked. The qualification fields start landing pre-filled. The forecast tightens. Six months in, the meeting can shrink to 90 minutes because the four quadrants empty out — which is the actual measurement of whether the cadence is working.</p>
+      `,
+    },
+  },
+
+  {
+    slug: 'meddpicc-in-hubspot-under-an-hour',
+    datePublished: '2026-09-01',
+    keywords: 'MEDDPICC, HubSpot, HubSpot custom properties, sales qualification setup, HubSpot deal stages, sales process configuration, HubSpot workflows',
+    en: {
+      title: 'Setting up MEDDPICC in HubSpot in under an hour',
+      description: 'Most teams that "tried MEDDPICC and it did not stick" never actually wired the eight letters into the deal record — they just put them on a slide. Doing it correctly in HubSpot takes under an hour. Here is the exact setup.',
+      ogAlt: 'MEDDPICC in HubSpot — Jaime M. Mena',
+      h1: 'Setting up MEDDPICC in HubSpot in under an hour',
+      sub: 'September 1, 2026 · 6 min read · HubSpot Setup',
+      lead: 'Most teams that "tried MEDDPICC and it did not stick" never actually wired the eight letters into the deal record — they just put them on a slide. The rollout fails because the framework lives in enablement decks, not in the CRM, and reps treat it as something to remember rather than something to fill in. Doing it correctly in HubSpot takes under an hour and turns the framework from a slide into an operational discipline.',
+      body: `
+        <h2>The 8 custom Deal properties</h2>
+
+        <p>Open Settings → Objects → Deals → Manage Properties. Create eight custom properties under a new property group called "MEDDPICC Qualification." Each is a single-line text field, not a dropdown. The reason for text fields rather than picklists: the qualification answer is specific to each deal, and forcing reps to pick from a list trains them to game the picklist instead of writing a real answer.</p>
+
+        <ul>
+          <li><strong>Metrics</strong> — what numerical outcome does the buyer want?</li>
+          <li><strong>Economic Buyer</strong> — first and last name, plus title.</li>
+          <li><strong>Decision Criteria</strong> — what they will evaluate vendors on.</li>
+          <li><strong>Decision Process</strong> — the literal steps from here to signature.</li>
+          <li><strong>Identified Pain</strong> — current state that is unacceptable enough to spend money.</li>
+          <li><strong>Champion</strong> — first and last name, plus a one-sentence why-they-care.</li>
+          <li><strong>Paper Process</strong> — procurement, legal, contract review path.</li>
+          <li><strong>Competition</strong> — named competitors, including do-nothing.</li>
+        </ul>
+
+        <p>Naming convention matters. Use the full word in the property label ("Economic Buyer," not "EB"). Reps will encounter these fields in deal records every day, and full words communicate intent better than abbreviations. Also use the property description field — a short one-line prompt for each property that tells the rep what good looks like. "Decision Process" with the description "Bullet the literal steps. Example: 1. Demo with team. 2. Security review. 3. Procurement RFI. 4. Legal redlines. 5. Counter-sign." costs nothing to add and dramatically improves what reps put in the field.</p>
+
+        <h2>Property dependency rules</h2>
+
+        <p>Paper Process and Competition do not always matter. For a $20K transactional deal, they add ceremony without insight. For a $200K enterprise deal with multi-vendor evaluation, they are the two most predictive fields. HubSpot lets you conditionally show properties based on other field values — use it.</p>
+
+        <p>Set Paper Process and Competition to show only when Deal Type = New Business and Deal Amount > $50K. The threshold is yours to set; pick the number that maps to where your team needs procurement scrutiny. Below that, the two fields stay hidden and do not pollute the deal record. Above it, they are required (per the stage-gate rule below).</p>
+
+        <h2>Stage requirements at Stage 3 and Stage 4</h2>
+
+        <p>This is the part that actually drives adoption. Open Settings → Objects → Deals → Pipelines. For your default pipeline, configure stage progression rules. At Stage 3 (typically Proposal or equivalent), require four MEDDPICC fields to be non-empty: Economic Buyer, Identified Pain, Champion, Decision Process. At Stage 4 (typically Negotiation), require all eight where applicable (Paper Process and Competition only required if visible per the dependency rules above).</p>
+
+        <p>HubSpot enforces these as validation rules. The rep cannot advance the deal stage until the fields are populated. They will resist. That is the point. The friction at stage advancement is the entire reason the framework drives qualification depth instead of being a checkbox exercise.</p>
+
+        <p>One configuration note: the stage requirement in HubSpot is not natively a hard block — it is a warning. To make it a hard block, use a workflow that automatically reverts the stage change when the fields are empty. Set the workflow trigger: when Deal Stage = Stage 3 AND any of the four required fields is empty, revert stage to previous AND send the rep a notification. The notification text matters; write it as a coach, not a cop. "Deal moved back to Stage 2 — fill in Economic Buyer, Identified Pain, Champion, and Decision Process before advancing. Description prompts are in each field."</p>
+
+        <h2>The MEDDPICC Health calculated property</h2>
+
+        <p>Create one more property: a calculated property called "MEDDPICC Health." It is a number between 0 and 8 that counts how many of the eight fields are populated with non-trivial values. HubSpot calculated properties support this kind of formula — count non-empty fields in the property group.</p>
+
+        <p>Use the score on dashboards. Filter deals to MEDDPICC Health less than 6 at Stage 3+ and show that filtered count as a tile on the manager's dashboard. The tile becomes the first thing managers look at every morning. Reps who see their deals appearing in that tile clean up their qualification within a day. The score is a public accountability mechanism without needing a single meeting.</p>
+
+        <h2>The completeness dashboard</h2>
+
+        <p>One dashboard, five tiles, configured in 15 minutes:</p>
+
+        <ul>
+          <li>Average MEDDPICC Health by rep (bar chart, sorted descending).</li>
+          <li>Count of Commit-tier deals with Health less than 6 (single number, red if greater than 5).</li>
+          <li>Aging deals at Stage 3+ with empty Champion field (table).</li>
+          <li>Deals where Decision Process is shorter than 50 characters (table — proxy for "they wrote 'TBD' or similar").</li>
+          <li>Trend chart: average Health across the team over the last 12 weeks.</li>
+        </ul>
+
+        <p>Save it as a shared dashboard. Send the manager a link. The dashboard does the inspection that no human wants to do every Friday afternoon.</p>
+
+        <h2>A workflow that pings managers on incomplete commits</h2>
+
+        <p>One more workflow worth setting up. Trigger: Deal Stage = Commit AND MEDDPICC Health less than 6. Action: send the manager a Slack notification ("Deal X is in Commit but Health is 4/8 — please review qualification with rep before Friday"). This catches the deals that slip through the validation rules because the rep populated the four required fields trivially. The workflow runs in HubSpot for free; the Slack integration is the standard one most teams already have.</p>
+
+        <p>The notification is calibrated to be a nudge, not an interruption. One ping per deal, per stage transition. Managers can choose to act or not. After two months, the notifications taper because reps stop letting deals reach Commit with thin qualification. The workflow becomes self-eliminating, which is the right outcome.</p>
+
+        <h2>One trap: HubSpot's built-in BANT field</h2>
+
+        <p>HubSpot ships with a built-in qualification framework called BANT (Budget, Authority, Need, Timeline). It is a property group on the Contact object. Do not use it as your qualification framework. BANT is from a different era, captures less information than MEDDPICC, and lives on the wrong object (Contact, not Deal). If you have it enabled for legacy reasons, hide the property group and ignore it. Your qualification lives on the Deal object in your MEDDPICC group, full stop.</p>
+
+        <p>The reason this is a trap: HubSpot occasionally surfaces BANT as a default suggestion in onboarding, and a new admin will turn it on alongside MEDDPICC because "why not." Two qualification frameworks confuse reps and create a debate about which is authoritative. Pick one. MEDDPICC.</p>
+
+        <h2>Bonus: the same setup in Salesforce takes about 3 hours</h2>
+
+        <p>If you are setting up MEDDPICC in Salesforce instead, the work is the same conceptually but takes longer because Salesforce's customization surface is wider and slower. Add the eight fields to the Opportunity object (15 min), configure page layouts per profile (45 min), build validation rules for stage progression (30 min), build the MEDDPICC Health formula field (15 min), build the dashboard (30 min), build the Flow that handles incomplete-Commit alerts (45 min). Three hours, end to end.</p>
+
+        <p>The Salesforce setup is the same logic; just more clicks. The discipline of using the framework after the setup is identical.</p>
+
+        <h2>The 30-day adoption check</h2>
+
+        <p>Thirty days after rollout, run the audit. Average MEDDPICC Health should be 5+ across the team. Commit-tier deals should be 7+. If you are not there, the validation rules are too soft or the manager cadence is too quiet. Tighten the rules. Loop in the CRO to read fields out loud during the next forecast call. Six weeks later, audit again. By the end of quarter two, the framework should be invisible — meaning it works without anyone needing to talk about it. That is the goal.</p>
+      `,
+    },
+  },
+
+  {
+    slug: 'five-salesforce-reports-cros-bookmark',
+    datePublished: '2026-09-29',
+    keywords: 'Salesforce reports, CRO dashboard, pipeline coverage report, sales reporting, GTM scorecard, B2B SaaS leading indicators, win rate analysis',
+    en: {
+      title: 'The five Salesforce reports every CRO should bookmark on Monday',
+      description: 'A working CRO opens five Salesforce reports first thing Monday. Not ten. Not the giant Tableau dashboard the BI team built. Five — and these are them, with the build steps and the traps to avoid.',
+      ogAlt: 'Five Salesforce Reports for CROs — Jaime M. Mena',
+      h1: 'The five Salesforce reports every CRO should bookmark on Monday',
+      sub: 'September 29, 2026 · 7 min read · Reporting',
+      lead: 'A working CRO opens five Salesforce reports first thing Monday morning. Not ten. Not the giant Tableau dashboard the BI team built last quarter. Five — because that is the number a human can actually scan in three minutes and walk into the 9am operating meeting with informed opinions. Here are the five, with the build steps for each and the trap to avoid.',
+      body: `
+        <h2>1. Pipeline coverage by segment</h2>
+
+        <p>The single most important leading indicator for revenue performance. Pipeline coverage measures how much pipeline exists in the current and next quarter relative to the quota for those quarters. Healthy coverage is 3-4x quota for the current quarter and 3x for the next; anything below 2.5x means the forecast for that quarter is mathematically at risk regardless of how Sales is feeling about specific deals.</p>
+
+        <p>Build: a report on Opportunities grouped by Segment, then by Close Quarter, summing Amount. Compare to a quota table (which most orgs maintain in a separate Quota object or a custom field). The report should show coverage ratio (Pipeline ÷ Quota) per segment per quarter, color-coded red/yellow/green at 2.5x / 3x / 3.5x.</p>
+
+        <p>What to look at first: any segment showing red for the <em>next</em> quarter. Current-quarter red is bad, but it is too late to fix with new pipeline — those deals would not close in time. Next-quarter red is the segment where pipeline-generation effort needs to ramp this week.</p>
+
+        <p>Trap: pipeline coverage that includes Closed Won deals or Stage 1 (Prospecting) deals. Closed Won inflates the number; Stage 1 deals at less than 10% conversion inflate it differently. Build the report to filter on Stage greater than or equal to 2 AND Stage less than 7 (Closed). The pipeline you count should be the pipeline that has been qualified well enough to actually count.</p>
+
+        <h2>2. Deals aged out of stage</h2>
+
+        <p>The deal-desk early warning. Every deal stage has an average time-in-stage that varies by segment. A Stage 4 deal that has been sitting for 90 days, when the segment average is 35 days, is almost certainly either lost or being slow-walked by procurement. Surfacing aged deals weekly catches them before they get committed-then-slipped.</p>
+
+        <p>Build: a report on Opportunities filtered to Open deals, with a calculated formula field for Days In Current Stage (TODAY() − LastStageChangeDate). Group by Stage, group by Segment (since average time-in-stage varies). Filter the report to show only deals where Days In Current Stage exceeds 1.5x the segment-stage average. The reference table for those averages can be a custom Salesforce object or a hardcoded constant in the formula — both work for a 20-50 rep team.</p>
+
+        <p>What to look at first: the largest deal that has aged out the longest. That one deal usually accounts for more than half of the "at risk" pipeline dollar value and warrants a direct conversation between the CRO and the AE this week.</p>
+
+        <p>Trap: counting time-in-stage from CreatedDate instead of LastStageChangeDate. A deal that has moved through stages quickly is not the same as a deal that has been stuck in one stage for months. Use LastStageChangeDate.</p>
+
+        <h2>3. Win rate by source by ICP</h2>
+
+        <p>Where the funnel is actually working. Most teams report win rate as a single org-wide number, which is useless. Win rate varies dramatically by lead source, by segment, by industry, by deal size. The win rate by source by ICP report is the diagnostic that tells the CRO which combinations are converting and which are wasting AE time.</p>
+
+        <p>Build: a matrix report on Opportunities — rows are Lead Source, columns are ICP Tier (1/2/3), cells are Win Rate (Closed Won ÷ Total Closed) over the trailing 12 months. Filter to a meaningful sample — at least 20 deals per cell or the cell shows as N/A. The 12-month window matters; shorter windows produce too much noise.</p>
+
+        <p>What to look at first: the source/tier combinations with both high volume and high win rate (top-right quadrant) — that is where to over-invest in lead-gen. Then look at high-volume, low-win-rate combinations — that is where deals are being run that probably should not be.</p>
+
+        <p>Trap: weighting all deals equally regardless of size. A 70% win rate on $20K deals and a 30% win rate on $200K deals are not equivalent. Build a parallel report that uses revenue-weighted win rate (Closed Won Revenue ÷ Total Closed Revenue) and compare. The two reports usually disagree, and the disagreement is the most interesting finding.</p>
+
+        <h2>4. Churn pipeline</h2>
+
+        <p>The renewal at-risk view that almost no team builds. Customer Success has health-score data; Sales has contract-end dates; Finance has the revenue stream. Nobody combines them. The churn pipeline report joins all three: every customer whose renewal is within 120 days, their CSM health score, the dollar value of the renewal, and a flag for whether the deal is in the pipeline yet.</p>
+
+        <p>Build: a report on Accounts filtered to active customers with a contract end date within 120 days. Join in (or pull from) the CSM health score field, the renewal opportunity ID, and the most recent CSM activity log. Sort by health score ascending. The top of the list is your churn risk for the quarter.</p>
+
+        <p>What to look at first: any high-value account (Tier 1 ARR) with a low health score and no renewal opportunity created yet. That is the silent churn risk — the customer is unhappy, the renewal is approaching, and Sales is not yet engaged. Get an AE assigned this week.</p>
+
+        <p>Trap: treating the renewal as automatic if the contract is auto-renew. Auto-renew contracts churn at higher rates than expected because customers cancel them in the last 30 days when they finally remember to check the billing. Track them in the report regardless of the auto-renew flag.</p>
+
+        <h2>5. Rep activity vs quota attainment scatter</h2>
+
+        <p>The talent management report. Plot every rep on two axes: x-axis is activity volume (calls, emails, meetings — pick one based on what your enablement actually emphasizes) over the trailing 30 days, y-axis is quarterly quota attainment percent. The scatter plot tells you who is high-activity and high-output (your closers), high-activity and low-output (your strugglers — coaching opportunity), low-activity and high-output (your gut-feel performers — risk if their luck turns), and low-activity and low-output (your ramping reps or your problems).</p>
+
+        <p>Build: a Salesforce report on Users, with calculated fields for trailing-30-day activity (joined from Tasks and Events) and current-quarter quota attainment percent. Output as a scatter chart. The four quadrants are not labeled in Salesforce native — but the visual interpretation is what matters.</p>
+
+        <p>What to look at first: any rep in the high-activity, low-output quadrant who has been there for more than two quarters. That is the rep who needs structural coaching, not motivation. Their activity is fine; their qualification is broken. Pair them with a manager for a four-week MEDDPICC inspection block.</p>
+
+        <p>Trap: treating activity volume as a goal in itself. A rep doing 80 calls per week with 10% reach rate is performing the same work as a rep doing 50 calls with 25% reach rate, and the latter is using their time better. Layer in a reach-rate or response-rate field before drawing strong conclusions from the activity axis alone.</p>
+
+        <h2>What goes on the Monday agenda</h2>
+
+        <p>The five reports above answer five different questions, in this order:</p>
+
+        <ol>
+          <li>Are we mathematically on track for next quarter? (Pipeline coverage)</li>
+          <li>Which deals are about to slip this week? (Aged out of stage)</li>
+          <li>Where is the funnel converting? (Win rate by source by ICP)</li>
+          <li>Which customers are about to leave? (Churn pipeline)</li>
+          <li>Which reps need attention? (Activity vs attainment)</li>
+        </ol>
+
+        <p>The CRO scans them in that order on Monday morning. Three minutes per report, fifteen minutes total. Then walks into the 9am operating meeting with five specific things to ask about. The meeting is sharper because the questions are sharper. Forecast accuracy follows.</p>
+      `,
+    },
+  },
+
+  {
+    slug: 'fractional-vs-full-time-revops',
+    datePublished: '2026-10-27',
+    keywords: 'fractional RevOps, full-time RevOps, hiring revenue operations, RevOps consultant, fractional executives, GTM leadership hiring, fractional CRO',
+    en: {
+      title: 'Fractional vs full-time RevOps: when each one is the right call',
+      description: 'The fractional RevOps wave is real, and most companies should not hire one. Here is the honest framework for when fractional works, when it fails, and what gets lost in the handoff either way.',
+      ogAlt: 'Fractional vs Full-Time RevOps — Jaime M. Mena',
+      h1: 'Fractional vs full-time RevOps: when each one is the right call',
+      sub: 'October 27, 2026 · 8 min read · Hiring',
+      lead: 'The fractional RevOps wave is real, and most companies should not hire one. The pattern works in specific situations and breaks badly in others, and the difference matters more than fractional-services marketing wants to admit. Here is the honest framework for when fractional is the right call, when full-time is, and what gets lost in the handoff either way.',
+      body: `
+        <h2>Why fractional RevOps is having a moment</h2>
+
+        <p>Three things converged. First, the 2023-2024 layoff cycle left a wave of senior RevOps operators looking for engagements rather than full-time roles, many of them with $150K+ comp expectations that early-stage companies could not afford as employees but could afford as 20-hour-per-week consultants. Second, AI tooling made the operational work of RevOps measurably faster, so a senior operator can cover what would have required two heads a year ago. Third, post-ZIRP startups got religion about runway and started questioning every full-time hire above $120K.</p>
+
+        <p>The result: a market where seasoned RevOps consultants are available at 0.4-0.5 FTE for what a junior full-time hire would cost. The math looks compelling on a spreadsheet. The reality is more complicated.</p>
+
+        <h2>Where fractional works</h2>
+
+        <p>Three scenarios where fractional RevOps consistently outperforms full-time:</p>
+
+        <p><strong>1. Early-stage scrambling — Series A to early Series B.</strong> A 10-25 rep team that has out-grown the founder's CRM intuition but cannot justify a $180K-base RevOps Director. A fractional senior takes 10 hours a week, builds the foundations (CRM hygiene, basic reporting, a forecasting cadence), and exits cleanly around 6-9 months when the company is ready for a full-time hire. The fractional acts as a bridge, not a replacement. This is the engagement model that fractional was designed for, and it works.</p>
+
+        <p><strong>2. Post-Series-B rebuilds.</strong> A 50-100 rep team where the previous RevOps Director left and the systems are a mess of half-implemented projects. A fractional senior comes in for a focused 3-6 month engagement specifically to clean up: rationalize the Salesforce object model, kill the dead reports, fix the comp plan that everyone is gaming. The output is a system that the next full-time hire can actually own. This is rescue work, not steady-state operations, and it suits a fractional consultant who is unafraid to make politically difficult decisions because they are leaving in six months anyway.</p>
+
+        <p><strong>3. Interim coverage during search.</strong> A full-time RevOps leader leaves, the search to replace them takes 4-6 months, and the team needs someone to keep the forecast cadence and deal desk running in the meantime. Fractional covers the gap. The interim consultant should not start new projects — they should hold the operating cadence, prevent regressions, and brief the incoming full-time hire on what they inherited.</p>
+
+        <h2>Where fractional fails</h2>
+
+        <p>Three scenarios where fractional consistently underperforms:</p>
+
+        <p><strong>1. Complex tech stacks that require daily presence.</strong> A team running Salesforce, HubSpot, Outreach, Gong, Chorus, Clari, Tableau, Marketo, and a custom data warehouse needs someone in the systems daily — not 10 hours a week. The integration debugging alone is more than 10 hours a week. A fractional engagement on a stack this complex turns into a constant context-loading exercise where every Wednesday the consultant has to re-learn what changed on Monday. The cost of context switching exceeds the cost of full-time labor.</p>
+
+        <p><strong>2. Deal desk operational work.</strong> Deal desk is real-time work. Reps bring deals at unpredictable times, often last day of the quarter, often on a Friday. A fractional consultant cannot be available for that. Trying to handle deal desk async, with deals stacking up in a Slack channel for the consultant's next Tuesday session, ends with deals slipping for procedural reasons that full-time coverage would have caught. Deal desk needs a human on the clock.</p>
+
+        <p><strong>3. Cross-functional leadership.</strong> RevOps leadership work — sitting in the CRO's staff meeting, negotiating roadmap with Engineering, reviewing quotas with Finance — requires being a recognized member of the leadership team, with the political capital and institutional memory that comes with full-time presence. A fractional cannot earn that capital in 10 hours a week. They can do the work, but they cannot lead the org.</p>
+
+        <h2>Why companies hire fractional and then regret it</h2>
+
+        <p>The most common regret pattern: a company hires fractional to save money, the engagement starts well, six months in the team grows from 25 reps to 50, and now the workload is two full-time jobs but the consultant is still scheduled for 20 hours a week. Two outcomes follow: either the consultant burns out trying to over-deliver (and quality drops), or the consultant honors the 20 hours and the work overflow falls on the CRO (who is not a RevOps expert). Either way, the team ends up worse off than if they had hired a full-time person at the original 25-rep size.</p>
+
+        <p>The lesson: fractional engagements have an expiration date that scales with team size. Plan the conversion. Most fractional engagements should have a written "we will revisit fractional vs full-time at X reps or Y quarters" clause built in from day one.</p>
+
+        <h2>Why fractional consultants decline certain engagements</h2>
+
+        <p>The other side of this: experienced fractional consultants decline engagements that are obviously not a fit, even when the money is good. The most common decline triggers:</p>
+
+        <ul>
+          <li>The CRO does not have a clear scope for the engagement and wants the consultant to "figure out what is needed." Without scope, the engagement becomes politically impossible to bound.</li>
+          <li>The team's tech stack is so customized that the institutional knowledge required exceeds what 20 hours a week can sustain.</li>
+          <li>The company has had two previous fractional consultants who left mid-engagement. The pattern suggests organizational dysfunction, not a fit problem.</li>
+          <li>The role is being filled by fractional because the company cannot afford full-time, but the work is clearly full-time. This is the worst version, because the consultant takes the engagement, fails to deliver enough value in the limited hours, and gets blamed for the gap.</li>
+        </ul>
+
+        <p>If a fractional consultant declines your engagement, ask which of these is the reason. The answer is usually instructive.</p>
+
+        <h2>The handoff problem</h2>
+
+        <p>The hardest part of any fractional engagement is the handoff. Whether the engagement ends because the company hires full-time or because the consultant is rotating off, six months of institutional context disappears in a week. The fixes are mechanical:</p>
+
+        <ul>
+          <li>Document everything in a single shared workspace from day one — Notion, Confluence, Coda. Not in the consultant's head, not in their personal notes.</li>
+          <li>Build the dashboards and reports inside the company's tools, not the consultant's. If the consultant uses their personal Tableau license for a critical report, it leaves with them.</li>
+          <li>Pair with at least one full-time team member from week one — usually a senior Sales Ops Specialist or a Senior Analyst — who learns the system as it gets built. This person becomes the institutional knowledge that survives the consultant's exit.</li>
+          <li>Write a 5-page "operating manual" in the last month of the engagement that covers every recurring process the consultant owns. This is the document the next person reads on day one.</li>
+        </ul>
+
+        <p>Do the handoff work upfront. The handoff is the deliverable. Anything else is secondary.</p>
+
+        <h2>Hourly vs retainer vs project fee</h2>
+
+        <p>Three pricing models, three different incentive structures.</p>
+
+        <p><strong>Hourly</strong>: appropriate for short, well-scoped engagements where the consultant's time can be measured. Typical rate for senior RevOps: $200-400/hour. Incentive: the consultant wants more hours. Counter-incentive: the company wants fewer. Hourly works for diagnostic engagements (2-4 weeks) and breaks down for ongoing operational work because the timesheets become the entire conversation.</p>
+
+        <p><strong>Retainer</strong>: appropriate for ongoing engagements where the consultant's value is in availability and judgment, not deliverables. Typical retainer for senior RevOps: $8K-15K/month for 10-20 hours/week of access. Incentive: aligned — consultant is paid the same whether they work 8 hours or 20 in a given week, so they manage their own utilization. Most steady-state fractional engagements should be retainer-based.</p>
+
+        <p><strong>Project fee</strong>: appropriate for defined deliverables on defined timelines — a CRM rebuild, a comp plan refresh, a forecasting overhaul. Typical project fee: $25-60K depending on scope. Incentive: aligned around shipping. Risk: scope creep, which the consultant absorbs unless the contract is written tightly.</p>
+
+        <p>Most experienced fractional consultants prefer retainer for ongoing work and project fee for one-off deliverables. Hourly is acceptable for the initial 2-4 week diagnostic phase before either of the others kicks in. Avoid mixing retainer and hourly in the same month — the accounting confusion is rarely worth it.</p>
+
+        <h2>When to convert fractional to full-time</h2>
+
+        <p>The conversion signals: the team has crossed 40-50 reps, the consultant is consistently working 30+ hours in nominally 20-hour weeks, the CRO is calling the consultant for opinions that should be in-the-room decisions, or the consultant is becoming a bottleneck on operational requests. Any one of those signals means it is time. All four at once means it is past time.</p>
+
+        <p>The conversion mechanism: the fractional consultant either becomes the full-time hire (rare but works when the fit is excellent and both parties want it) or the consultant runs the search for their full-time replacement and onboards them. The latter is the more common path, and it tends to produce a better full-time hire because the fractional has clear context on what the role actually needs versus what a generic job description might say.</p>
+
+        <h2>The questions to ask before signing either way</h2>
+
+        <p>Whether you are about to hire fractional or full-time, four questions surface the right answer:</p>
+
+        <ol>
+          <li>Is the work in front of us defined, or are we trying to figure out what the work is? (Defined = either model works. Undefined = hire full-time, the discovery work is the role.)</li>
+          <li>Does the work require daily presence, or can it run on a weekly cadence? (Daily = full-time. Weekly = fractional is viable.)</li>
+          <li>Does the role need political capital with the leadership team, or is it primarily executional? (Political = full-time. Executional = fractional works.)</li>
+          <li>Will the team look meaningfully different in 6-9 months? (Yes = fractional and revisit. No = hire full-time and commit.)</li>
+        </ol>
+
+        <p>Four questions, four honest answers, and the right call surfaces. Both models are valid. The mistake is using the wrong one because the math looked friendlier on a spreadsheet.</p>
+      `,
+    },
+  },
 ];

@@ -1,0 +1,39 @@
+name: Weekly rebuild
+
+# Triggers a Vercel deploy every Monday at 14:00 UTC (07:00 PT / 10:00 ET).
+# Purpose: publish blog posts whose `datePublished` has just passed.
+# The build script (scripts/build-blog.mjs) reads today's date and emits
+# only the posts that should be public, so the cron does not need to know
+# the schedule — it just kicks the build.
+#
+# SETUP REQUIRED (one-time, manual):
+# 1. In Vercel: Project Settings → Git → Deploy Hooks → "Create Hook"
+#    Name: "weekly-rebuild" (or anything), Branch: "main"
+# 2. Copy the resulting URL (looks like https://api.vercel.com/v1/integrations/deploy/prj_.../...)
+# 3. In GitHub: Repo Settings → Secrets and variables → Actions → New repository secret
+#    Name: VERCEL_DEPLOY_HOOK
+#    Value: <paste the URL from step 2>
+# 4. (Optional) trigger this workflow manually from GitHub → Actions → Weekly rebuild
+#    → "Run workflow" to verify the setup works before waiting for Monday.
+
+on:
+  schedule:
+    # Mondays at 14:00 UTC. cron uses UTC; adjust if needed.
+    - cron: '0 14 * * 1'
+  workflow_dispatch: {}
+
+jobs:
+  trigger-vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Vercel deploy hook
+        run: |
+          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
+            echo "::error::VERCEL_DEPLOY_HOOK secret is not set. See workflow comments for setup."
+            exit 1
+          fi
+          response=$(curl -sS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}")
+          echo "Vercel response: $response"
+          # Basic sanity check: Vercel returns JSON with a "job" object when accepted.
+          echo "$response" | grep -q '"job"' || (echo "::error::Unexpected Vercel response" && exit 1)
+          echo "✅ Vercel rebuild triggered"
