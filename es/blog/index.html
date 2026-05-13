@@ -68,8 +68,8 @@
     "inLanguage": "es-ES",
     "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
     "blogPost": [
-      { "@type": "BlogPosting", "headline": "MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy", "url": "https://jaimem.com/blog/meddpicc-vs-meddic-forecast-accuracy", "datePublished": "2026-05-12" },
-      { "@type": "BlogPosting", "headline": "Salesforce vs HubSpot for a 20-rep sales team: an honest comparison", "url": "https://jaimem.com/blog/salesforce-vs-hubspot-20-rep-team", "datePublished": "2026-05-12" },
+      { "@type": "BlogPosting", "headline": "MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico", "url": "https://jaimem.com/es/blog/meddpicc-vs-meddic-forecast-accuracy", "datePublished": "2026-05-12" },
+      { "@type": "BlogPosting", "headline": "Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta", "url": "https://jaimem.com/es/blog/salesforce-vs-hubspot-20-rep-team", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones", "url": "https://jaimem.com/es/blog/cross-border-revops-playbook", "datePublished": "2026-05-12" }
     ]
   }
@@ -143,18 +143,18 @@
       <p class="lead">Posts sobre Revenue Operations, comparaciones de herramientas, marcos de calificación y la realidad operativa de equipos B2B SaaS — incluyendo el ángulo transfronterizo entre EE.UU. y México que pocos escriben.</p>
 
       <div class="post-grid">
-        <a href="/blog/meddpicc-vs-meddic-forecast-accuracy" class="post-card">
-          <h2>MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy <span class="lang-badge">Solo en inglés</span></h2>
-          <span class="sub">May 12, 2026 · 8 min read · Sales Methodology</span>
-          <p>I have rolled both out at different stages of the same company. The honest answer about which one lifts forecast accuracy is uncomfortable for the framework-vendor industry: it is not the framework. It is whether managers actually inspect what reps put in the fields. But there is still a real reason to pick one over the other, and most teams pick wrong.</p>
-          <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
+        <a href="/es/blog/meddpicc-vs-meddic-forecast-accuracy" class="post-card">
+          <h2>MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico</h2>
+          <span class="sub">12 mayo 2026 · 8 min de lectura · Metodología de Ventas</span>
+          <p>He implementado ambos en distintas etapas de la misma empresa. La respuesta honesta sobre cuál sube la precisión del pronóstico es incómoda para la industria que vende marcos: no es el marco. Es si los managers realmente inspeccionan lo que los representantes ponen en los campos. Pero aún hay una razón real para elegir uno sobre el otro, y la mayoría de los equipos eligen mal.</p>
+          
           <span class="arrow">Leer post →</span>
         </a>
-        <a href="/blog/salesforce-vs-hubspot-20-rep-team" class="post-card">
-          <h2>Salesforce vs HubSpot for a 20-rep sales team: an honest comparison <span class="lang-badge">Solo en inglés</span></h2>
-          <span class="sub">May 12, 2026 · 9 min read · Tooling</span>
-          <p>The 20-rep mark is the most common CRM crossroads in B2B SaaS. Below 10 reps, HubSpot wins by default — it is fast to stand up and the marketing alignment is free. Above 50 reps, Salesforce wins by default — you need the customization depth and the third-party ecosystem. The 20-rep mid-zone is where the decision genuinely tips on context. Here is how to read your own context honestly.</p>
-          <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
+        <a href="/es/blog/salesforce-vs-hubspot-20-rep-team" class="post-card">
+          <h2>Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta</h2>
+          <span class="sub">12 mayo 2026 · 9 min de lectura · Tooling</span>
+          <p>La marca de 20 representantes es el cruce de caminos más común para CRM en B2B SaaS. Por debajo de 10 representantes, HubSpot gana por defecto — es rápido de levantar y la alineación con marketing es gratis. Por encima de 50 representantes, Salesforce gana por defecto — necesitas la profundidad de personalización y el ecosistema de terceros. La zona media de 20 representantes es donde la decisión genuinamente se inclina según el contexto. Aquí está cómo leer tu propio contexto honestamente.</p>
+          
           <span class="arrow">Leer post →</span>
         </a>
         <a href="/es/blog/cross-border-revops-playbook" class="post-card">
@@ -195,7 +195,7 @@
         // If the user is on a post page without a counterpart, fall back to the blog hub.
         const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
         // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
-        const noEsSlugs = ["meddpicc-vs-meddic-forecast-accuracy","salesforce-vs-hubspot-20-rep-team"];
+        const noEsSlugs = [];
         const slugMatch = enPath.match(/^\/blog\/(.+)$/);
         if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
           location.href = fallbackHub;
