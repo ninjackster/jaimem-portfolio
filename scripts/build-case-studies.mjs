@@ -83,13 +83,28 @@ const TOGGLE_SCRIPT = `  <script>
     });
   </script>`;
 
-const FOOTER = `  <footer>
+function footer(lang) {
+  const isEs = lang === 'es';
+  const base = isEs ? '/es' : '';
+  const labels = isEs
+    ? { services: 'Servicios', cases: 'Casos de Estudio', blog: 'Blog', projects: 'Proyectos', contact: 'Contacto' }
+    : { services: 'Services', cases: 'Case Studies', blog: 'Blog', projects: 'Projects', contact: 'Contact' };
+  return `  <footer>
     <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="${base}/services/">${labels.services}</a>
+      <a href="${base}/case-studies/">${labels.cases}</a>
+      <a href="${base}/blog/">${labels.blog}</a>
+      <a href="${base}/#projects">${labels.projects}</a>
+      <a href="${base}/#contact">${labels.contact}</a>
+    </nav>
     <div class="footer-links">
       <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
       <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>`;
+}
+const FOOTER = footer('en');
 
 function nav(lang, activeEs) {
   // The lang-toggle initial state flips based on which page we're emitting.
@@ -300,7 +315,7 @@ ${relatedItems}
     </article>
   </main>
 
-${FOOTER}
+${footer(lang)}
 
 ${TOGGLE_SCRIPT}
 </body>
@@ -399,7 +414,7 @@ ${cards}
     </article>
   </main>
 
-${FOOTER}
+${footer(lang)}
 
 ${TOGGLE_SCRIPT}
 </body>

@@ -102,13 +102,28 @@ const TOGGLE_SCRIPT = `  <script>
     });
   </script>`;
 
-const FOOTER = `  <footer>
+function footer(lang) {
+  const isEs = lang === 'es';
+  const base = isEs ? '/es' : '';
+  const labels = isEs
+    ? { services: 'Servicios', cases: 'Casos de Estudio', blog: 'Blog', projects: 'Proyectos', contact: 'Contacto' }
+    : { services: 'Services', cases: 'Case Studies', blog: 'Blog', projects: 'Projects', contact: 'Contact' };
+  return `  <footer>
     <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="${base}/services/">${labels.services}</a>
+      <a href="${base}/case-studies/">${labels.cases}</a>
+      <a href="${base}/blog/">${labels.blog}</a>
+      <a href="${base}/#projects">${labels.projects}</a>
+      <a href="${base}/#contact">${labels.contact}</a>
+    </nav>
     <div class="footer-links">
       <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
       <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>`;
+}
+const FOOTER = footer('en'); // back-compat alias for older call sites
 
 function nav(lang, activeEs) {
   const enBtn = activeEs
@@ -303,7 +318,7 @@ ${relatedItems}
     </article>
   </main>
 
-${FOOTER}
+${footer(lang)}
 
 ${TOGGLE_SCRIPT}
 </body>
@@ -409,7 +424,7 @@ ${cards}
     </article>
   </main>
 
-${FOOTER}
+${footer(lang)}
 
 ${TOGGLE_SCRIPT}
 </body>
@@ -509,3 +524,51 @@ try {
 } catch (e) {
   console.warn(`[build-blog] could not update sitemap.xml: ${e.message}`);
 }
+
+// ─────────────────────────────────────────────────────────────────────────
+// Emit /feed.xml (RSS 2.0). Only English posts make the feed; the cross-
+// border post is included once at its English URL. Substack, Medium-import,
+// and most aggregators consume RSS, so this gives readers a way to follow
+// without needing email.
+// ─────────────────────────────────────────────────────────────────────────
+function xmlEscape(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+function rfc822(dateIso) {
+  // dateIso like '2026-05-12'; emit "Mon, 12 May 2026 14:00:00 GMT"
+  return new Date(dateIso + 'T14:00:00Z').toUTCString();
+}
+const FEED_OUT = resolve(ROOT, 'feed.xml');
+const sortedPosts = [...POSTS].sort((a, b) => b.datePublished.localeCompare(a.datePublished));
+const rssItems = sortedPosts.map(post => {
+  const url = `https://jaimem.com/blog/${post.slug}`;
+  return `    <item>
+      <title>${xmlEscape(post.en.title)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <pubDate>${rfc822(post.datePublished)}</pubDate>
+      <description>${xmlEscape(post.en.description)}</description>
+      <category>${xmlEscape(post.keywords.split(',')[0].trim())}</category>
+    </item>`;
+}).join('\n');
+const lastBuild = sortedPosts[0] ? rfc822(sortedPosts[0].datePublished) : new Date().toUTCString();
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jaime M. Mena — Blog</title>
+    <link>https://jaimem.com/blog/</link>
+    <atom:link href="https://jaimem.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Revenue Operations, B2B SaaS GTM, and bilingual operations posts by Jaime M. Mena.</description>
+    <language>en-us</language>
+    <lastBuildDate>${lastBuild}</lastBuildDate>
+${rssItems}
+  </channel>
+</rss>
+`;
+writeFileSync(FEED_OUT, rss, 'utf8');
+console.log(`[build-blog] wrote feed.xml (${sortedPosts.length} items, ${rss.length} bytes)`);
