@@ -56,6 +56,7 @@
   <meta name="author" content="Jaime M. Mena" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/meddpicc-vs-meddic-forecast-accuracy" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/meddpicc-vs-meddic-forecast-accuracy" />
   <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/meddpicc-vs-meddic-forecast-accuracy" />
 
   <script type="application/ld+json">
@@ -262,7 +263,7 @@
         // If the user is on a post page without a counterpart, fall back to the blog hub.
         const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
         // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
-        const noEsSlugs = ["meddpicc-vs-meddic-forecast-accuracy","salesforce-vs-hubspot-20-rep-team"];
+        const noEsSlugs = [];
         const slugMatch = enPath.match(/^\/blog\/(.+)$/);
         if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
           location.href = fallbackHub;

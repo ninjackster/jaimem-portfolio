@@ -90,6 +90,88 @@ export const POSTS = [
         <p>That is the playbook. The framework is the easy part. The reason most teams do not get the 18% accuracy lift is that they roll out the letters without rolling out the inspection. Pick MEDDPICC for almost every B2B SaaS team. Stand up the manager cadence. Hold the line on field completeness. The forecast follows.</p>
       `,
     },
+    es: {
+      title: 'MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico',
+      description: 'Una comparación directa de MEDDPICC y MEDDIC de alguien que ha implementado ambos en B2B SaaS. La respuesta honesta sobre cuál sube la precisión del pronóstico — y por qué el marco importa menos que la disciplina detrás.',
+      ogAlt: 'MEDDPICC vs MEDDIC — Jaime M. Mena',
+      h1: 'MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico',
+      sub: '12 mayo 2026 · 8 min de lectura · Metodología de Ventas',
+      lead: 'He implementado ambos en distintas etapas de la misma empresa. La respuesta honesta sobre cuál sube la precisión del pronóstico es incómoda para la industria que vende marcos: <strong>no es el marco. Es si los managers realmente inspeccionan lo que los representantes ponen en los campos.</strong> Pero aún hay una razón real para elegir uno sobre el otro, y la mayoría de los equipos eligen mal.',
+      body: `
+        <h2>La taxonomía del marco en 90 segundos</h2>
+
+        <p>MEDDIC fue primero. Dick Dunkel lo inventó en PTC en los 1990s cuando los deals de software enterprise rutinariamente se deslizaban dos trimestres porque nadie se había molestado en confirmar que el comprador tenía presupuesto o autoridad para firmar. Las seis letras te obligan a preguntar:</p>
+
+        <ul>
+          <li><strong>M</strong>etrics — ¿qué resultado numérico quiere obtener el comprador con esta compra?</li>
+          <li><strong>E</strong>conomic Buyer — ¿quién personalmente firma el cheque?</li>
+          <li><strong>D</strong>ecision Criteria — ¿qué cosas específicas evaluarán a los vendedores?</li>
+          <li><strong>D</strong>ecision Process — ¿cuáles son los pasos literales de ahora a la firma?</li>
+          <li><strong>I</strong>dentify Pain — ¿qué estado actual es lo suficientemente inaceptable para gastar dinero?</li>
+          <li><strong>C</strong>hampion — ¿quién dentro de la cuenta venderá en tu nombre cuando no estés en la sala?</li>
+        </ul>
+
+        <p>MEDDPICC vino después. Las mismas seis iniciales, más dos letras que llenan brechas reales que la original ignoraba:</p>
+
+        <ul>
+          <li><strong>P</strong>aper Process — ¿cómo se ve procurement, legal y el proceso de revisión de contratos? Aquí es donde mueren los deals de etapa tardía.</li>
+          <li><strong>C</strong>ompetition — ¿a quién más están evaluando, incluyendo la opción de no hacer nada?</li>
+        </ul>
+
+        <p>Esa es toda la diferencia. Ocho letras versus seis. La mayoría de los representantes no pueden decirte cuál es cuál después de pasar por enablement, y francamente, no importa.</p>
+
+        <h2>Qué muestran realmente los datos</h2>
+
+        <p>La primera vez que implementé MEDDPICC en una empresa SaaS global, la precisión del pronóstico subió aproximadamente 18% en dos trimestres. La interpretación refleja — y la que prefieren los vendedores de metodología — es que agregar Paper Process y Competition salvó deals que de otra forma se habrían deslizado. Eso es parcialmente cierto. Pero no es toda la historia.</p>
+
+        <p>La historia honesta es esta: antes del rollout, teníamos una llamada de pronóstico donde los representantes decían "esto va a cerrar" y los managers decían "okay, commit." Nada en la conversación probaba la afirmación. Después del rollout, teníamos una llamada de pronóstico donde los representantes no podían decir "esto va a cerrar" sin llenar ocho campos, y los managers tenían una forma estructurada de empujar de vuelta cuando los campos estaban delgados. La ganancia de precisión vino de la <em>disciplina de la inspección</em>, no de agregar dos letras.</p>
+
+        <p>Puedes probarte esto a ti mismo. Toma un equipo que ha estado corriendo MEDDIC por dos años con inspección de manager que realmente cuestiona los campos. Luego toma un equipo que apenas atornilló MEDDPICC a Salesforce sin cambiar el proceso del manager. El primer equipo pronosticará mejor cada trimestre. La metodología es una función forzante para la conversación. Si la conversación no está sucediendo, la metodología es un ejercicio de checkbox.</p>
+
+        <h2>Entonces, ¿por qué no siempre elegir MEDDPICC?</h2>
+
+        <p>Deberías — casi siempre. Hay dos escenarios donde MEDDIC es la respuesta correcta:</p>
+
+        <p><strong>1. Motores de mid-market impulsados por velocidad.</strong> Si tu ciclo de venta promedio es menor a 30 días y tu ACV es menor a $50K, Paper Process suele ser trivial (MSAs click-through, facturación mensual, baja involucración de procurement). Agregar la letra crea ceremonia sin insight. Competition aún vale la pena rastrear, pero puedes hacerlo informalmente. Usa MEDDIC.</p>
+
+        <p><strong>2. El equipo ha estado en MEDDIC por años y la adopción finalmente está limpia.</strong> Cambiar marcos resetea la adopción a cero. Si el cumplimiento de MEDDIC está al 80% y la precisión del pronóstico es aceptable, no introduzcas MEDDPICC como proyecto. Agrega Paper Process y Competition como campos separados de Salesforce si los necesitas. Mantén el nombre del marco estable para que la memoria muscular se sostenga.</p>
+
+        <p>Para todo lo demás — ventas enterprise, industrias reguladas, ACV por encima de $100K, ciclos de deal de más de 60 días — MEDDPICC. Las dos letras extra agregan la señal más predictiva justo cuando la necesitas: deals de etapa tardía donde procurement es el riesgo de deslizamiento, y pérdidas competitivas donde los representantes de otra manera marcarían el deal como Closed Lost sin que nadie investigue por qué.</p>
+
+        <h2>Las cinco cosas que realmente mueven la precisión del pronóstico</h2>
+
+        <p>Si no te llevas nada más de este post, llévate esto. Cada una de ellas es más importante que el nombre del marco que pegaste en la pared.</p>
+
+        <p><strong>1. Campos requeridos, no opcionales.</strong> Reglas de validación en Salesforce que bloquean la progresión de etapa hasta que los campos relevantes de MEDDPICC estén poblados. Los representantes pelearán esto. Mantén la línea. La calificación medio-llenada es peor que ninguna calificación porque crea falsa confianza.</p>
+
+        <p><strong>2. Inspección del manager en una cadencia fija.</strong> Revisión semanal de pipeline donde el manager abre el registro del deal y lee los campos de calificación en voz alta. Si el campo Economic Buyer dice "Chief Procurement Officer" sin nombre, el manager lo señala. Si Decision Process dice "nos van a responder," el manager lo señala. Esta es toda la intervención. El marco es el vocabulario. La inspección es el trabajo.</p>
+
+        <p><strong>3. Una definición clara de "committed" respaldada por profundidad de calificación.</strong> Un deal no puede ser Commit a menos que el cumplimiento de MEDDPICC alcance un umbral definido — por ejemplo, cada letra tiene una respuesta no-trivial y Champion está nombrado con nombre y apellido. Esto hace que Commit signifique algo. La precisión del pronóstico es mayormente una función de qué los representantes se permitirán llamar Commit, y un piso de calificación ancla eso.</p>
+
+        <p><strong>4. Razones de pérdida que mapean al marco.</strong> Cuando los deals cierran perdidos, la lista de razones de pérdida debe espejear las letras de calificación: "Sin Economic Buyer," "Sin Evento Detonante," "Perdido contra Competencia (con competidor nombrado)," "Paper Process Estancado." Esto hace que el análisis post-mortem sea útil y le dice al pipeline review del próximo trimestre dónde mirar más fuerte aguas arriba.</p>
+
+        <p><strong>5. La estructura de la llamada de pronóstico.</strong> Abre con deals a los que les faltan campos. No deals más grandes, no deals que cierran más pronto — deals donde la calificación está delgada. Esta sola elección de agenda cambia la reunión de teatro a operaciones.</p>
+
+        <h2>Cuándo saltarse ambos marcos completamente</h2>
+
+        <p>Si eres un equipo de seis representantes vendiendo un solo SKU por menos de $20K ACV en un ciclo de 14 días, ningún marco te ayuda. Tu problema de precisión del pronóstico no es profundidad de calificación — es varianza de volumen. Enfócate en inputs de actividad y razones de cobertura de pipeline. Implementa MEDDIC o MEDDPICC cuando tu deal promedio toque más de tres compradores, dure más de 30 días, o tenga un contrato que necesite revisión legal. Por debajo de ese umbral, la ceremonia cuesta más de lo que retorna.</p>
+
+        <h2>Hoja de trampa de implementación</h2>
+
+        <p>Si estás empezando de cero en un equipo B2B SaaS con ciclos de más de 30 días y ACVs por encima de $50K, este es el orden que funciona:</p>
+
+        <ol>
+          <li>Agrega los ocho campos MEDDPICC al objeto Opportunity en Salesforce o HubSpot.</li>
+          <li>Haz que cuatro sean requeridos para avanzar pasada la Etapa 3 (Economic Buyer, Identified Pain, Champion, Decision Process). Agrega el resto como requeridos en la Etapa 4.</li>
+          <li>Construye un reporte de Salesforce o dashboard de HubSpot que califique cada deal por completitud — llámalo "MEDDPICC Health." Ponlo en la pared.</li>
+          <li>Corre una revisión de pipeline de 30 minutos cada lunes donde el manager y el representante revisen los cinco deals con peor puntaje de salud. No los cinco mejores. Los cinco peores.</li>
+          <li>Acompaña el rollout con un kicker en el plan de comisiones por cumplimiento completo en deals Closed Won. Kicker pequeño, señal conductual grande — ver el <a href="/es/case-studies/sales-commission-plan" class="inline-link">caso de estudio del plan de comisiones</a> para cómo se conecta.</li>
+          <li>Seis semanas adentro, audita una muestra de deals donde el representante dijo Commit. Compáralos con deals donde el representante dijo Best Case. Si la profundidad de calificación no difiere significativamente, el marco aún no aterrizó. Refuerza.</li>
+        </ol>
+
+        <p>Ese es el playbook. El marco es la parte fácil. La razón por la que la mayoría de los equipos no obtienen la subida de 18% de precisión es que lanzan las letras sin lanzar la inspección. Elige MEDDPICC para casi cada equipo B2B SaaS. Levanta la cadencia del manager. Mantén la línea en la completitud de los campos. El pronóstico sigue.</p>
+      `,
+    },
   },
 
   {
@@ -182,6 +264,94 @@ export const POSTS = [
         </ol>
 
         <p>You will leave the two weeks with a clear answer, and you will not be talked into anything by a vendor demo. The CRM is a five-year decision. Spend two weeks getting it right.</p>
+      `,
+    },
+    es: {
+      title: 'Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta',
+      description: 'Una comparación directa de Salesforce y HubSpot para equipos B2B SaaS en el punto de inflexión de 20 representantes. Trade-offs reales en tiempo de implementación, personalización, costo y ecosistema — escrito desde experiencia de operador.',
+      ogAlt: 'Salesforce vs HubSpot para 20 representantes — Jaime M. Mena',
+      h1: 'Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta',
+      sub: '12 mayo 2026 · 9 min de lectura · Tooling',
+      lead: 'La marca de 20 representantes es el cruce de caminos más común para CRM en B2B SaaS. Por debajo de 10 representantes, HubSpot gana por defecto — es rápido de levantar y la alineación con marketing es gratis. Por encima de 50 representantes, Salesforce gana por defecto — necesitas la profundidad de personalización y el ecosistema de terceros. La zona media de 20 representantes es donde la decisión genuinamente se inclina según el contexto. Aquí está cómo leer tu propio contexto honestamente.',
+      body: `
+        <h2>El resumen honesto por adelantado</h2>
+
+        <p>Si quieres la respuesta sin leer 1,800 palabras más: <strong>HubSpot</strong> es la elección correcta para un equipo de 20 representantes que vende un solo producto con ACV por debajo de $100K, tiene Marketing y Ventas compartiendo el mismo equipo de operaciones, y no tiene una vertical de industria regulada arrastrando complejidad al deal. <strong>Salesforce</strong> es la elección correcta para un equipo de 20 representantes con cross-sell multi-producto, tamaños de deal rutinariamente por encima de $100K, estructuras de deal que incluyen rampas o descuentos multi-anuales, o cualquier cosa en salud, finanzas o gobierno. Si estás en medio, sigue leyendo — el resto de este post es para ti.</p>
+
+        <h2>Tiempo de implementación</h2>
+
+        <p>HubSpot gana esta comparación por amplio margen. Una instancia limpia de HubSpot Sales Hub puede ser productiva en dos semanas para un equipo de 20 representantes. La vista de pipeline es sensible por defecto. Plantillas de email y secuencias vienen con el producto. Reportes de conversión por etapa, por representante y por fuente están a un clic de distancia.</p>
+
+        <p>Salesforce es más rápido de lo que su reputación sugiere si evitas la trampa de tratar de modelar tu negocio perfectamente desde el día uno. Una configuración vainilla de Sales Cloud con el objeto Opportunity estándar, seis etapas por defecto y reportes out-of-the-box también puede estar viva en dos a tres semanas. La diferencia es lo que pasa en el mes tres. Salesforce empieza a pedirte que tomes decisiones — objetos personalizados, page layouts por perfil, reglas de validación, procesos de aprobación — y esas decisiones extienden la implementación por meses si las dejas.</p>
+
+        <p>Implicación práctica: si la empresa está financiada para dos trimestres más de runway y necesita motor de ingresos funcionando <em>ahora</em>, HubSpot. Si tienes 12 meses de runway y estás configurando un sistema que correrá por tres años, el costo de tiempo de Salesforce se amortiza.</p>
+
+        <h2>Profundidad de personalización</h2>
+
+        <p>Aquí es donde Salesforce gana su etiqueta de precio. El número de formas en que puedes extender Sales Cloud es genuinamente incontable. Objetos personalizados con sus propios page layouts, reglas de validación, campos de fórmula, flow builder, código Apex, paquetes administrados del AppExchange, y el modelo de API subyacente al que cualquiera de esos puede engancharse. Esencialmente no hay complejidad de proceso de negocio que Salesforce no pueda modelar.</p>
+
+        <p>HubSpot ha cerrado la brecha significativamente en los últimos tres años. Existen objetos personalizados. Los workflows pueden hacer la mayoría de lo que Salesforce Flow puede hacer. La capa de reportes es mejor de lo que solía ser. Pero todavía hay un techo de profundidad. Una vez que necesitas:</p>
+
+        <ul>
+          <li>Multi-moneda con price books por región</li>
+          <li>Configure-Price-Quote con lógica de bundle y precios con rampa</li>
+          <li>Gestión de territorios con rollups jerárquicos</li>
+          <li>Perfiles de permisos granulares donde los representantes en el Segmento A no pueden ver el pipeline del Segmento B</li>
+          <li>Procesos de aprobación que ruteen a través de tres capas según porcentaje de descuento</li>
+        </ul>
+
+        <p>…estás en territorio de Salesforce. HubSpot se puede forzar a hacer algunas de esas, pero con workarounds que tu yo futuro odiará.</p>
+
+        <h2>Costo en la marca de 20 representantes</h2>
+
+        <p>Aquí hay números realistas para un equipo de 20 representantes, a mediados de 2026 (precio de lista; asume 20% de descuento después de negociar):</p>
+
+        <p><strong>HubSpot Sales Hub Enterprise</strong>: aproximadamente $150/usuario/mes después de negociar. 20 usuarios = $36,000/año. Suma Marketing Hub Pro para integración con marketing: otros $800-1,200/mes a escala, dependiendo del volumen de contactos.</p>
+
+        <p><strong>Salesforce Sales Cloud Enterprise</strong>: aproximadamente $135/usuario/mes después de negociar. 20 usuarios = $32,400/año. Suma CPQ si lo necesitas: otros $75-110/usuario/mes, así que a menudo un incremento de $20-25K. Suma una herramienta de terceros para reportes de alta calidad (los reportes nativos de Sales Cloud son funcionales pero limitados): tal vez $5-10K/año por Tableau CRM o similar.</p>
+
+        <p>Los precios sticker terminan cerca. La brecha de costo total de propiedad aparece en mano de obra de implementación. Una implementación de Salesforce que toca CPQ, objetos personalizados y flujos de aprobación a menudo corre $40-80K de tiempo de admin/consultor en el año uno. HubSpot suele ser $5-15K del mismo. Para el año tres, la brecha generalmente se cierra o se invierte si el equipo ha estado agregando complejidad a cualquier sistema — pero el año uno importa cuando el equipo es pequeño.</p>
+
+        <h2>Ecosistema de integraciones</h2>
+
+        <p>Salesforce tiene el AppExchange. Casi no hay producto SaaS que valga la pena integrar que no tenga un paquete administrado de Salesforce. Outreach, Gong, Clari, Chorus, Mutiny, Drift — todos nativos, todos mantenidos por los vendedores, todos estables. El riesgo de integración en Salesforce es cercano a cero.</p>
+
+        <p>El marketplace de HubSpot es bueno. La mayoría de las herramientas de ventas mayores tienen integraciones oficiales con HubSpot. El riesgo está en la cola larga: herramientas de nicho, proveedores de pagos regionales, fuentes de datos específicas de industria. Donde Salesforce tiene un paquete administrado, HubSpot a menudo tiene un conector de terceros o una opción "constrúyelo tú mismo con la API." Para un equipo de 20 representantes corriendo un playbook B2B SaaS estándar, esto raramente muerde. Para un equipo de 20 representantes en una vertical con fuentes de datos inusuales (sistemas de reclamos, feeds MLS, exports EHR), las brechas de cobertura de HubSpot cuestan horas reales de ingeniería.</p>
+
+        <h2>La dimensión de fit de equipo de la que nadie habla</h2>
+
+        <p>La elección de herramienta también es una decisión de contratación. Los admins y desarrolladores de Salesforce son un grupo de talento profundo y bien pagado. Si escalas la empresa y necesitas un admin full-time de SFDC en un año, lo encontrarás. Los admins de HubSpot existen pero el grupo es más superficial, y muchos son ex-admins de Salesforce que tratan a HubSpot como una estación temporal. Un admin senior de Salesforce cuesta alrededor de $130K base; un admin senior de HubSpot cuesta alrededor de $95K base — pero contratarás más rápido en el grupo de Salesforce, y contratarás más confiablemente.</p>
+
+        <p>Contraargumento: un equipo de 20 representantes generalmente no necesita un admin full-time en el año uno. Un generalista de ops de 20 horas a la semana funciona para cualquier plataforma. Para cuando necesites el admin full-time, ya deberías saber si el sistema está pegando.</p>
+
+        <h2>Qué realmente decide</h2>
+
+        <p>Deja todo lo anterior a un lado por treinta segundos y pregúntate tres cosas:</p>
+
+        <p><strong>1. ¿Dónde vive Marketing hoy?</strong> Si Marketing está en HubSpot, poner Ventas en Salesforce crea un impuesto de integración que comerá una parte del trimestre de alguien cada trimestre. Poner Ventas en HubSpot elimina el impuesto. Lo contrario también es cierto — si Marketing está en Marketo o Pardot, Salesforce se vuelve el centro gravitacional para ambos.</p>
+
+        <p><strong>2. ¿Cuál es la forma del deal?</strong> Un solo SKU a precio fijo = HubSpot está bien. Multi-producto con precios con rampa, aprobaciones de descuento o contratos multi-anuales = Salesforce. La pregunta de la forma del deal domina todo lo demás en la comparación porque determina si puedes evitar CPQ y flujos de aprobación. Si puedes, la vida es simple en cualquier plataforma.</p>
+
+        <p><strong>3. ¿Dónde quieres estar en tres años?</strong> Un equipo de 20 representantes que planea estar en 50 representantes en tres años debería elegir lo que necesita la versión de 50 representantes del equipo. Eso casi siempre es Salesforce. Un equipo de 20 representantes que planea estar en 20-30 representantes en tres años debería elegir lo que es más rápido de correr hoy. Eso casi siempre es HubSpot.</p>
+
+        <h2>Realidad del costo de migración</h2>
+
+        <p>El argumento "empezaremos en HubSpot y migraremos a Salesforce después" funciona en teoría y se rompe en la práctica. Una migración limpia de HubSpot a Salesforce toma tres a seis meses y cuesta $50-100K en tiempo y herramientas, sin contar el golpe de productividad. Es factible, pero raramente es un proyecto pequeño. Elige el sistema con el que puedas vivir por al menos tres años, no el sistema que te permita diferir la decisión.</p>
+
+        <p>Una excepción angosta: si tu equipo está por debajo de 10 representantes hoy y no sabes cómo se verá la empresa con 20 representantes, HubSpot es el lugar correcto para empezar porque el costo de migración es genuinamente pequeño a esa escala. Mueve el punto de decisión a 15 representantes, cuando las dimensiones de forma de deal y fit de equipo se hayan afilado.</p>
+
+        <h2>El diagnóstico de dos semanas</h2>
+
+        <p>Si estás evaluando ahora mismo, no empieces con demos de vendedores. Empieza con dos semanas de trabajo interno:</p>
+
+        <ol>
+          <li>Escribe la taxonomía del deal: cada variación de cómo el dinero cambia de manos en tu pipeline actual. Un solo producto, multi-producto, rampas, enmiendas, arranques de período parcial. La lista debe ser exhaustiva.</li>
+          <li>Para cada variación, esboza el modelo de datos que necesitarías para representarla limpiamente. ¿Objetos personalizados? ¿Moneda? ¿Reglas de precios?</li>
+          <li>Camina los últimos diez deals Closed Won a través de HubSpot y Salesforce en un sandbox. ¿Dónde se vuelve cada sistema incómodo?</li>
+          <li>Habla con dos operadores que hayan corrido la plataforma que estás considerando — uno feliz, uno infeliz. Pregúntale al infeliz por qué.</li>
+        </ol>
+
+        <p>Saldrás de las dos semanas con una respuesta clara, y no te dejarás convencer por ninguna demo de vendedor. El CRM es una decisión de cinco años. Pasa dos semanas haciéndola bien.</p>
       `,
     },
   },
