@@ -60,6 +60,15 @@ const PAGES = [
     description: 'Análisis de pricing, sistemas de reservas y dashboards de operaciones para anfitriones de alquileres a corto plazo (Airbnb, VRBO) y portafolios inmobiliarios pequeños.',
     ogImageAlt: 'Análisis para Alquileres a Corto Plazo — Jaime M. Mena',
   },
+  {
+    src: 'resume/index.html',
+    out: 'es/resume/index.html',
+    canonicalEn: 'https://jaimem.com/resume/',
+    canonicalEs: 'https://jaimem.com/es/resume/',
+    title: 'Currículum — Jaime M. Mena | Consultor de Revenue Operations',
+    description: 'Currículum de Jaime M. Mena — Consultor de Revenue Operations con más de 5 años escalando equipos B2B SaaS go-to-market. Salesforce, HubSpot, pronósticos, diseño de territorios, compensación de ventas. Bilingüe EN/ES, basado en California.',
+    ogImageAlt: 'Currículum — Jaime M. Mena',
+  },
 ];
 
 function transform(html, page) {
@@ -167,6 +176,19 @@ function transform(html, page) {
   for (const attr of ['href', 'src']) {
     html = html.replace(rewriteRel(attr), '$1/$2$3');
   }
+
+  // 9b. Internal-route prefixing for the ES mirror. Anchor and asset paths
+  // stay rooted at /; user-facing routes (services, case-studies, blog,
+  // resume) get /es/ prefix so the Spanish page links to Spanish pages.
+  // Skip paths that already start with /es/.
+  const ES_ROUTES = ['services', 'case-studies', 'blog', 'resume'];
+  for (const route of ES_ROUTES) {
+    const re = new RegExp(`(\\shref=")/${route}(/|#)`, 'g');
+    html = html.replace(re, `$1/es/${route}$2`);
+  }
+  // Also handle bare /#anchor links (the hero CTAs and footer links) that
+  // should land on the ES homepage's anchor rather than the EN homepage.
+  html = html.replace(/(\shref=")\/#/g, '$1/es/#');
 
   // 10. Flip the language toggle's initial active state (only present where
   // the toggle exists; safe no-op otherwise).

@@ -237,4 +237,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/cross-border-revops-playbook" />
   </url>
   <!-- AUTO_BLOG_URLS_END -->
+  <url>
+    <loc>https://jaimem.com/resume/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/resume/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/resume/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/resume/" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/resume/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/resume/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/resume/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/resume/" />
+  </url>
 </urlset>
