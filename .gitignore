@@ -1,2 +1,17 @@
 .DS_Store
 .vercel
+
+# iCloud Drive sometimes creates "filename 2.ext" duplicates when files
+# are modified during a sync. Ignore the pattern so they never get
+# committed by accident. Real files in this repo do not use " 2." suffixes.
+* 2.html
+* 2.webp
+* 2.png
+* 2.jpg
+* 2.xml
+* 2.css
+* 2.js
+* 2.mjs
+* 3.html
+* 3.webp
+* 3.png
