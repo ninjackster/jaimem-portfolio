@@ -105,6 +105,8 @@ function nav(lang, activeEs) {
         ['/es/services/', 'Servicios'],
         ['/es/case-studies/', 'Casos de Estudio'],
         ['/es/blog/', 'Blog'],
+        ['/es/#experience', 'Experiencia'],
+        ['/es/#projects', 'Proyectos'],
         ['/es/#about', 'Sobre Mí'],
         ['/es/#contact', 'Contacto'],
       ]
@@ -112,6 +114,8 @@ function nav(lang, activeEs) {
         ['/services/', 'Services'],
         ['/case-studies/', 'Case Studies'],
         ['/blog/', 'Blog'],
+        ['/#experience', 'Experience'],
+        ['/#projects', 'Projects'],
         ['/#about', 'About'],
         ['/#contact', 'Contact'],
       ];
