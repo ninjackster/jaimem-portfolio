@@ -16,6 +16,62 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/" />
   </url>
   <url>
+    <loc>https://jaimem.com/services/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/services/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/services/revops-consulting</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/revops-consulting" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/revops-consulting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/revops-consulting" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/services/revops-consulting</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/revops-consulting" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/revops-consulting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/revops-consulting" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/services/web-development</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/web-development" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/services/web-development</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/web-development" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/services/str-real-estate-analytics</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/str-real-estate-analytics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/str-real-estate-analytics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/str-real-estate-analytics" />
+  </url>
+  <url>
+    <loc>https://jaimem.com/es/services/str-real-estate-analytics</loc>
+    <lastmod>2026-05-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaimem.com/services/str-real-estate-analytics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/str-real-estate-analytics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/str-real-estate-analytics" />
+  </url>
+  <url>
     <loc>https://jaimem.com/resume.pdf</loc>
     <lastmod>2026-05-12</lastmod>
   </url>

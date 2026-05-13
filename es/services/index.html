@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Servicios — Consultoría de Revenue Operations, Desarrollo Web y Análisis STR | Jaime M. Mena</title>
+
+  <meta name="description" content="Tres servicios: consultoría de Revenue Operations para B2B SaaS, desarrollo web bilingüe para pequeñas empresas, y análisis de rentas a corto plazo y bienes raíces. Bilingüe EN/ES." />
+  <link rel="canonical" href="https://jaimem.com/es/services/" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/services/" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jaimem.com/es/services/" />
+  <meta property="og:title" content="Servicios — Consultoría de Revenue Operations, Desarrollo Web y Análisis STR | Jaime M. Mena" />
+  <meta property="og:description" content="Tres servicios: consultoría de Revenue Operations para B2B SaaS, desarrollo web bilingüe para pequeñas empresas, y análisis de rentas a corto plazo y bienes raíces. Bilingüe EN/ES." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Servicios de Jaime M. Mena" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Servicios — Consultoría de Revenue Operations, Desarrollo Web y Análisis STR | Jaime M. Mena" />
+  <meta name="twitter:description" content="Tres servicios: consultoría de Revenue Operations para B2B SaaS, desarrollo web bilingüe para pequeñas empresas, y análisis de rentas a corto plazo y bienes raíces. Bilingüe EN/ES." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Servicios de Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Services",
+    "url": "https://jaimem.com/services/",
+    "about": {
+      "@type": "Person",
+      "name": "Jaime M. Mena",
+      "url": "https://jaimem.com/"
+    },
+    "hasPart": [
+      {
+        "@type": "Service",
+        "name": "Revenue Operations Consulting",
+        "url": "https://jaimem.com/services/revops-consulting"
+      },
+      {
+        "@type": "Service",
+        "name": "Web Development & Digital Presence",
+        "url": "https://jaimem.com/services/web-development"
+      },
+      {
+        "@type": "Service",
+        "name": "Short-Term Rental & Real Estate Analytics",
+        "url": "https://jaimem.com/services/str-real-estate-analytics"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 880px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 1rem; }
+    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 3rem; max-width: 720px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .service-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .service-card { display: block; padding: 2rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .service-card h2 { font-size: 1.3rem; margin: 0 0 .5rem; color: var(--text); }
+    .service-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; }
+    .service-card .arrow { color: var(--accent); font-weight: 500; }
+    .cta-block { margin-top: 3rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/" data-en="Services" data-es="Servicios">Servicios</a></li>
+        <li><a href="/#experience" data-en="Experience" data-es="Experiencia">Experiencia</a></li>
+        <li><a href="/#samples" data-en="Samples" data-es="Muestras">Muestras</a></li>
+        <li><a href="/#projects" data-en="Projects" data-es="Proyectos">Proyectos</a></li>
+        <li><a href="/#about" data-en="About" data-es="Sobre M&iacute;">Sobre M&iacute;</a></li>
+        <li><a href="/#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/" data-en="Home" data-es="Inicio">Inicio</a> &rsaquo; <span data-en="Services" data-es="Servicios">Servicios</span></p>
+
+      <h1 data-en="Services" data-es="Servicios">Servicios</h1>
+
+      <p class="lead" data-en="Three engagements I take on regularly. The common thread is operations and data &mdash; whether for a B2B SaaS sales team, a family-run business, or a property owner. Bilingual delivery in English and Spanish." data-es="Tres engagements que tomo regularmente. El hilo com&uacute;n es operaciones y datos &mdash; sea para un equipo de ventas B2B SaaS, un negocio familiar o un due&ntilde;o de propiedades. Entrega biling&uuml;e en ingl&eacute;s y espa&ntilde;ol.">Tres engagements que tomo regularmente. El hilo com&uacute;n es operaciones y datos &mdash; sea para un equipo de ventas B2B SaaS, un negocio familiar o un due&ntilde;o de propiedades. Entrega biling&uuml;e en ingl&eacute;s y espa&ntilde;ol.</p>
+
+      <div class="service-grid">
+        <a href="/services/revops-consulting" class="service-card">
+          <h2 data-en="Revenue Operations Consulting" data-es="Consultor&iacute;a de Revenue Operations">Consultor&iacute;a de Revenue Operations</h2>
+          <p data-en="For B2B SaaS teams. Salesforce/HubSpot implementations, territory design, forecasting and pipeline inspection, deal desk, and sales compensation. Project work or fractional RevOps lead." data-es="Para equipos B2B SaaS. Implementaciones de Salesforce/HubSpot, dise&ntilde;o de territorios, pron&oacute;sticos e inspecci&oacute;n de pipeline, deal desk y compensaci&oacute;n de ventas. Por proyecto o como l&iacute;der de RevOps fraccional.">Para equipos B2B SaaS. Implementaciones de Salesforce/HubSpot, dise&ntilde;o de territorios, pron&oacute;sticos e inspecci&oacute;n de pipeline, deal desk y compensaci&oacute;n de ventas. Por proyecto o como l&iacute;der de RevOps fraccional.</p>
+          <span class="arrow" data-en="Learn more &rarr;" data-es="Saber m&aacute;s &rarr;">Saber m&aacute;s &rarr;</span>
+        </a>
+
+        <a href="/services/web-development" class="service-card">
+          <h2 data-en="Web Development &amp; Digital Presence" data-es="Desarrollo Web y Presencia Digital">Desarrollo Web y Presencia Digital</h2>
+          <p data-en="For small businesses, restaurants, and real estate operators. Bilingual marketing sites, booking flows, and SEO foundations. Built for speed and conversion, hosted cheaply on Vercel." data-es="Para peque&ntilde;as empresas, restaurantes y operadores inmobiliarios. Sitios de marketing biling&uuml;es, flujos de reserva y fundamentos de SEO. Construidos para velocidad y conversi&oacute;n, hospedados a bajo costo en Vercel.">Para peque&ntilde;as empresas, restaurantes y operadores inmobiliarios. Sitios de marketing biling&uuml;es, flujos de reserva y fundamentos de SEO. Construidos para velocidad y conversi&oacute;n, hospedados a bajo costo en Vercel.</p>
+          <span class="arrow" data-en="Learn more &rarr;" data-es="Saber m&aacute;s &rarr;">Saber m&aacute;s &rarr;</span>
+        </a>
+
+        <a href="/services/str-real-estate-analytics" class="service-card">
+          <h2 data-en="Short-Term Rental &amp; Real Estate Analytics" data-es="An&aacute;lisis para Alquileres a Corto Plazo y Bienes Ra&iacute;ces">An&aacute;lisis para Alquileres a Corto Plazo y Bienes Ra&iacute;ces</h2>
+          <p data-en="For Airbnb/VRBO hosts and small real estate portfolios. Pricing analytics, direct-booking systems, operations dashboards, and honest underwriting for new property acquisitions." data-es="Para anfitriones de Airbnb/VRBO y portafolios inmobiliarios peque&ntilde;os. An&aacute;lisis de pricing, sistemas de reserva directa, dashboards operativos y underwriting honesto para nuevas adquisiciones de propiedades.">Para anfitriones de Airbnb/VRBO y portafolios inmobiliarios peque&ntilde;os. An&aacute;lisis de pricing, sistemas de reserva directa, dashboards operativos y underwriting honesto para nuevas adquisiciones de propiedades.</p>
+          <span class="arrow" data-en="Learn more &rarr;" data-es="Saber m&aacute;s &rarr;">Saber m&aacute;s &rarr;</span>
+        </a>
+      </div>
+
+      <div class="cta-block">
+        <h3 data-en="Not sure which fits?" data-es="&iquest;No sabes cu&aacute;l encaja?">&iquest;No sabes cu&aacute;l encaja?</h3>
+        <p data-en="Start with a 30-minute conversation. Walk me through what you are trying to do and I will tell you honestly whether one of these services is the right shape &mdash; or whether you should talk to someone else." data-es="Empieza con una conversaci&oacute;n de 30 minutos. Cu&eacute;ntame qu&eacute; est&aacute;s tratando de hacer y te dir&eacute; honestamente si alguno de estos servicios es la forma correcta &mdash; o si deber&iacute;as hablar con alguien m&aacute;s.">Empieza con una conversaci&oacute;n de 30 minutos. Cu&eacute;ntame qu&eacute; est&aacute;s tratando de hacer y te dir&eacute; honestamente si alguno de estos servicios es la forma correcta &mdash; o si deber&iacute;as hablar con alguien m&aacute;s.</p>
+        <a href="/#contact" class="btn btn-primary" data-en="Start a Conversation" data-es="Iniciar una Conversaci&oacute;n">Iniciar una Conversaci&oacute;n</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Análisis para Alquileres a Corto Plazo y Bienes Raíces | Jaime M. Mena</title>
+
+  <meta name="description" content="Análisis de pricing, sistemas de reservas y dashboards de operaciones para anfitriones de alquileres a corto plazo (Airbnb, VRBO) y portafolios inmobiliarios pequeños." />
+  <link rel="canonical" href="https://jaimem.com/es/services/str-real-estate-analytics" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/services/str-real-estate-analytics" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/services/str-real-estate-analytics" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/services/str-real-estate-analytics" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jaimem.com/es/services/str-real-estate-analytics" />
+  <meta property="og:title" content="Análisis para Alquileres a Corto Plazo y Bienes Raíces | Jaime M. Mena" />
+  <meta property="og:description" content="Análisis de pricing, sistemas de reservas y dashboards de operaciones para anfitriones de alquileres a corto plazo (Airbnb, VRBO) y portafolios inmobiliarios pequeños." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Análisis para Alquileres a Corto Plazo — Jaime M. Mena" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Análisis para Alquileres a Corto Plazo y Bienes Raíces | Jaime M. Mena" />
+  <meta name="twitter:description" content="Análisis de pricing, sistemas de reservas y dashboards de operaciones para anfitriones de alquileres a corto plazo (Airbnb, VRBO) y portafolios inmobiliarios pequeños." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Análisis para Alquileres a Corto Plazo — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Short-Term Rental & Real Estate Analytics",
+    "serviceType": "Real Estate Analytics",
+    "provider": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "California" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Mexico" }
+    ],
+    "availableLanguage": ["English", "Spanish"],
+    "description": "Pricing analytics, booking systems, and operations dashboards for short-term rental hosts (Airbnb, VRBO) and small real estate portfolios.",
+    "url": "https://jaimem.com/services/str-real-estate-analytics"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is this for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Short-term rental hosts running 1–10 properties (Airbnb, VRBO, direct), small real estate portfolios, and family-run lodging or event venues. Operators who want better data and tighter ops, but who do not need (or want) enterprise property-management software."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data do you actually work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Booking exports from Airbnb/VRBO, AirDNA market data, Stripe payouts, Google Calendar availability, expense ledgers from QuickBooks or spreadsheets, and any guest-facing form responses. The output is one dashboard or model that pulls it all together — not five tabs in five different tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help me decide whether to buy a new STR property?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — that is a common project. The deliverable is a model with comparable nightly rates, realistic occupancy assumptions, a seasonality curve, and a 3-year cash-flow projection with sensitivity ranges. Honest assessment, not a sales pitch — sometimes the model says do not buy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you set up dynamic pricing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you want PriceLabs or Wheelhouse, yes — I configure them for your market and goals. If you want something custom (e.g., a pricing model that knows about local events, school calendars, or family-stay patterns), that is a separate small build. Either way the output is automated nightly rates you can override anytime."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this just for Airbnb or also for event venues and direct booking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both. The Rancho Los Potrillos build on the home page is a direct-booking event venue — calendar availability, deposit flow via Stripe, WhatsApp confirmation, and a full admin view. The same pattern works for Airbnb-supplemented operators who want a real direct-booking channel that bypasses platform fees."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css" />
+
+  <style>
+    .page-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 1rem; }
+    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+    .page-wrap ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
+    .page-wrap ul li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .faq-list details { border-top: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-list details:last-child { border-bottom: 1px solid var(--border); }
+    .faq-list summary { font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: '+'; color: var(--accent); font-size: 1.5rem; font-weight: 300; transition: transform .2s; }
+    .faq-list details[open] summary::after { content: '−'; }
+    .faq-list details p { margin: .75rem 0 0; color: var(--text-2); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/" data-en="Services" data-es="Servicios">Servicios</a></li>
+        <li><a href="/#experience" data-en="Experience" data-es="Experiencia">Experiencia</a></li>
+        <li><a href="/#samples" data-en="Samples" data-es="Muestras">Muestras</a></li>
+        <li><a href="/#projects" data-en="Projects" data-es="Proyectos">Proyectos</a></li>
+        <li><a href="/#about" data-en="About" data-es="Sobre M&iacute;">Sobre M&iacute;</a></li>
+        <li><a href="/#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/" data-en="Home" data-es="Inicio">Inicio</a> &rsaquo; <a href="/services/" data-en="Services" data-es="Servicios">Servicios</a> &rsaquo; <span data-en="STR &amp; Real Estate Analytics" data-es="An&aacute;lisis STR y Bienes Ra&iacute;ces">An&aacute;lisis STR y Bienes Ra&iacute;ces</span></p>
+
+      <h1 data-en="Short-Term Rental &amp; Real Estate Analytics" data-es="An&aacute;lisis para Alquileres a Corto Plazo y Bienes Ra&iacute;ces">An&aacute;lisis para Alquileres a Corto Plazo y Bienes Ra&iacute;ces</h1>
+
+      <p class="lead" data-en="Pricing analytics, booking systems, and operations dashboards for short-term rental hosts (Airbnb, VRBO), small real estate portfolios, and family-run lodging or event venues. The work I do for B2B SaaS teams &mdash; just applied to property operators." data-es="An&aacute;lisis de pricing, sistemas de reservas y dashboards operativos para anfitriones de alquileres a corto plazo (Airbnb, VRBO), portafolios inmobiliarios peque&ntilde;os y operaciones familiares de hospedaje o venues para eventos. El mismo trabajo que hago para equipos B2B SaaS &mdash; aplicado a operadores de propiedades.">An&aacute;lisis de pricing, sistemas de reservas y dashboards operativos para anfitriones de alquileres a corto plazo (Airbnb, VRBO), portafolios inmobiliarios peque&ntilde;os y operaciones familiares de hospedaje o venues para eventos. El mismo trabajo que hago para equipos B2B SaaS &mdash; aplicado a operadores de propiedades.</p>
+
+      <h2 data-en="Where I focus" data-es="D&oacute;nde me enfoco">D&oacute;nde me enfoco</h2>
+
+      <p data-en="STR and small-real-estate operators rarely have a data problem in the abstract &mdash; they have the data, spread across Airbnb dashboards, Stripe, spreadsheets, and a shared inbox. The job is connecting it so the numbers tell a story before you have to dig for them." data-es="Los operadores STR y de bienes ra&iacute;ces peque&ntilde;os rara vez tienen un problema de datos en abstracto &mdash; los datos est&aacute;n ah&iacute;, repartidos entre dashboards de Airbnb, Stripe, hojas de c&aacute;lculo y una bandeja compartida. El trabajo es conectarlos para que los n&uacute;meros cuenten la historia antes de tener que excavar.">Los operadores STR y de bienes ra&iacute;ces peque&ntilde;os rara vez tienen un problema de datos en abstracto &mdash; los datos est&aacute;n ah&iacute;, repartidos entre dashboards de Airbnb, Stripe, hojas de c&aacute;lculo y una bandeja compartida. El trabajo es conectarlos para que los n&uacute;meros cuenten la historia antes de tener que excavar.</p>
+
+      <h3 data-en="Pricing analytics and rate optimization" data-es="An&aacute;lisis de pricing y optimizaci&oacute;n de tarifas">An&aacute;lisis de pricing y optimizaci&oacute;n de tarifas</h3>
+      <p data-en="Comparable nightly rates pulled from AirDNA and direct market scraping, seasonality curves anchored on your actual booking history, and a pricing model that suggests rates by day &mdash; not by month. PriceLabs / Wheelhouse configuration when off-the-shelf is enough; custom models when local quirks (school calendars, regional events, family-stay patterns) need to be priced in." data-es="Tarifas comparables por noche extra&iacute;das de AirDNA y scraping directo del mercado, curvas de estacionalidad ancladas en tu historial real de reservas, y un modelo de pricing que sugiere tarifas por d&iacute;a &mdash; no por mes. Configuraci&oacute;n de PriceLabs / Wheelhouse cuando lo de la caja es suficiente; modelos personalizados cuando peculiaridades locales (calendarios escolares, eventos regionales, patrones de estancias familiares) necesitan estar reflejadas en el precio.">Tarifas comparables por noche extra&iacute;das de AirDNA y scraping directo del mercado, curvas de estacionalidad ancladas en tu historial real de reservas, y un modelo de pricing que sugiere tarifas por d&iacute;a &mdash; no por mes. Configuraci&oacute;n de PriceLabs / Wheelhouse cuando lo de la caja es suficiente; modelos personalizados cuando peculiaridades locales (calendarios escolares, eventos regionales, patrones de estancias familiares) necesitan estar reflejadas en el precio.</p>
+
+      <h3 data-en="Booking systems and direct-booking flows" data-es="Sistemas de reservas y flujos de reserva directa">Sistemas de reservas y flujos de reserva directa</h3>
+      <p data-en="A real direct-booking channel that bypasses platform fees: calendar availability synced from Airbnb/VRBO via iCal, deposit flow via Stripe, WhatsApp Business confirmation, and an admin view your team can actually use. Reference build: the Ranch Booking System on the home page, currently handling reservations for a property in Jalisco." data-es="Un canal real de reserva directa que evita las comisiones de plataforma: disponibilidad de calendario sincronizada desde Airbnb/VRBO v&iacute;a iCal, flujo de dep&oacute;sito v&iacute;a Stripe, confirmaci&oacute;n por WhatsApp Business y una vista admin que tu equipo puede realmente usar. Proyecto de referencia: el Sistema de Reservas del Rancho en la p&aacute;gina principal, actualmente manejando reservaciones para una propiedad en Jalisco.">Un canal real de reserva directa que evita las comisiones de plataforma: disponibilidad de calendario sincronizada desde Airbnb/VRBO v&iacute;a iCal, flujo de dep&oacute;sito v&iacute;a Stripe, confirmaci&oacute;n por WhatsApp Business y una vista admin que tu equipo puede realmente usar. Proyecto de referencia: el Sistema de Reservas del Rancho en la p&aacute;gina principal, actualmente manejando reservaciones para una propiedad en Jalisco.</p>
+
+      <h3 data-en="Operations dashboards" data-es="Dashboards operativos">Dashboards operativos</h3>
+      <p data-en="One view that answers: how is the property performing this month vs the same month last year, what is the booked-revenue forecast for the next 90 days, which weekends still have inventory worth marketing, and what is the contribution margin after cleaning, supplies, and platform fees. Built in whatever your team will actually open &mdash; Notion, Google Sheets with a real model behind it, or a hosted Looker Studio board." data-es="Una vista que responde: c&oacute;mo va la propiedad este mes vs el mismo mes del a&ntilde;o pasado, cu&aacute;l es el pron&oacute;stico de ingresos reservados para los pr&oacute;ximos 90 d&iacute;as, qu&eacute; fines de semana a&uacute;n tienen inventario que vale la pena promocionar, y cu&aacute;l es el margen de contribuci&oacute;n despu&eacute;s de limpieza, insumos y comisiones de plataforma. Construido en lo que tu equipo realmente vaya a abrir &mdash; Notion, Google Sheets con un modelo real detr&aacute;s, o un tablero hosteado en Looker Studio.">Una vista que responde: c&oacute;mo va la propiedad este mes vs el mismo mes del a&ntilde;o pasado, cu&aacute;l es el pron&oacute;stico de ingresos reservados para los pr&oacute;ximos 90 d&iacute;as, qu&eacute; fines de semana a&uacute;n tienen inventario que vale la pena promocionar, y cu&aacute;l es el margen de contribuci&oacute;n despu&eacute;s de limpieza, insumos y comisiones de plataforma. Construido en lo que tu equipo realmente vaya a abrir &mdash; Notion, Google Sheets con un modelo real detr&aacute;s, o un tablero hosteado en Looker Studio.</p>
+
+      <h3 data-en="Acquisition analysis for new properties" data-es="An&aacute;lisis de adquisici&oacute;n para nuevas propiedades">An&aacute;lisis de adquisici&oacute;n para nuevas propiedades</h3>
+      <p data-en="Honest underwriting for a property you are considering: comparable nightly rates, realistic occupancy after season adjustments, three-year cash-flow projection with sensitivity ranges, regulatory check on the local STR rules, and a clear yes/no/conditional recommendation. Sometimes the model says do not buy &mdash; that is the deliverable too." data-es="Underwriting honesto para una propiedad que est&aacute;s considerando: tarifas comparables por noche, ocupaci&oacute;n realista despu&eacute;s de ajustes estacionales, proyecci&oacute;n de flujo de efectivo a tres a&ntilde;os con rangos de sensibilidad, revisi&oacute;n regulatoria de las reglas STR locales, y una recomendaci&oacute;n clara s&iacute;/no/condicional. A veces el modelo dice no compres &mdash; ese es el entregable tambi&eacute;n.">Underwriting honesto para una propiedad que est&aacute;s considerando: tarifas comparables por noche, ocupaci&oacute;n realista despu&eacute;s de ajustes estacionales, proyecci&oacute;n de flujo de efectivo a tres a&ntilde;os con rangos de sensibilidad, revisi&oacute;n regulatoria de las reglas STR locales, y una recomendaci&oacute;n clara s&iacute;/no/condicional. A veces el modelo dice no compres &mdash; ese es el entregable tambi&eacute;n.</p>
+
+      <h2 data-en="Engagement formats" data-es="Formatos de engagement">Formatos de engagement</h2>
+
+      <p><strong data-en="One-off analysis" data-es="An&aacute;lisis puntual">An&aacute;lisis puntual</strong><span data-en=" &mdash; underwriting for a single property or a pricing audit for an existing one. Usually 1&ndash;2 weeks. Fixed fee." data-es=" &mdash; underwriting para una sola propiedad o auditor&iacute;a de pricing para una existente. Generalmente 1&ndash;2 semanas. Tarifa fija."> &mdash; underwriting para una sola propiedad o auditor&iacute;a de pricing para una existente. Generalmente 1&ndash;2 semanas. Tarifa fija.</span></p>
+
+      <p><strong data-en="Build engagement" data-es="Engagement de construcci&oacute;n">Engagement de construcci&oacute;n</strong><span data-en=" &mdash; a full direct-booking system, an ops dashboard, or both. Typically 4&ndash;8 weeks. Includes documentation and a handoff so your team can run it without me." data-es=" &mdash; un sistema completo de reserva directa, un dashboard operativo, o ambos. Generalmente 4&ndash;8 semanas. Incluye documentaci&oacute;n y handoff para que tu equipo pueda correrlo sin m&iacute;."> &mdash; un sistema completo de reserva directa, un dashboard operativo, o ambos. Generalmente 4&ndash;8 semanas. Incluye documentaci&oacute;n y handoff para que tu equipo pueda correrlo sin m&iacute;.</span></p>
+
+      <p><strong data-en="Quarterly retainer" data-es="Retainer trimestral">Retainer trimestral</strong><span data-en=" &mdash; ongoing pricing reviews, monthly performance reports, and a 30-minute call to surface anything that needs attention. Right fit for operators with 3+ properties or seasonal businesses where pricing windows matter." data-es=" &mdash; revisiones continuas de pricing, reportes mensuales de desempe&ntilde;o y una llamada de 30 minutos para identificar cualquier cosa que necesite atenci&oacute;n. Encaje correcto para operadores con 3+ propiedades o negocios estacionales donde las ventanas de pricing importan."> &mdash; revisiones continuas de pricing, reportes mensuales de desempe&ntilde;o y una llamada de 30 minutos para identificar cualquier cosa que necesite atenci&oacute;n. Encaje correcto para operadores con 3+ propiedades o negocios estacionales donde las ventanas de pricing importan.</span></p>
+
+      <h2 data-en="Why hire a RevOps person to do this" data-es="Por qu&eacute; contratar a un RevOps para esto">Por qu&eacute; contratar a un RevOps para esto</h2>
+
+      <p data-en="Most STR consultants come from hospitality. I come from B2B SaaS Revenue Operations &mdash; which means I treat your bookings like a sales pipeline, your nightly rates like dynamic pricing, and your owner P&amp;L like a forecasting model. The vocabulary is different; the underlying analytical work is the same. The result is operators who can talk about RevPAR, CAC, contribution margin, and forecast accuracy without having to learn three new platforms." data-es="La mayor&iacute;a de los consultores STR vienen de hospitalidad. Yo vengo de Revenue Operations en B2B SaaS &mdash; lo que significa que trato tus reservas como un pipeline de ventas, tus tarifas nocturnas como pricing din&aacute;mico y tu P&amp;L como un modelo de pron&oacute;sticos. El vocabulario es diferente; el trabajo anal&iacute;tico subyacente es el mismo. El resultado son operadores que pueden hablar de RevPAR, CAC, margen de contribuci&oacute;n y precisi&oacute;n de pron&oacute;sticos sin tener que aprender tres plataformas nuevas.">La mayor&iacute;a de los consultores STR vienen de hospitalidad. Yo vengo de Revenue Operations en B2B SaaS &mdash; lo que significa que trato tus reservas como un pipeline de ventas, tus tarifas nocturnas como pricing din&aacute;mico y tu P&amp;L como un modelo de pron&oacute;sticos. El vocabulario es diferente; el trabajo anal&iacute;tico subyacente es el mismo. El resultado son operadores que pueden hablar de RevPAR, CAC, margen de contribuci&oacute;n y precisi&oacute;n de pron&oacute;sticos sin tener que aprender tres plataformas nuevas.</p>
+
+      <h2 data-en="Frequently asked" data-es="Preguntas frecuentes">Preguntas frecuentes</h2>
+
+      <div class="faq-list">
+        <details>
+          <summary data-en="Who is this for?" data-es="&iquest;Para qui&eacute;n es esto?">&iquest;Para qui&eacute;n es esto?</summary>
+          <p data-en="Short-term rental hosts running 1&ndash;10 properties (Airbnb, VRBO, direct), small real estate portfolios, and family-run lodging or event venues. Operators who want better data and tighter ops, but who do not need (or want) enterprise property-management software." data-es="Anfitriones de alquileres a corto plazo que corren 1&ndash;10 propiedades (Airbnb, VRBO, directo), portafolios inmobiliarios peque&ntilde;os y operaciones familiares de hospedaje o venues para eventos. Operadores que quieren mejores datos y operaciones m&aacute;s ajustadas, pero que no necesitan (ni quieren) software empresarial de gesti&oacute;n de propiedades.">Anfitriones de alquileres a corto plazo que corren 1&ndash;10 propiedades (Airbnb, VRBO, directo), portafolios inmobiliarios peque&ntilde;os y operaciones familiares de hospedaje o venues para eventos. Operadores que quieren mejores datos y operaciones m&aacute;s ajustadas, pero que no necesitan (ni quieren) software empresarial de gesti&oacute;n de propiedades.</p>
+        </details>
+
+        <details>
+          <summary data-en="What data do you actually work with?" data-es="&iquest;Con qu&eacute; datos trabajas realmente?">&iquest;Con qu&eacute; datos trabajas realmente?</summary>
+          <p data-en="Booking exports from Airbnb/VRBO, AirDNA market data, Stripe payouts, Google Calendar availability, expense ledgers from QuickBooks or spreadsheets, and any guest-facing form responses. The output is one dashboard or model that pulls it all together &mdash; not five tabs in five different tools." data-es="Exports de reservas de Airbnb/VRBO, datos de mercado de AirDNA, payouts de Stripe, disponibilidad de Google Calendar, libros de gastos de QuickBooks o hojas de c&aacute;lculo, y cualquier respuesta de formularios para hu&eacute;spedes. La salida es un dashboard o modelo que junta todo &mdash; no cinco pesta&ntilde;as en cinco herramientas distintas.">Exports de reservas de Airbnb/VRBO, datos de mercado de AirDNA, payouts de Stripe, disponibilidad de Google Calendar, libros de gastos de QuickBooks o hojas de c&aacute;lculo, y cualquier respuesta de formularios para hu&eacute;spedes. La salida es un dashboard o modelo que junta todo &mdash; no cinco pesta&ntilde;as en cinco herramientas distintas.</p>
+        </details>
+
+        <details>
+          <summary data-en="Can you help me decide whether to buy a new STR property?" data-es="&iquest;Puedes ayudarme a decidir si compro una nueva propiedad STR?">&iquest;Puedes ayudarme a decidir si compro una nueva propiedad STR?</summary>
+          <p data-en="Yes &mdash; that is a common project. The deliverable is a model with comparable nightly rates, realistic occupancy assumptions, a seasonality curve, and a 3-year cash-flow projection with sensitivity ranges. Honest assessment, not a sales pitch &mdash; sometimes the model says do not buy." data-es="S&iacute; &mdash; es un proyecto com&uacute;n. El entregable es un modelo con tarifas nocturnas comparables, supuestos de ocupaci&oacute;n realistas, una curva de estacionalidad y una proyecci&oacute;n de flujo de efectivo a 3 a&ntilde;os con rangos de sensibilidad. Evaluaci&oacute;n honesta, no un pitch de venta &mdash; a veces el modelo dice no compres.">S&iacute; &mdash; es un proyecto com&uacute;n. El entregable es un modelo con tarifas nocturnas comparables, supuestos de ocupaci&oacute;n realistas, una curva de estacionalidad y una proyecci&oacute;n de flujo de efectivo a 3 a&ntilde;os con rangos de sensibilidad. Evaluaci&oacute;n honesta, no un pitch de venta &mdash; a veces el modelo dice no compres.</p>
+        </details>
+
+        <details>
+          <summary data-en="Do you set up dynamic pricing?" data-es="&iquest;Configuras pricing din&aacute;mico?">&iquest;Configuras pricing din&aacute;mico?</summary>
+          <p data-en="If you want PriceLabs or Wheelhouse, yes &mdash; I configure them for your market and goals. If you want something custom (e.g., a pricing model that knows about local events, school calendars, or family-stay patterns), that is a separate small build. Either way the output is automated nightly rates you can override anytime." data-es="Si quieres PriceLabs o Wheelhouse, s&iacute; &mdash; los configuro para tu mercado y metas. Si quieres algo personalizado (e.g., un modelo de pricing que conoce eventos locales, calendarios escolares o patrones de estancias familiares), es una construcci&oacute;n peque&ntilde;a aparte. En cualquier caso, la salida son tarifas nocturnas automatizadas que puedes anular cuando quieras.">Si quieres PriceLabs o Wheelhouse, s&iacute; &mdash; los configuro para tu mercado y metas. Si quieres algo personalizado (e.g., un modelo de pricing que conoce eventos locales, calendarios escolares o patrones de estancias familiares), es una construcci&oacute;n peque&ntilde;a aparte. En cualquier caso, la salida son tarifas nocturnas automatizadas que puedes anular cuando quieras.</p>
+        </details>
+
+        <details>
+          <summary data-en="Is this just for Airbnb or also for event venues and direct booking?" data-es="&iquest;Es solo para Airbnb o tambi&eacute;n para venues y reserva directa?">&iquest;Es solo para Airbnb o tambi&eacute;n para venues y reserva directa?</summary>
+          <p data-en="Both. The Rancho Los Potrillos build on the home page is a direct-booking event venue &mdash; calendar availability, deposit flow via Stripe, WhatsApp confirmation, and a full admin view. The same pattern works for Airbnb-supplemented operators who want a real direct-booking channel that bypasses platform fees." data-es="Ambos. El proyecto de Rancho Los Potrillos en la p&aacute;gina principal es un venue para eventos con reserva directa &mdash; disponibilidad de calendario, flujo de dep&oacute;sito v&iacute;a Stripe, confirmaci&oacute;n por WhatsApp y una vista admin completa. El mismo patr&oacute;n funciona para operadores complementados con Airbnb que quieren un canal real de reserva directa que evite las comisiones de plataforma.">Ambos. El proyecto de Rancho Los Potrillos en la p&aacute;gina principal es un venue para eventos con reserva directa &mdash; disponibilidad de calendario, flujo de dep&oacute;sito v&iacute;a Stripe, confirmaci&oacute;n por WhatsApp y una vista admin completa. El mismo patr&oacute;n funciona para operadores complementados con Airbnb que quieren un canal real de reserva directa que evite las comisiones de plataforma.</p>
+        </details>
+      </div>
+
+      <div class="cta-block">
+        <h3 data-en="Have a property or portfolio to optimize?" data-es="&iquest;Tienes una propiedad o portafolio que optimizar?">&iquest;Tienes una propiedad o portafolio que optimizar?</h3>
+        <p data-en="Start with a 30-minute conversation. Walk me through the property, the data you have, and what you wish you knew. We will figure out together whether there is a project here." data-es="Empieza con una conversaci&oacute;n de 30 minutos. Cu&eacute;ntame de la propiedad, los datos que tienes y lo que te gustar&iacute;a saber. Juntos vemos si hay un proyecto aqu&iacute;.">Empieza con una conversaci&oacute;n de 30 minutos. Cu&eacute;ntame de la propiedad, los datos que tienes y lo que te gustar&iacute;a saber. Juntos vemos si hay un proyecto aqu&iacute;.</p>
+        <a href="/#contact" class="btn btn-primary" data-en="Start a Conversation" data-es="Iniciar una Conversaci&oacute;n">Iniciar una Conversaci&oacute;n</a>
+      </div>
+
+      <div class="related">
+        <h3 data-en="Other services" data-es="Otros servicios">Otros servicios</h3>
+        <ul>
+          <li><a href="/services/revops-consulting" class="inline-link" data-en="Revenue Operations Consulting" data-es="Consultor&iacute;a de Revenue Operations">Consultor&iacute;a de Revenue Operations</a><span data-en=" &mdash; Salesforce/HubSpot, territory design, forecasting, deal desk, and compensation plans for B2B SaaS teams." data-es=" &mdash; Salesforce/HubSpot, dise&ntilde;o de territorios, pron&oacute;sticos, deal desk y planes de compensaci&oacute;n para equipos B2B SaaS."> &mdash; Salesforce/HubSpot, dise&ntilde;o de territorios, pron&oacute;sticos, deal desk y planes de compensaci&oacute;n para equipos B2B SaaS.</span></li>
+          <li><a href="/services/web-development" class="inline-link" data-en="Web Development &amp; Digital Presence" data-es="Desarrollo Web y Presencia Digital">Desarrollo Web y Presencia Digital</a><span data-en=" &mdash; bilingual sites, booking flows, and analytics dashboards for small businesses." data-es=" &mdash; sitios biling&uuml;es, flujos de reserva y dashboards de an&aacute;lisis para peque&ntilde;as empresas."> &mdash; sitios biling&uuml;es, flujos de reserva y dashboards de an&aacute;lisis para peque&ntilde;as empresas.</span></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
