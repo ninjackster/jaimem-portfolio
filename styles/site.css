@@ -866,11 +866,74 @@
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
+    .about-subhead {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: var(--text);
+      margin: 3rem 0 1rem;
+    }
+    .about-principles { margin-top: 1rem; }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+    }
+    .principle {
+      padding: 1.25rem 1.25rem 1rem;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+    }
+    .principle h4 {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .4rem;
+    }
+    .principle p {
+      font-size: .85rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .about-presence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .presence-item {
+      padding: 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .presence-item h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .4rem;
+    }
+    .presence-item p {
+      font-size: .82rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      margin: 0 0 .75rem;
+    }
+    .presence-link {
+      font-size: .82rem;
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .presence-link:hover { color: var(--accent-h); }
+    @media (max-width: 720px) {
+      .principles-grid, .about-presence { grid-template-columns: 1fr; }
+    }
     .interests {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      margin-top: 2.5rem;
+      margin-top: 1rem;
     }
     .interest {
       text-align: center;

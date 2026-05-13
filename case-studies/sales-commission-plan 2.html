@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Sales Commission Plan & Calculator — RevOps Case Study | Jaime M. Mena</title>
+
+  <meta name="description" content="An end-to-end commission plan with tiered accelerators, MEDDPICC compliance kickers, SPIF programs, and a dynamic Excel calculator for attainment tracking, payout modeling, and scenario analysis." />
+  <link rel="canonical" href="https://jaimem.com/case-studies/sales-commission-plan" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/case-studies/sales-commission-plan" />
+  <meta property="og:title" content="Sales Commission Plan &amp; Calculator — RevOps Case Study | Jaime M. Mena" />
+  <meta property="og:description" content="An end-to-end commission plan with tiered accelerators, MEDDPICC compliance kickers, SPIF programs, and a dynamic Excel calculator for attainment tracking, payout modeling, and scenario analysis." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sales Commission Plan Case Study — Jaime M. Mena" />
+  <meta property="article:section" content="Revenue Operations" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sales Commission Plan &amp; Calculator — RevOps Case Study | Jaime M. Mena" />
+  <meta name="twitter:description" content="An end-to-end commission plan with tiered accelerators, MEDDPICC compliance kickers, SPIF programs, and a dynamic Excel calculator for attainment tracking, payout modeling, and scenario analysis." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Sales Commission Plan Case Study — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/case-studies/sales-commission-plan" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/case-studies/sales-commission-plan" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/case-studies/sales-commission-plan" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sales Commission Plan &amp; Calculator — RevOps Case Study | Jaime M. Mena",
+    "description": "An end-to-end commission plan with tiered accelerators, MEDDPICC compliance kickers, SPIF programs, and a dynamic Excel calculator for attainment tracking, payout modeling, and scenario analysis.",
+    "url": "https://jaimem.com/case-studies/sales-commission-plan",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-05-12",
+    "inLanguage": "en-US",
+    "keywords": "sales commission plan, OTE design, accelerators, MEDDPICC kickers, SPIF, sales compensation, commission calculator"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .page-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .9rem; color: var(--text-3); margin-bottom: 1.5rem; display: block; }
+    .page-wrap .lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; }
+    .page-wrap ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
+    .page-wrap ul li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .pdf-row { display: flex; gap: .75rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+    .pdf-row a { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; text-decoration: none; font-size: .9rem; font-weight: 500; transition: background .15s, color .15s; }
+    .pdf-row a:hover { background: var(--accent); color: #fff; }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .case-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .case-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .case-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .case-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .case-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .case-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .case-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/case-studies/">Case Studies</a> &rsaquo; <span>Sales Commission Plan & Calculator</span></p>
+
+      <h1>Sales Commission Plan & Calculator</h1>
+      <span class="sub">North Star Analytics · Compensation Design</span>
+
+      <p class="lead">A compensation plan that drives the behavior leadership says it wants — and a working Excel calculator so reps can self-verify their commission instead of opening tickets with Finance every two weeks. Built for an 8-rep B2B SaaS team.</p>
+
+      <div class="pdf-row">
+      <a href="/samples/commissions-playbook.pdf" target="_blank" rel="noopener">View the Playbook PDF</a>
+      <a href="/samples/commission-calculator.pdf" target="_blank" rel="noopener">View the Calculator PDF</a>
+      </div>
+
+      <h2>The problem</h2>
+      <p>A comp plan that read clean on a PDF but unraveled the moment a deal carried a partial-year discount, a multi-year ramp, or a mid-quarter amendment. Reps were spending hours every month reconstructing their own commission. Finance was spending more hours arguing with reps. Sales leadership couldn't answer "is this plan still driving the right deals" because nobody had a clear payout history by deal type.</p>
+
+      <h2>The approach</h2>
+      <p>Design the plan and the calculator in parallel — if a clause cannot be modeled cleanly, it does not belong in the plan. Tier the accelerators against historical attainment so 70th-percentile reps see a real upside without breaking the comp ratio. Layer in MEDDPICC compliance kickers on Enterprise deals — small payout, big behavioral lever. SPIFs as time-boxed campaigns with explicit start/end and a deal-type filter, not standing programs. The calculator outputs a deal-by-deal payout trace so any rep can see exactly how their number was built.</p>
+
+      <h2>The outcome</h2>
+      <ul>
+        <li>Time spent reconciling commissions cut from hours per rep per month to minutes.</li>
+        <li>A working calculator the team uses as a forecasting tool — reps now model their own quarter against pipeline before commit calls.</li>
+        <li>Comp-ratio compliance maintained while introducing accelerators that meaningfully reward overperformance.</li>
+        <li>MEDDPICC qualification adoption lifted because the comp plan made it visible — small kicker, large signal.</li>
+      </ul>
+
+      <h2>What I would do differently</h2>
+      <p>Run the calculator against the prior two quarters of closed-won data BEFORE rolling out the plan, with reps in the room. The first version surfaced two edge cases that the model handled correctly but felt unfair to the reps when they saw their own historical numbers re-computed. A retro pass would have caught them before the all-hands.</p>
+
+      <div class="cta-block">
+        <h3>Have a similar problem?</h3>
+        <p>I help apply this kind of framework to your business. Start with a 30-minute conversation.</p>
+        <a href="/services/revops-consulting" class="btn btn-primary">Start a Conversation</a>
+      </div>
+
+      <div class="related">
+        <h3>Other case studies</h3>
+        <ul>
+        <li><a href="/case-studies/territory-design-account-coverage" class="inline-link">Territory Design & Account Coverage Model</a></li>
+        <li><a href="/case-studies/forecast-inspection-framework" class="inline-link">Forecast Inspection & Pipeline Review Framework</a></li>
+        <li><a href="/case-studies/executive-gtm-dashboard" class="inline-link">Executive GTM Health Dashboard</a></li>
+        </ul>
+        <p style="margin-top:1.5rem;"><a href="/services/revops-consulting" class="inline-link">See my Revenue Operations Consulting service →</a></p>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
