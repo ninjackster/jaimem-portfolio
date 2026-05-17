@@ -28,6 +28,26 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }
       ]
+    },
+    {
+      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/playlist.m3u",
+      "headers": [
+        { "key": "Content-Type", "value": "application/x-mpegURL; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/epg.xml.gz",
+      "headers": [
+        { "key": "Content-Type", "value": "application/gzip" },
+        { "key": "Content-Encoding", "value": "identity" }
+      ]
     }
   ]
 }

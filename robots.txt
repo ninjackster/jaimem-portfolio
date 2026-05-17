@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/
 
 Sitemap: https://jaimem.com/sitemap.xml
