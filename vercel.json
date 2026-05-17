@@ -30,27 +30,27 @@
       ]
     },
     {
-      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/(.*)",
+      "source": "/iptv-:uuid([a-f0-9-]+)/:rest*",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet" },
         { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
       ]
     },
     {
-      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/playlist.m3u",
+      "source": "/iptv-:uuid([a-f0-9-]+)/playlist.m3u",
       "headers": [
         { "key": "Content-Type", "value": "application/x-mpegURL; charset=utf-8" }
       ]
     },
     {
-      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/epg.xml.gz",
+      "source": "/iptv-:uuid([a-f0-9-]+)/epg.xml.gz",
       "headers": [
         { "key": "Content-Type", "value": "application/gzip" },
         { "key": "Content-Encoding", "value": "identity" }
       ]
     },
     {
-      "source": "/iptv-47f468d0-141e-40dd-a421-3a7e1176b6aa/epg-gz.xml",
+      "source": "/iptv-:uuid([a-f0-9-]+)/epg-gz.xml",
       "headers": [
         { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
         { "key": "Content-Encoding", "value": "gzip" },
