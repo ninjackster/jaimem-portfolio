@@ -552,28 +552,28 @@ export const POSTS = [
   {
     slug: 'bookings-vs-revenue-reconciliation-spreadsheet',
     datePublished: '2026-06-09',
-    keywords: 'bookings vs revenue, ASC 606, revenue recognition, sales finance reconciliation, deferred revenue, RevRec, SaaS revenue model',
+    keywords: 'bookings vs revenue, ASC 606, revenue recognition, sales finance reconciliation, deferred revenue, deferred revenue bridge, SaaS bookings reconciliation, RevRec, SaaS revenue model',
     en: {
       title: 'Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet',
-      description: 'Most companies do not have a bookings vs revenue problem — they have a reconciliation problem. Here is the five-step bridge that explains 95% of the gap, plus a one-spreadsheet model the CFO will actually trust.',
-      ogAlt: 'Bookings vs Revenue Reconciliation — Jaime M. Mena',
+      description: 'Bookings vs revenue reconciliation in one spreadsheet. A five-step bridge for SaaS finance teams that explains 95% of the gap under ASC 606.',
+      ogAlt: 'Three-tab spreadsheet showing the bookings to revenue bridge with bridging items by category',
       h1: 'Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet',
       sub: 'June 9, 2026 · 8 min read · Revenue Finance',
-      lead: 'Most companies do not have a bookings vs revenue problem. They have a bookings vs revenue <em>reconciliation</em> problem — which is different. The numbers are fine in both systems. What is missing is the bridge that explains why they do not agree. This is the five-step bridge that closes 95% of the gap, plus how to build it as one spreadsheet that does not lie.',
+      lead: 'Most companies do not have a bookings vs revenue problem. They have a bookings vs revenue <em>reconciliation</em> problem, which is different. The numbers are fine in both systems. What is missing is the bridge that explains why they do not agree. This is the five-step bridge that closes 95% of the gap, plus how to build it as one spreadsheet that does not lie.',
       body: `
         <h2>The eternal argument</h2>
 
-        <p>Every quarter, Sales reports a bookings number. Every quarter, Finance reports a revenue number. The two never match. The conversation about why becomes a forensic accounting exercise — three people on a Zoom call walking through emails, contract amendments, and the date someone counter-signed a redline at 11:47 PM on the last day of the quarter. By the time the variance is explained, the meeting is over and nobody understands the business better than they did 60 minutes ago.</p>
+        <p>Every quarter, Sales reports a bookings number. Every quarter, Finance reports a revenue number. The two never match. The conversation about why becomes a forensic accounting exercise: three people on a Zoom call walking through emails, contract amendments, and the date someone counter-signed a redline at 11:47 PM on the last day of the quarter. By the time the variance is explained, the meeting is over and nobody understands the business better than they did 60 minutes ago.</p>
 
-        <p>The reason this happens is simple: bookings and revenue measure different things. Bookings measures the contract value that was committed in the period. Revenue measures the value that was earned in the period under ASC 606. The two numbers diverge whenever contract terms include a ramp, an amendment, a partial-period start, a multi-year commitment, or a non-cash consideration. Which is almost always.</p>
+        <p>The reason this happens is simple. Bookings and revenue measure different things. Bookings measures the contract value that was committed in the period. Revenue measures the value that was earned in the period under ASC 606. The two numbers diverge whenever contract terms include a ramp, an amendment, a partial-period start, a multi-year commitment, or a non-cash consideration. Which is almost always.</p>
 
-        <p>The reconciliation problem is not figuring out which number is right. They are both right. The reconciliation problem is documenting the bridge — every dollar of difference, attributed to a specific bridging item, in a format that survives next quarter.</p>
+        <p>The reconciliation problem is not figuring out which number is right. They are both right. The reconciliation problem is documenting the bridge: every dollar of difference, attributed to a specific bridging item, in a format that survives next quarter.</p>
 
         <h2>What ASC 606 actually requires, in plain English</h2>
 
-        <p>ASC 606 — the revenue recognition standard that has been the industry norm since 2018 — boils down to five steps. You identify the contract, identify the performance obligations inside it, determine the transaction price, allocate price to performance obligations, and recognize revenue when (or as) those obligations are satisfied.</p>
+        <p>Since ASC 606 took effect, the revenue recognition standard has boiled down to five steps. You identify the contract, identify the performance obligations inside it, determine the transaction price, allocate price to performance obligations, and recognize revenue when (or as) those obligations are satisfied.</p>
 
-        <p>For a typical B2B SaaS contract, the practical implication is this: subscription revenue recognizes ratably over the subscription term, professional services recognize as delivered, and any one-time setup fees recognize at delivery (unless they are non-distinct, in which case they roll into the subscription stream). Multi-year ramps recognize at the average annual contract value per year, with deferred revenue accruing or unwinding depending on cash collection.</p>
+        <p>For a typical B2B SaaS contract, the practical implication is this. Subscription revenue recognizes ratably over the subscription term, professional services recognize as delivered, and any one-time setup fees recognize at delivery (unless they are non-distinct, in which case they roll into the subscription stream). Multi-year ramps recognize at the average annual contract value per year, with a contract asset or deferred revenue balance accruing or unwinding depending on the billing schedule.</p>
 
         <p>That is the entire framework most B2B SaaS finance teams use. The complications come from the edge cases: amendments, partial-month starts, churned customers with refunds, swap deals where the customer trades one SKU for another mid-contract. Those edge cases are where the reconciliation work happens.</p>
 
@@ -581,33 +581,33 @@ export const POSTS = [
 
         <p>I have rebuilt this reconciliation at three different B2B SaaS companies. The categories of bridging items are remarkably consistent across all of them.</p>
 
-        <p><strong>1. Ramp deals.</strong> A three-year contract at $100K Year 1, $150K Year 2, $200K Year 3 books $450K Total Contract Value in the period it closes. Revenue recognition averages to $150K/year, so Year 1 recognizes $150K — already $50K more than the cash collected. The bridge: bookings $450K, Year 1 revenue $150K, deferred revenue created $300K, unbilled receivable created $50K. Most reconciliation arguments are someone forgetting one of those four numbers.</p>
+        <p><strong>1. Ramp deals.</strong> Take a three-year contract at $100K Year 1, $150K Year 2, $200K Year 3. Total Contract Value is $450K, booked in the period the deal closes. Revenue recognizes ratably at the average annual value of $150K per year. Assume the customer is billed annually matching the contract schedule: $100K in Y1, $150K in Y2, $200K in Y3. In Year 1, GAAP revenue is $150K but billings are only $100K, so the company records a $50K contract asset (unbilled receivable). No deferred revenue is created in this scenario, because billings never exceed recognized revenue. By the end of Year 3, the contract asset has unwound to zero ($50K created in Y1, unchanged in Y2 at $150K billed against $150K recognized, then drawn down by $50K in Y3 when $200K is billed against $150K recognized). The bridge: bookings $450K, Year 1 revenue $150K, Year 1 billings $100K, contract asset created $50K. Most reconciliation arguments are someone forgetting one of those four numbers, or worse, confusing contract asset (revenue earned ahead of billing) with deferred revenue (cash collected ahead of revenue).</p>
 
-        <p><strong>2. Mid-term amendments.</strong> A customer upgrades from $50K/year to $80K/year nine months into a 12-month contract. Bookings recognize the $30K incremental ARR in the upgrade period. Revenue catches up: the next three months recognize at the new $80K rate, and the deferred revenue from the original contract continues to release as if nothing changed. The bridge column shows "Amendment uplift" with the incremental MRR delta.</p>
+        <p><strong>2. Mid-term amendments.</strong> A customer upgrades from $50K/year to $80K/year nine months into a 12-month contract. The annualized uplift is $30K of incremental ARR, and that is the number Sales should publish on the ARR walk. But only three months of contract term remain, so the in-period incremental bookings figure is 3/12 × $30K = $7.5K of remaining-term value. Revenue catches up over those three months at the new $80K rate, and the deferred revenue from the original contract continues to release as if nothing changed for the unupgraded portion. The bridge column shows "Amendment uplift" with both figures called out: ARR delta and remaining-term TCV delta. Picking one number without labeling which is which is how this category causes recurring arguments.</p>
 
-        <p><strong>3. Partial-period starts.</strong> A contract that begins on the 17th of the month creates two partial months — the start month with 14 days of revenue and a final month that may or may not be partial depending on when the term ends. Most spreadsheets compute revenue with daily proration. Some compute it with monthly proration. The two methods produce different numbers, and if Sales and Finance are using different methods, the reconciliation breaks every quarter.</p>
+        <p><strong>3. Partial-period starts.</strong> A contract that begins on the 17th of the month creates two partial months: the start month with 14 days of revenue and a final month that may or may not be partial depending on when the term ends. Most spreadsheets compute revenue with daily proration. Some compute it with monthly proration. The two methods produce different numbers, and if Sales and Finance are using different methods, the reconciliation breaks every quarter.</p>
 
-        <p><strong>4. Non-distinct add-ons.</strong> A customer buys the platform for $60K and "Premium Support" for $20K. Are those two distinct performance obligations or one? Under ASC 606, the answer depends on whether the support is meaningfully separable. If not, both recognize ratably as a single stream — which means $80K over 12 months instead of $60K + $20K-at-delivery. Sales books the $20K as if it were upfront. Finance recognizes ratably. Bridge: "Non-distinct deferral."</p>
+        <p><strong>4. Non-distinct add-ons.</strong> A customer buys the platform for $60K and "Premium Support" for $20K. Are those two distinct performance obligations or one? Under ASC 606, the answer depends on whether the support is meaningfully separable. If not, both recognize ratably as a single stream, which means $80K over 12 months instead of $60K plus $20K-at-delivery. Sales books the $20K as if it were upfront. Finance recognizes ratably. Bridge: "Non-distinct deferral."</p>
 
         <p><strong>5. Cancellations and refunds.</strong> A customer churns 7 months into a 12-month contract with a refund. Bookings reverse for the unbilled portion. Revenue reverses for any over-recognized amount. The deferred revenue balance drops to zero. Most reconciliation tools handle this poorly because they treat the contract as a single line item rather than a stream that needs to be unwound. The bridge: "Churn reversal" with the refunded amount called out separately from the unrecognized future revenue.</p>
 
         <h2>The 20-deal worked example</h2>
 
-        <p>The smallest model that actually works has 20 deals — enough to cover every category above. Pick five new business contracts (clean), four multi-year ramps, three mid-term amendments, three partial-period starts, three non-distinct add-on bundles, and two cancellations. Walk each deal from contract date through monthly recognition through the end of the term.</p>
+        <p>The smallest model that actually works has 20 deals, enough to cover every category above. Pick five new business contracts (clean), four multi-year ramps, three mid-term amendments, three partial-period starts, three non-distinct add-on bundles, and two cancellations. Walk each deal from contract date through monthly recognition through the end of the term.</p>
 
-        <p>Build it in three tabs. Tab one: the deal taxonomy — one row per deal, columns for contract date, term, ACV, TCV, amendment markers, cancellation date. Tab two: the monthly recognition grid — one column per month, one row per deal, populated by a formula that reads the taxonomy and applies the right recognition rule. Tab three: the bridging summary — bookings minus revenue, attributed to each of the five bridging categories.</p>
+        <p>Build it in three tabs. Tab one: the deal taxonomy, one row per deal, columns for contract date, term, ACV, TCV, billing schedule, amendment markers, cancellation date. Tab two: the monthly recognition grid, one column per month, one row per deal, populated by a formula that reads the taxonomy and applies the right recognition rule. Tab three: the bridging summary, bookings minus revenue, attributed to each of the five bridging categories with contract asset and deferred revenue tracked as separate columns.</p>
 
         <p>The reconciliation works when the bridging summary mathematically explains the variance between bookings and revenue to the dollar. Not "approximately." To the dollar. If it does not, one of the five categories has a missing case.</p>
 
         <h2>Why CFOs do not trust the bookings number</h2>
 
-        <p>The bookings number, as Sales reports it, is almost always inflated relative to what Finance can recognize over the contract term. Not because Sales is dishonest. Because Sales counts TCV as a single number while Finance has to apply discounting, ramp averaging, and non-distinct deferrals to that same TCV.</p>
+        <p>The bookings number, as Sales reports it, is almost always inflated relative to what Finance can recognize over the contract term. Not because Sales is dishonest. Sales counts TCV as a single number while Finance has to apply discounting, ramp averaging, and non-distinct deferrals to that same TCV.</p>
 
         <p>The fix is to publish bookings <em>at multiple granularities</em>: TCV, ARR, MRR, billings, recognized revenue. Each measures something different and each is correct for a different conversation. Forecast meetings should use ARR. Cash-flow models should use billings. Income statement discussions should use recognized revenue. When Sales and Finance start using the right number for the right conversation, the arguments mostly disappear.</p>
 
         <h2>When to graduate to software</h2>
 
-        <p>The one-spreadsheet reconciliation works through about 200-500 active contracts. After that, three things break: the spreadsheet gets slow, the manual entry burden becomes a full-time job, and the audit trail becomes too long for a human to defend. That is the point where Maxio, Sage Intacct, Chargebee, or one of the niche RevRec vendors earns its price tag.</p>
+        <p>The one-spreadsheet reconciliation works through about 200-500 active contracts. After that, three things break. The spreadsheet gets slow, the manual entry burden becomes a full-time job, and the audit trail becomes too long for a human to defend. That is the point where Maxio, Sage Intacct, Chargebee, or one of the niche RevRec vendors earns its price tag.</p>
 
         <p>Below 200 active contracts, the spreadsheet usually beats the software on flexibility. You can model an edge case in 20 minutes. The software needs a configuration project. Most teams I see migrate to software around 300-400 active contracts, which is roughly when the spreadsheet starts losing more time than the software costs.</p>
 
@@ -620,10 +620,83 @@ export const POSTS = [
           <li>Build the three-tab spreadsheet model. (2 hours)</li>
           <li>Have one Sales leader and one Finance leader walk through the bridging summary together. (1 hour)</li>
           <li>Write a one-page policy document that codifies the bridging rules. Publish it. (30 minutes)</li>
-          <li>Schedule a quarterly review of the bridging categories — new edge cases get added to the policy, not papered over. (15 minutes calendar setup)</li>
+          <li>Schedule a quarterly review of the bridging categories. New edge cases get added to the policy, not papered over. (15 minutes calendar setup)</li>
         </ol>
 
         <p>That is the entire intervention. It does not require new software, new headcount, or a 90-day consulting engagement. It requires four hours and a willingness to write down the policy that everyone has been improvising for years.</p>
+      `,
+    },
+    es: {
+      title: 'Bookings vs Revenue: una reconciliación grado CFO en una hoja de cálculo',
+      description: 'Reconciliación de bookings vs revenue en una hoja de cálculo. El puente de cinco pasos para equipos de finanzas SaaS bajo ASC 606.',
+      ogAlt: 'Hoja de cálculo de tres pestañas mostrando el puente de bookings a revenue con partidas por categoría',
+      h1: 'Bookings vs Revenue: una reconciliación grado CFO en una hoja de cálculo',
+      sub: '9 junio 2026 · 8 min de lectura · Finanzas de Ingresos',
+      lead: 'La mayoría de las empresas no tienen un problema de bookings vs revenue. Tienen un problema de <em>reconciliación</em> entre bookings y revenue, que es distinto. Los números están bien en ambos sistemas. Lo que falta es el puente que explique por qué no concuerdan. Este es el puente de cinco pasos que cierra el 95% de la brecha, además de cómo construirlo como una sola hoja de cálculo que no miente.',
+      body: `
+        <h2>La discusión eterna</h2>
+
+        <p>Cada trimestre, Ventas reporta un número de bookings. Cada trimestre, Finanzas reporta un número de revenue. Los dos nunca coinciden. La conversación sobre el porqué se convierte en un ejercicio forense de contabilidad: tres personas en una llamada de Zoom revisando correos, enmiendas de contrato y la fecha en que alguien contra-firmó un redline a las 11:47 PM del último día del trimestre. Para cuando la varianza queda explicada, la reunión terminó y nadie entiende el negocio mejor que hace 60 minutos.</p>
+
+        <p>La razón es simple. Bookings y revenue miden cosas distintas. Bookings mide el valor del contrato comprometido en el periodo. Revenue mide el valor ganado en el periodo bajo ASC 606. Los dos números divergen cada vez que los términos del contrato incluyen un ramp, una enmienda, un inicio de periodo parcial, un compromiso plurianual o una consideración no en efectivo. Lo cual es casi siempre.</p>
+
+        <p>El problema de reconciliación no es averiguar cuál número es correcto. Ambos lo son. El problema es documentar el puente: cada dólar de diferencia, atribuido a una partida específica, en un formato que sobreviva al próximo trimestre.</p>
+
+        <h2>Qué exige ASC 606 realmente, en lenguaje claro</h2>
+
+        <p>Desde que entró en vigor ASC 606, el estándar de reconocimiento de ingresos se resume en cinco pasos. Identificas el contrato, identificas las obligaciones de desempeño dentro del mismo, determinas el precio de la transacción, asignas el precio a las obligaciones de desempeño y reconoces ingresos cuando (o conforme) esas obligaciones se satisfacen.</p>
+
+        <p>Para un contrato típico de B2B SaaS, la implicación práctica es esta. La revenue de suscripción se reconoce de forma proporcional a lo largo del término, los servicios profesionales se reconocen conforme se entregan y cualquier cuota única de setup se reconoce al entregarse (a menos que sea no-distinta, en cuyo caso se incorpora al flujo de suscripción). Los ramps plurianuales se reconocen al valor contractual anual promedio, con un activo de contrato o un saldo de ingresos diferidos que se acumula o se libera según el calendario de facturación.</p>
+
+        <p>Ese es todo el marco que usan la mayoría de los equipos de finanzas B2B SaaS. Las complicaciones vienen de los casos límite: enmiendas, inicios de mes parciales, clientes que cancelan con reembolso, swap deals donde el cliente cambia un SKU por otro a mitad de contrato. Esos casos límite son donde ocurre el trabajo de reconciliación.</p>
+
+        <h2>Las cinco partidas que explican el 95% de la brecha</h2>
+
+        <p>He reconstruido esta reconciliación en tres empresas B2B SaaS distintas. Las categorías de partidas son notablemente consistentes en todas.</p>
+
+        <p><strong>1. Ramp deals.</strong> Tomemos un contrato de tres años a $100K Año 1, $150K Año 2, $200K Año 3. El Valor Total del Contrato es $450K, registrado como booking en el periodo en que cierra el deal. La revenue se reconoce de forma proporcional al valor anual promedio de $150K por año. Supongamos que al cliente se le factura anualmente según el calendario del contrato: $100K en Y1, $150K en Y2, $200K en Y3. En el Año 1, la revenue GAAP es $150K pero las facturaciones son solo $100K, así que la empresa registra un activo de contrato (cuenta por cobrar no facturada) de $50K. No se crea ingreso diferido en este escenario, porque las facturaciones nunca exceden la revenue reconocida. Al cierre del Año 3, el activo de contrato se ha liquidado a cero ($50K creado en Y1, sin cambio en Y2 con $150K facturado contra $150K reconocido, luego reducido $50K en Y3 cuando se facturan $200K contra $150K reconocidos). El puente: bookings $450K, revenue Año 1 $150K, facturaciones Año 1 $100K, activo de contrato creado $50K. La mayoría de las discusiones de reconciliación son alguien olvidando uno de esos cuatro números, o peor, confundiendo activo de contrato (revenue ganada antes de facturar) con ingreso diferido (efectivo cobrado antes de la revenue).</p>
+
+        <p><strong>2. Enmiendas a mitad de término.</strong> Un cliente sube de $50K/año a $80K/año a nueve meses de un contrato de 12 meses. El uplift anualizado es de $30K de ARR incremental, y ese es el número que Ventas debe publicar en la caminata de ARR. Pero solo quedan tres meses del término, así que la cifra de bookings incremental en el periodo es 3/12 × $30K = $7.5K de valor del término restante. La revenue se ajusta durante esos tres meses al nuevo rate de $80K, y el ingreso diferido del contrato original se sigue liberando como si nada hubiera cambiado para la porción no actualizada. La columna del puente muestra "Uplift de enmienda" con ambas cifras señaladas: delta de ARR y delta de TCV del término restante. Elegir un solo número sin etiquetar cuál es cuál es como esta categoría causa discusiones recurrentes.</p>
+
+        <p><strong>3. Inicios de periodo parcial.</strong> Un contrato que empieza el día 17 del mes crea dos meses parciales: el mes de inicio con 14 días de revenue y un mes final que puede o no ser parcial dependiendo de cuándo termine el término. La mayoría de las hojas de cálculo computan revenue con prorrateo diario. Algunas la computan con prorrateo mensual. Los dos métodos producen números distintos, y si Ventas y Finanzas están usando métodos distintos, la reconciliación se rompe cada trimestre.</p>
+
+        <p><strong>4. Add-ons no-distintos.</strong> Un cliente compra la plataforma por $60K y "Premium Support" por $20K. ¿Son dos obligaciones de desempeño distintas o una sola? Bajo ASC 606, la respuesta depende de si el soporte es separable de manera significativa. Si no lo es, ambos se reconocen de forma proporcional como un solo flujo, lo que significa $80K en 12 meses en lugar de $60K más $20K-al-entregar. Ventas registra los $20K como si fueran upfront. Finanzas los reconoce de forma proporcional. Puente: "Diferimiento por no-distinto."</p>
+
+        <p><strong>5. Cancelaciones y reembolsos.</strong> Un cliente cancela a los 7 meses de un contrato de 12 meses con reembolso. Los bookings se revierten por la porción no facturada. La revenue se revierte por cualquier monto sobre-reconocido. El saldo de ingresos diferidos cae a cero. La mayoría de las herramientas de reconciliación manejan esto mal porque tratan el contrato como una sola línea en lugar de un flujo que debe deshacerse. El puente: "Reversa por churn" con el monto reembolsado señalado por separado del revenue futuro no reconocido.</p>
+
+        <h2>El ejemplo trabajado de 20 deals</h2>
+
+        <p>El modelo más pequeño que funciona tiene 20 deals, suficientes para cubrir cada categoría arriba. Elige cinco contratos de new business (limpios), cuatro ramps plurianuales, tres enmiendas a mitad de término, tres inicios de periodo parcial, tres bundles con add-ons no-distintos y dos cancelaciones. Camina cada deal desde la fecha de contrato hasta el reconocimiento mensual hasta el final del término.</p>
+
+        <p>Constrúyelo en tres pestañas. Pestaña uno: la taxonomía del deal, una fila por deal, columnas para fecha de contrato, término, ACV, TCV, calendario de facturación, marcadores de enmienda, fecha de cancelación. Pestaña dos: la cuadrícula mensual de reconocimiento, una columna por mes, una fila por deal, poblada por una fórmula que lee la taxonomía y aplica la regla de reconocimiento correcta. Pestaña tres: el resumen del puente, bookings menos revenue, atribuido a cada una de las cinco categorías con activo de contrato e ingreso diferido rastreados como columnas separadas.</p>
+
+        <p>La reconciliación funciona cuando el resumen del puente explica matemáticamente la varianza entre bookings y revenue al dólar. No "aproximadamente". Al dólar. Si no, una de las cinco categorías tiene un caso faltante.</p>
+
+        <h2>Por qué los CFOs no confían en el número de bookings</h2>
+
+        <p>El número de bookings, como lo reporta Ventas, casi siempre está inflado en relación con lo que Finanzas puede reconocer a lo largo del término del contrato. No porque Ventas sea deshonesta. Ventas cuenta TCV como un solo número mientras Finanzas tiene que aplicar descuentos, promedio de ramps y diferimientos no-distintos a ese mismo TCV.</p>
+
+        <p>La solución es publicar bookings <em>en múltiples granularidades</em>: TCV, ARR, MRR, facturaciones, revenue reconocida. Cada una mide algo diferente y cada una es correcta para una conversación diferente. Las reuniones de pronóstico deben usar ARR. Los modelos de flujo de caja deben usar facturaciones. Las discusiones del estado de resultados deben usar revenue reconocida. Cuando Ventas y Finanzas empiezan a usar el número correcto para la conversación correcta, las discusiones desaparecen en su mayoría.</p>
+
+        <h2>Cuándo graduarse a software</h2>
+
+        <p>La reconciliación en una sola hoja de cálculo funciona hasta unos 200-500 contratos activos. Después de eso, tres cosas se rompen. La hoja se vuelve lenta, la carga de entrada manual se convierte en un trabajo de tiempo completo y el rastro de auditoría se vuelve demasiado largo para que un humano lo defienda. Ese es el punto donde Maxio, Sage Intacct, Chargebee o uno de los proveedores de RevRec nicho gana su precio.</p>
+
+        <p>Por debajo de 200 contratos activos, la hoja de cálculo usualmente le gana al software en flexibilidad. Puedes modelar un caso límite en 20 minutos. El software requiere un proyecto de configuración. La mayoría de los equipos que veo migran a software alrededor de 300-400 contratos activos, que es aproximadamente cuando la hoja empieza a perder más tiempo del que cuesta el software.</p>
+
+        <h2>La instalación de medio día</h2>
+
+        <p>Si tus números de bookings y revenue no se reconcilian limpiamente hoy, esta es la intervención de medio día:</p>
+
+        <ol>
+          <li>Identifica los últimos 20 deals representativos. Asegúrate de que las cinco categorías estén cubiertas. (1 hora)</li>
+          <li>Construye el modelo de hoja de cálculo de tres pestañas. (2 horas)</li>
+          <li>Que un líder de Ventas y un líder de Finanzas caminen el resumen del puente juntos. (1 hora)</li>
+          <li>Escribe un documento de política de una página que codifique las reglas del puente. Publícalo. (30 minutos)</li>
+          <li>Agenda una revisión trimestral de las categorías del puente. Los nuevos casos límite se agregan a la política, no se tapan. (15 minutos de calendario)</li>
+        </ol>
+
+        <p>Esa es toda la intervención. No requiere software nuevo, headcount nuevo, ni un engagement de consultoría de 90 días. Requiere cuatro horas y la disposición de poner por escrito la política que todos han estado improvisando por años.</p>
       `,
     },
   },
