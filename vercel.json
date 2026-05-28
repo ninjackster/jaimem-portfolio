@@ -5,7 +5,11 @@
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/index", "destination": "/", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about-me", "destination": "/#about", "permanent": true },
+    { "source": "/education", "destination": "/#education", "permanent": true },
+    { "source": "/es/about-me", "destination": "/es/#about", "permanent": true },
+    { "source": "/es/education", "destination": "/es/#education", "permanent": true }
   ],
   "crons": [
     { "path": "/api/airbnb-sync", "schedule": "0 13 * * *" }
