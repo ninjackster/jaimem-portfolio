@@ -8,9 +8,15 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Tolerate any individual listing feed being missing/empty (e.g. SJDG not yet listed).
+    const fetchSafe = (l) =>
+      fetchListingEvents(l).catch((err) => {
+        console.error(`feed ${l.code} failed:`, err.message);
+        return [];
+      });
     const [liveBdm, liveSjdg, notionRows] = await Promise.all([
-      fetchListingEvents(LISTINGS[0]),
-      fetchListingEvents(LISTINGS[1]),
+      fetchSafe(LISTINGS[0]),
+      fetchSafe(LISTINGS[1]),
       process.env.NOTION_TOKEN ? queryAllNotion().catch(() => []) : Promise.resolve([]),
     ]);
 
