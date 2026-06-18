@@ -593,7 +593,7 @@ export const POSTS = [
 
         <h2>The 20-deal worked example</h2>
 
-        <p>The smallest model that actually works has 20 deals, enough to cover every category above. Pick five new business contracts (clean), four multi-year ramps, three mid-term amendments, three partial-period starts, three non-distinct add-on bundles, and two cancellations. Walk each deal from contract date through monthly recognition through the end of the term.</p>
+        <p>The smallest model that actually works has 20 deals, enough to cover every category above. Pick five new business contracts (clean), four multi-year ramps, three mid-term amendments, three partial-period starts, three non-distinct add-on bundles, and two cancellations. Walk each deal from contract date through monthly recognition through the end of the term. I built exactly this as a worked sample — see the <a href="/case-studies/bookings-revenue-reconciliation" class="inline-link">bookings vs. revenue reconciliation model</a> case study for the full 20-deal walk.</p>
 
         <p>Build it in three tabs. Tab one: the deal taxonomy, one row per deal, columns for contract date, term, ACV, TCV, billing schedule, amendment markers, cancellation date. Tab two: the monthly recognition grid, one column per month, one row per deal, populated by a formula that reads the taxonomy and applies the right recognition rule. Tab three: the bridging summary, bookings minus revenue, attributed to each of the five bridging categories with contract asset and deferred revenue tracked as separate columns.</p>
 
@@ -666,7 +666,7 @@ export const POSTS = [
 
         <h2>El ejemplo trabajado de 20 deals</h2>
 
-        <p>El modelo más pequeño que funciona tiene 20 deals, suficientes para cubrir cada categoría arriba. Elige cinco contratos de new business (limpios), cuatro ramps plurianuales, tres enmiendas a mitad de término, tres inicios de periodo parcial, tres bundles con add-ons no-distintos y dos cancelaciones. Camina cada deal desde la fecha de contrato hasta el reconocimiento mensual hasta el final del término.</p>
+        <p>El modelo más pequeño que funciona tiene 20 deals, suficientes para cubrir cada categoría arriba. Elige cinco contratos de new business (limpios), cuatro ramps plurianuales, tres enmiendas a mitad de término, tres inicios de periodo parcial, tres bundles con add-ons no-distintos y dos cancelaciones. Camina cada deal desde la fecha de contrato hasta el reconocimiento mensual hasta el final del término. Construí exactamente esto como muestra trabajada — ve el caso de estudio <a href="/es/case-studies/bookings-revenue-reconciliation" class="inline-link">modelo de reconciliación de bookings vs. ingresos</a> para la caminata completa de 20 deals.</p>
 
         <p>Constrúyelo en tres pestañas. Pestaña uno: la taxonomía del deal, una fila por deal, columnas para fecha de contrato, término, ACV, TCV, calendario de facturación, marcadores de enmienda, fecha de cancelación. Pestaña dos: la cuadrícula mensual de reconocimiento, una columna por mes, una fila por deal, poblada por una fórmula que lee la taxonomía y aplica la regla de reconocimiento correcta. Pestaña tres: el resumen del puente, bookings menos revenue, atribuido a cada una de las cinco categorías con activo de contrato e ingreso diferido rastreados como columnas separadas.</p>
 
