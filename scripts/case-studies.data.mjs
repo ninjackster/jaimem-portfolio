@@ -420,7 +420,7 @@ export const CASE_STUDIES = [
       },
       lessons: {
         heading: 'What I would do differently',
-        body: 'Treat the model and the policy doc as a single deliverable, not two artifacts. The first version shipped with a clean spreadsheet but the rules for "when does an amendment trigger re-bridging" were buried in cell comments. Finance and Sales had different mental models for the same edge case for another quarter before we wrote the policy in plain English.',
+        body: 'Treat the model and the policy doc as a single deliverable, not two artifacts. The first version shipped with a clean spreadsheet but the rules for "when does an amendment trigger re-bridging" were buried in cell comments. Finance and Sales had different mental models for the same edge case for another quarter before we wrote the policy in plain English. For the step-by-step write-up of the five-step bridge behind this model, see the <a href="/blog/bookings-vs-revenue-reconciliation-spreadsheet" class="inline-link">bookings vs revenue reconciliation</a> guide.',
       },
     },
     es: {
@@ -449,7 +449,7 @@ export const CASE_STUDIES = [
       },
       lessons: {
         heading: 'Qué haría diferente',
-        body: 'Tratar el modelo y el documento de política como un solo entregable, no dos artefactos. La primera versión se entregó con una hoja de cálculo limpia pero las reglas de "cuándo dispara una enmienda re-puenteo" estaban enterradas en comentarios de celda. Finanzas y Ventas tuvieron modelos mentales distintos para el mismo caso límite por otro trimestre antes de que escribiéramos la política en lenguaje claro.',
+        body: 'Tratar el modelo y el documento de política como un solo entregable, no dos artefactos. La primera versión se entregó con una hoja de cálculo limpia pero las reglas de "cuándo dispara una enmienda re-puenteo" estaban enterradas en comentarios de celda. Finanzas y Ventas tuvieron modelos mentales distintos para el mismo caso límite por otro trimestre antes de que escribiéramos la política en lenguaje claro. Para el desarrollo paso a paso del puente de cinco pasos detrás de este modelo, ve la guía <a href="/es/blog/bookings-vs-revenue-reconciliation-spreadsheet" class="inline-link">bookings vs ingresos: reconciliación</a>.',
       },
     },
   },

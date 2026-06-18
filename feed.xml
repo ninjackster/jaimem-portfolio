@@ -6,7 +6,15 @@
     <atom:link href="https://jaimem.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Revenue Operations, B2B SaaS GTM, and bilingual operations posts by Jaime M. Mena.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 May 2026 14:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 14:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet</title>
+      <link>https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet</link>
+      <guid isPermaLink="true">https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet</guid>
+      <pubDate>Tue, 09 Jun 2026 14:00:00 GMT</pubDate>
+      <description>Bookings vs revenue reconciliation in one spreadsheet. A five-step bridge for SaaS finance teams that explains 95% of the gap under ASC 606.</description>
+      <category>bookings vs revenue</category>
+    </item>
     <item>
       <title>MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy</title>
       <link>https://jaimem.com/blog/meddpicc-vs-meddic-forecast-accuracy</link>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet</title>
+
+  <meta name="description" content="Bookings vs revenue reconciliation in one spreadsheet. A five-step bridge for SaaS finance teams that explains 95% of the gap under ASC 606." />
+  <link rel="canonical" href="https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet" />
+  <meta property="og:title" content="Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet" />
+  <meta property="og:description" content="Bookings vs revenue reconciliation in one spreadsheet. A five-step bridge for SaaS finance teams that explains 95% of the gap under ASC 606." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Three-tab spreadsheet showing the bookings to revenue bridge with bridging items by category" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet" />
+  <meta name="twitter:description" content="Bookings vs revenue reconciliation in one spreadsheet. A five-step bridge for SaaS finance teams that explains 95% of the gap under ASC 606." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Three-tab spreadsheet showing the bookings to revenue bridge with bridging items by category" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/bookings-vs-revenue-reconciliation-spreadsheet" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet",
+    "description": "Bookings vs revenue reconciliation in one spreadsheet. A five-step bridge for SaaS finance teams that explains 95% of the gap under ASC 606.",
+    "url": "https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-06-09",
+    "dateModified": "2026-06-09",
+    "inLanguage": "en-US",
+    "keywords": "bookings vs revenue, ASC 606, revenue recognition, sales finance reconciliation, deferred revenue, deferred revenue bridge, SaaS bookings reconciliation, RevRec, SaaS revenue model",
+    "mainEntityOfPage": "https://jaimem.com/blog/bookings-vs-revenue-reconciliation-spreadsheet"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; <span>Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet</span></p>
+
+      <h1>Bookings vs Revenue: a CFO-grade reconciliation in one spreadsheet</h1>
+      <span class="sub">June 9, 2026 · 8 min read · Revenue Finance</span>
+
+      <p class="lead">Most companies do not have a bookings vs revenue problem. They have a bookings vs revenue <em>reconciliation</em> problem, which is different. The numbers are fine in both systems. What is missing is the bridge that explains why they do not agree. This is the five-step bridge that closes 95% of the gap, plus how to build it as one spreadsheet that does not lie.</p>
+
+
+        <h2>The eternal argument</h2>
+
+        <p>Every quarter, Sales reports a bookings number. Every quarter, Finance reports a revenue number. The two never match. The conversation about why becomes a forensic accounting exercise: three people on a Zoom call walking through emails, contract amendments, and the date someone counter-signed a redline at 11:47 PM on the last day of the quarter. By the time the variance is explained, the meeting is over and nobody understands the business better than they did 60 minutes ago.</p>
+
+        <p>The reason this happens is simple. Bookings and revenue measure different things. Bookings measures the contract value that was committed in the period. Revenue measures the value that was earned in the period under ASC 606. The two numbers diverge whenever contract terms include a ramp, an amendment, a partial-period start, a multi-year commitment, or a non-cash consideration. Which is almost always.</p>
+
+        <p>The reconciliation problem is not figuring out which number is right. They are both right. The reconciliation problem is documenting the bridge: every dollar of difference, attributed to a specific bridging item, in a format that survives next quarter.</p>
+
+        <h2>What ASC 606 actually requires, in plain English</h2>
+
+        <p>Since ASC 606 took effect, the revenue recognition standard has boiled down to five steps. You identify the contract, identify the performance obligations inside it, determine the transaction price, allocate price to performance obligations, and recognize revenue when (or as) those obligations are satisfied.</p>
+
+        <p>For a typical B2B SaaS contract, the practical implication is this. Subscription revenue recognizes ratably over the subscription term, professional services recognize as delivered, and any one-time setup fees recognize at delivery (unless they are non-distinct, in which case they roll into the subscription stream). Multi-year ramps recognize at the average annual contract value per year, with a contract asset or deferred revenue balance accruing or unwinding depending on the billing schedule.</p>
+
+        <p>That is the entire framework most B2B SaaS finance teams use. The complications come from the edge cases: amendments, partial-month starts, churned customers with refunds, swap deals where the customer trades one SKU for another mid-contract. Those edge cases are where the reconciliation work happens.</p>
+
+        <h2>The five bridging items that account for 95% of the gap</h2>
+
+        <p>I have rebuilt this reconciliation at three different B2B SaaS companies. The categories of bridging items are remarkably consistent across all of them.</p>
+
+        <p><strong>1. Ramp deals.</strong> Take a three-year contract at $100K Year 1, $150K Year 2, $200K Year 3. Total Contract Value is $450K, booked in the period the deal closes. Revenue recognizes ratably at the average annual value of $150K per year. Assume the customer is billed annually matching the contract schedule: $100K in Y1, $150K in Y2, $200K in Y3. In Year 1, GAAP revenue is $150K but billings are only $100K, so the company records a $50K contract asset (unbilled receivable). No deferred revenue is created in this scenario, because billings never exceed recognized revenue. By the end of Year 3, the contract asset has unwound to zero ($50K created in Y1, unchanged in Y2 at $150K billed against $150K recognized, then drawn down by $50K in Y3 when $200K is billed against $150K recognized). The bridge: bookings $450K, Year 1 revenue $150K, Year 1 billings $100K, contract asset created $50K. Most reconciliation arguments are someone forgetting one of those four numbers, or worse, confusing contract asset (revenue earned ahead of billing) with deferred revenue (cash collected ahead of revenue).</p>
+
+        <p><strong>2. Mid-term amendments.</strong> A customer upgrades from $50K/year to $80K/year nine months into a 12-month contract. The annualized uplift is $30K of incremental ARR, and that is the number Sales should publish on the ARR walk. But only three months of contract term remain, so the in-period incremental bookings figure is 3/12 × $30K = $7.5K of remaining-term value. Revenue catches up over those three months at the new $80K rate, and the deferred revenue from the original contract continues to release as if nothing changed for the unupgraded portion. The bridge column shows "Amendment uplift" with both figures called out: ARR delta and remaining-term TCV delta. Picking one number without labeling which is which is how this category causes recurring arguments.</p>
+
+        <p><strong>3. Partial-period starts.</strong> A contract that begins on the 17th of the month creates two partial months: the start month with 14 days of revenue and a final month that may or may not be partial depending on when the term ends. Most spreadsheets compute revenue with daily proration. Some compute it with monthly proration. The two methods produce different numbers, and if Sales and Finance are using different methods, the reconciliation breaks every quarter.</p>
+
+        <p><strong>4. Non-distinct add-ons.</strong> A customer buys the platform for $60K and "Premium Support" for $20K. Are those two distinct performance obligations or one? Under ASC 606, the answer depends on whether the support is meaningfully separable. If not, both recognize ratably as a single stream, which means $80K over 12 months instead of $60K plus $20K-at-delivery. Sales books the $20K as if it were upfront. Finance recognizes ratably. Bridge: "Non-distinct deferral."</p>
+
+        <p><strong>5. Cancellations and refunds.</strong> A customer churns 7 months into a 12-month contract with a refund. Bookings reverse for the unbilled portion. Revenue reverses for any over-recognized amount. The deferred revenue balance drops to zero. Most reconciliation tools handle this poorly because they treat the contract as a single line item rather than a stream that needs to be unwound. The bridge: "Churn reversal" with the refunded amount called out separately from the unrecognized future revenue.</p>
+
+        <h2>The 20-deal worked example</h2>
+
+        <p>The smallest model that actually works has 20 deals, enough to cover every category above. Pick five new business contracts (clean), four multi-year ramps, three mid-term amendments, three partial-period starts, three non-distinct add-on bundles, and two cancellations. Walk each deal from contract date through monthly recognition through the end of the term. I built exactly this as a worked sample — see the <a href="/case-studies/bookings-revenue-reconciliation" class="inline-link">bookings vs. revenue reconciliation model</a> case study for the full 20-deal walk.</p>
+
+        <p>Build it in three tabs. Tab one: the deal taxonomy, one row per deal, columns for contract date, term, ACV, TCV, billing schedule, amendment markers, cancellation date. Tab two: the monthly recognition grid, one column per month, one row per deal, populated by a formula that reads the taxonomy and applies the right recognition rule. Tab three: the bridging summary, bookings minus revenue, attributed to each of the five bridging categories with contract asset and deferred revenue tracked as separate columns.</p>
+
+        <p>The reconciliation works when the bridging summary mathematically explains the variance between bookings and revenue to the dollar. Not "approximately." To the dollar. If it does not, one of the five categories has a missing case.</p>
+
+        <h2>Why CFOs do not trust the bookings number</h2>
+
+        <p>The bookings number, as Sales reports it, is almost always inflated relative to what Finance can recognize over the contract term. Not because Sales is dishonest. Sales counts TCV as a single number while Finance has to apply discounting, ramp averaging, and non-distinct deferrals to that same TCV.</p>
+
+        <p>The fix is to publish bookings <em>at multiple granularities</em>: TCV, ARR, MRR, billings, recognized revenue. Each measures something different and each is correct for a different conversation. Forecast meetings should use ARR. Cash-flow models should use billings. Income statement discussions should use recognized revenue. When Sales and Finance start using the right number for the right conversation, the arguments mostly disappear.</p>
+
+        <h2>When to graduate to software</h2>
+
+        <p>The one-spreadsheet reconciliation works through about 200-500 active contracts. After that, three things break. The spreadsheet gets slow, the manual entry burden becomes a full-time job, and the audit trail becomes too long for a human to defend. That is the point where Maxio, Sage Intacct, Chargebee, or one of the niche RevRec vendors earns its price tag.</p>
+
+        <p>Below 200 active contracts, the spreadsheet usually beats the software on flexibility. You can model an edge case in 20 minutes. The software needs a configuration project. Most teams I see migrate to software around 300-400 active contracts, which is roughly when the spreadsheet starts losing more time than the software costs.</p>
+
+        <h2>The half-day setup</h2>
+
+        <p>If your bookings and revenue numbers do not reconcile cleanly today, here is the half-day intervention:</p>
+
+        <ol>
+          <li>Identify the last 20 representative deals. Make sure all five bridging categories are covered. (1 hour)</li>
+          <li>Build the three-tab spreadsheet model. (2 hours)</li>
+          <li>Have one Sales leader and one Finance leader walk through the bridging summary together. (1 hour)</li>
+          <li>Write a one-page policy document that codifies the bridging rules. Publish it. (30 minutes)</li>
+          <li>Schedule a quarterly review of the bridging categories. New edge cases get added to the policy, not papered over. (15 minutes calendar setup)</li>
+        </ol>
+
+        <p>That is the entire intervention. It does not require new software, new headcount, or a 90-day consulting engagement. It requires four hours and a willingness to write down the policy that everyone has been improvising for years.</p>
+      
+
+      <div class="cta-block">
+        <h3>Want to apply this to your team?</h3>
+        <p>I work with B2B SaaS teams and operators in the US and Mexico. Start with a 30-minute conversation.</p>
+        <a href="/services/revops-consulting" class="btn btn-primary">Start a Conversation</a>
+      </div>
+
+      <div class="related">
+        <h3>More from the blog</h3>
+        <ul>
+        <li><a href="/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy</a></li>
+        <li><a href="/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot for a 20-rep sales team: an honest comparison</a></li>
+        <li><a href="/blog/cross-border-revops-playbook" class="inline-link">The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/services/">Services</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = [];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
