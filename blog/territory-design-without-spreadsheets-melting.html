@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>How to design sales territories without spreadsheets melting in Q4</title>
+
+  <meta name="description" content="Territory design fails in Q4, not in Q1 — and the cause is almost never the design. It is the operating cadence around it. Here is the playbook for territory work that survives a full year of new hires, churn, and the inevitable account-claim wars." />
+  <link rel="canonical" href="https://jaimem.com/blog/territory-design-without-spreadsheets-melting" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/blog/territory-design-without-spreadsheets-melting" />
+  <meta property="og:title" content="How to design sales territories without spreadsheets melting in Q4" />
+  <meta property="og:description" content="Territory design fails in Q4, not in Q1 — and the cause is almost never the design. It is the operating cadence around it. Here is the playbook for territory work that survives a full year of new hires, churn, and the inevitable account-claim wars." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Territory Design Playbook — Jaime M. Mena" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to design sales territories without spreadsheets melting in Q4" />
+  <meta name="twitter:description" content="Territory design fails in Q4, not in Q1 — and the cause is almost never the design. It is the operating cadence around it. Here is the playbook for territory work that survives a full year of new hires, churn, and the inevitable account-claim wars." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Territory Design Playbook — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/territory-design-without-spreadsheets-melting" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/territory-design-without-spreadsheets-melting" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to design sales territories without spreadsheets melting in Q4",
+    "description": "Territory design fails in Q4, not in Q1 — and the cause is almost never the design. It is the operating cadence around it. Here is the playbook for territory work that survives a full year of new hires, churn, and the inevitable account-claim wars.",
+    "url": "https://jaimem.com/blog/territory-design-without-spreadsheets-melting",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "inLanguage": "en-US",
+    "keywords": "sales territory design, account assignment, ICP, territory planning, territory rebalancing, Salesforce territory management, named accounts",
+    "mainEntityOfPage": "https://jaimem.com/blog/territory-design-without-spreadsheets-melting"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; <span>How to design sales territories without spreadsheets melting in Q4</span></p>
+
+      <h1>How to design sales territories without spreadsheets melting in Q4</h1>
+      <span class="sub">July 7, 2026 · 8 min read · Territory Planning</span>
+
+      <p class="lead">Territory design fails in Q4, not in Q1. The design that ships in January looks fine until June, when the first wave of new hires changes the math, then becomes a mess in October when one rep accidentally claims an account already booked by another. The fix is almost never to redesign the territories. It is to fix the operating cadence around them.</p>
+
+
+        <h2>Why Q4 is when territory pain shows up</h2>
+
+        <p>Every territory model survives its first quarter. The reps were involved in the design. The named accounts are fresh. Pipeline coverage looks healthy because nobody has had time to burn through it yet. By mid-Q2, two reps have left and their accounts get reassigned in a hurry. By mid-Q3, marketing has generated 400 inbound leads that nobody pre-assigned, so AEs are claiming them in a Slack channel called <code>#inbound-grab</code>. By Q4, leadership is reviewing pipeline coverage and discovering that three reps are over-covered and four are under-covered, no two reports agree on who owns the top 50 accounts, and the forecast call has become a contest over whose pipeline contributes to whose quota.</p>
+
+        <p>None of this is a design failure. The original territory model was fine in January. What failed was the operating cadence that should have caught each drift before it compounded.</p>
+
+        <h2>Start from ICP, not from rep geography</h2>
+
+        <p>The biggest design mistake I see is starting from where the reps live. Reps are mobile. ICPs are not. Build the territories from the account universe — the named accounts that fit your ideal customer profile — and then assign reps to those accounts based on capability and capacity. The geography of where reps happen to live in any given quarter is a secondary concern, not a primary one.</p>
+
+        <p>Practically, this means: pull the TAM (Total Addressable Market) from a source like ZoomInfo or Crunchbase, filter to accounts that match the ICP (industry, employee count, revenue band, tech stack, recent hiring signal), tier them by potential value, then group them into balanced books. <em>Then</em> assign reps. This produces territories where every rep has roughly the same number of high-tier accounts, regardless of where they sit on a map. It also makes the design defensible — when someone asks "why does my territory only have six Enterprise accounts," the answer is "because the ICP only contains six Enterprise accounts in your segment, and three other reps have the same problem."</p>
+
+        <h2>Three tiers, not five</h2>
+
+        <p>Most account tiering models I have inherited have five tiers. Five is too many. The math of how many accounts a rep can meaningfully cover does not produce five distinct attention levels — it produces three: "must touch this quarter," "should touch this year," and "knows we exist."</p>
+
+        <p>Tier 1: roughly 15-25 accounts per rep. These get personalized outbound, executive sponsor meetings, ABM campaigns, and named multi-threading. The rep has a relationship by name with at least three people in each account.</p>
+
+        <p>Tier 2: roughly 75-150 accounts per rep. These get cadenced outreach, marketing nurture, and a quarterly touch from the AE. The rep can rattle off the top 30 from memory.</p>
+
+        <p>Tier 3: everyone else. Demand-gen carries the load. The AE inherits these only when inbound interest surfaces them.</p>
+
+        <p>Three tiers is enough granularity to make assignment decisions. Five tiers introduces categories that nobody actually treats differently in practice, which means the bottom two collapse into "we will get to it" — which is the same thing.</p>
+
+        <h2>Hierarchical rollups in Salesforce</h2>
+
+        <p>Leadership wants to roll up territory performance by segment, region, and overall org. The way most Salesforce orgs handle this is a custom field on the User or Account record that does not aggregate cleanly. The right way is to use Salesforce Territory Management (the feature, not the concept) — yes, the implementation is annoying, but the alternative is custom Apex code that breaks every time someone changes a rep assignment.</p>
+
+        <p>The model: every territory has a parent. AMER-Enterprise rolls up to AMER, AMER rolls up to Global. Reports built against territory hierarchy automatically aggregate by any level. When a rep moves from AMER-SMB to AMER-Mid-Market, their pipeline moves with them, the rollups update, and historical reporting stays consistent because Salesforce keeps the snapshot. This is the entire reason Salesforce shipped Territory Management 2.0 — and it is still under-used because the initial setup is fiddly.</p>
+
+        <h2>Ending account-claim wars</h2>
+
+        <p>The single most expensive operational disagreement on a B2B SaaS team is two reps claiming the same account. The right answer is to make it impossible — one owner per account at any moment, enforced by a Salesforce validation rule. Carve-outs (an SDR working a prospect that is technically owned by a different AE; a CSM owning the renewal but Sales owning the upsell) are documented in a single sheet that the deal desk owns. If a deal closes on an account where ownership was contested, the deal desk has authority to resolve it before commission is paid.</p>
+
+        <p>The Slack channel approach — where reps post "claiming this account" and the first to post wins — does not scale past 10 reps. It also creates resentment that compounds across quarters. Invest in the validation rule. The implementation is 90 minutes for an admin with intermediate Salesforce skills.</p>
+
+        <h2>The mid-year reshuffle protocol</h2>
+
+        <p>Even with perfect design, mid-year changes are unavoidable. Reps leave, new reps onboard, segments shift. The protocol for handling reshuffles is more important than the original design.</p>
+
+        <p>Three rules: (1) rep terminations trigger an account redistribution within five business days, with the manager owning the decision and ops executing. (2) New rep onboardings get accounts from a "talent pool" — accounts that were intentionally held back during initial design specifically for this purpose. Hold back about 5-10% of the named-account universe for this. (3) Any rep-initiated request to swap accounts requires written justification to the manager and is reviewed quarterly, not on demand. The third rule is the one that prevents reshuffle requests from becoming a permanent meeting on every manager's calendar.</p>
+
+        <h2>The 200-account scoring template</h2>
+
+        <p>If you are starting from zero, the template that works is a 200-account scoring matrix per rep. Columns: account name, industry, employee count, revenue, tech stack flags, intent signal flags, last contact date, last marketing engagement, current pipeline status, tier (1-3), assigned rep. Update it monthly. Sort by tier, then by intent score. That sorted list is the rep's account universe and the basis for every weekly pipeline review.</p>
+
+        <p>Below 200 named accounts per rep, the model is too thin to give reps enough to work with. Above 400, the rep cannot meaningfully prioritize and falls back to "what came in this week." Two hundred is the sweet spot for most B2B SaaS motions.</p>
+
+        <h2>What software to use, and what to skip</h2>
+
+        <p>You do not need a territory management software vendor for a 20-50 rep team. Salesforce native territory management, an Account ranking field, and a monthly review meeting is enough. Above 50 reps, tools like Anaplan, Fullcast, or Varicent SPM Cloud earn their cost because the optimization math (balancing capacity, capability, and potential across hundreds of reps) gets non-trivial. Below 50 reps, those tools add ceremony and slow down the iteration.</p>
+
+        <p>The one tool I do recommend at any size: a TAM/ICP data source. ZoomInfo, Crunchbase, Apollo. Without it, you are designing territories against a market that exists only in your CRM, and your CRM is a sample of one company's history — not a sample of the addressable market. The TAM source is the difference between a defensive design and an offensive one.</p>
+
+        <h2>The first 30 days of a territory engagement</h2>
+
+        <p>If you inherit a territory mess and have 30 days to fix it:</p>
+
+        <ol>
+          <li>Week 1: pull the named-account universe from Salesforce. Audit for duplicates, ownership conflicts, accounts assigned to ex-employees. Clean up.</li>
+          <li>Week 2: define or refresh the ICP. Pull TAM from a data source. Identify the gap — accounts in your CRM that do not fit the ICP, and accounts in the TAM that should be in your CRM but are not.</li>
+          <li>Week 3: design the new territories using the three-tier model. Stay within ±15% balance across reps for Tier 1 count.</li>
+          <li>Week 4: roll out. Communicate the rationale. Set up the operating cadence (validation rule, quarterly reshuffle protocol, monthly tier review).</li>
+        </ol>
+
+        <p>The next year is execution. The design is the easy part. The cadence is the work.</p>
+      
+
+      <div class="cta-block">
+        <h3>Want to apply this to your team?</h3>
+        <p>I work with B2B SaaS teams and operators in the US and Mexico. Start with a 30-minute conversation.</p>
+        <a href="/services/revops-consulting" class="btn btn-primary">Start a Conversation</a>
+      </div>
+
+      <div class="related">
+        <h3>More from the blog</h3>
+        <ul>
+        <li><a href="/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy</a></li>
+        <li><a href="/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot for a 20-rep sales team: an honest comparison</a></li>
+        <li><a href="/blog/cross-border-revops-playbook" class="inline-link">The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/services/">Services</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = ["territory-design-without-spreadsheets-melting"];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
