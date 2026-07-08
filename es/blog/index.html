@@ -71,7 +71,8 @@
       { "@type": "BlogPosting", "headline": "MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico", "url": "https://jaimem.com/es/blog/meddpicc-vs-meddic-forecast-accuracy", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta", "url": "https://jaimem.com/es/blog/salesforce-vs-hubspot-20-rep-team", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones", "url": "https://jaimem.com/es/blog/cross-border-revops-playbook", "datePublished": "2026-05-12" },
-      { "@type": "BlogPosting", "headline": "Bookings vs Revenue: una reconciliación grado CFO en una hoja de cálculo", "url": "https://jaimem.com/es/blog/bookings-vs-revenue-reconciliation-spreadsheet", "datePublished": "2026-06-09" }
+      { "@type": "BlogPosting", "headline": "Bookings vs Revenue: una reconciliación grado CFO en una hoja de cálculo", "url": "https://jaimem.com/es/blog/bookings-vs-revenue-reconciliation-spreadsheet", "datePublished": "2026-06-09" },
+      { "@type": "BlogPosting", "headline": "How to design sales territories without spreadsheets melting in Q4", "url": "https://jaimem.com/blog/territory-design-without-spreadsheets-melting", "datePublished": "2026-07-07" }
     ]
   }
   </script>
@@ -172,6 +173,13 @@
           
           <span class="arrow">Leer post →</span>
         </a>
+        <a href="/blog/territory-design-without-spreadsheets-melting" class="post-card">
+          <h2>How to design sales territories without spreadsheets melting in Q4 <span class="lang-badge">Solo en inglés</span></h2>
+          <span class="sub">July 7, 2026 · 8 min read · Territory Planning</span>
+          <p>Territory design fails in Q4, not in Q1. The design that ships in January looks fine until June, when the first wave of new hires changes the math, then becomes a mess in October when one rep accidentally claims an account already booked by another. The fix is almost never to redesign the territories. It is to fix the operating cadence around them.</p>
+          <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
+          <span class="arrow">Leer post →</span>
+        </a>
       </div>
     </article>
   </main>
@@ -203,7 +211,7 @@
         // If the user is on a post page without a counterpart, fall back to the blog hub.
         const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
         // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
-        const noEsSlugs = [];
+        const noEsSlugs = ["territory-design-without-spreadsheets-melting"];
         const slugMatch = enPath.match(/^\/blog\/(.+)$/);
         if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
           location.href = fallbackHub;
