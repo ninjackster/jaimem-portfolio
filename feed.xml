@@ -6,7 +6,15 @@
     <atom:link href="https://jaimem.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Revenue Operations, B2B SaaS GTM, and bilingual operations posts by Jaime M. Mena.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jul 2026 14:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 14:00:00 GMT</lastBuildDate>
+    <item>
+      <title>The two-hour weekly forecast call: what to inspect, what to ignore</title>
+      <link>https://jaimem.com/blog/two-hour-weekly-forecast-call</link>
+      <guid isPermaLink="true">https://jaimem.com/blog/two-hour-weekly-forecast-call</guid>
+      <pubDate>Tue, 04 Aug 2026 14:00:00 GMT</pubDate>
+      <description>Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The fix is not a longer meeting — it is a different agenda. Here is the four-quadrant inspection model and a sample 2-hour agenda you can steal.</description>
+      <category>forecast call</category>
+    </item>
     <item>
       <title>How to design sales territories without spreadsheets melting in Q4</title>
       <link>https://jaimem.com/blog/territory-design-without-spreadsheets-melting</link>

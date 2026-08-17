@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>The two-hour weekly forecast call: what to inspect, what to ignore</title>
+
+  <meta name="description" content="Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The fix is not a longer meeting — it is a different agenda. Here is the four-quadrant inspection model and a sample 2-hour agenda you can steal." />
+  <link rel="canonical" href="https://jaimem.com/blog/two-hour-weekly-forecast-call" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/blog/two-hour-weekly-forecast-call" />
+  <meta property="og:title" content="The two-hour weekly forecast call: what to inspect, what to ignore" />
+  <meta property="og:description" content="Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The fix is not a longer meeting — it is a different agenda. Here is the four-quadrant inspection model and a sample 2-hour agenda you can steal." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Weekly Forecast Call Playbook — Jaime M. Mena" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The two-hour weekly forecast call: what to inspect, what to ignore" />
+  <meta name="twitter:description" content="Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The fix is not a longer meeting — it is a different agenda. Here is the four-quadrant inspection model and a sample 2-hour agenda you can steal." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Weekly Forecast Call Playbook — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/two-hour-weekly-forecast-call" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/two-hour-weekly-forecast-call" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The two-hour weekly forecast call: what to inspect, what to ignore",
+    "description": "Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The fix is not a longer meeting — it is a different agenda. Here is the four-quadrant inspection model and a sample 2-hour agenda you can steal.",
+    "url": "https://jaimem.com/blog/two-hour-weekly-forecast-call",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-08-04",
+    "dateModified": "2026-08-04",
+    "inLanguage": "en-US",
+    "keywords": "forecast call, pipeline review, sales forecasting cadence, deal inspection, MEDDPICC inspection, sales operating cadence, sales management",
+    "mainEntityOfPage": "https://jaimem.com/blog/two-hour-weekly-forecast-call"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/case-studies/">Case Studies</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; <span>The two-hour weekly forecast call: what to inspect, what to ignore</span></p>
+
+      <h1>The two-hour weekly forecast call: what to inspect, what to ignore</h1>
+      <span class="sub">August 4, 2026 · 7 min read · Forecast Operations</span>
+
+      <p class="lead">Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The participants leave the meeting feeling productive because the time was filled, but no rep was actually challenged on a soft commit, and no deal was actually moved from a higher confidence tier to a lower one. The fix is not a longer meeting — it is a different agenda.</p>
+
+
+        <h2>What most forecast calls do wrong</h2>
+
+        <p>The typical agenda: open with the biggest deals, walk through each one rep-by-rep, ask "how confident are you," accept the answer, move on. Each conversation takes 4-6 minutes, runs through 20 deals, and ends with a 90-minute meeting where leadership feels informed and reps feel managed. Nothing about the forecast changed during the call. The committed deals stayed committed. The slipped deals stayed slipped. The meeting was theater.</p>
+
+        <p>The reason it is theater: the meeting opens with the deals that everyone is most confident about. Those are exactly the deals that need the least inspection. They will probably close. The conversation around them is comfortable. By the time the meeting reaches the messy deals — the ones with no champion, no decision process, no Economic Buyer named — there are 12 minutes left and three of them get clustered into a "we will follow up offline" bucket. Which means they will not.</p>
+
+        <h2>The four-quadrant inspection</h2>
+
+        <p>The replacement framework: open the meeting by sorting the pipeline by inspection priority, then walk it from worst to best. Four quadrants matter:</p>
+
+        <p><strong>1. Missing data.</strong> Any Commit-tier deal where one or more required qualification fields is empty or trivially filled ("CEO" with no name; "Q3" with no specific date). These get inspected first because they are the most likely to slip and the easiest to fix on the call.</p>
+
+        <p><strong>2. Slipped from prior period.</strong> Any deal that was Commit last quarter and did not close. The forecast call should track these for two cycles. If a deal slips twice, the rep should be required to present the new close-date logic in front of the team. This is uncomfortable on purpose.</p>
+
+        <p><strong>3. Aged out of stage.</strong> Any deal that has been in the same stage for more than 1.5x the average time-in-stage for the segment. A 90-day-old Stage 4 deal in an environment where Stage 4 averages 35 days is almost always either lost, paused, or being slow-walked by procurement. Each one gets a hard inspection: are we waiting on signature, or are we hoping?</p>
+
+        <p><strong>4. No champion.</strong> Any deal at Stage 3 or higher without a named champion (first and last name in the CRM). This is the early-warning indicator that almost no team takes seriously enough. A deal without a named champion at Stage 4 closes at about 25% of the rate of deals with named champions. Treat the absence of a champion as a stage-blocker.</p>
+
+        <p>Run the meeting through these four quadrants in order. Each quadrant gets a fixed allotment — say 25 minutes. The big easy deals at the bottom of the funnel get whatever time is left. Often nothing, and that is correct.</p>
+
+        <h2>Open with the bottom, not the top</h2>
+
+        <p>The single biggest agenda change is reversing the deal order. Instead of opening with the biggest, opening with the worst — the deals where qualification is thinnest, the ones leadership is least confident about, the ones that are about to age out. This is uncomfortable for the reps whose deals are in that bucket, and the discomfort is the point. The forecast call is a forcing function for honest qualification, not a parade of best-case scenarios.</p>
+
+        <p>Frontline managers will push back on this the first time you try it. "We do not have time to grill every weak deal." That is true. The four-quadrant model means you do not grill every weak deal — you grill the top 5-8 in each quadrant. The bottom of each quadrant is the manager's problem to follow up on async. The meeting is for the deals where leadership input changes the trajectory.</p>
+
+        <h2>The questions that work</h2>
+
+        <p>Inspection is only useful if the questions force specifics. Generic questions ("how do you feel about it") produce generic answers ("good"). Specific questions force the rep to reveal what they actually know.</p>
+
+        <p>Working questions, in order of how often I use them:</p>
+
+        <ul>
+          <li>"Who at the customer benefits if this deal closes — give me a name."</li>
+          <li>"What is the next scheduled meeting on the calendar with that person?"</li>
+          <li>"What is on their procurement checklist that we have not satisfied yet?"</li>
+          <li>"Walk me through the day this contract gets signed — who clicks the button, on what platform?"</li>
+          <li>"Why does the customer not want to do nothing?"</li>
+          <li>"Who else are they evaluating, and what did they tell you when you asked?"</li>
+        </ul>
+
+        <p>Each of those takes about 30-60 seconds to answer if the rep has the information, and reveals immediately when they do not. The rep cannot fluff their way through them. Compare to "are you confident this will close" — which a rep can answer with "yes" while having no information at all.</p>
+
+        <h2>Reading qualification fields out loud</h2>
+
+        <p>The most effective intervention I have ever rolled out is having managers read MEDDPICC fields out loud during the call. The manager opens the deal in Salesforce, projects it, and literally reads "Economic Buyer: TBD. Decision Process: we expect a decision soon. Pain: they need a better solution." Hearing the qualification spoken aloud, in front of peers, surfaces how thin it actually is. Reps fix the fields by Friday. The next call is meaningfully different.</p>
+
+        <p>This works because reading the field aloud changes the audience. When the rep wrote "TBD" three weeks ago, the audience was a future version of themselves who would maybe fix it. When the manager reads "TBD" aloud at the forecast call, the audience is twelve peers and a CRO. The accountability scaling is the entire point.</p>
+
+        <h2>Monday vs Thursday cadence</h2>
+
+        <p>Most teams run forecast calls on Monday because "it sets up the week." Most teams should run them on Thursday because "it sets up the work that needs to happen Friday before the weekend." Monday calls produce action items that get done by next Monday. Thursday calls produce action items that get done by Friday afternoon. The difference compounds over a quarter.</p>
+
+        <p>This is a small change but it matters. The work that comes out of a forecast call — fixing qualification fields, scheduling missing meetings, multi-threading into a stalled account — has a one-day half-life. If the call is Monday and the manager forgets to follow up, the rep has eight working days to find a reason not to fix it. If the call is Thursday, the rep has one. Move the call.</p>
+
+        <h2>What to cut from the meeting</h2>
+
+        <p>Most forecast calls have accumulated three or four agenda items that do not belong: marketing campaign updates, product release timelines, CSM at-risk reports, the latest competitive intel. All of these are real and important. None of them should be in the forecast call. They each get their own meeting (or async update), and they each have their own audience. Mixing them into the forecast call dilutes the inspection time and trains reps that the meeting is general business — not a place where their deals get challenged.</p>
+
+        <p>Cut everything that is not directly about the inspection of in-quarter pipeline. Send the rest as a written update with a 5-bullet summary every Friday. The meeting tightens. Forecast accuracy goes up.</p>
+
+        <h2>Sample 2-hour agenda</h2>
+
+        <p>The template I run, weekly, with a 20-rep team:</p>
+
+        <ul>
+          <li>0:00–0:05 — Open with the headline number. "We forecast $4.2M, last week we forecast $4.4M, here are the three deals that moved." No discussion yet. Just the data.</li>
+          <li>0:05–0:30 — Quadrant 1: missing data. Top 5-8 deals with incomplete MEDDPICC fields at Commit or Best Case. Manager reads fields aloud, rep responds, action items captured.</li>
+          <li>0:30–0:55 — Quadrant 2: slipped from prior period. Top 5-8 deals that were Commit and did not close. Rep walks through new close-date logic.</li>
+          <li>0:55–1:20 — Quadrant 3: aged out of stage. Top 5-8 long-stayers. Decision: continue inspecting, or move to Closed Lost.</li>
+          <li>1:20–1:45 — Quadrant 4: no champion. Top 5-8 deals at Stage 3+ missing a named champion. Action plan to find one or stage-block the deal.</li>
+          <li>1:45–2:00 — Forward-looking: pipeline coverage, next-quarter readiness, anything time-sensitive that did not fit the quadrants.</li>
+        </ul>
+
+        <p>Two hours, weekly, every week. Same agenda. The reps learn what gets asked. The qualification fields start landing pre-filled. The forecast tightens. Six months in, the meeting can shrink to 90 minutes because the four quadrants empty out — which is the actual measurement of whether the cadence is working.</p>
+      
+
+      <div class="cta-block">
+        <h3>Want to apply this to your team?</h3>
+        <p>I work with B2B SaaS teams and operators in the US and Mexico. Start with a 30-minute conversation.</p>
+        <a href="/services/revops-consulting" class="btn btn-primary">Start a Conversation</a>
+      </div>
+
+      <div class="related">
+        <h3>More from the blog</h3>
+        <ul>
+        <li><a href="/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: which framework actually moves forecast accuracy</a></li>
+        <li><a href="/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot for a 20-rep sales team: an honest comparison</a></li>
+        <li><a href="/blog/cross-border-revops-playbook" class="inline-link">The cross-border RevOps playbook: USD revenue, MXN operations, one comp plan</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/services/">Services</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = ["territory-design-without-spreadsheets-melting","two-hour-weekly-forecast-call"];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>

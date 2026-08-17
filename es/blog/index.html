@@ -72,7 +72,8 @@
       { "@type": "BlogPosting", "headline": "Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta", "url": "https://jaimem.com/es/blog/salesforce-vs-hubspot-20-rep-team", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones", "url": "https://jaimem.com/es/blog/cross-border-revops-playbook", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "Bookings vs Revenue: una reconciliación grado CFO en una hoja de cálculo", "url": "https://jaimem.com/es/blog/bookings-vs-revenue-reconciliation-spreadsheet", "datePublished": "2026-06-09" },
-      { "@type": "BlogPosting", "headline": "How to design sales territories without spreadsheets melting in Q4", "url": "https://jaimem.com/blog/territory-design-without-spreadsheets-melting", "datePublished": "2026-07-07" }
+      { "@type": "BlogPosting", "headline": "How to design sales territories without spreadsheets melting in Q4", "url": "https://jaimem.com/blog/territory-design-without-spreadsheets-melting", "datePublished": "2026-07-07" },
+      { "@type": "BlogPosting", "headline": "The two-hour weekly forecast call: what to inspect, what to ignore", "url": "https://jaimem.com/blog/two-hour-weekly-forecast-call", "datePublished": "2026-08-04" }
     ]
   }
   </script>
@@ -180,6 +181,13 @@
           <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
           <span class="arrow">Leer post →</span>
         </a>
+        <a href="/blog/two-hour-weekly-forecast-call" class="post-card">
+          <h2>The two-hour weekly forecast call: what to inspect, what to ignore <span class="lang-badge">Solo en inglés</span></h2>
+          <span class="sub">August 4, 2026 · 7 min read · Forecast Operations</span>
+          <p>Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The participants leave the meeting feeling productive because the time was filled, but no rep was actually challenged on a soft commit, and no deal was actually moved from a higher confidence tier to a lower one. The fix is not a longer meeting — it is a different agenda.</p>
+          <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
+          <span class="arrow">Leer post →</span>
+        </a>
       </div>
     </article>
   </main>
@@ -211,7 +219,7 @@
         // If the user is on a post page without a counterpart, fall back to the blog hub.
         const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
         // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
-        const noEsSlugs = ["territory-design-without-spreadsheets-melting"];
+        const noEsSlugs = ["territory-design-without-spreadsheets-melting","two-hour-weekly-forecast-call"];
         const slugMatch = enPath.match(/^\/blog\/(.+)$/);
         if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
           location.href = fallbackHub;
