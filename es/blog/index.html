@@ -72,8 +72,8 @@
       { "@type": "BlogPosting", "headline": "Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta", "url": "https://jaimem.com/es/blog/salesforce-vs-hubspot-20-rep-team", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones", "url": "https://jaimem.com/es/blog/cross-border-revops-playbook", "datePublished": "2026-05-12" },
       { "@type": "BlogPosting", "headline": "Bookings vs Revenue: una reconciliación grado CFO en una hoja de cálculo", "url": "https://jaimem.com/es/blog/bookings-vs-revenue-reconciliation-spreadsheet", "datePublished": "2026-06-09" },
-      { "@type": "BlogPosting", "headline": "How to design sales territories without spreadsheets melting in Q4", "url": "https://jaimem.com/blog/territory-design-without-spreadsheets-melting", "datePublished": "2026-07-07" },
-      { "@type": "BlogPosting", "headline": "The two-hour weekly forecast call: what to inspect, what to ignore", "url": "https://jaimem.com/blog/two-hour-weekly-forecast-call", "datePublished": "2026-08-04" }
+      { "@type": "BlogPosting", "headline": "Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4", "url": "https://jaimem.com/es/blog/territory-design-without-spreadsheets-melting", "datePublished": "2026-07-07" },
+      { "@type": "BlogPosting", "headline": "La forecast call semanal de dos horas: qué inspeccionar y qué ignorar", "url": "https://jaimem.com/es/blog/two-hour-weekly-forecast-call", "datePublished": "2026-08-04" }
     ]
   }
   </script>
@@ -174,18 +174,18 @@
           
           <span class="arrow">Leer post →</span>
         </a>
-        <a href="/blog/territory-design-without-spreadsheets-melting" class="post-card">
-          <h2>How to design sales territories without spreadsheets melting in Q4 <span class="lang-badge">Solo en inglés</span></h2>
-          <span class="sub">July 7, 2026 · 8 min read · Territory Planning</span>
-          <p>Territory design fails in Q4, not in Q1. The design that ships in January looks fine until June, when the first wave of new hires changes the math, then becomes a mess in October when one rep accidentally claims an account already booked by another. The fix is almost never to redesign the territories. It is to fix the operating cadence around them.</p>
-          <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
+        <a href="/es/blog/territory-design-without-spreadsheets-melting" class="post-card">
+          <h2>Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4</h2>
+          <span class="sub">7 julio 2026 · 8 min de lectura · Planeación de Territorios</span>
+          <p>El diseño de territorios falla en Q4, no en Q1. El diseño que se lanza en enero se ve bien hasta junio, cuando la primera ola de nuevas contrataciones cambia las matemáticas, y luego se vuelve un desastre en octubre cuando un representante reclama accidentalmente una cuenta que otro ya tenía reservada. La solución casi nunca es rediseñar los territorios. Es arreglar la cadencia operativa alrededor de ellos.</p>
+          
           <span class="arrow">Leer post →</span>
         </a>
-        <a href="/blog/two-hour-weekly-forecast-call" class="post-card">
-          <h2>The two-hour weekly forecast call: what to inspect, what to ignore <span class="lang-badge">Solo en inglés</span></h2>
-          <span class="sub">August 4, 2026 · 7 min read · Forecast Operations</span>
-          <p>Most forecast calls run 90 minutes and produce a worse forecast than 20 minutes of cold inspection would. The participants leave the meeting feeling productive because the time was filled, but no rep was actually challenged on a soft commit, and no deal was actually moved from a higher confidence tier to a lower one. The fix is not a longer meeting — it is a different agenda.</p>
-          <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">Este post está disponible solo en inglés por ahora.</p>
+        <a href="/es/blog/two-hour-weekly-forecast-call" class="post-card">
+          <h2>La forecast call semanal de dos horas: qué inspeccionar y qué ignorar</h2>
+          <span class="sub">4 agosto 2026 · 7 min de lectura · Operaciones de Pronóstico</span>
+          <p>La mayoría de las forecast calls duran 90 minutos y producen un pronóstico peor que el que darían 20 minutos de inspección fría. Los participantes salen de la junta sintiéndose productivos porque el tiempo se llenó, pero a ningún representante se le cuestionó realmente un commit débil, y ningún deal se movió de un tier de confianza alto a uno más bajo. La solución no es una junta más larga — es una agenda distinta.</p>
+          
           <span class="arrow">Leer post →</span>
         </a>
       </div>
@@ -219,7 +219,7 @@
         // If the user is on a post page without a counterpart, fall back to the blog hub.
         const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
         // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
-        const noEsSlugs = ["territory-design-without-spreadsheets-melting","two-hour-weekly-forecast-call"];
+        const noEsSlugs = [];
         const slugMatch = enPath.match(/^\/blog\/(.+)$/);
         if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
           location.href = fallbackHub;

@@ -781,6 +781,82 @@ export const POSTS = [
         <p>The next year is execution. The design is the easy part. The cadence is the work.</p>
       `,
     },
+    es: {
+      title: 'Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4',
+      description: 'El diseño de territorios falla en Q4, no en Q1 — y la causa casi nunca es el diseño. Es la cadencia operativa alrededor de él. Este es el playbook para el trabajo de territorios que sobrevive un año completo de nuevas contrataciones, churn y las inevitables guerras por cuentas.',
+      ogAlt: 'Playbook de Diseño de Territorios — Jaime M. Mena',
+      h1: 'Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4',
+      sub: '7 julio 2026 · 8 min de lectura · Planeación de Territorios',
+      lead: 'El diseño de territorios falla en Q4, no en Q1. El diseño que se lanza en enero se ve bien hasta junio, cuando la primera ola de nuevas contrataciones cambia las matemáticas, y luego se vuelve un desastre en octubre cuando un representante reclama accidentalmente una cuenta que otro ya tenía reservada. La solución casi nunca es rediseñar los territorios. Es arreglar la cadencia operativa alrededor de ellos.',
+      body: `
+        <h2>Por qué el dolor de territorios aparece en Q4</h2>
+
+        <p>Todo modelo de territorios sobrevive su primer trimestre. Los representantes participaron en el diseño. Las cuentas nombradas están frescas. La cobertura de pipeline se ve sana porque nadie ha tenido tiempo de quemarla. A mediados de Q2, dos representantes se fueron y sus cuentas se reasignan a las prisas. A mediados de Q3, marketing generó 400 leads inbound que nadie preasignó, así que los AEs los están reclamando en un canal de Slack llamado <code>#inbound-grab</code>. Para Q4, el liderazgo revisa la cobertura de pipeline y descubre que tres representantes están sobre-cubiertos y cuatro sub-cubiertos, no hay dos reportes que coincidan en quién es dueño de las 50 cuentas principales, y la forecast call se convirtió en una competencia sobre de quién es el pipeline que contribuye a la cuota de quién.</p>
+
+        <p>Nada de esto es una falla de diseño. El modelo original de territorios estaba bien en enero. Lo que falló fue la cadencia operativa que debió haber cachado cada desviación antes de que se compusiera.</p>
+
+        <h2>Empieza desde el ICP, no desde la geografía de los representantes</h2>
+
+        <p>El error de diseño más grande que veo es empezar desde dónde viven los representantes. Los representantes son móviles. Los ICPs no. Construye los territorios desde el universo de cuentas — las cuentas nombradas que encajan con tu perfil de cliente ideal — y luego asigna representantes a esas cuentas según capacidad y capability. La geografía de dónde viven los representantes en un trimestre dado es una preocupación secundaria, no primaria.</p>
+
+        <p>En la práctica esto significa: jala el TAM (Total Addressable Market) de una fuente como ZoomInfo o Crunchbase, filtra a cuentas que coincidan con el ICP (industria, número de empleados, banda de ingresos, tech stack, señal reciente de contratación), clasifícalas por valor potencial, y luego agrúpalas en books balanceados. <em>Después</em> asigna representantes. Esto produce territorios donde cada representante tiene aproximadamente el mismo número de cuentas de tier alto, sin importar dónde estén en el mapa. También hace el diseño defendible — cuando alguien pregunta "¿por qué mi territorio solo tiene seis cuentas Enterprise?", la respuesta es "porque el ICP solo contiene seis cuentas Enterprise en tu segmento, y otros tres representantes tienen el mismo problema."</p>
+
+        <h2>Tres tiers, no cinco</h2>
+
+        <p>La mayoría de los modelos de tiering de cuentas que he heredado tienen cinco tiers. Cinco son demasiados. Las matemáticas de cuántas cuentas puede cubrir un representante de forma significativa no producen cinco niveles distintos de atención — producen tres: "hay que tocarla este trimestre," "hay que tocarla este año," y "sabe que existimos."</p>
+
+        <p>Tier 1: aproximadamente 15-25 cuentas por representante. Estas reciben outbound personalizado, juntas con sponsor ejecutivo, campañas ABM y multi-threading nombrado. El representante tiene una relación por nombre con al menos tres personas en cada cuenta.</p>
+
+        <p>Tier 2: aproximadamente 75-150 cuentas por representante. Estas reciben outreach con cadencia, nurture de marketing y un toque trimestral del AE. El representante puede recitar las top 30 de memoria.</p>
+
+        <p>Tier 3: todos los demás. Demand-gen carga el peso. El AE las hereda solo cuando el interés inbound las hace visibles.</p>
+
+        <p>Tres tiers son suficiente granularidad para tomar decisiones de asignación. Cinco tiers introducen categorías que en la práctica nadie trata distinto, lo que significa que los dos de abajo colapsan en "ya llegaremos a eso" — que es lo mismo.</p>
+
+        <h2>Rollups jerárquicos en Salesforce</h2>
+
+        <p>El liderazgo quiere hacer rollup del desempeño por territorio a nivel segmento, región y org completa. La forma en que la mayoría de las orgs de Salesforce manejan esto es un campo custom en el registro de User o Account que no agrega limpiamente. La forma correcta es usar Salesforce Territory Management (la funcionalidad, no el concepto) — sí, la implementación es molesta, pero la alternativa es código Apex custom que se rompe cada vez que alguien cambia la asignación de un representante.</p>
+
+        <p>El modelo: cada territorio tiene un padre. AMER-Enterprise hace rollup a AMER, AMER hace rollup a Global. Los reportes construidos contra la jerarquía de territorios agregan automáticamente por cualquier nivel. Cuando un representante se mueve de AMER-SMB a AMER-Mid-Market, su pipeline se mueve con él, los rollups se actualizan, y el reporteo histórico se mantiene consistente porque Salesforce guarda el snapshot. Esta es toda la razón por la que Salesforce lanzó Territory Management 2.0 — y sigue siendo subutilizado porque el setup inicial es quisquilloso.</p>
+
+        <h2>Terminar las guerras por cuentas</h2>
+
+        <p>El desacuerdo operativo más caro en un equipo B2B SaaS es dos representantes reclamando la misma cuenta. La respuesta correcta es hacerlo imposible — un solo dueño por cuenta en todo momento, forzado por una regla de validación en Salesforce. Las excepciones (un SDR trabajando un prospecto que técnicamente es de otro AE; un CSM dueño de la renovación pero Ventas dueño del upsell) se documentan en una sola hoja que el deal desk administra. Si un deal cierra en una cuenta donde la propiedad estaba en disputa, el deal desk tiene autoridad para resolverlo antes de que se pague la comisión.</p>
+
+        <p>El enfoque del canal de Slack — donde los representantes publican "reclamo esta cuenta" y el primero en publicar gana — no escala más allá de 10 representantes. También crea resentimiento que se compone a lo largo de los trimestres. Invierte en la regla de validación. La implementación son 90 minutos para un admin con habilidades intermedias de Salesforce.</p>
+
+        <h2>El protocolo de reacomodo de medio año</h2>
+
+        <p>Incluso con un diseño perfecto, los cambios de medio año son inevitables. Los representantes se van, entran nuevos, los segmentos cambian. El protocolo para manejar reacomodos es más importante que el diseño original.</p>
+
+        <p>Tres reglas: (1) las bajas de representantes disparan una redistribución de cuentas dentro de cinco días hábiles, con el manager como dueño de la decisión y ops ejecutando. (2) Los nuevos representantes reciben cuentas de un "talent pool" — cuentas que se retuvieron intencionalmente durante el diseño inicial específicamente para este propósito. Retén cerca del 5-10% del universo de cuentas nombradas para esto. (3) Cualquier solicitud de un representante para intercambiar cuentas requiere justificación por escrito al manager y se revisa trimestralmente, no bajo demanda. La tercera regla es la que evita que las solicitudes de reacomodo se conviertan en una junta permanente en el calendario de cada manager.</p>
+
+        <h2>La plantilla de scoring de 200 cuentas</h2>
+
+        <p>Si estás empezando de cero, la plantilla que funciona es una matriz de scoring de 200 cuentas por representante. Columnas: nombre de cuenta, industria, número de empleados, ingresos, flags de tech stack, flags de señal de intent, fecha del último contacto, último engagement de marketing, estatus actual de pipeline, tier (1-3), representante asignado. Actualízala mensualmente. Ordena por tier, luego por score de intent. Esa lista ordenada es el universo de cuentas del representante y la base de cada revisión semanal de pipeline.</p>
+
+        <p>Por debajo de 200 cuentas nombradas por representante, el modelo es demasiado delgado para darle suficiente con qué trabajar. Por encima de 400, el representante no puede priorizar de forma significativa y cae de vuelta en "lo que llegó esta semana." Doscientas es el punto dulce para la mayoría de los motores B2B SaaS.</p>
+
+        <h2>Qué software usar y cuál saltarse</h2>
+
+        <p>No necesitas un proveedor de software de gestión de territorios para un equipo de 20-50 representantes. Territory management nativo de Salesforce, un campo de ranking de Account y una junta mensual de revisión es suficiente. Por encima de 50 representantes, herramientas como Anaplan, Fullcast o Varicent SPM Cloud se ganan su costo porque las matemáticas de optimización (balancear capacidad, capability y potencial a través de cientos de representantes) se vuelven no triviales. Por debajo de 50 representantes, esas herramientas agregan ceremonia y frenan la iteración.</p>
+
+        <p>La única herramienta que sí recomiendo a cualquier tamaño: una fuente de datos de TAM/ICP. ZoomInfo, Crunchbase, Apollo. Sin ella, estás diseñando territorios contra un mercado que existe solo en tu CRM, y tu CRM es una muestra de la historia de una sola empresa — no una muestra del mercado direccionable. La fuente de TAM es la diferencia entre un diseño defensivo y uno ofensivo.</p>
+
+        <h2>Los primeros 30 días de un engagement de territorios</h2>
+
+        <p>Si heredas un desastre de territorios y tienes 30 días para arreglarlo:</p>
+
+        <ol>
+          <li>Semana 1: jala el universo de cuentas nombradas de Salesforce. Audita duplicados, conflictos de propiedad, cuentas asignadas a ex-empleados. Limpia.</li>
+          <li>Semana 2: define o refresca el ICP. Jala el TAM de una fuente de datos. Identifica la brecha — cuentas en tu CRM que no encajan con el ICP, y cuentas en el TAM que deberían estar en tu CRM y no están.</li>
+          <li>Semana 3: diseña los nuevos territorios usando el modelo de tres tiers. Mantente dentro de ±15% de balance entre representantes para el conteo de Tier 1.</li>
+          <li>Semana 4: lanza. Comunica el razonamiento. Levanta la cadencia operativa (regla de validación, protocolo trimestral de reacomodo, revisión mensual de tiers).</li>
+        </ol>
+
+        <p>El siguiente año es ejecución. El diseño es la parte fácil. La cadencia es el trabajo.</p>
+      `,
+    },
   },
 
   {
@@ -872,6 +948,91 @@ export const POSTS = [
         <p>Two hours, weekly, every week. Same agenda. The reps learn what gets asked. The qualification fields start landing pre-filled. The forecast tightens. Six months in, the meeting can shrink to 90 minutes because the four quadrants empty out — which is the actual measurement of whether the cadence is working.</p>
       `,
     },
+    es: {
+      title: 'La forecast call semanal de dos horas: qué inspeccionar y qué ignorar',
+      description: 'La mayoría de las forecast calls duran 90 minutos y producen un pronóstico peor que el que darían 20 minutos de inspección fría. La solución no es una junta más larga — es una agenda distinta. Este es el modelo de inspección de cuatro cuadrantes y una agenda de 2 horas lista para robar.',
+      ogAlt: 'Playbook de la Forecast Call Semanal — Jaime M. Mena',
+      h1: 'La forecast call semanal de dos horas: qué inspeccionar y qué ignorar',
+      sub: '4 agosto 2026 · 7 min de lectura · Operaciones de Pronóstico',
+      lead: 'La mayoría de las forecast calls duran 90 minutos y producen un pronóstico peor que el que darían 20 minutos de inspección fría. Los participantes salen de la junta sintiéndose productivos porque el tiempo se llenó, pero a ningún representante se le cuestionó realmente un commit débil, y ningún deal se movió de un tier de confianza alto a uno más bajo. La solución no es una junta más larga — es una agenda distinta.',
+      body: `
+        <h2>Qué hacen mal la mayoría de las forecast calls</h2>
+
+        <p>La agenda típica: abrir con los deals más grandes, recorrer cada uno representante por representante, preguntar "¿qué tan confiado estás?", aceptar la respuesta y seguir. Cada conversación toma 4-6 minutos, se recorren 20 deals, y termina con una junta de 90 minutos donde el liderazgo se siente informado y los representantes se sienten gestionados. Nada del pronóstico cambió durante la llamada. Los deals en Commit siguieron en Commit. Los deals deslizados siguieron deslizados. La junta fue teatro.</p>
+
+        <p>La razón de que sea teatro: la junta abre con los deals sobre los que todos tienen más confianza. Esos son exactamente los deals que necesitan menos inspección. Probablemente van a cerrar. La conversación alrededor de ellos es cómoda. Para cuando la junta llega a los deals desordenados — los que no tienen champion, ni decision process, ni Economic Buyer nombrado — quedan 12 minutos y tres de ellos se agrupan en una cubeta de "le damos seguimiento offline." Lo cual significa que no.</p>
+
+        <h2>La inspección de cuatro cuadrantes</h2>
+
+        <p>El marco de reemplazo: abre la junta ordenando el pipeline por prioridad de inspección, y luego recórrelo del peor al mejor. Cuatro cuadrantes importan:</p>
+
+        <p><strong>1. Datos faltantes.</strong> Cualquier deal en tier Commit donde uno o más campos requeridos de calificación esté vacío o llenado trivialmente ("CEO" sin nombre; "Q3" sin fecha específica). Estos se inspeccionan primero porque son los más propensos a deslizarse y los más fáciles de arreglar durante la llamada.</p>
+
+        <p><strong>2. Deslizados del periodo anterior.</strong> Cualquier deal que estuvo en Commit el trimestre pasado y no cerró. La forecast call debe rastrearlos por dos ciclos. Si un deal se desliza dos veces, el representante debe presentar la nueva lógica de fecha de cierre frente al equipo. Esto es incómodo a propósito.</p>
+
+        <p><strong>3. Envejecidos en su etapa.</strong> Cualquier deal que ha estado en la misma etapa por más de 1.5x el tiempo promedio en etapa del segmento. Un deal de Stage 4 con 90 días de antigüedad en un entorno donde Stage 4 promedia 35 días casi siempre está perdido, en pausa, o siendo caminado lentamente por procurement. Cada uno recibe una inspección dura: ¿estamos esperando una firma, o estamos esperanzados?</p>
+
+        <p><strong>4. Sin champion.</strong> Cualquier deal en Stage 3 o superior sin un champion nombrado (nombre y apellido en el CRM). Este es el indicador de alerta temprana que casi ningún equipo toma en serio lo suficiente. Un deal sin champion nombrado en Stage 4 cierra a cerca del 25% de la tasa de los deals con champion nombrado. Trata la ausencia de champion como un bloqueo de etapa.</p>
+
+        <p>Corre la junta a través de estos cuatro cuadrantes en orden. Cada cuadrante recibe una asignación fija — digamos 25 minutos. Los deals grandes y fáciles del fondo del embudo reciben el tiempo que sobre. Frecuentemente nada, y eso es correcto.</p>
+
+        <h2>Abre por abajo, no por arriba</h2>
+
+        <p>El cambio de agenda más grande es invertir el orden de los deals. En lugar de abrir con el más grande, abrir con el peor — los deals donde la calificación está más delgada, los que menos convencen al liderazgo, los que están por envejecer. Esto es incómodo para los representantes cuyos deals están en esa cubeta, y la incomodidad es el punto. La forecast call es una función forzante para la calificación honesta, no un desfile de escenarios best-case.</p>
+
+        <p>Los managers de primera línea van a resistirse la primera vez que lo intentes. "No tenemos tiempo de cuestionar cada deal débil." Es cierto. El modelo de cuatro cuadrantes significa que no cuestionas cada deal débil — cuestionas los top 5-8 de cada cuadrante. El fondo de cada cuadrante es problema del manager para darle seguimiento async. La junta es para los deals donde el input del liderazgo cambia la trayectoria.</p>
+
+        <h2>Las preguntas que funcionan</h2>
+
+        <p>La inspección solo sirve si las preguntas fuerzan especificidad. Las preguntas genéricas ("¿cómo te sientes con esto?") producen respuestas genéricas ("bien"). Las preguntas específicas obligan al representante a revelar lo que realmente sabe.</p>
+
+        <p>Preguntas que funcionan, en orden de qué tan seguido las uso:</p>
+
+        <ul>
+          <li>"¿Quién en el cliente se beneficia si este deal cierra — dame un nombre."</li>
+          <li>"¿Cuál es la siguiente junta agendada en el calendario con esa persona?"</li>
+          <li>"¿Qué hay en su checklist de procurement que todavía no hemos satisfecho?"</li>
+          <li>"Camíname el día en que este contrato se firma — ¿quién le da clic al botón, en qué plataforma?"</li>
+          <li>"¿Por qué el cliente no quiere no hacer nada?"</li>
+          <li>"¿A quién más están evaluando, y qué te dijeron cuando preguntaste?"</li>
+        </ul>
+
+        <p>Cada una toma unos 30-60 segundos en responderse si el representante tiene la información, y revela de inmediato cuando no. El representante no puede improvisar su salida. Compáralo con "¿confías en que esto va a cerrar?" — que un representante puede responder con "sí" sin tener información alguna.</p>
+
+        <h2>Leer los campos de calificación en voz alta</h2>
+
+        <p>La intervención más efectiva que he implementado es que los managers lean los campos de MEDDPICC en voz alta durante la llamada. El manager abre el deal en Salesforce, lo proyecta y literalmente lee "Economic Buyer: TBD. Decision Process: esperamos una decisión pronto. Pain: necesitan una mejor solución." Escuchar la calificación dicha en voz alta, frente a los pares, revela qué tan delgada es en realidad. Los representantes arreglan los campos para el viernes. La siguiente llamada es significativamente distinta.</p>
+
+        <p>Esto funciona porque leer el campo en voz alta cambia la audiencia. Cuando el representante escribió "TBD" hace tres semanas, la audiencia era una versión futura de sí mismo que tal vez lo arreglaría. Cuando el manager lee "TBD" en voz alta en la forecast call, la audiencia son doce pares y un CRO. Esa escala de accountability es todo el punto.</p>
+
+        <h2>Cadencia de lunes vs jueves</h2>
+
+        <p>La mayoría de los equipos corren la forecast call el lunes porque "arma la semana." La mayoría de los equipos deberían correrla el jueves porque "arma el trabajo que tiene que pasar el viernes antes del fin de semana." Las llamadas de lunes producen action items que se hacen para el siguiente lunes. Las llamadas de jueves producen action items que se hacen el viernes por la tarde. La diferencia se compone a lo largo del trimestre.</p>
+
+        <p>Es un cambio pequeño pero importa. El trabajo que sale de una forecast call — arreglar campos de calificación, agendar juntas faltantes, hacer multi-threading en una cuenta estancada — tiene una vida media de un día. Si la llamada es el lunes y el manager olvida darle seguimiento, el representante tiene ocho días hábiles para encontrar una razón para no arreglarlo. Si la llamada es el jueves, tiene uno. Mueve la llamada.</p>
+
+        <h2>Qué recortar de la junta</h2>
+
+        <p>La mayoría de las forecast calls han acumulado tres o cuatro puntos de agenda que no pertenecen: actualizaciones de campañas de marketing, timelines de lanzamientos de producto, reportes de cuentas en riesgo de CSM, la última inteligencia competitiva. Todos son reales e importantes. Ninguno debería estar en la forecast call. Cada uno tiene su propia junta (o actualización async), y cada uno tiene su propia audiencia. Mezclarlos en la forecast call diluye el tiempo de inspección y entrena a los representantes a creer que la junta es de negocio general — no un lugar donde sus deals son cuestionados.</p>
+
+        <p>Recorta todo lo que no sea directamente sobre la inspección del pipeline del trimestre. Manda el resto como una actualización escrita con un resumen de 5 bullets cada viernes. La junta se aprieta. La precisión del pronóstico sube.</p>
+
+        <h2>Agenda de ejemplo de 2 horas</h2>
+
+        <p>La plantilla que corro, semanalmente, con un equipo de 20 representantes:</p>
+
+        <ul>
+          <li>0:00–0:05 — Abre con el número principal. "Pronosticamos $4.2M, la semana pasada pronosticamos $4.4M, estos son los tres deals que se movieron." Sin discusión todavía. Solo los datos.</li>
+          <li>0:05–0:30 — Cuadrante 1: datos faltantes. Top 5-8 deals con campos MEDDPICC incompletos en Commit o Best Case. El manager lee los campos en voz alta, el representante responde, se capturan action items.</li>
+          <li>0:30–0:55 — Cuadrante 2: deslizados del periodo anterior. Top 5-8 deals que estaban en Commit y no cerraron. El representante camina la nueva lógica de fecha de cierre.</li>
+          <li>0:55–1:20 — Cuadrante 3: envejecidos en su etapa. Top 5-8 de los que más tiempo llevan. Decisión: seguir inspeccionando, o mover a Closed Lost.</li>
+          <li>1:20–1:45 — Cuadrante 4: sin champion. Top 5-8 deals en Stage 3+ sin champion nombrado. Plan de acción para encontrar uno o bloquear la etapa del deal.</li>
+          <li>1:45–2:00 — Hacia adelante: cobertura de pipeline, preparación para el próximo trimestre, cualquier cosa urgente que no entró en los cuadrantes.</li>
+        </ul>
+
+        <p>Dos horas, semanal, cada semana. La misma agenda. Los representantes aprenden qué se pregunta. Los campos de calificación empiezan a llegar prellenados. El pronóstico se aprieta. A los seis meses, la junta puede encogerse a 90 minutos porque los cuatro cuadrantes se vacían — que es la medición real de si la cadencia está funcionando.</p>
+      `,
+    },
   },
 
   {
@@ -960,6 +1121,88 @@ export const POSTS = [
         <p>Thirty days after rollout, run the audit. Average MEDDPICC Health should be 5+ across the team. Commit-tier deals should be 7+. If you are not there, the validation rules are too soft or the manager cadence is too quiet. Tighten the rules. Loop in the CRO to read fields out loud during the next forecast call. Six weeks later, audit again. By the end of quarter two, the framework should be invisible — meaning it works without anyone needing to talk about it. That is the goal.</p>
       `,
     },
+    es: {
+      title: 'Configurar MEDDPICC en HubSpot en menos de una hora',
+      description: 'La mayoría de los equipos que "probaron MEDDPICC y no pegó" nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. Hacerlo bien en HubSpot toma menos de una hora. Este es el setup exacto.',
+      ogAlt: 'MEDDPICC en HubSpot — Jaime M. Mena',
+      h1: 'Configurar MEDDPICC en HubSpot en menos de una hora',
+      sub: '1 septiembre 2026 · 6 min de lectura · Configuración de HubSpot',
+      lead: 'La mayoría de los equipos que "probaron MEDDPICC y no pegó" nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. El rollout falla porque el marco vive en decks de enablement, no en el CRM, y los representantes lo tratan como algo que hay que recordar en lugar de algo que hay que llenar. Hacerlo bien en HubSpot toma menos de una hora y convierte el marco de una diapositiva en una disciplina operativa.',
+      body: `
+        <h2>Las 8 propiedades custom de Deal</h2>
+
+        <p>Abre Settings → Objects → Deals → Manage Properties. Crea ocho propiedades custom bajo un nuevo grupo de propiedades llamado "MEDDPICC Qualification." Cada una es un campo de texto de una sola línea, no un dropdown. La razón de usar campos de texto en lugar de picklists: la respuesta de calificación es específica de cada deal, y obligar a los representantes a elegir de una lista los entrena a jugarle al picklist en lugar de escribir una respuesta real.</p>
+
+        <ul>
+          <li><strong>Metrics</strong> — ¿qué resultado numérico quiere el comprador?</li>
+          <li><strong>Economic Buyer</strong> — nombre y apellido, más el puesto.</li>
+          <li><strong>Decision Criteria</strong> — qué evaluarán en los vendedores.</li>
+          <li><strong>Decision Process</strong> — los pasos literales de aquí a la firma.</li>
+          <li><strong>Identified Pain</strong> — el estado actual que es lo suficientemente inaceptable para gastar dinero.</li>
+          <li><strong>Champion</strong> — nombre y apellido, más una frase de por qué le importa.</li>
+          <li><strong>Paper Process</strong> — procurement, legal, ruta de revisión de contrato.</li>
+          <li><strong>Competition</strong> — competidores nombrados, incluyendo no hacer nada.</li>
+        </ul>
+
+        <p>La convención de nombres importa. Usa la palabra completa en la etiqueta de la propiedad ("Economic Buyer," no "EB"). Los representantes se van a topar con estos campos en los registros de deal todos los días, y las palabras completas comunican la intención mejor que las abreviaciones. Usa también el campo de descripción de la propiedad — un prompt corto de una línea por cada propiedad que le diga al representante cómo se ve un buen llenado. "Decision Process" con la descripción "Enlista los pasos literales. Ejemplo: 1. Demo con el equipo. 2. Revisión de seguridad. 3. RFI de procurement. 4. Redlines de legal. 5. Contra-firma." no cuesta nada agregarlo y mejora dramáticamente lo que los representantes ponen en el campo.</p>
+
+        <h2>Reglas de dependencia de propiedades</h2>
+
+        <p>Paper Process y Competition no siempre importan. Para un deal transaccional de $20K, agregan ceremonia sin insight. Para un deal enterprise de $200K con evaluación multi-proveedor, son los dos campos más predictivos. HubSpot te deja mostrar propiedades condicionalmente según los valores de otros campos — úsalo.</p>
+
+        <p>Configura Paper Process y Competition para que aparezcan solo cuando Deal Type = New Business y Deal Amount > $50K. El umbral es tuyo; elige el número que mapee a donde tu equipo necesita escrutinio de procurement. Por debajo de eso, los dos campos se quedan ocultos y no contaminan el registro del deal. Por encima, son requeridos (según la regla de stage-gate abajo).</p>
+
+        <h2>Requisitos de etapa en Stage 3 y Stage 4</h2>
+
+        <p>Esta es la parte que de verdad impulsa la adopción. Abre Settings → Objects → Deals → Pipelines. Para tu pipeline por defecto, configura reglas de progresión de etapa. En Stage 3 (típicamente Proposal o equivalente), exige que cuatro campos MEDDPICC no estén vacíos: Economic Buyer, Identified Pain, Champion, Decision Process. En Stage 4 (típicamente Negotiation), exige los ocho donde apliquen (Paper Process y Competition solo son requeridos si están visibles según las reglas de dependencia de arriba).</p>
+
+        <p>HubSpot las aplica como reglas de validación. El representante no puede avanzar la etapa del deal hasta que los campos estén poblados. Se van a resistir. Ese es el punto. La fricción al avanzar de etapa es toda la razón por la que el marco impulsa profundidad de calificación en lugar de ser un ejercicio de checkbox.</p>
+
+        <p>Una nota de configuración: el requisito de etapa en HubSpot no es nativamente un bloqueo duro — es una advertencia. Para convertirlo en bloqueo duro, usa un workflow que revierta automáticamente el cambio de etapa cuando los campos están vacíos. Configura el trigger del workflow: cuando Deal Stage = Stage 3 Y cualquiera de los cuatro campos requeridos esté vacío, revierte la etapa a la anterior Y manda una notificación al representante. El texto de la notificación importa; escríbelo como coach, no como policía. "El deal regresó a Stage 2 — llena Economic Buyer, Identified Pain, Champion y Decision Process antes de avanzar. Los prompts de descripción están en cada campo."</p>
+
+        <h2>La propiedad calculada MEDDPICC Health</h2>
+
+        <p>Crea una propiedad más: una propiedad calculada llamada "MEDDPICC Health." Es un número entre 0 y 8 que cuenta cuántos de los ocho campos están poblados con valores no triviales. Las propiedades calculadas de HubSpot soportan este tipo de fórmula — contar campos no vacíos en el grupo de propiedades.</p>
+
+        <p>Usa el score en dashboards. Filtra los deals con MEDDPICC Health menor a 6 en Stage 3+ y muestra ese conteo filtrado como un tile en el dashboard del manager. El tile se vuelve lo primero que los managers ven cada mañana. Los representantes que ven sus deals apareciendo en ese tile limpian su calificación en un día. El score es un mecanismo público de accountability sin necesitar una sola junta.</p>
+
+        <h2>El dashboard de completitud</h2>
+
+        <p>Un dashboard, cinco tiles, configurado en 15 minutos:</p>
+
+        <ul>
+          <li>Promedio de MEDDPICC Health por representante (gráfica de barras, ordenada de mayor a menor).</li>
+          <li>Conteo de deals en tier Commit con Health menor a 6 (número único, rojo si es mayor a 5).</li>
+          <li>Deals envejecidos en Stage 3+ con el campo Champion vacío (tabla).</li>
+          <li>Deals donde Decision Process tiene menos de 50 caracteres (tabla — proxy de "escribieron 'TBD' o similar").</li>
+          <li>Gráfica de tendencia: Health promedio del equipo en las últimas 12 semanas.</li>
+        </ul>
+
+        <p>Guárdalo como dashboard compartido. Mándale el link al manager. El dashboard hace la inspección que ningún humano quiere hacer cada viernes por la tarde.</p>
+
+        <h2>Un workflow que avisa a los managers sobre commits incompletos</h2>
+
+        <p>Un workflow más que vale la pena montar. Trigger: Deal Stage = Commit Y MEDDPICC Health menor a 6. Acción: mandar al manager una notificación de Slack ("El deal X está en Commit pero su Health es 4/8 — por favor revisa la calificación con el representante antes del viernes"). Esto atrapa los deals que se cuelan por las reglas de validación porque el representante llenó trivialmente los cuatro campos requeridos. El workflow corre en HubSpot sin costo; la integración de Slack es la estándar que la mayoría de los equipos ya tiene.</p>
+
+        <p>La notificación está calibrada para ser un empujón, no una interrupción. Un ping por deal, por transición de etapa. Los managers pueden actuar o no. Después de dos meses, las notificaciones bajan porque los representantes dejan de permitir que los deals lleguen a Commit con calificación delgada. El workflow se vuelve auto-eliminante, que es el resultado correcto.</p>
+
+        <h2>Una trampa: el campo BANT integrado de HubSpot</h2>
+
+        <p>HubSpot viene con un marco de calificación integrado llamado BANT (Budget, Authority, Need, Timeline). Es un grupo de propiedades en el objeto Contact. No lo uses como tu marco de calificación. BANT es de otra era, captura menos información que MEDDPICC, y vive en el objeto equivocado (Contact, no Deal). Si lo tienes habilitado por razones heredadas, oculta el grupo de propiedades e ignóralo. Tu calificación vive en el objeto Deal en tu grupo MEDDPICC, punto.</p>
+
+        <p>La razón de que sea una trampa: HubSpot ocasionalmente muestra BANT como sugerencia por defecto durante el onboarding, y un admin nuevo lo va a prender junto con MEDDPICC porque "por qué no." Dos marcos de calificación confunden a los representantes y crean un debate sobre cuál es el autoritativo. Elige uno. MEDDPICC.</p>
+
+        <h2>Bonus: el mismo setup en Salesforce toma unas 3 horas</h2>
+
+        <p>Si estás montando MEDDPICC en Salesforce, el trabajo es conceptualmente el mismo pero toma más tiempo porque la superficie de personalización de Salesforce es más amplia y más lenta. Agrega los ocho campos al objeto Opportunity (15 min), configura page layouts por profile (45 min), construye reglas de validación para la progresión de etapa (30 min), construye el campo fórmula de MEDDPICC Health (15 min), construye el dashboard (30 min), construye el Flow que maneja las alertas de Commit incompleto (45 min). Tres horas, de punta a punta.</p>
+
+        <p>El setup de Salesforce es la misma lógica; solo más clics. La disciplina de usar el marco después del setup es idéntica.</p>
+
+        <h2>La revisión de adopción a 30 días</h2>
+
+        <p>Treinta días después del rollout, corre la auditoría. El MEDDPICC Health promedio debe ser 5+ en todo el equipo. Los deals en tier Commit deben ser 7+. Si no estás ahí, las reglas de validación son demasiado suaves o la cadencia del manager está demasiado callada. Aprieta las reglas. Involucra al CRO para que lea los campos en voz alta durante la siguiente forecast call. Seis semanas después, audita de nuevo. Para el final del segundo trimestre, el marco debería ser invisible — es decir, funciona sin que nadie necesite hablar de él. Esa es la meta.</p>
+      `,
+    },
   },
 
   {
@@ -1037,6 +1280,79 @@ export const POSTS = [
         </ol>
 
         <p>The CRO scans them in that order on Monday morning. Three minutes per report, fifteen minutes total. Then walks into the 9am operating meeting with five specific things to ask about. The meeting is sharper because the questions are sharper. Forecast accuracy follows.</p>
+      `,
+    },
+    es: {
+      title: 'Los cinco reportes de Salesforce que todo CRO debería tener en favoritos el lunes',
+      description: 'Un CRO que trabaja abre cinco reportes de Salesforce a primera hora del lunes. No diez. No el dashboard gigante de Tableau que construyó el equipo de BI. Cinco — y estos son, con los pasos para construirlos y las trampas que hay que evitar.',
+      ogAlt: 'Cinco Reportes de Salesforce para CROs — Jaime M. Mena',
+      h1: 'Los cinco reportes de Salesforce que todo CRO debería tener en favoritos el lunes',
+      sub: '29 septiembre 2026 · 7 min de lectura · Reportes',
+      lead: 'Un CRO que trabaja abre cinco reportes de Salesforce a primera hora del lunes por la mañana. No diez. No el dashboard gigante de Tableau que el equipo de BI construyó el trimestre pasado. Cinco — porque ese es el número que un humano realmente puede escanear en tres minutos y entrar a la junta operativa de las 9am con opiniones informadas. Estos son los cinco, con los pasos para construir cada uno y la trampa que hay que evitar.',
+      body: `
+        <h2>1. Cobertura de pipeline por segmento</h2>
+
+        <p>El indicador adelantado más importante del desempeño de ingresos. La cobertura de pipeline mide cuánto pipeline existe en el trimestre actual y el siguiente en relación con la cuota de esos trimestres. Una cobertura sana es 3-4x cuota para el trimestre actual y 3x para el siguiente; cualquier cosa por debajo de 2.5x significa que el pronóstico de ese trimestre está matemáticamente en riesgo sin importar cómo se sienta Ventas sobre deals específicos.</p>
+
+        <p>Construcción: un reporte sobre Opportunities agrupado por Segment, luego por Close Quarter, sumando Amount. Compáralo contra una tabla de cuotas (que la mayoría de las orgs mantiene en un objeto Quota separado o en un campo custom). El reporte debe mostrar la razón de cobertura (Pipeline ÷ Cuota) por segmento por trimestre, con código de color rojo/amarillo/verde en 2.5x / 3x / 3.5x.</p>
+
+        <p>Qué mirar primero: cualquier segmento en rojo para el <em>siguiente</em> trimestre. El rojo del trimestre actual es malo, pero ya es demasiado tarde para arreglarlo con pipeline nuevo — esos deals no cerrarían a tiempo. El rojo del siguiente trimestre es el segmento donde el esfuerzo de generación de pipeline tiene que subir esta semana.</p>
+
+        <p>Trampa: cobertura de pipeline que incluye deals Closed Won o deals de Stage 1 (Prospecting). Closed Won infla el número; los deals de Stage 1 con menos de 10% de conversión lo inflan de otra forma. Construye el reporte filtrando Stage mayor o igual a 2 Y Stage menor a 7 (Closed). El pipeline que cuentas debe ser el pipeline que está lo suficientemente calificado para de verdad contar.</p>
+
+        <h2>2. Deals envejecidos en su etapa</h2>
+
+        <p>La alerta temprana del deal desk. Cada etapa de deal tiene un tiempo promedio en etapa que varía por segmento. Un deal de Stage 4 que lleva sentado 90 días, cuando el promedio del segmento es 35 días, casi con certeza está perdido o siendo caminado lentamente por procurement. Sacar a la superficie los deals envejecidos cada semana los atrapa antes de que se conviertan en commit-y-luego-deslizado.</p>
+
+        <p>Construcción: un reporte sobre Opportunities filtrado a deals abiertos, con un campo fórmula calculado para Days In Current Stage (TODAY() − LastStageChangeDate). Agrupa por Stage, agrupa por Segment (ya que el tiempo promedio en etapa varía). Filtra el reporte para mostrar solo deals donde Days In Current Stage exceda 1.5x el promedio del segmento-etapa. La tabla de referencia para esos promedios puede ser un objeto custom de Salesforce o una constante hardcodeada en la fórmula — ambas funcionan para un equipo de 20-50 representantes.</p>
+
+        <p>Qué mirar primero: el deal más grande que lleva más tiempo envejecido. Ese solo deal usualmente representa más de la mitad del valor en dólares del pipeline "en riesgo" y amerita una conversación directa entre el CRO y el AE esta semana.</p>
+
+        <p>Trampa: contar el tiempo en etapa desde CreatedDate en lugar de LastStageChangeDate. Un deal que se movió rápido a través de las etapas no es lo mismo que un deal atorado en una sola etapa por meses. Usa LastStageChangeDate.</p>
+
+        <h2>3. Win rate por fuente por ICP</h2>
+
+        <p>Dónde está funcionando realmente el embudo. La mayoría de los equipos reportan win rate como un solo número a nivel org, lo cual es inútil. El win rate varía dramáticamente por lead source, por segmento, por industria, por tamaño de deal. El reporte de win rate por fuente por ICP es el diagnóstico que le dice al CRO qué combinaciones están convirtiendo y cuáles están desperdiciando tiempo del AE.</p>
+
+        <p>Construcción: un reporte matriz sobre Opportunities — las filas son Lead Source, las columnas son ICP Tier (1/2/3), las celdas son Win Rate (Closed Won ÷ Total Closed) sobre los últimos 12 meses. Filtra a una muestra significativa — al menos 20 deals por celda o la celda se muestra como N/A. La ventana de 12 meses importa; ventanas más cortas producen demasiado ruido.</p>
+
+        <p>Qué mirar primero: las combinaciones fuente/tier con alto volumen y alto win rate (cuadrante superior derecho) — ahí es donde hay que sobre-invertir en generación de leads. Luego mira las combinaciones de alto volumen y bajo win rate — ahí es donde se están corriendo deals que probablemente no deberían correrse.</p>
+
+        <p>Trampa: ponderar todos los deals igual sin importar su tamaño. Un win rate de 70% en deals de $20K y uno de 30% en deals de $200K no son equivalentes. Construye un reporte paralelo que use win rate ponderado por ingresos (Ingresos Closed Won ÷ Ingresos Total Closed) y compáralos. Los dos reportes normalmente se contradicen, y la contradicción es el hallazgo más interesante.</p>
+
+        <h2>4. Pipeline de churn</h2>
+
+        <p>La vista de renovaciones en riesgo que casi ningún equipo construye. Customer Success tiene datos de health score; Ventas tiene fechas de fin de contrato; Finanzas tiene el flujo de ingresos. Nadie los combina. El reporte de pipeline de churn une los tres: cada cliente cuya renovación está dentro de 120 días, su health score de CSM, el valor en dólares de la renovación, y un flag de si el deal ya está en el pipeline.</p>
+
+        <p>Construcción: un reporte sobre Accounts filtrado a clientes activos con fecha de fin de contrato dentro de 120 días. Une (o jala) el campo de health score del CSM, el ID de la oportunidad de renovación y el registro de actividad más reciente del CSM. Ordena por health score ascendente. La parte de arriba de la lista es tu riesgo de churn del trimestre.</p>
+
+        <p>Qué mirar primero: cualquier cuenta de alto valor (ARR Tier 1) con health score bajo y sin oportunidad de renovación creada todavía. Ese es el riesgo silencioso de churn — el cliente está insatisfecho, la renovación se acerca, y Ventas todavía no está involucrada. Asigna un AE esta semana.</p>
+
+        <p>Trampa: tratar la renovación como automática si el contrato es auto-renew. Los contratos auto-renew hacen churn a tasas más altas de lo esperado porque los clientes los cancelan en los últimos 30 días cuando por fin se acuerdan de revisar la facturación. Rastréalos en el reporte sin importar el flag de auto-renew.</p>
+
+        <h2>5. Scatter de actividad del representante vs attainment de cuota</h2>
+
+        <p>El reporte de gestión de talento. Grafica a cada representante en dos ejes: el eje x es volumen de actividad (llamadas, correos, juntas — elige uno según lo que tu enablement realmente enfatiza) en los últimos 30 días, el eje y es el porcentaje de attainment de cuota trimestral. El scatter te dice quién es de alta actividad y alto output (tus cerradores), alta actividad y bajo output (los que batallan — oportunidad de coaching), baja actividad y alto output (los que van por instinto — riesgo si se les acaba la suerte), y baja actividad y bajo output (tus representantes en rampa o tus problemas).</p>
+
+        <p>Construcción: un reporte de Salesforce sobre Users, con campos calculados para actividad de los últimos 30 días (unida desde Tasks y Events) y porcentaje de attainment de cuota del trimestre actual. Sácalo como gráfica de dispersión. Los cuatro cuadrantes no están etiquetados de forma nativa en Salesforce — pero lo que importa es la interpretación visual.</p>
+
+        <p>Qué mirar primero: cualquier representante en el cuadrante de alta actividad y bajo output que lleve ahí más de dos trimestres. Ese es el representante que necesita coaching estructural, no motivación. Su actividad está bien; su calificación está rota. Emparéjalo con un manager para un bloque de cuatro semanas de inspección MEDDPICC.</p>
+
+        <p>Trampa: tratar el volumen de actividad como una meta en sí misma. Un representante que hace 80 llamadas por semana con 10% de tasa de contacto está haciendo el mismo trabajo que uno que hace 50 llamadas con 25% de tasa de contacto, y el segundo está usando mejor su tiempo. Agrega un campo de tasa de contacto o tasa de respuesta antes de sacar conclusiones fuertes del eje de actividad solo.</p>
+
+        <h2>Qué va en la agenda del lunes</h2>
+
+        <p>Los cinco reportes de arriba responden cinco preguntas distintas, en este orden:</p>
+
+        <ol>
+          <li>¿Estamos matemáticamente en camino para el próximo trimestre? (Cobertura de pipeline)</li>
+          <li>¿Qué deals están por deslizarse esta semana? (Envejecidos en su etapa)</li>
+          <li>¿Dónde está convirtiendo el embudo? (Win rate por fuente por ICP)</li>
+          <li>¿Qué clientes están por irse? (Pipeline de churn)</li>
+          <li>¿Qué representantes necesitan atención? (Actividad vs attainment)</li>
+        </ol>
+
+        <p>El CRO los escanea en ese orden el lunes por la mañana. Tres minutos por reporte, quince minutos en total. Luego entra a la junta operativa de las 9am con cinco cosas específicas que preguntar. La junta es más filosa porque las preguntas son más filosas. La precisión del pronóstico sigue.</p>
       `,
     },
   },
@@ -1141,6 +1457,104 @@ export const POSTS = [
         </ol>
 
         <p>Four questions, four honest answers, and the right call surfaces. Both models are valid. The mistake is using the wrong one because the math looked friendlier on a spreadsheet.</p>
+      `,
+    },
+    es: {
+      title: 'RevOps fraccional vs de tiempo completo: cuándo cada uno es la decisión correcta',
+      description: 'La ola de RevOps fraccional es real, y la mayoría de las empresas no deberían contratar uno. Este es el marco honesto de cuándo lo fraccional funciona, cuándo falla, y qué se pierde en el handoff de cualquiera de los dos lados.',
+      ogAlt: 'RevOps Fraccional vs Tiempo Completo — Jaime M. Mena',
+      h1: 'RevOps fraccional vs de tiempo completo: cuándo cada uno es la decisión correcta',
+      sub: '27 octubre 2026 · 8 min de lectura · Contratación',
+      lead: 'La ola de RevOps fraccional es real, y la mayoría de las empresas no deberían contratar uno. El patrón funciona en situaciones específicas y se rompe feo en otras, y la diferencia importa más de lo que el marketing de servicios fraccionales quiere admitir. Este es el marco honesto de cuándo lo fraccional es la decisión correcta, cuándo lo es el tiempo completo, y qué se pierde en el handoff de cualquiera de los dos lados.',
+      body: `
+        <h2>Por qué RevOps fraccional está teniendo su momento</h2>
+
+        <p>Convergieron tres cosas. Primero, el ciclo de despidos de 2023-2024 dejó una ola de operadores senior de RevOps buscando engagements en lugar de roles de tiempo completo, muchos de ellos con expectativas de compensación de $150K+ que las empresas de etapa temprana no podían pagar como empleados pero sí como consultores de 20 horas a la semana. Segundo, las herramientas de IA hicieron el trabajo operativo de RevOps mediblemente más rápido, así que un operador senior cubre lo que hace un año habría requerido dos cabezas. Tercero, las startups post-ZIRP se volvieron religiosas con el runway y empezaron a cuestionar cada contratación de tiempo completo arriba de $120K.</p>
+
+        <p>El resultado: un mercado donde consultores experimentados de RevOps están disponibles a 0.4-0.5 FTE por lo que costaría una contratación junior de tiempo completo. Las matemáticas se ven convincentes en una hoja de cálculo. La realidad es más complicada.</p>
+
+        <h2>Dónde funciona lo fraccional</h2>
+
+        <p>Tres escenarios donde el RevOps fraccional consistentemente supera al de tiempo completo:</p>
+
+        <p><strong>1. Caos de etapa temprana — Serie A a Serie B temprana.</strong> Un equipo de 10-25 representantes que ya superó la intuición de CRM del fundador pero no puede justificar un Director de RevOps con base de $180K. Un senior fraccional toma 10 horas a la semana, construye los cimientos (higiene de CRM, reporteo básico, una cadencia de pronóstico), y sale limpiamente alrededor de los 6-9 meses cuando la empresa está lista para una contratación de tiempo completo. El fraccional actúa como puente, no como reemplazo. Este es el modelo de engagement para el que lo fraccional fue diseñado, y funciona.</p>
+
+        <p><strong>2. Reconstrucciones post-Serie B.</strong> Un equipo de 50-100 representantes donde el Director de RevOps anterior se fue y los sistemas son un desastre de proyectos a medio implementar. Un senior fraccional entra por un engagement enfocado de 3-6 meses específicamente para limpiar: racionalizar el modelo de objetos de Salesforce, matar los reportes muertos, arreglar el plan de comisiones que todos están jugando. El resultado es un sistema que la siguiente contratación de tiempo completo sí puede administrar. Esto es trabajo de rescate, no operación en estado estable, y le queda a un consultor fraccional que no le teme a tomar decisiones políticamente difíciles porque de todas formas se va en seis meses.</p>
+
+        <p><strong>3. Cobertura interina durante la búsqueda.</strong> Un líder de RevOps de tiempo completo se va, la búsqueda para reemplazarlo toma 4-6 meses, y el equipo necesita a alguien que mantenga corriendo la cadencia de pronóstico y el deal desk mientras tanto. Lo fraccional cubre el hueco. El consultor interino no debería empezar proyectos nuevos — debería sostener la cadencia operativa, prevenir regresiones, y darle un briefing a quien entre de tiempo completo sobre lo que está heredando.</p>
+
+        <h2>Dónde falla lo fraccional</h2>
+
+        <p>Tres escenarios donde lo fraccional consistentemente queda corto:</p>
+
+        <p><strong>1. Tech stacks complejos que requieren presencia diaria.</strong> Un equipo corriendo Salesforce, HubSpot, Outreach, Gong, Chorus, Clari, Tableau, Marketo y un data warehouse custom necesita a alguien en los sistemas a diario — no 10 horas a la semana. El debugging de integraciones solo es más de 10 horas a la semana. Un engagement fraccional sobre un stack de esta complejidad se convierte en un ejercicio constante de recarga de contexto donde cada miércoles el consultor tiene que reaprender qué cambió el lunes. El costo del context switching excede el costo de la mano de obra de tiempo completo.</p>
+
+        <p><strong>2. Trabajo operativo de deal desk.</strong> El deal desk es trabajo en tiempo real. Los representantes traen deals a horas impredecibles, frecuentemente el último día del trimestre, frecuentemente en viernes. Un consultor fraccional no puede estar disponible para eso. Intentar manejar el deal desk de forma async, con deals apilándose en un canal de Slack hasta la siguiente sesión del consultor el martes, termina con deals deslizándose por razones procedimentales que la cobertura de tiempo completo habría atrapado. El deal desk necesita a un humano en horario.</p>
+
+        <p><strong>3. Liderazgo cross-funcional.</strong> El trabajo de liderazgo de RevOps — sentarse en el staff meeting del CRO, negociar el roadmap con Ingeniería, revisar cuotas con Finanzas — requiere ser un miembro reconocido del equipo de liderazgo, con el capital político y la memoria institucional que vienen con la presencia de tiempo completo. Un fraccional no puede ganarse ese capital en 10 horas a la semana. Puede hacer el trabajo, pero no puede liderar la organización.</p>
+
+        <h2>Por qué las empresas contratan fraccional y luego se arrepienten</h2>
+
+        <p>El patrón de arrepentimiento más común: una empresa contrata fraccional para ahorrar dinero, el engagement arranca bien, a los seis meses el equipo crece de 25 a 50 representantes, y ahora la carga de trabajo son dos empleos de tiempo completo pero el consultor sigue agendado para 20 horas a la semana. Siguen dos resultados: o el consultor se quema tratando de sobre-entregar (y la calidad cae), o el consultor respeta las 20 horas y el desbordamiento de trabajo cae sobre el CRO (que no es experto en RevOps). En cualquier caso, el equipo termina peor de lo que habría estado si hubiera contratado a alguien de tiempo completo cuando tenía 25 representantes.</p>
+
+        <p>La lección: los engagements fraccionales tienen una fecha de caducidad que escala con el tamaño del equipo. Planea la conversión. La mayoría de los engagements fraccionales deberían tener escrita desde el día uno una cláusula de "revisaremos fraccional vs tiempo completo en X representantes o Y trimestres."</p>
+
+        <h2>Por qué los consultores fraccionales rechazan ciertos engagements</h2>
+
+        <p>El otro lado de esto: los consultores fraccionales con experiencia rechazan engagements que obviamente no encajan, incluso cuando el dinero es bueno. Los disparadores de rechazo más comunes:</p>
+
+        <ul>
+          <li>El CRO no tiene un alcance claro para el engagement y quiere que el consultor "descubra qué se necesita." Sin alcance, el engagement se vuelve políticamente imposible de acotar.</li>
+          <li>El tech stack del equipo está tan personalizado que el conocimiento institucional requerido excede lo que 20 horas a la semana pueden sostener.</li>
+          <li>La empresa ya tuvo dos consultores fraccionales previos que se fueron a media misión. El patrón sugiere disfunción organizacional, no un problema de encaje.</li>
+          <li>El rol se está llenando con fraccional porque la empresa no puede pagar tiempo completo, pero el trabajo es claramente de tiempo completo. Esta es la peor versión, porque el consultor toma el engagement, no logra entregar suficiente valor en las horas limitadas, y se le culpa por la brecha.</li>
+        </ul>
+
+        <p>Si un consultor fraccional rechaza tu engagement, pregunta cuál de estas es la razón. La respuesta suele ser instructiva.</p>
+
+        <h2>El problema del handoff</h2>
+
+        <p>La parte más difícil de cualquier engagement fraccional es el handoff. Ya sea que el engagement termine porque la empresa contrata tiempo completo o porque el consultor rota, seis meses de contexto institucional desaparecen en una semana. Los arreglos son mecánicos:</p>
+
+        <ul>
+          <li>Documenta todo en un solo espacio compartido desde el día uno — Notion, Confluence, Coda. No en la cabeza del consultor, no en sus notas personales.</li>
+          <li>Construye los dashboards y reportes dentro de las herramientas de la empresa, no las del consultor. Si el consultor usa su licencia personal de Tableau para un reporte crítico, se va con él.</li>
+          <li>Empareja al consultor con al menos un miembro de tiempo completo del equipo desde la semana uno — usualmente un Sales Ops Specialist senior o un Analista Senior — que aprenda el sistema conforme se construye. Esta persona se convierte en el conocimiento institucional que sobrevive la salida del consultor.</li>
+          <li>Escribe un "manual operativo" de 5 páginas en el último mes del engagement que cubra cada proceso recurrente del que el consultor es dueño. Este es el documento que la siguiente persona lee el día uno.</li>
+        </ul>
+
+        <p>Haz el trabajo del handoff desde el principio. El handoff es el entregable. Todo lo demás es secundario.</p>
+
+        <h2>Por hora vs retainer vs cuota por proyecto</h2>
+
+        <p>Tres modelos de precio, tres estructuras de incentivos distintas.</p>
+
+        <p><strong>Por hora</strong>: apropiado para engagements cortos y bien acotados donde el tiempo del consultor se puede medir. Tarifa típica para RevOps senior: $200-400/hora. Incentivo: el consultor quiere más horas. Contra-incentivo: la empresa quiere menos. Por hora funciona para engagements de diagnóstico (2-4 semanas) y se rompe para trabajo operativo continuo porque los timesheets se vuelven toda la conversación.</p>
+
+        <p><strong>Retainer</strong>: apropiado para engagements continuos donde el valor del consultor está en la disponibilidad y el criterio, no en entregables. Retainer típico para RevOps senior: $8K-15K/mes por 10-20 horas/semana de acceso. Incentivo: alineado — al consultor se le paga igual trabaje 8 o 20 horas en una semana dada, así que administra su propia utilización. La mayoría de los engagements fraccionales en estado estable deberían basarse en retainer.</p>
+
+        <p><strong>Cuota por proyecto</strong>: apropiado para entregables definidos en tiempos definidos — una reconstrucción de CRM, un refresh del plan de comisiones, una renovación del proceso de pronóstico. Cuota típica por proyecto: $25-60K dependiendo del alcance. Incentivo: alineado alrededor de entregar. Riesgo: scope creep, que el consultor absorbe a menos que el contrato esté escrito con rigor.</p>
+
+        <p>La mayoría de los consultores fraccionales experimentados prefieren retainer para el trabajo continuo y cuota por proyecto para entregables únicos. Por hora es aceptable para la fase inicial de diagnóstico de 2-4 semanas antes de que entre cualquiera de los otros. Evita mezclar retainer y por hora en el mismo mes — la confusión contable rara vez lo vale.</p>
+
+        <h2>Cuándo convertir de fraccional a tiempo completo</h2>
+
+        <p>Las señales de conversión: el equipo pasó de 40-50 representantes, el consultor consistentemente trabaja 30+ horas en semanas nominalmente de 20, el CRO le llama al consultor por opiniones que deberían ser decisiones tomadas en la sala, o el consultor se está volviendo un cuello de botella en las solicitudes operativas. Cualquiera de esas señales significa que es hora. Las cuatro al mismo tiempo significan que ya se pasó.</p>
+
+        <p>El mecanismo de conversión: el consultor fraccional se convierte en la contratación de tiempo completo (raro pero funciona cuando el encaje es excelente y ambas partes lo quieren) o el consultor corre la búsqueda de su reemplazo de tiempo completo y lo onboardea. Lo segundo es el camino más común, y tiende a producir una mejor contratación de tiempo completo porque el fraccional tiene contexto claro de lo que el rol realmente necesita versus lo que diría una descripción de puesto genérica.</p>
+
+        <h2>Las preguntas que hay que hacer antes de firmar en cualquier dirección</h2>
+
+        <p>Ya sea que estés por contratar fraccional o de tiempo completo, cuatro preguntas revelan la respuesta correcta:</p>
+
+        <ol>
+          <li>¿El trabajo frente a nosotros está definido, o estamos tratando de averiguar cuál es el trabajo? (Definido = cualquiera de los dos modelos funciona. Indefinido = contrata tiempo completo, el trabajo de descubrimiento es el rol.)</li>
+          <li>¿El trabajo requiere presencia diaria, o puede correr en cadencia semanal? (Diaria = tiempo completo. Semanal = lo fraccional es viable.)</li>
+          <li>¿El rol necesita capital político con el equipo de liderazgo, o es principalmente de ejecución? (Político = tiempo completo. De ejecución = lo fraccional funciona.)</li>
+          <li>¿El equipo se va a ver significativamente distinto en 6-9 meses? (Sí = fraccional y revisar. No = contrata tiempo completo y comprométete.)</li>
+        </ol>
+
+        <p>Cuatro preguntas, cuatro respuestas honestas, y la decisión correcta sale a la superficie. Ambos modelos son válidos. El error es usar el equivocado porque las matemáticas se veían más amigables en una hoja de cálculo.</p>
       `,
     },
   },

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4</title>
+
+  <meta name="description" content="El diseño de territorios falla en Q4, no en Q1 — y la causa casi nunca es el diseño. Es la cadencia operativa alrededor de él. Este es el playbook para el trabajo de territorios que sobrevive un año completo de nuevas contrataciones, churn y las inevitables guerras por cuentas." />
+  <link rel="canonical" href="https://jaimem.com/es/blog/territory-design-without-spreadsheets-melting" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/es/blog/territory-design-without-spreadsheets-melting" />
+  <meta property="og:title" content="Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4" />
+  <meta property="og:description" content="El diseño de territorios falla en Q4, no en Q1 — y la causa casi nunca es el diseño. Es la cadencia operativa alrededor de él. Este es el playbook para el trabajo de territorios que sobrevive un año completo de nuevas contrataciones, churn y las inevitables guerras por cuentas." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Playbook de Diseño de Territorios — Jaime M. Mena" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4" />
+  <meta name="twitter:description" content="El diseño de territorios falla en Q4, no en Q1 — y la causa casi nunca es el diseño. Es la cadencia operativa alrededor de él. Este es el playbook para el trabajo de territorios que sobrevive un año completo de nuevas contrataciones, churn y las inevitables guerras por cuentas." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Playbook de Diseño de Territorios — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/territory-design-without-spreadsheets-melting" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/territory-design-without-spreadsheets-melting" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/territory-design-without-spreadsheets-melting" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4",
+    "description": "El diseño de territorios falla en Q4, no en Q1 — y la causa casi nunca es el diseño. Es la cadencia operativa alrededor de él. Este es el playbook para el trabajo de territorios que sobrevive un año completo de nuevas contrataciones, churn y las inevitables guerras por cuentas.",
+    "url": "https://jaimem.com/es/blog/territory-design-without-spreadsheets-melting",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "inLanguage": "es-ES",
+    "keywords": "sales territory design, account assignment, ICP, territory planning, territory rebalancing, Salesforce territory management, named accounts",
+    "mainEntityOfPage": "https://jaimem.com/es/blog/territory-design-without-spreadsheets-melting"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/es/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/es/services/">Servicios</a></li>
+        <li><a href="/es/case-studies/">Casos de Estudio</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
+        <li><a href="/es/#experience">Experiencia</a></li>
+        <li><a href="/es/#projects">Proyectos</a></li>
+        <li><a href="/es/#about">Sobre Mí</a></li>
+        <li><a href="/es/#contact">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/es/">Inicio</a> &rsaquo; <a href="/es/blog/">Blog</a> &rsaquo; <span>Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4</span></p>
+
+      <h1>Cómo diseñar territorios de ventas sin que las hojas de cálculo se derritan en Q4</h1>
+      <span class="sub">7 julio 2026 · 8 min de lectura · Planeación de Territorios</span>
+
+      <p class="lead">El diseño de territorios falla en Q4, no en Q1. El diseño que se lanza en enero se ve bien hasta junio, cuando la primera ola de nuevas contrataciones cambia las matemáticas, y luego se vuelve un desastre en octubre cuando un representante reclama accidentalmente una cuenta que otro ya tenía reservada. La solución casi nunca es rediseñar los territorios. Es arreglar la cadencia operativa alrededor de ellos.</p>
+
+
+        <h2>Por qué el dolor de territorios aparece en Q4</h2>
+
+        <p>Todo modelo de territorios sobrevive su primer trimestre. Los representantes participaron en el diseño. Las cuentas nombradas están frescas. La cobertura de pipeline se ve sana porque nadie ha tenido tiempo de quemarla. A mediados de Q2, dos representantes se fueron y sus cuentas se reasignan a las prisas. A mediados de Q3, marketing generó 400 leads inbound que nadie preasignó, así que los AEs los están reclamando en un canal de Slack llamado <code>#inbound-grab</code>. Para Q4, el liderazgo revisa la cobertura de pipeline y descubre que tres representantes están sobre-cubiertos y cuatro sub-cubiertos, no hay dos reportes que coincidan en quién es dueño de las 50 cuentas principales, y la forecast call se convirtió en una competencia sobre de quién es el pipeline que contribuye a la cuota de quién.</p>
+
+        <p>Nada de esto es una falla de diseño. El modelo original de territorios estaba bien en enero. Lo que falló fue la cadencia operativa que debió haber cachado cada desviación antes de que se compusiera.</p>
+
+        <h2>Empieza desde el ICP, no desde la geografía de los representantes</h2>
+
+        <p>El error de diseño más grande que veo es empezar desde dónde viven los representantes. Los representantes son móviles. Los ICPs no. Construye los territorios desde el universo de cuentas — las cuentas nombradas que encajan con tu perfil de cliente ideal — y luego asigna representantes a esas cuentas según capacidad y capability. La geografía de dónde viven los representantes en un trimestre dado es una preocupación secundaria, no primaria.</p>
+
+        <p>En la práctica esto significa: jala el TAM (Total Addressable Market) de una fuente como ZoomInfo o Crunchbase, filtra a cuentas que coincidan con el ICP (industria, número de empleados, banda de ingresos, tech stack, señal reciente de contratación), clasifícalas por valor potencial, y luego agrúpalas en books balanceados. <em>Después</em> asigna representantes. Esto produce territorios donde cada representante tiene aproximadamente el mismo número de cuentas de tier alto, sin importar dónde estén en el mapa. También hace el diseño defendible — cuando alguien pregunta "¿por qué mi territorio solo tiene seis cuentas Enterprise?", la respuesta es "porque el ICP solo contiene seis cuentas Enterprise en tu segmento, y otros tres representantes tienen el mismo problema."</p>
+
+        <h2>Tres tiers, no cinco</h2>
+
+        <p>La mayoría de los modelos de tiering de cuentas que he heredado tienen cinco tiers. Cinco son demasiados. Las matemáticas de cuántas cuentas puede cubrir un representante de forma significativa no producen cinco niveles distintos de atención — producen tres: "hay que tocarla este trimestre," "hay que tocarla este año," y "sabe que existimos."</p>
+
+        <p>Tier 1: aproximadamente 15-25 cuentas por representante. Estas reciben outbound personalizado, juntas con sponsor ejecutivo, campañas ABM y multi-threading nombrado. El representante tiene una relación por nombre con al menos tres personas en cada cuenta.</p>
+
+        <p>Tier 2: aproximadamente 75-150 cuentas por representante. Estas reciben outreach con cadencia, nurture de marketing y un toque trimestral del AE. El representante puede recitar las top 30 de memoria.</p>
+
+        <p>Tier 3: todos los demás. Demand-gen carga el peso. El AE las hereda solo cuando el interés inbound las hace visibles.</p>
+
+        <p>Tres tiers son suficiente granularidad para tomar decisiones de asignación. Cinco tiers introducen categorías que en la práctica nadie trata distinto, lo que significa que los dos de abajo colapsan en "ya llegaremos a eso" — que es lo mismo.</p>
+
+        <h2>Rollups jerárquicos en Salesforce</h2>
+
+        <p>El liderazgo quiere hacer rollup del desempeño por territorio a nivel segmento, región y org completa. La forma en que la mayoría de las orgs de Salesforce manejan esto es un campo custom en el registro de User o Account que no agrega limpiamente. La forma correcta es usar Salesforce Territory Management (la funcionalidad, no el concepto) — sí, la implementación es molesta, pero la alternativa es código Apex custom que se rompe cada vez que alguien cambia la asignación de un representante.</p>
+
+        <p>El modelo: cada territorio tiene un padre. AMER-Enterprise hace rollup a AMER, AMER hace rollup a Global. Los reportes construidos contra la jerarquía de territorios agregan automáticamente por cualquier nivel. Cuando un representante se mueve de AMER-SMB a AMER-Mid-Market, su pipeline se mueve con él, los rollups se actualizan, y el reporteo histórico se mantiene consistente porque Salesforce guarda el snapshot. Esta es toda la razón por la que Salesforce lanzó Territory Management 2.0 — y sigue siendo subutilizado porque el setup inicial es quisquilloso.</p>
+
+        <h2>Terminar las guerras por cuentas</h2>
+
+        <p>El desacuerdo operativo más caro en un equipo B2B SaaS es dos representantes reclamando la misma cuenta. La respuesta correcta es hacerlo imposible — un solo dueño por cuenta en todo momento, forzado por una regla de validación en Salesforce. Las excepciones (un SDR trabajando un prospecto que técnicamente es de otro AE; un CSM dueño de la renovación pero Ventas dueño del upsell) se documentan en una sola hoja que el deal desk administra. Si un deal cierra en una cuenta donde la propiedad estaba en disputa, el deal desk tiene autoridad para resolverlo antes de que se pague la comisión.</p>
+
+        <p>El enfoque del canal de Slack — donde los representantes publican "reclamo esta cuenta" y el primero en publicar gana — no escala más allá de 10 representantes. También crea resentimiento que se compone a lo largo de los trimestres. Invierte en la regla de validación. La implementación son 90 minutos para un admin con habilidades intermedias de Salesforce.</p>
+
+        <h2>El protocolo de reacomodo de medio año</h2>
+
+        <p>Incluso con un diseño perfecto, los cambios de medio año son inevitables. Los representantes se van, entran nuevos, los segmentos cambian. El protocolo para manejar reacomodos es más importante que el diseño original.</p>
+
+        <p>Tres reglas: (1) las bajas de representantes disparan una redistribución de cuentas dentro de cinco días hábiles, con el manager como dueño de la decisión y ops ejecutando. (2) Los nuevos representantes reciben cuentas de un "talent pool" — cuentas que se retuvieron intencionalmente durante el diseño inicial específicamente para este propósito. Retén cerca del 5-10% del universo de cuentas nombradas para esto. (3) Cualquier solicitud de un representante para intercambiar cuentas requiere justificación por escrito al manager y se revisa trimestralmente, no bajo demanda. La tercera regla es la que evita que las solicitudes de reacomodo se conviertan en una junta permanente en el calendario de cada manager.</p>
+
+        <h2>La plantilla de scoring de 200 cuentas</h2>
+
+        <p>Si estás empezando de cero, la plantilla que funciona es una matriz de scoring de 200 cuentas por representante. Columnas: nombre de cuenta, industria, número de empleados, ingresos, flags de tech stack, flags de señal de intent, fecha del último contacto, último engagement de marketing, estatus actual de pipeline, tier (1-3), representante asignado. Actualízala mensualmente. Ordena por tier, luego por score de intent. Esa lista ordenada es el universo de cuentas del representante y la base de cada revisión semanal de pipeline.</p>
+
+        <p>Por debajo de 200 cuentas nombradas por representante, el modelo es demasiado delgado para darle suficiente con qué trabajar. Por encima de 400, el representante no puede priorizar de forma significativa y cae de vuelta en "lo que llegó esta semana." Doscientas es el punto dulce para la mayoría de los motores B2B SaaS.</p>
+
+        <h2>Qué software usar y cuál saltarse</h2>
+
+        <p>No necesitas un proveedor de software de gestión de territorios para un equipo de 20-50 representantes. Territory management nativo de Salesforce, un campo de ranking de Account y una junta mensual de revisión es suficiente. Por encima de 50 representantes, herramientas como Anaplan, Fullcast o Varicent SPM Cloud se ganan su costo porque las matemáticas de optimización (balancear capacidad, capability y potencial a través de cientos de representantes) se vuelven no triviales. Por debajo de 50 representantes, esas herramientas agregan ceremonia y frenan la iteración.</p>
+
+        <p>La única herramienta que sí recomiendo a cualquier tamaño: una fuente de datos de TAM/ICP. ZoomInfo, Crunchbase, Apollo. Sin ella, estás diseñando territorios contra un mercado que existe solo en tu CRM, y tu CRM es una muestra de la historia de una sola empresa — no una muestra del mercado direccionable. La fuente de TAM es la diferencia entre un diseño defensivo y uno ofensivo.</p>
+
+        <h2>Los primeros 30 días de un engagement de territorios</h2>
+
+        <p>Si heredas un desastre de territorios y tienes 30 días para arreglarlo:</p>
+
+        <ol>
+          <li>Semana 1: jala el universo de cuentas nombradas de Salesforce. Audita duplicados, conflictos de propiedad, cuentas asignadas a ex-empleados. Limpia.</li>
+          <li>Semana 2: define o refresca el ICP. Jala el TAM de una fuente de datos. Identifica la brecha — cuentas en tu CRM que no encajan con el ICP, y cuentas en el TAM que deberían estar en tu CRM y no están.</li>
+          <li>Semana 3: diseña los nuevos territorios usando el modelo de tres tiers. Mantente dentro de ±15% de balance entre representantes para el conteo de Tier 1.</li>
+          <li>Semana 4: lanza. Comunica el razonamiento. Levanta la cadencia operativa (regla de validación, protocolo trimestral de reacomodo, revisión mensual de tiers).</li>
+        </ol>
+
+        <p>El siguiente año es ejecución. El diseño es la parte fácil. La cadencia es el trabajo.</p>
+      
+
+      <div class="cta-block">
+        <h3>¿Quieres aplicar esto a tu equipo?</h3>
+        <p>Trabajo con equipos B2B SaaS y operadores en EE.UU. y México. Empieza con una conversación de 30 minutos.</p>
+        <a href="/es/services/revops-consulting" class="btn btn-primary">Iniciar una Conversación</a>
+      </div>
+
+      <div class="related">
+        <h3>Más en el blog</h3>
+        <ul>
+        <li><a href="/es/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico</a></li>
+        <li><a href="/es/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta</a></li>
+        <li><a href="/es/blog/cross-border-revops-playbook" class="inline-link">El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/es/services/">Servicios</a>
+      <a href="/es/case-studies/">Casos de Estudio</a>
+      <a href="/es/blog/">Blog</a>
+      <a href="/es/#projects">Proyectos</a>
+      <a href="/es/#contact">Contacto</a>
+    </nav>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = [];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>
