@@ -722,7 +722,7 @@
       color: var(--text-3);
       padding-top: .15rem;
     }
-    .edu-content h3 {
+    .edu-content h3, .edu-content h4 {
       font-size: 1rem;
       font-weight: 600;
       color: var(--text);
