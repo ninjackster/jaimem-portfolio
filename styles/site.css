@@ -538,21 +538,13 @@
     }
 
     /* ── PROJECTS ── */
-    /* ── PROJECT CAROUSEL ── */
-    .projects-carousel-wrap {
+    .projects-grid {
       margin-top: 2.5rem;
-      position: relative;
-    }
-    .projects-carousel {
-      overflow: hidden;
-    }
-    .projects-track {
-      display: flex;
-      transition: transform .4s ease;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
     }
     .project-card {
-      flex: 0 0 calc(50% - 1rem);
-      margin-right: 2rem;
       min-width: 0;
       padding: 1.5rem;
       border-radius: 12px;
@@ -563,7 +555,6 @@
       display: flex;
       flex-direction: column;
     }
-    .project-card:last-child { margin-right: 0; }
     .project-card:hover {
       border-color: var(--accent);
       box-shadow: 0 8px 24px rgba(0,0,0,.06);
@@ -576,42 +567,6 @@
     .project-tags span { font-size: .65rem; padding: .2rem .5rem; background: var(--gold-light); color: var(--accent); border-radius: 4px; font-weight: 500; }
     .project-link { display: inline-block; margin-top: .75rem; font-size: .78rem; color: var(--accent); font-weight: 500; text-decoration: none; }
     .project-link:hover { text-decoration: underline; }
-    .carousel-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .carousel-btn {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg-alt);
-      color: var(--text);
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color .2s, background .2s;
-    }
-    .carousel-btn:hover { border-color: var(--accent); background: var(--gold-light); }
-    .carousel-btn:disabled { opacity: .3; cursor: default; }
-    .carousel-dots {
-      display: flex;
-      gap: .5rem;
-    }
-    .carousel-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--border);
-      border: none;
-      cursor: pointer;
-      transition: background .2s;
-      padding: 0;
-    }
-    .carousel-dot.active { background: var(--accent); }
 
     /* ── FEATURED PROJECT ── */
     .featured-project {
@@ -673,20 +628,13 @@
     }
 
     /* ── WORK SAMPLES ── */
-    .samples-carousel-wrap {
+    .samples-grid {
       margin-top: 2.5rem;
-      position: relative;
-    }
-    .samples-carousel {
-      overflow: hidden;
-    }
-    .samples-track {
-      display: flex;
-      transition: transform .4s ease;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
     }
     .sample-card {
-      flex: 0 0 calc(33.333% - 1.334rem);
-      margin-right: 2rem;
       min-width: 0;
       padding: 1.5rem;
       border-radius: 12px;
@@ -697,7 +645,6 @@
       display: flex;
       flex-direction: column;
     }
-    .sample-card:last-child { margin-right: 0; }
     .sample-card:hover {
       border-color: var(--accent);
       box-shadow: 0 8px 24px rgba(0,0,0,.06);
@@ -706,35 +653,43 @@
     .sample-card h3 { font-size: .95rem; font-weight: 600; margin-bottom: .25rem; }
     .sample-card .sample-sub { font-size: .78rem; color: var(--text-2); margin-bottom: .5rem; }
     .sample-card p { font-size: .8rem; color: var(--text-2); line-height: 1.5; }
+    @media (max-width: 1024px) {
+      .samples-grid { grid-template-columns: 1fr 1fr; }
+    }
 
     /* ── TESTIMONIALS ── */
-    .testimonial-carousel {
+    .testimonials-grid {
       margin-top: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .testimonial-track {
-      display: flex;
-      transition: transform .5s ease;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
     }
     .testimonial-slide {
-      min-width: 100%;
-      padding: 2rem 1.5rem;
+      min-width: 0;
+      padding: 1.5rem;
       box-sizing: border-box;
+      border-radius: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      transition: border-color .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-slide:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,.06);
     }
     .testimonial-quote {
       font-size: .88rem;
       color: var(--text-2);
       line-height: 1.7;
       font-style: italic;
-      max-width: 700px;
-      margin: 0 auto 1.25rem;
-      text-align: center;
+      margin: 0 0 1.25rem;
     }
     .testimonial-quote::before { content: "\201C"; font-size: 2rem; color: var(--accent); vertical-align: -0.3em; margin-right: .15rem; }
     .testimonial-quote::after { content: "\201D"; font-size: 2rem; color: var(--accent); vertical-align: -0.3em; margin-left: .15rem; }
     .testimonial-author {
-      text-align: center;
+      margin-top: auto;
     }
     .testimonial-name {
       font-size: .85rem;
@@ -745,48 +700,6 @@
       font-size: .75rem;
       color: var(--text-3);
       margin-top: .15rem;
-    }
-    .testimonial-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .testimonial-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-2);
-      transition: border-color .2s, color .2s;
-      font-size: 1rem;
-    }
-    .testimonial-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .testimonial-dots {
-      display: flex;
-      gap: .4rem;
-    }
-    .testimonial-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--border);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background .2s;
-    }
-    .testimonial-dot.active {
-      background: var(--accent);
     }
 
     /* ── EDUCATION ── */
@@ -1052,8 +965,9 @@
         gap: .3rem;
       }
       .cert-grid { grid-template-columns: 1fr; }
-      .sample-card { flex: 0 0 100%; margin-right: 0; }
-      .project-card { flex: 0 0 100%; margin-right: 0; }
+      .samples-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .interests { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; gap: .5rem; text-align: center; padding: 2rem 1.5rem; }
     }

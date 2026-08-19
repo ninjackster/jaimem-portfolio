@@ -499,9 +499,7 @@
     <h2 class="section-title reveal" data-en="Work Samples" data-es="Muestras de Trabajo">Work Samples</h2>
     <p class="section-subtitle reveal" data-en="Frameworks and models I built using fictitious data to showcase how I approach common RevOps challenges." data-es="Marcos y modelos que constru&iacute; usando datos ficticios para demostrar c&oacute;mo abordo desaf&iacute;os comunes de RevOps.">Frameworks and models I built using fictitious data to showcase how I approach common RevOps challenges.</p>
 
-    <div class="samples-carousel-wrap reveal">
-      <div class="samples-carousel">
-        <div class="samples-track" id="samples-track">
+    <div class="samples-grid reveal">
 
       <div class="sample-card">
         <div class="sample-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
@@ -601,13 +599,6 @@
         <a href="/case-studies/bookings-revenue-reconciliation" class="project-link" data-en="Read the bookings vs. revenue case study &rarr;" data-es="Leer el caso de bookings vs. ingresos &rarr;">Read the bookings vs. revenue case study &rarr;</a>
       </div>
 
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="samp-prev" aria-label="Previous">&lsaquo;</button>
-        <div class="carousel-dots" id="samp-dots"></div>
-        <button class="carousel-btn" id="samp-next" aria-label="Next">&rsaquo;</button>
-      </div>
     </div>
   </section>
 
@@ -619,8 +610,7 @@
     <h2 class="section-title reveal" data-en="Recommendations" data-es="Recomendaciones">Recommendations</h2>
     <p class="section-subtitle reveal" data-en="From colleagues, managers, and cross-functional partners on LinkedIn." data-es="De colegas, gerentes y socios multifuncionales en LinkedIn.">From colleagues, managers, and cross-functional partners on LinkedIn.</p>
 
-    <div class="testimonial-carousel reveal">
-      <div class="testimonial-track" id="testimonial-track">
+    <div class="testimonials-grid reveal">
 
         <div class="testimonial-slide">
           <p class="testimonial-quote">He consistently took ownership of ambiguous, high-stakes work, particularly in deal desk and commissions, without needing heavy oversight. He approached problems calmly, asked the right questions, and delivered practical solutions that actually stuck.</p>
@@ -694,13 +684,6 @@
           </div>
         </div>
 
-      </div>
-
-      <div class="testimonial-nav">
-        <button class="testimonial-btn" id="test-prev" aria-label="Previous">&larr;</button>
-        <div class="testimonial-dots" id="testimonial-dots"></div>
-        <button class="testimonial-btn" id="test-next" aria-label="Next">&rarr;</button>
-      </div>
     </div>
   </section>
 
@@ -735,10 +718,7 @@
       </div>
     </div>
 
-    <!-- CAROUSEL — remaining projects -->
-    <div class="projects-carousel-wrap reveal">
-      <div class="projects-carousel">
-        <div class="projects-track" id="projects-track">
+    <div class="projects-grid reveal">
 
       <div class="project-card">
         <div class="project-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12V22H4V18.6127V12"/><path d="M17 22H22.5V4C22.5 2.89543 21.6046 2 20.5 2H19C17.8954 2 17 2.89543 17 4V9"/><path d="M13.9002 21.6125L7.10019 16.0875"/><path d="M14 22V16H7V22"/><path d="M17 7H22.5"/><path d="M17 16H22.5"/><path d="M17 19H22.5"/><path d="M2 13L10.5 7L19 13"/><path d="M9 11.9375L10.5 11L12 11.9375"/><path d="M2 6L3.5 7.0625L5 6"/><path d="M6 2L7.5 3.0625L9 2"/></svg></div>
@@ -845,13 +825,6 @@
         </div>
       </div>
 
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="proj-prev" aria-label="Previous">&lsaquo;</button>
-        <div class="carousel-dots" id="proj-dots"></div>
-        <button class="carousel-btn" id="proj-next" aria-label="Next">&rsaquo;</button>
-      </div>
     </div>
   </section>
 
@@ -1073,43 +1046,6 @@
         location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
       });
     });
-
-    /* Testimonial Carousel */
-    (function() {
-      const track = document.getElementById('testimonial-track');
-      const dotsC = document.getElementById('testimonial-dots');
-      if (!track || !dotsC) return;
-      const slides = track.children;
-      const total = slides.length;
-      let idx = 0;
-      let timer;
-
-      for (let i = 0; i < total; i++) {
-        const d = document.createElement('button');
-        d.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        d.addEventListener('click', () => goTo(i));
-        dotsC.appendChild(d);
-      }
-
-      function goTo(n) {
-        idx = (n + total) % total;
-        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-        dotsC.querySelectorAll('.testimonial-dot').forEach((d, i) =>
-          d.classList.toggle('active', i === idx)
-        );
-        resetTimer();
-      }
-
-      document.getElementById('test-prev').addEventListener('click', () => goTo(idx - 1));
-      document.getElementById('test-next').addEventListener('click', () => goTo(idx + 1));
-
-      function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(() => goTo(idx + 1), 6000);
-      }
-      resetTimer();
-    })();
   </script>
 
   <script>
@@ -1118,129 +1054,6 @@
         document.querySelectorAll('.cert-modal-overlay, .cert-modal-gallery, .case-study-modal').forEach(function(m) { m.style.display = 'none'; });
       }
     });
-
-    /* ── PROJECT CAROUSEL ── */
-    (function() {
-      const track = document.getElementById('projects-track');
-      const prev = document.getElementById('proj-prev');
-      const next = document.getElementById('proj-next');
-      const dotsWrap = document.getElementById('proj-dots');
-      const cards = track.querySelectorAll('.project-card');
-      let page = 0;
-
-      function getPerPage() { return window.innerWidth <= 768 ? 1 : 2; }
-      function getTotalPages() { return Math.ceil(cards.length / getPerPage()); }
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        const total = getTotalPages();
-        for (let i = 0; i < total; i++) {
-          const dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === page ? ' active' : '');
-          dot.setAttribute('aria-label', 'Page ' + (i + 1));
-          dot.addEventListener('click', function() { goTo(i); });
-          dotsWrap.appendChild(dot);
-        }
-      }
-
-      function goTo(p) {
-        const perPage = getPerPage();
-        const total = getTotalPages();
-        page = Math.max(0, Math.min(p, total - 1));
-        var wrap = track.parentElement;
-        var wrapW = wrap.offsetWidth;
-        var gap = perPage === 1 ? 0 : 32;
-        var cardW = (wrapW - gap * (perPage - 1)) / perPage;
-        var offset = page * perPage * (cardW + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        prev.disabled = page === 0;
-        next.disabled = page >= total - 1;
-        dotsWrap.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-          d.classList.toggle('active', i === page);
-        });
-      }
-
-      prev.addEventListener('click', function() { goTo(page - 1); });
-      next.addEventListener('click', function() { goTo(page + 1); });
-
-      // Touch/swipe support
-      let startX = 0;
-      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-      track.addEventListener('touchend', function(e) {
-        const diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) { diff > 0 ? goTo(page + 1) : goTo(page - 1); }
-      }, { passive: true });
-
-      window.addEventListener('resize', function() {
-        if (page >= getTotalPages()) page = getTotalPages() - 1;
-        buildDots();
-        goTo(page);
-      });
-
-      buildDots();
-      goTo(0);
-    })();
-
-    /* ── SAMPLES CAROUSEL ── */
-    (function() {
-      const track = document.getElementById('samples-track');
-      const prev = document.getElementById('samp-prev');
-      const next = document.getElementById('samp-next');
-      const dotsWrap = document.getElementById('samp-dots');
-      const cards = track.querySelectorAll('.sample-card');
-      let page = 0;
-
-      function getPerPage() { return window.innerWidth <= 768 ? 1 : 3; }
-      function getTotalPages() { return Math.ceil(cards.length / getPerPage()); }
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        const total = getTotalPages();
-        for (let i = 0; i < total; i++) {
-          const dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === page ? ' active' : '');
-          dot.setAttribute('aria-label', 'Page ' + (i + 1));
-          dot.addEventListener('click', function() { goTo(i); });
-          dotsWrap.appendChild(dot);
-        }
-      }
-
-      function goTo(p) {
-        const perPage = getPerPage();
-        const total = getTotalPages();
-        page = Math.max(0, Math.min(p, total - 1));
-        var wrap = track.parentElement;
-        var wrapW = wrap.offsetWidth;
-        var gap = perPage === 1 ? 0 : 32;
-        var cardW = (wrapW - gap * (perPage - 1)) / perPage;
-        var offset = page * perPage * (cardW + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        prev.disabled = page === 0;
-        next.disabled = page >= total - 1;
-        dotsWrap.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-          d.classList.toggle('active', i === page);
-        });
-      }
-
-      prev.addEventListener('click', function() { goTo(page - 1); });
-      next.addEventListener('click', function() { goTo(page + 1); });
-
-      let startX = 0;
-      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-      track.addEventListener('touchend', function(e) {
-        const diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) { diff > 0 ? goTo(page + 1) : goTo(page - 1); }
-      }, { passive: true });
-
-      window.addEventListener('resize', function() {
-        if (page >= getTotalPages()) page = getTotalPages() - 1;
-        buildDots();
-        goTo(page);
-      });
-
-      buildDots();
-      goTo(0);
-    })();
   </script>
 
   <!-- Modal — Girasol Business Card -->
