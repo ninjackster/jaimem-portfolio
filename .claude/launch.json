@@ -4,7 +4,7 @@
     {
       "name": "Portfolio",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8080", "--directory", "/Users/jaimemurillo/Desktop/Portfolio"],
+      "runtimeArgs": ["-m", "http.server", "8080", "--directory", "/Users/jaimemurillo/Library/Mobile Documents/com~apple~CloudDocs/Projects/web/portfolio"],
       "port": 8080
     }
   ]
