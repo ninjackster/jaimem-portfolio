@@ -131,23 +131,35 @@
       .skills-grid { grid-template-columns: 1fr; }
     }
     /* Print styles — readable on paper, no chrome */
-    @page { size: letter; margin: 0.6in; }
+    @page { size: letter; margin: 0.55in; }
     @media print {
       nav, footer, .resume-actions, .crumbs, .skip-link, .lang-toggle { display: none !important; }
       .resume-wrap { padding: 0; max-width: none; }
       html, body { background: #fff !important; }
-      body { color: #000; font-size: 10.5pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .resume-header { margin-bottom: 1.2rem; }
-      .resume-header h1 { font-size: 20pt; color: #000; }
+      body { color: #000; font-size: 9pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .resume-header { margin-bottom: .4rem; }
+      .resume-header h1 { font-size: 15.5pt; color: #000; margin-bottom: .08rem; }
       .resume-header .sub, .resume-contact, .resume-contact a { color: #000; }
-      .resume-section { margin-top: 1.1rem; break-inside: avoid; }
-      .resume-section h2 { font-size: 12.5pt; color: #000; border-bottom: 1px solid #999; margin-bottom: .6rem; padding-bottom: .2rem; }
-      .resume-summary p { font-size: 10pt; color: #000; line-height: 1.45; margin-bottom: .5rem; }
-      .role { margin-bottom: .7rem; break-inside: avoid; }
+      .resume-section { margin-top: .2rem; }
+      .resume-section h2 { font-size: 10.5pt; color: #000; border-bottom: 1px solid #999; margin-bottom: .22rem; padding-bottom: .08rem; }
+      .resume-summary p { font-size: 8.4pt; color: #000; line-height: 1.28; margin-bottom: .25rem; }
+      .role { margin-bottom: .15rem; break-inside: avoid; }
       .role-title, .role-company, .role-date, .role-desc, .skill-group h3, .skill-group p { color: #000; }
-      .role-desc, .skill-group p { font-size: 9.5pt; line-height: 1.4; }
-      .earlier-tags span { border: 1px solid #999; background: none; color: #000; font-size: 8.5pt; }
+      .role-desc, .skill-group p { font-size: 7.3pt; line-height: 1.16; }
+      .role-title { font-size: 8.8pt; }
+      .resume-contact { font-size: 8.5pt; gap: .3rem 1rem; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); gap: .3rem 1rem; break-inside: avoid; }
+      .skill-group h3 { font-size: 8.5pt; margin-bottom: .1rem; }
+      .resume-section h2 + * { margin-top: 0; }
+      .earlier-tags { gap: .3rem; margin-top: .25rem; }
+      .earlier-tags span { border: 1px solid #999; background: none; color: #000; font-size: 8pt; padding: .1rem .4rem; }
       a { color: #000; text-decoration: none; }
+      .resume-section p[style] { font-size: 7.3pt !important; line-height: 1.26 !important; color: #000 !important; }
+      .inline-link { display: none !important; }
+      main, .resume-wrap { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+      .resume-section:last-of-type, .resume-section:last-of-type > p:last-of-type { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+      body { margin: 0 !important; }
+      html, body { overflow: visible !important; }
     }
   </style>
 </head>
