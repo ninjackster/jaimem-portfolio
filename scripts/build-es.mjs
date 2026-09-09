@@ -19,10 +19,10 @@ const PAGES = [
     out: 'es/index.html',
     canonicalEn: 'https://jaimem.com/',
     canonicalEs: 'https://jaimem.com/es/',
-    title: 'Jaime M. Mena — Consultor de Revenue Operations | GTM B2B SaaS',
-    description: 'Consultor de RevOps que ayuda a equipos B2B SaaS a escalar su GTM con Salesforce, HubSpot, territorios y pronósticos. Bilingüe EN/ES.',
-    ogImageAlt: 'Jaime M. Mena — Consultor de Revenue Operations',
-    jsonLdPersonDesc: 'Consultor de Revenue Operations y GTM ayudando a equipos B2B SaaS a escalar go-to-market a través de estrategia, sistemas y datos. Especialista en Salesforce y HubSpot. Bilingüe inglés/español.',
+    title: 'Jaime M. Mena — Revenue Operations Senior | GTM B2B SaaS',
+    description: 'RevOps senior en B2B SaaS: diseño de compensación, transiciones de territorios, pronósticos y construcción práctica en Salesforce. Ex-Exiger, ahora en Argano. Bilingüe EN/ES.',
+    ogImageAlt: 'Jaime M. Mena — Revenue Operations Senior, B2B SaaS',
+    jsonLdPersonDesc: 'Profesional de Revenue Operations en B2B SaaS especializado en diseño de compensación de ventas, transiciones de gestión de territorios, pronósticos y administración práctica de Salesforce. Constructor de IA aplicada, incluyendo un GPT personalizado para el procesamiento de deal desk. Bilingüe inglés/español.',
   },
   {
     src: 'services/index.html',
@@ -65,8 +65,8 @@ const PAGES = [
     out: 'es/resume/index.html',
     canonicalEn: 'https://jaimem.com/resume/',
     canonicalEs: 'https://jaimem.com/es/resume/',
-    title: 'Currículum — Jaime M. Mena | Consultor de Revenue Operations',
-    description: 'Currículum de Jaime M. Mena — Consultor de Revenue Operations con más de 5 años escalando equipos B2B SaaS go-to-market. Salesforce, HubSpot, pronósticos, diseño de territorios, compensación de ventas. Bilingüe EN/ES, basado en California.',
+    title: 'Currículum — Jaime M. Mena | Revenue Operations Senior',
+    description: 'Currículum de Jaime M. Mena — Revenue Operations senior en B2B SaaS. Diseño de compensación, transiciones de territorios, pronósticos, deal desk, Salesforce. Bilingüe EN/ES, California.',
     ogImageAlt: 'Currículum — Jaime M. Mena',
   },
 ];
@@ -160,12 +160,30 @@ function transform(html, page) {
     );
   }
 
-  // 8. JSON-LD Person description (homepage only — won't match elsewhere)
+  // 8. JSON-LD Person description. Targets the first `description` key that
+  // follows `"@type": "Person"` inside the first application/ld+json block, so
+  // it keeps working no matter how the English sentence is reworded. Warns
+  // loudly rather than silently shipping English text in the Spanish mirror.
   if (page.jsonLdPersonDesc) {
+    let personDescReplaced = false;
     html = html.replace(
-      /("description":\s*")Revenue Operations[^"]*("[\s,])/,
-      `$1${page.jsonLdPersonDesc}$2`
+      /<script\b[^>]*\btype="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/,
+      (block) => {
+        const updated = block.replace(
+          /("@type"\s*:\s*"Person"[\s\S]*?"description"\s*:\s*")(?:[^"\\]|\\.)*(")/,
+          `$1${page.jsonLdPersonDesc}$2`
+        );
+        if (updated !== block) personDescReplaced = true;
+        return updated;
+      }
     );
+    if (!personDescReplaced) {
+      console.warn(
+        `[build-es] WARNING: no Person JSON-LD description matched in ${page.src} — ` +
+        'the Spanish mirror will carry the English description. Check the first ' +
+        'application/ld+json block for an "@type": "Person" node with a "description" key.'
+      );
+    }
   }
 
   // 9. Rewrite relative URLs to absolute. Skip anchors, root-relative,
