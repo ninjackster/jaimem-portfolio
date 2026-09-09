@@ -131,11 +131,23 @@
       .skills-grid { grid-template-columns: 1fr; }
     }
     /* Print styles — readable on paper, no chrome */
+    @page { size: letter; margin: 0.6in; }
     @media print {
-      nav, footer, .resume-actions, .crumbs { display: none !important; }
+      nav, footer, .resume-actions, .crumbs, .skip-link, .lang-toggle { display: none !important; }
       .resume-wrap { padding: 0; max-width: none; }
-      body { background: #fff; color: #000; font-size: 11pt; }
-      .role-desc, .skill-group p { font-size: 10pt; }
+      html, body { background: #fff !important; }
+      body { color: #000; font-size: 10.5pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .resume-header { margin-bottom: 1.2rem; }
+      .resume-header h1 { font-size: 20pt; color: #000; }
+      .resume-header .sub, .resume-contact, .resume-contact a { color: #000; }
+      .resume-section { margin-top: 1.1rem; break-inside: avoid; }
+      .resume-section h2 { font-size: 12.5pt; color: #000; border-bottom: 1px solid #999; margin-bottom: .6rem; padding-bottom: .2rem; }
+      .resume-summary p { font-size: 10pt; color: #000; line-height: 1.45; margin-bottom: .5rem; }
+      .role { margin-bottom: .7rem; break-inside: avoid; }
+      .role-title, .role-company, .role-date, .role-desc, .skill-group h3, .skill-group p { color: #000; }
+      .role-desc, .skill-group p { font-size: 9.5pt; line-height: 1.4; }
+      .earlier-tags span { border: 1px solid #999; background: none; color: #000; font-size: 8.5pt; }
+      a { color: #000; text-decoration: none; }
     }
   </style>
 </head>
