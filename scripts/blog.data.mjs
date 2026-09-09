@@ -2,6 +2,18 @@
 // blog/{slug}.html. If an es block exists, it also emits es/blog/{slug}.html.
 // Body content is HTML inside the <article>. Keep it tight, opinionated, and
 // non-generic — these posts target long-tail RevOps queries.
+//
+// Post shape:
+//   slug            (required) URL segment, also the output filename.
+//   datePublished   (required) 'YYYY-MM-DD'. Gates rendering: a future date
+//                   keeps the post out of the build until that day.
+//   dateModified    (optional) 'YYYY-MM-DD'. Set this ONLY when you
+//                   substantively revise a post after publication. It drives
+//                   the sitemap <lastmod> for that post's URLs; without it,
+//                   lastmod falls back to datePublished. Leave it off so an
+//                   untouched post is not restamped on every deploy.
+//   keywords        (required) comma-separated meta keywords.
+//   en / es         content blocks (es optional — omit for EN-only posts).
 
 export const POSTS = [
   {

@@ -475,35 +475,53 @@ const SITEMAP = resolve(ROOT, 'sitemap.xml');
 const START = '<!-- AUTO_BLOG_URLS_START -->';
 const END = '<!-- AUTO_BLOG_URLS_END -->';
 
+// lastmod must reflect when the content actually changed, not when the build
+// ran. Stamping TODAY_ISO on every URL each deploy (the weekly cron restamps
+// all of them) trains crawlers to ignore the signal entirely.
+function postLastmod(post) {
+  return post.dateModified || post.datePublished;
+}
+
+// The hubs are a feed of the posts, so they are only as fresh as the newest
+// published post. TODAY_ISO is a fallback for the empty-queue case.
+function hubLastmod() {
+  return POSTS.reduce(
+    (max, p) => (p.datePublished > max ? p.datePublished : max),
+    POSTS.length ? POSTS[0].datePublished : TODAY_ISO
+  );
+}
+
 function blogSitemapBlock() {
   const lines = [];
-  function bilingual(loc, en, es) {
+  function bilingual(loc, en, es, lastmod) {
     lines.push(`  <url>`);
     lines.push(`    <loc>${loc}</loc>`);
-    lines.push(`    <lastmod>${TODAY_ISO}</lastmod>`);
+    lines.push(`    <lastmod>${lastmod}</lastmod>`);
     lines.push(`    <xhtml:link rel="alternate" hreflang="en" href="${en}" />`);
     lines.push(`    <xhtml:link rel="alternate" hreflang="es" href="${es}" />`);
     lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${en}" />`);
     lines.push(`  </url>`);
   }
-  function enOnly(loc) {
+  function enOnly(loc, lastmod) {
     lines.push(`  <url>`);
     lines.push(`    <loc>${loc}</loc>`);
-    lines.push(`    <lastmod>${TODAY_ISO}</lastmod>`);
+    lines.push(`    <lastmod>${lastmod}</lastmod>`);
     lines.push(`  </url>`);
   }
   // Hubs always emit (so /blog/ and /es/blog/ stay indexable even if the
   // queue is empty for a stretch).
-  bilingual('https://jaimem.com/blog/', 'https://jaimem.com/blog/', 'https://jaimem.com/es/blog/');
-  bilingual('https://jaimem.com/es/blog/', 'https://jaimem.com/blog/', 'https://jaimem.com/es/blog/');
+  const hubMod = hubLastmod();
+  bilingual('https://jaimem.com/blog/', 'https://jaimem.com/blog/', 'https://jaimem.com/es/blog/', hubMod);
+  bilingual('https://jaimem.com/es/blog/', 'https://jaimem.com/blog/', 'https://jaimem.com/es/blog/', hubMod);
   for (const post of POSTS) {
     const enUrl = `https://jaimem.com/blog/${post.slug}`;
     const esUrl = `https://jaimem.com/es/blog/${post.slug}`;
+    const mod = postLastmod(post);
     if (post.es) {
-      bilingual(enUrl, enUrl, esUrl);
-      bilingual(esUrl, enUrl, esUrl);
+      bilingual(enUrl, enUrl, esUrl, mod);
+      bilingual(esUrl, enUrl, esUrl, mod);
     } else {
-      enOnly(enUrl);
+      enOnly(enUrl, mod);
     }
   }
   return lines.join('\n');
