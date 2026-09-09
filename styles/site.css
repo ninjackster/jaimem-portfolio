@@ -196,6 +196,28 @@
       margin-bottom: 3rem;
       animation: fadeUp .8s ease .25s both;
     }
+    .hero-sub:has(+ .hero-proof) { margin-bottom: 1.5rem; }
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .4rem;
+      list-style: none;
+      max-width: 540px;
+      margin: 0 0 2rem;
+      padding: 0;
+      animation: fadeUp .8s ease .28s both;
+    }
+    .hero-proof li {
+      font-size: .65rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .2rem .5rem;
+      background: var(--gold-light);
+      color: var(--accent);
+      border-radius: 4px;
+      font-weight: 500;
+    }
     .hero-ctas {
       display: flex;
       gap: .75rem;
