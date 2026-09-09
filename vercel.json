@@ -11,6 +11,9 @@
     { "source": "/es/about-me", "destination": "/es/#about", "permanent": true },
     { "source": "/es/education", "destination": "/es/#about", "permanent": true }
   ],
+  "rewrites": [
+    { "source": "/iptv-:uuid([a-f0-9-]+)/epg.xml", "destination": "/iptv-:uuid/epg-gz.xml" }
+  ],
   "crons": [
     { "path": "/api/airbnb-sync", "schedule": "0 13 * * *" }
   ],
@@ -55,6 +58,14 @@
     },
     {
       "source": "/iptv-:uuid([a-f0-9-]+)/epg-gz.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Content-Encoding", "value": "gzip" },
+        { "key": "Vary", "value": "Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/iptv-:uuid([a-f0-9-]+)/epg.xml",
       "headers": [
         { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
         { "key": "Content-Encoding", "value": "gzip" },
