@@ -24,15 +24,15 @@
       } catch (e) {}
     })();
   </script>
-  <title>Resume — Jaime M. Mena | Revenue Operations Consultant</title>
+  <title>Resume — Jaime M. Mena | Senior Revenue Operations</title>
 
-  <meta name="description" content="Resume of Jaime M. Mena — Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams. Salesforce, HubSpot, forecasting, territory design, sales compensation. Bilingual EN/ES, based in California." />
+  <meta name="description" content="Senior Revenue Operations, B2B SaaS. Compensation design, territory transitions, forecasting, deal desk, hands-on Salesforce. Bilingual EN/ES, California." />
   <link rel="canonical" href="https://jaimem.com/resume/" />
 
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://jaimem.com/resume/" />
-  <meta property="og:title" content="Resume — Jaime M. Mena | Revenue Operations Consultant" />
-  <meta property="og:description" content="5+ years scaling B2B SaaS go-to-market teams. Salesforce, HubSpot, forecasting, territory design, sales compensation. Bilingual EN/ES." />
+  <meta property="og:title" content="Resume — Jaime M. Mena | Senior Revenue Operations" />
+  <meta property="og:description" content="Senior Revenue Operations, B2B SaaS. Compensation design, territory transitions, forecasting, deal desk, hands-on Salesforce. Bilingual EN/ES, California." />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="es_ES" />
   <meta property="og:site_name" content="Jaime M. Mena" />
@@ -42,8 +42,8 @@
   <meta property="og:image:alt" content="Resume — Jaime M. Mena" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Resume — Jaime M. Mena" />
-  <meta name="twitter:description" content="5+ years scaling B2B SaaS go-to-market teams. Salesforce, HubSpot, forecasting, territory design, sales compensation. Bilingual EN/ES." />
+  <meta name="twitter:title" content="Resume — Jaime M. Mena | Senior Revenue Operations" />
+  <meta name="twitter:description" content="Senior Revenue Operations, B2B SaaS. Compensation design, territory transitions, forecasting, deal desk, hands-on Salesforce. Bilingual EN/ES, California." />
   <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -66,7 +66,7 @@
     "image": "https://jaimem.com/profile.webp",
     "email": "mailto:jaimemurillomena@gmail.com",
     "jobTitle": "Senior Business Analyst, GTM Operations",
-    "description": "Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams through strategy, systems, and data. Salesforce and HubSpot specialist. Bilingual English/Spanish.",
+    "description": "Revenue Operations professional in B2B SaaS with hands-on ownership of deal desk, forecasting, territory transitions, and sales compensation. Salesforce admin and builder; built a custom GPT for deal desk processing. Currently partnering with the CEO and Chief Growth Officer at Argano on board-level growth planning. Bilingual English/Spanish; based in California.",
     "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
     "alumniOf": [
       { "@type": "CollegeOrUniversity", "name": "University of California, San Diego" },
@@ -131,11 +131,35 @@
       .skills-grid { grid-template-columns: 1fr; }
     }
     /* Print styles — readable on paper, no chrome */
+    @page { size: letter; margin: 0.55in; }
     @media print {
-      nav, footer, .resume-actions, .crumbs { display: none !important; }
+      nav, footer, .resume-actions, .crumbs, .skip-link, .lang-toggle { display: none !important; }
       .resume-wrap { padding: 0; max-width: none; }
-      body { background: #fff; color: #000; font-size: 11pt; }
-      .role-desc, .skill-group p { font-size: 10pt; }
+      html, body { background: #fff !important; }
+      body { color: #000; font-size: 9pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .resume-header { margin-bottom: .4rem; }
+      .resume-header h1 { font-size: 15.5pt; color: #000; margin-bottom: .08rem; }
+      .resume-header .sub, .resume-contact, .resume-contact a { color: #000; }
+      .resume-section { margin-top: .2rem; }
+      .resume-section h2 { font-size: 10.5pt; color: #000; border-bottom: 1px solid #999; margin-bottom: .22rem; padding-bottom: .08rem; }
+      .resume-summary p { font-size: 8.4pt; color: #000; line-height: 1.28; margin-bottom: .25rem; }
+      .role { margin-bottom: .15rem; break-inside: avoid; }
+      .role-title, .role-company, .role-date, .role-desc, .skill-group h3, .skill-group p { color: #000; }
+      .role-desc, .skill-group p { font-size: 7.3pt; line-height: 1.16; }
+      .role-title { font-size: 8.8pt; }
+      .resume-contact { font-size: 8.5pt; gap: .3rem 1rem; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); gap: .3rem 1rem; break-inside: avoid; }
+      .skill-group h3 { font-size: 8.5pt; margin-bottom: .1rem; }
+      .resume-section h2 + * { margin-top: 0; }
+      .earlier-tags { gap: .3rem; margin-top: .25rem; }
+      .earlier-tags span { border: 1px solid #999; background: none; color: #000; font-size: 8pt; padding: .1rem .4rem; }
+      a { color: #000; text-decoration: none; }
+      .resume-section p[style] { font-size: 7.3pt !important; line-height: 1.26 !important; color: #000 !important; }
+      .inline-link { display: none !important; }
+      main, .resume-wrap { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+      .resume-section:last-of-type, .resume-section:last-of-type > p:last-of-type { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+      body { margin: 0 !important; }
+      html, body { overflow: visible !important; }
     }
   </style>
 </head>
@@ -167,7 +191,7 @@
 
       <header class="resume-header">
         <h1>Jaime M. Mena</h1>
-        <span class="sub" data-en="Revenue Operations Consultant &middot; B2B SaaS GTM &middot; California" data-es="Consultor de Revenue Operations &middot; GTM B2B SaaS &middot; California">Revenue Operations Consultant · B2B SaaS GTM · California</span>
+        <span class="sub" data-en="Senior Revenue Operations &middot; B2B SaaS GTM &middot; California" data-es="Revenue Operations Senior &middot; GTM B2B SaaS &middot; California">Senior Revenue Operations · B2B SaaS GTM · California</span>
         <div class="resume-contact">
           <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
           <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
@@ -182,7 +206,7 @@
 
       <section class="resume-section resume-summary">
         <h2 data-en="Summary" data-es="Resumen">Summary</h2>
-        <p data-en="Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams through strategy, systems, and data. Salesforce and HubSpot specialist with deep experience in forecasting, territory design, deal desk operations, and sales compensation. Bilingual English/Spanish; particularly effective for cross-border US-Mexico engagements. UC San Diego Master&rsquo;s graduate. Based in California, working remote-first." data-es="Consultor de Revenue Operations con m&aacute;s de 5 a&ntilde;os escalando equipos go-to-market en B2B SaaS a trav&eacute;s de estrategia, sistemas y datos. Especialista en Salesforce y HubSpot con experiencia profunda en pron&oacute;sticos, dise&ntilde;o de territorios, operaciones de deal desk y compensaci&oacute;n de ventas. Biling&uuml;e ingl&eacute;s/espa&ntilde;ol; particularmente efectivo para engagements transfronterizos EE.UU.-M&eacute;xico. Egresado de maestr&iacute;a en UC San Diego. Basado en California, trabajando remoto-primero.">Revenue Operations consultant with 5+ years scaling B2B SaaS go-to-market teams through strategy, systems, and data. Salesforce and HubSpot specialist with deep experience in forecasting, territory design, deal desk operations, and sales compensation. Bilingual English/Spanish; particularly effective for cross-border US-Mexico engagements. UC San Diego Master's graduate. Based in California, working remote-first.</p>
+        <p data-en="Revenue Operations professional in B2B SaaS with hands-on ownership of deal desk, forecasting, territory transitions, and sales compensation. Salesforce admin and builder; built a custom GPT for deal desk processing. Currently partnering with the CEO and Chief Growth Officer at Argano on board-level growth planning. Bilingual English/Spanish; based in California." data-es="Profesional de Revenue Operations en B2B SaaS con responsabilidad directa sobre deal desk, pronósticos, transiciones de territorios y compensación de ventas. Administrador y builder de Salesforce; construí un GPT personalizado para el procesamiento de deal desk. Actualmente trabajo con el CEO y el Chief Growth Officer de Argano en la planeación de crecimiento a nivel de directorio. Bilingüe inglés/español; radicado en California.">Revenue Operations professional in B2B SaaS with hands-on ownership of deal desk, forecasting, territory transitions, and sales compensation. Salesforce admin and builder; built a custom GPT for deal desk processing. Currently partnering with the CEO and Chief Growth Officer at Argano on board-level growth planning. Bilingual English/Spanish; based in California.</p>
       </section>
 
       <section class="resume-section">
@@ -203,7 +227,7 @@
             <span class="role-date" data-en="2025 &mdash; Jan 2026" data-es="2025 &mdash; Ene 2026">2025 &mdash; Jan 2026</span>
           </div>
           <p class="role-company">Exiger</p>
-          <p class="role-desc" data-en="Operationalized executive operating cadence for 40+ global reps. Redesigned territories with hierarchical rollups. Implemented Clari forecasting and MEDDPICC methodology, lifting forecast accuracy by ~18%. Reduced deal approval cycles to same-day processing across Government and Commercial segments." data-es="Operacionalic&eacute; la cadencia ejecutiva para m&aacute;s de 40 representantes globales. Redise&ntilde;&eacute; territorios con rollups jer&aacute;rquicos. Implement&eacute; pron&oacute;sticos con Clari y metodolog&iacute;a MEDDPICC, subiendo la precisi&oacute;n del pron&oacute;stico ~18%. Reduje los ciclos de aprobaci&oacute;n de deals a procesamiento el mismo d&iacute;a en segmentos de Gobierno y Comercial.">Operationalized executive operating cadence for 40+ global reps. Redesigned territories with hierarchical rollups. Implemented Clari forecasting and MEDDPICC methodology, lifting forecast accuracy by ~18%. Reduced deal approval cycles to same-day processing across Government and Commercial segments.</p>
+          <p class="role-desc" data-en="Ran the executive operating cadence for 40+ global reps. Led the territory transition to hierarchical rollups. Implemented Clari forecasting and MEDDPICC, lifting forecast accuracy 18%. Built a custom GPT for deal desk processing and cut deal approvals to same-day. Owned commissions end to end, from plan mechanics to payout." data-es="Dirigí la cadencia operativa ejecutiva para más de 40 reps globales. Lideré la transición de territorios a rollups jerárquicos. Implementé pronósticos en Clari y MEDDPICC, elevando la precisión del pronóstico 18%. Construí un GPT personalizado para el procesamiento de deal desk y reduje las aprobaciones de deals al mismo día. Fui dueño de las comisiones de principio a fin, desde la mecánica del plan hasta el pago.">Ran the executive operating cadence for 40+ global reps. Led the territory transition to hierarchical rollups. Implemented Clari forecasting and MEDDPICC, lifting forecast accuracy 18%. Built a custom GPT for deal desk processing and cut deal approvals to same-day. Owned commissions end to end, from plan mechanics to payout.</p>
         </div>
 
         <div class="role">

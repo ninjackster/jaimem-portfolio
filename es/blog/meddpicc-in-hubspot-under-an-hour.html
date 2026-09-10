@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXTLN8MS57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GXTLN8MS57');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (p.indexOf('/es') === 0) return;
+        if (localStorage.getItem('langChoice')) return;
+        var lang = (navigator.language || '').toLowerCase();
+        if (lang.indexOf('es') !== 0) return;
+        var target = (p === '/' || p === '/index.html') ? '/es/' : '/es' + p;
+        location.replace(target);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Configurar MEDDPICC en HubSpot en menos de una hora</title>
+
+  <meta name="description" content="La mayoría de los equipos que &quot;probaron MEDDPICC y no pegó&quot; nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. Hacerlo bien en HubSpot toma menos de una hora. Este es el setup exacto." />
+  <link rel="canonical" href="https://jaimem.com/es/blog/meddpicc-in-hubspot-under-an-hour" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jaimem.com/es/blog/meddpicc-in-hubspot-under-an-hour" />
+  <meta property="og:title" content="Configurar MEDDPICC en HubSpot en menos de una hora" />
+  <meta property="og:description" content="La mayoría de los equipos que &quot;probaron MEDDPICC y no pegó&quot; nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. Hacerlo bien en HubSpot toma menos de una hora. Este es el setup exacto." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="Jaime M. Mena" />
+  <meta property="og:image" content="https://jaimem.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MEDDPICC en HubSpot — Jaime M. Mena" />
+  <meta property="article:section" content="RevOps" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Configurar MEDDPICC en HubSpot en menos de una hora" />
+  <meta name="twitter:description" content="La mayoría de los equipos que &quot;probaron MEDDPICC y no pegó&quot; nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. Hacerlo bien en HubSpot toma menos de una hora. Este es el setup exacto." />
+  <meta name="twitter:image" content="https://jaimem.com/og-image.png" />
+  <meta name="twitter:image:alt" content="MEDDPICC en HubSpot — Jaime M. Mena" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta name="author" content="Jaime M. Mena" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="alternate" hreflang="en" href="https://jaimem.com/blog/meddpicc-in-hubspot-under-an-hour" />
+  <link rel="alternate" hreflang="es" href="https://jaimem.com/es/blog/meddpicc-in-hubspot-under-an-hour" />
+  <link rel="alternate" hreflang="x-default" href="https://jaimem.com/blog/meddpicc-in-hubspot-under-an-hour" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Configurar MEDDPICC en HubSpot en menos de una hora",
+    "description": "La mayoría de los equipos que \"probaron MEDDPICC y no pegó\" nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. Hacerlo bien en HubSpot toma menos de una hora. Este es el setup exacto.",
+    "url": "https://jaimem.com/es/blog/meddpicc-in-hubspot-under-an-hour",
+    "image": "https://jaimem.com/og-image.png",
+    "author": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "publisher": { "@type": "Person", "name": "Jaime M. Mena", "url": "https://jaimem.com/" },
+    "datePublished": "2026-09-01",
+    "dateModified": "2026-09-01",
+    "inLanguage": "es-ES",
+    "keywords": "MEDDPICC, HubSpot, HubSpot custom properties, sales qualification setup, HubSpot deal stages, sales process configuration, HubSpot workflows",
+    "mainEntityOfPage": "https://jaimem.com/es/blog/meddpicc-in-hubspot-under-an-hour"
+  }
+  </script>
+
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css?v=20260512b" />
+
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    .page-wrap h1 { font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .page-wrap .sub { font-size: .85rem; color: var(--text-3); margin-bottom: 2rem; display: block; }
+    .page-wrap .lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; margin-bottom: 2.5rem; }
+    .page-wrap h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -.01em; margin: 3rem 0 1rem; }
+    .page-wrap h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 .5rem; }
+    .page-wrap p { color: var(--text); line-height: 1.78; margin-bottom: 1.25rem; font-size: 1rem; }
+    .page-wrap ul, .page-wrap ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .page-wrap li { margin-bottom: .5rem; line-height: 1.7; }
+    .page-wrap a.inline-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .crumbs { font-size: .85rem; color: var(--text-3); margin-bottom: 1.5rem; }
+    .crumbs a { color: var(--text-2); text-decoration: none; }
+    .crumbs a:hover { color: var(--text); }
+    .cta-block { margin-top: 3.5rem; padding: 2rem; background: var(--bg-alt); border-radius: 12px; text-align: center; }
+    .cta-block h3 { margin: 0 0 .75rem; }
+    .cta-block p { margin: 0 0 1.5rem; color: var(--text-2); }
+    .cta-block .btn { display: inline-flex; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; padding: 0; }
+    .related ul li { margin-bottom: .5rem; }
+    .post-grid { display: grid; gap: 1.5rem; margin: 2rem 0 3rem; }
+    .post-card { display: block; padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .post-card h2 { font-size: 1.2rem; margin: 0 0 .35rem; color: var(--text); }
+    .post-card .sub { font-size: .8rem; color: var(--text-3); margin-bottom: .75rem; display: block; }
+    .post-card p { color: var(--text-2); margin: 0 0 1rem; line-height: 1.65; font-size: .95rem; }
+    .post-card .arrow { color: var(--accent); font-weight: 500; font-size: .9rem; }
+    .lang-badge { display: inline-block; font-size: .72rem; padding: 2px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--text-3); margin-left: .5rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/es/" class="nav-logo">Jaime M. Mena</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/es/services/">Servicios</a></li>
+        <li><a href="/es/case-studies/">Casos de Estudio</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
+        <li><a href="/es/#experience">Experiencia</a></li>
+        <li><a href="/es/#projects">Proyectos</a></li>
+        <li><a href="/es/#about">Sobre Mí</a></li>
+        <li><a href="/es/#contact">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article class="page-wrap">
+      <p class="crumbs"><a href="/es/">Inicio</a> &rsaquo; <a href="/es/blog/">Blog</a> &rsaquo; <span>Configurar MEDDPICC en HubSpot en menos de una hora</span></p>
+
+      <h1>Configurar MEDDPICC en HubSpot en menos de una hora</h1>
+      <span class="sub">1 septiembre 2026 · 6 min de lectura · Configuración de HubSpot</span>
+
+      <p class="lead">La mayoría de los equipos que "probaron MEDDPICC y no pegó" nunca conectaron realmente las ocho letras al registro del deal — solo las pusieron en una diapositiva. El rollout falla porque el marco vive en decks de enablement, no en el CRM, y los representantes lo tratan como algo que hay que recordar en lugar de algo que hay que llenar. Hacerlo bien en HubSpot toma menos de una hora y convierte el marco de una diapositiva en una disciplina operativa.</p>
+
+
+        <h2>Las 8 propiedades custom de Deal</h2>
+
+        <p>Abre Settings → Objects → Deals → Manage Properties. Crea ocho propiedades custom bajo un nuevo grupo de propiedades llamado "MEDDPICC Qualification." Cada una es un campo de texto de una sola línea, no un dropdown. La razón de usar campos de texto en lugar de picklists: la respuesta de calificación es específica de cada deal, y obligar a los representantes a elegir de una lista los entrena a jugarle al picklist en lugar de escribir una respuesta real.</p>
+
+        <ul>
+          <li><strong>Metrics</strong> — ¿qué resultado numérico quiere el comprador?</li>
+          <li><strong>Economic Buyer</strong> — nombre y apellido, más el puesto.</li>
+          <li><strong>Decision Criteria</strong> — qué evaluarán en los vendedores.</li>
+          <li><strong>Decision Process</strong> — los pasos literales de aquí a la firma.</li>
+          <li><strong>Identified Pain</strong> — el estado actual que es lo suficientemente inaceptable para gastar dinero.</li>
+          <li><strong>Champion</strong> — nombre y apellido, más una frase de por qué le importa.</li>
+          <li><strong>Paper Process</strong> — procurement, legal, ruta de revisión de contrato.</li>
+          <li><strong>Competition</strong> — competidores nombrados, incluyendo no hacer nada.</li>
+        </ul>
+
+        <p>La convención de nombres importa. Usa la palabra completa en la etiqueta de la propiedad ("Economic Buyer," no "EB"). Los representantes se van a topar con estos campos en los registros de deal todos los días, y las palabras completas comunican la intención mejor que las abreviaciones. Usa también el campo de descripción de la propiedad — un prompt corto de una línea por cada propiedad que le diga al representante cómo se ve un buen llenado. "Decision Process" con la descripción "Enlista los pasos literales. Ejemplo: 1. Demo con el equipo. 2. Revisión de seguridad. 3. RFI de procurement. 4. Redlines de legal. 5. Contra-firma." no cuesta nada agregarlo y mejora dramáticamente lo que los representantes ponen en el campo.</p>
+
+        <h2>Reglas de dependencia de propiedades</h2>
+
+        <p>Paper Process y Competition no siempre importan. Para un deal transaccional de $20K, agregan ceremonia sin insight. Para un deal enterprise de $200K con evaluación multi-proveedor, son los dos campos más predictivos. HubSpot te deja mostrar propiedades condicionalmente según los valores de otros campos — úsalo.</p>
+
+        <p>Configura Paper Process y Competition para que aparezcan solo cuando Deal Type = New Business y Deal Amount > $50K. El umbral es tuyo; elige el número que mapee a donde tu equipo necesita escrutinio de procurement. Por debajo de eso, los dos campos se quedan ocultos y no contaminan el registro del deal. Por encima, son requeridos (según la regla de stage-gate abajo).</p>
+
+        <h2>Requisitos de etapa en Stage 3 y Stage 4</h2>
+
+        <p>Esta es la parte que de verdad impulsa la adopción. Abre Settings → Objects → Deals → Pipelines. Para tu pipeline por defecto, configura reglas de progresión de etapa. En Stage 3 (típicamente Proposal o equivalente), exige que cuatro campos MEDDPICC no estén vacíos: Economic Buyer, Identified Pain, Champion, Decision Process. En Stage 4 (típicamente Negotiation), exige los ocho donde apliquen (Paper Process y Competition solo son requeridos si están visibles según las reglas de dependencia de arriba).</p>
+
+        <p>HubSpot las aplica como reglas de validación. El representante no puede avanzar la etapa del deal hasta que los campos estén poblados. Se van a resistir. Ese es el punto. La fricción al avanzar de etapa es toda la razón por la que el marco impulsa profundidad de calificación en lugar de ser un ejercicio de checkbox.</p>
+
+        <p>Una nota de configuración: el requisito de etapa en HubSpot no es nativamente un bloqueo duro — es una advertencia. Para convertirlo en bloqueo duro, usa un workflow que revierta automáticamente el cambio de etapa cuando los campos están vacíos. Configura el trigger del workflow: cuando Deal Stage = Stage 3 Y cualquiera de los cuatro campos requeridos esté vacío, revierte la etapa a la anterior Y manda una notificación al representante. El texto de la notificación importa; escríbelo como coach, no como policía. "El deal regresó a Stage 2 — llena Economic Buyer, Identified Pain, Champion y Decision Process antes de avanzar. Los prompts de descripción están en cada campo."</p>
+
+        <h2>La propiedad calculada MEDDPICC Health</h2>
+
+        <p>Crea una propiedad más: una propiedad calculada llamada "MEDDPICC Health." Es un número entre 0 y 8 que cuenta cuántos de los ocho campos están poblados con valores no triviales. Las propiedades calculadas de HubSpot soportan este tipo de fórmula — contar campos no vacíos en el grupo de propiedades.</p>
+
+        <p>Usa el score en dashboards. Filtra los deals con MEDDPICC Health menor a 6 en Stage 3+ y muestra ese conteo filtrado como un tile en el dashboard del manager. El tile se vuelve lo primero que los managers ven cada mañana. Los representantes que ven sus deals apareciendo en ese tile limpian su calificación en un día. El score es un mecanismo público de accountability sin necesitar una sola junta.</p>
+
+        <h2>El dashboard de completitud</h2>
+
+        <p>Un dashboard, cinco tiles, configurado en 15 minutos:</p>
+
+        <ul>
+          <li>Promedio de MEDDPICC Health por representante (gráfica de barras, ordenada de mayor a menor).</li>
+          <li>Conteo de deals en tier Commit con Health menor a 6 (número único, rojo si es mayor a 5).</li>
+          <li>Deals envejecidos en Stage 3+ con el campo Champion vacío (tabla).</li>
+          <li>Deals donde Decision Process tiene menos de 50 caracteres (tabla — proxy de "escribieron 'TBD' o similar").</li>
+          <li>Gráfica de tendencia: Health promedio del equipo en las últimas 12 semanas.</li>
+        </ul>
+
+        <p>Guárdalo como dashboard compartido. Mándale el link al manager. El dashboard hace la inspección que ningún humano quiere hacer cada viernes por la tarde.</p>
+
+        <h2>Un workflow que avisa a los managers sobre commits incompletos</h2>
+
+        <p>Un workflow más que vale la pena montar. Trigger: Deal Stage = Commit Y MEDDPICC Health menor a 6. Acción: mandar al manager una notificación de Slack ("El deal X está en Commit pero su Health es 4/8 — por favor revisa la calificación con el representante antes del viernes"). Esto atrapa los deals que se cuelan por las reglas de validación porque el representante llenó trivialmente los cuatro campos requeridos. El workflow corre en HubSpot sin costo; la integración de Slack es la estándar que la mayoría de los equipos ya tiene.</p>
+
+        <p>La notificación está calibrada para ser un empujón, no una interrupción. Un ping por deal, por transición de etapa. Los managers pueden actuar o no. Después de dos meses, las notificaciones bajan porque los representantes dejan de permitir que los deals lleguen a Commit con calificación delgada. El workflow se vuelve auto-eliminante, que es el resultado correcto.</p>
+
+        <h2>Una trampa: el campo BANT integrado de HubSpot</h2>
+
+        <p>HubSpot viene con un marco de calificación integrado llamado BANT (Budget, Authority, Need, Timeline). Es un grupo de propiedades en el objeto Contact. No lo uses como tu marco de calificación. BANT es de otra era, captura menos información que MEDDPICC, y vive en el objeto equivocado (Contact, no Deal). Si lo tienes habilitado por razones heredadas, oculta el grupo de propiedades e ignóralo. Tu calificación vive en el objeto Deal en tu grupo MEDDPICC, punto.</p>
+
+        <p>La razón de que sea una trampa: HubSpot ocasionalmente muestra BANT como sugerencia por defecto durante el onboarding, y un admin nuevo lo va a prender junto con MEDDPICC porque "por qué no." Dos marcos de calificación confunden a los representantes y crean un debate sobre cuál es el autoritativo. Elige uno. MEDDPICC.</p>
+
+        <h2>Bonus: el mismo setup en Salesforce toma unas 3 horas</h2>
+
+        <p>Si estás montando MEDDPICC en Salesforce, el trabajo es conceptualmente el mismo pero toma más tiempo porque la superficie de personalización de Salesforce es más amplia y más lenta. Agrega los ocho campos al objeto Opportunity (15 min), configura page layouts por profile (45 min), construye reglas de validación para la progresión de etapa (30 min), construye el campo fórmula de MEDDPICC Health (15 min), construye el dashboard (30 min), construye el Flow que maneja las alertas de Commit incompleto (45 min). Tres horas, de punta a punta.</p>
+
+        <p>El setup de Salesforce es la misma lógica; solo más clics. La disciplina de usar el marco después del setup es idéntica.</p>
+
+        <h2>La revisión de adopción a 30 días</h2>
+
+        <p>Treinta días después del rollout, corre la auditoría. El MEDDPICC Health promedio debe ser 5+ en todo el equipo. Los deals en tier Commit deben ser 7+. Si no estás ahí, las reglas de validación son demasiado suaves o la cadencia del manager está demasiado callada. Aprieta las reglas. Involucra al CRO para que lea los campos en voz alta durante la siguiente forecast call. Seis semanas después, audita de nuevo. Para el final del segundo trimestre, el marco debería ser invisible — es decir, funciona sin que nadie necesite hablar de él. Esa es la meta.</p>
+      
+
+      <div class="cta-block">
+        <h3>¿Quieres aplicar esto a tu equipo?</h3>
+        <p>Trabajo con equipos B2B SaaS y operadores en EE.UU. y México. Empieza con una conversación de 30 minutos.</p>
+        <a href="/es/services/revops-consulting" class="btn btn-primary">Iniciar una Conversación</a>
+      </div>
+
+      <div class="related">
+        <h3>Más en el blog</h3>
+        <ul>
+        <li><a href="/es/blog/meddpicc-vs-meddic-forecast-accuracy" class="inline-link">MEDDPICC vs MEDDIC: cuál marco realmente mueve la precisión del pronóstico</a></li>
+        <li><a href="/es/blog/salesforce-vs-hubspot-20-rep-team" class="inline-link">Salesforce vs HubSpot para un equipo de 20 representantes: una comparación honesta</a></li>
+        <li><a href="/es/blog/cross-border-revops-playbook" class="inline-link">El playbook de RevOps transfronterizo: ingresos en USD, operaciones en MXN, un solo plan de comisiones</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-copy">&copy; 2020&ndash;2026 Jaime M. Mena</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/es/services/">Servicios</a>
+      <a href="/es/case-studies/">Casos de Estudio</a>
+      <a href="/es/blog/">Blog</a>
+      <a href="/es/#projects">Proyectos</a>
+      <a href="/es/#contact">Contacto</a>
+    </nav>
+    <div class="footer-links">
+      <a href="mailto:jaimemurillomena@gmail.com">jaimemurillomena@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jaimemmena/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        const p = location.pathname;
+        const onEs = p.indexOf('/es') === 0;
+        if ((lang === 'en' && !onEs) || (lang === 'es' && onEs)) return;
+        try { localStorage.setItem('langChoice', lang); } catch (e) {}
+        const enPath = onEs ? (p === '/es' || p === '/es/' ? '/' : p.slice(3)) : p;
+        // If the user is on a post page without a counterpart, fall back to the blog hub.
+        const fallbackHub = lang === 'es' ? '/es/blog/' : '/blog/';
+        // Heuristic: if path matches a known post slug without an ES twin and lang=es, route to /es/blog/
+        const noEsSlugs = [];
+        const slugMatch = enPath.match(/^\/blog\/(.+)$/);
+        if (lang === 'es' && slugMatch && noEsSlugs.indexOf(slugMatch[1]) !== -1) {
+          location.href = fallbackHub;
+          return;
+        }
+        location.href = lang === 'es' ? (enPath === '/' ? '/es/' : '/es' + enPath) : enPath;
+      });
+    });
+  </script>
+</body>
+</html>

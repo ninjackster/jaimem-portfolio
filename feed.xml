@@ -6,7 +6,15 @@
     <atom:link href="https://jaimem.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Revenue Operations, B2B SaaS GTM, and bilingual operations posts by Jaime M. Mena.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2026 14:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 14:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Setting up MEDDPICC in HubSpot in under an hour</title>
+      <link>https://jaimem.com/blog/meddpicc-in-hubspot-under-an-hour</link>
+      <guid isPermaLink="true">https://jaimem.com/blog/meddpicc-in-hubspot-under-an-hour</guid>
+      <pubDate>Tue, 01 Sep 2026 14:00:00 GMT</pubDate>
+      <description>Most teams that &quot;tried MEDDPICC and it did not stick&quot; never actually wired the eight letters into the deal record — they just put them on a slide. Doing it correctly in HubSpot takes under an hour. Here is the exact setup.</description>
+      <category>MEDDPICC</category>
+    </item>
     <item>
       <title>The two-hour weekly forecast call: what to inspect, what to ignore</title>
       <link>https://jaimem.com/blog/two-hour-weekly-forecast-call</link>
