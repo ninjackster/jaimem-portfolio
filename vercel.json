@@ -12,7 +12,8 @@
     { "source": "/es/education", "destination": "/es/#about", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/iptv-:uuid([a-f0-9-]+)/epg.xml", "destination": "/iptv-:uuid/epg-gz.xml" }
+    { "source": "/iptv-:uuid([a-f0-9-]+)/epg.xml", "destination": "/iptv-:uuid/epg.xml.gz" },
+    { "source": "/iptv-:uuid([a-f0-9-]+)/epg-gz.xml", "destination": "/iptv-:uuid/epg.xml.gz" }
   ],
   "crons": [
     { "path": "/api/airbnb-sync", "schedule": "0 13 * * *" }
