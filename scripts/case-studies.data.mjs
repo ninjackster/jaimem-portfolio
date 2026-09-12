@@ -199,7 +199,6 @@ export const CASE_STUDIES = [
     slug: 'sales-commission-plan',
     pdfs: [
       { href: '/samples/commissions-playbook.pdf', en: 'View the Playbook PDF', es: 'Ver la Guía (PDF)' },
-      { href: '/samples/commission-calculator.pdf', en: 'View the Calculator PDF', es: 'Ver la Calculadora (PDF)' },
     ],
     keywords: 'sales commission plan, OTE design, accelerators, MEDDPICC kickers, SPIF, sales compensation, commission calculator',
     en: {
